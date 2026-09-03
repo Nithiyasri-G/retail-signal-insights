@@ -1,0 +1,7 @@
+streamlit>=1.35
+pandas>=2.0
+requests>=2.31
+plotly>=5.20
+python-dotenv>=1.0
+gnews>=0.4.3
+apify-client>=1.8
