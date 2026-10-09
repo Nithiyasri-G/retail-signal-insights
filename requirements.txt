@@ -1,0 +1,9 @@
+# Runtime versions used for the validated Python 3.12 build.
+streamlit==1.64.0
+pandas==2.2.3
+requests==2.34.2
+plotly==7.1.0
+python-dotenv==1.2.3
+gnews==0.8.2
+apify-client==3.2.1
+pydantic==2.13.5

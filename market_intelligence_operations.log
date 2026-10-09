@@ -1,0 +1,296 @@
+2026-10-06 16:37:05,167 INFO event=run_started retailer=Dollar Tree region=US
+2026-10-06 16:37:05,259 INFO event=run_completed incident_count=0
+2026-10-06 16:37:11,991 INFO event=run_started retailer=Dollar Tree region=US
+2026-10-06 16:37:11,993 INFO event=source_failed source=bls error='list' object has no attribute 'get'
+2026-10-06 16:37:12,036 INFO event=run_completed incident_count=0
+2026-10-06 18:22:53,914 INFO event=run_started retailer=Dollar Tree region=US
+2026-10-06 18:52:18,555 INFO event=run_started retailer=Dollar Tree region=US
+2026-10-06 18:54:04,505 INFO event=run_started retailer=Dollar Tree region=US
+2026-10-06 18:59:34,310 INFO event=incident_created incident_id=WX-D819C03FE93C type=Weather priority=(blank)
+2026-10-06 18:59:34,340 INFO event=incident_created incident_id=WX-F66C3C2EF620 type=Weather priority=(blank)
+2026-10-06 18:59:34,387 INFO event=incident_created incident_id=WX-44F87B8D93BB type=Weather priority=High
+2026-10-06 18:59:34,431 INFO event=incident_created incident_id=WX-A7E5353C0CE2 type=Weather priority=High
+2026-10-06 18:59:34,464 INFO event=incident_created incident_id=WX-59AB12D22A56 type=Weather priority=(blank)
+2026-10-06 18:59:34,493 INFO event=incident_created incident_id=WX-260D5F5D6087 type=Weather priority=(blank)
+2026-10-06 18:59:34,526 INFO event=incident_created incident_id=RC-D0294DB1EADD type=Product Recall priority=Medium
+2026-10-06 18:59:34,556 INFO event=incident_created incident_id=RC-543128E84A8D type=Product Recall priority=Medium
+2026-10-06 18:59:34,594 INFO event=incident_created incident_id=RC-20919E3A2E87 type=Product Recall priority=High
+2026-10-06 18:59:34,628 INFO event=incident_created incident_id=RC-B764C1AF4389 type=Product Recall priority=Medium
+2026-10-06 18:59:34,664 INFO event=incident_created incident_id=RC-25F7792133B6 type=Product Recall priority=Medium
+2026-10-06 18:59:34,725 INFO event=incident_created incident_id=RC-D37A2FA9B751 type=Product Recall priority=Medium
+2026-10-06 18:59:34,828 INFO event=incident_created incident_id=RC-1FFC1DEF298D type=Product Recall priority=Medium
+2026-10-06 18:59:34,864 INFO event=incident_created incident_id=RC-825B6AC21705 type=Product Recall priority=Medium
+2026-10-06 18:59:34,900 INFO event=incident_created incident_id=RC-276B62AB8ABA type=Product Recall priority=Medium
+2026-10-06 18:59:34,936 INFO event=incident_created incident_id=RC-3A651AF9B945 type=Product Recall priority=Medium
+2026-10-06 18:59:34,969 INFO event=incident_created incident_id=RC-899501A90E86 type=Product Recall priority=High
+2026-10-06 18:59:35,002 INFO event=incident_created incident_id=RC-B24ECBAEE8EA type=Product Recall priority=High
+2026-10-06 18:59:35,037 INFO event=incident_created incident_id=RC-B9DF25FF61B1 type=Product Recall priority=High
+2026-10-06 18:59:35,070 INFO event=incident_created incident_id=RC-4BDE70015114 type=Product Recall priority=Medium
+2026-10-06 18:59:35,107 INFO event=incident_created incident_id=RC-B7D8A37A5062 type=Product Recall priority=Medium
+2026-10-06 18:59:35,138 INFO event=incident_created incident_id=RC-D4B74F4EAA3D type=Product Recall priority=Medium
+2026-10-06 18:59:35,174 INFO event=incident_created incident_id=RC-0A384224AB61 type=Product Recall priority=Medium
+2026-10-06 18:59:35,209 INFO event=incident_created incident_id=RC-CA4D52AD89DD type=Product Recall priority=Medium
+2026-10-06 18:59:35,246 INFO event=incident_created incident_id=RC-CF3CF60927FC type=Product Recall priority=Medium
+2026-10-06 18:59:35,285 INFO event=incident_created incident_id=RC-189C5A5B73E2 type=Product Recall priority=Medium
+2026-10-06 18:59:35,662 INFO event=run_completed incident_count=26
+2026-10-06 19:50:47,803 INFO event=run_started retailer=Dollar Tree region=US
+2026-10-06 19:58:16,960 INFO event=incident_created incident_id=WX-D819C03FE93C type=Weather priority=(blank)
+2026-10-06 19:58:16,994 INFO event=incident_created incident_id=WX-F66C3C2EF620 type=Weather priority=(blank)
+2026-10-06 19:58:17,030 INFO event=incident_created incident_id=WX-E63FF3C7F03B type=Weather priority=(blank)
+2026-10-06 19:58:17,089 INFO event=incident_created incident_id=WX-44F87B8D93BB type=Weather priority=High
+2026-10-06 19:58:17,139 INFO event=incident_created incident_id=WX-A7E5353C0CE2 type=Weather priority=High
+2026-10-06 19:58:17,171 INFO event=incident_created incident_id=WX-260D5F5D6087 type=Weather priority=(blank)
+2026-10-06 19:58:17,200 INFO event=incident_created incident_id=RC-D0294DB1EADD type=Product Recall priority=Medium
+2026-10-06 19:58:17,231 INFO event=incident_created incident_id=RC-543128E84A8D type=Product Recall priority=Medium
+2026-10-06 19:58:17,260 INFO event=incident_created incident_id=RC-20919E3A2E87 type=Product Recall priority=High
+2026-10-06 19:58:17,295 INFO event=incident_created incident_id=RC-B764C1AF4389 type=Product Recall priority=Medium
+2026-10-06 19:58:17,325 INFO event=incident_created incident_id=RC-25F7792133B6 type=Product Recall priority=Medium
+2026-10-06 19:58:17,358 INFO event=incident_created incident_id=RC-D37A2FA9B751 type=Product Recall priority=Medium
+2026-10-06 19:58:17,389 INFO event=incident_created incident_id=RC-1FFC1DEF298D type=Product Recall priority=Medium
+2026-10-06 19:58:17,421 INFO event=incident_created incident_id=RC-825B6AC21705 type=Product Recall priority=Medium
+2026-10-06 19:58:17,452 INFO event=incident_created incident_id=RC-276B62AB8ABA type=Product Recall priority=Medium
+2026-10-06 19:58:17,588 INFO event=incident_created incident_id=RC-3A651AF9B945 type=Product Recall priority=Medium
+2026-10-06 19:58:17,622 INFO event=incident_created incident_id=RC-899501A90E86 type=Product Recall priority=High
+2026-10-06 19:58:17,655 INFO event=incident_created incident_id=RC-B24ECBAEE8EA type=Product Recall priority=High
+2026-10-06 19:58:17,687 INFO event=incident_created incident_id=RC-B9DF25FF61B1 type=Product Recall priority=High
+2026-10-06 19:58:17,720 INFO event=incident_created incident_id=RC-4BDE70015114 type=Product Recall priority=Medium
+2026-10-06 19:58:17,753 INFO event=incident_created incident_id=RC-B7D8A37A5062 type=Product Recall priority=Medium
+2026-10-06 19:58:17,788 INFO event=incident_created incident_id=RC-D4B74F4EAA3D type=Product Recall priority=Medium
+2026-10-06 19:58:17,824 INFO event=incident_created incident_id=RC-0A384224AB61 type=Product Recall priority=Medium
+2026-10-06 19:58:17,858 INFO event=incident_created incident_id=RC-CA4D52AD89DD type=Product Recall priority=Medium
+2026-10-06 19:58:17,889 INFO event=incident_created incident_id=RC-CF3CF60927FC type=Product Recall priority=Medium
+2026-10-06 19:58:17,922 INFO event=incident_created incident_id=RC-189C5A5B73E2 type=Product Recall priority=Medium
+2026-10-06 19:58:18,100 INFO event=run_completed incident_count=26
+2026-10-06 22:18:36,660 INFO event=run_started retailer=Dollar Tree region=US
+2026-10-08 10:20:14,184 INFO event=run_started retailer=Dollar Tree region=US
+2026-10-08 10:26:25,048 INFO event=incident_created incident_id=WX-F28989C6DC31 type=Weather priority=(blank)
+2026-10-08 10:26:25,075 INFO event=incident_created incident_id=WX-A764B5DE2842 type=Weather priority=(blank)
+2026-10-08 10:26:25,123 INFO event=incident_created incident_id=WX-7EB62A0A4EEB type=Weather priority=High
+2026-10-08 10:26:25,150 INFO event=incident_created incident_id=WX-62810760CACC type=Weather priority=(blank)
+2026-10-08 10:26:25,175 INFO event=incident_created incident_id=RC-D0294DB1EADD type=Product Recall priority=Medium
+2026-10-08 10:26:25,198 INFO event=incident_created incident_id=RC-543128E84A8D type=Product Recall priority=Medium
+2026-10-08 10:26:25,227 INFO event=incident_created incident_id=RC-20919E3A2E87 type=Product Recall priority=High
+2026-10-08 10:26:25,250 INFO event=incident_created incident_id=RC-B764C1AF4389 type=Product Recall priority=Medium
+2026-10-08 10:26:25,272 INFO event=incident_created incident_id=RC-25F7792133B6 type=Product Recall priority=Medium
+2026-10-08 10:26:25,296 INFO event=incident_created incident_id=RC-D37A2FA9B751 type=Product Recall priority=Medium
+2026-10-08 10:26:25,321 INFO event=incident_created incident_id=RC-1FFC1DEF298D type=Product Recall priority=Medium
+2026-10-08 10:26:25,345 INFO event=incident_created incident_id=RC-825B6AC21705 type=Product Recall priority=Medium
+2026-10-08 10:26:25,367 INFO event=incident_created incident_id=RC-276B62AB8ABA type=Product Recall priority=Medium
+2026-10-08 10:26:25,393 INFO event=incident_created incident_id=RC-3A651AF9B945 type=Product Recall priority=Medium
+2026-10-08 10:26:25,416 INFO event=incident_created incident_id=RC-899501A90E86 type=Product Recall priority=High
+2026-10-08 10:26:25,441 INFO event=incident_created incident_id=RC-B24ECBAEE8EA type=Product Recall priority=High
+2026-10-08 10:26:25,467 INFO event=incident_created incident_id=RC-B9DF25FF61B1 type=Product Recall priority=High
+2026-10-08 10:26:25,525 INFO event=incident_created incident_id=RC-4BDE70015114 type=Product Recall priority=Medium
+2026-10-08 10:26:25,584 INFO event=incident_created incident_id=RC-B7D8A37A5062 type=Product Recall priority=Medium
+2026-10-08 10:26:25,617 INFO event=incident_created incident_id=RC-D4B74F4EAA3D type=Product Recall priority=Medium
+2026-10-08 10:26:25,644 INFO event=incident_created incident_id=RC-0A384224AB61 type=Product Recall priority=Medium
+2026-10-08 10:26:25,668 INFO event=incident_created incident_id=RC-CA4D52AD89DD type=Product Recall priority=Medium
+2026-10-08 10:26:25,692 INFO event=incident_created incident_id=RC-CF3CF60927FC type=Product Recall priority=Medium
+2026-10-08 10:26:25,722 INFO event=incident_created incident_id=RC-189C5A5B73E2 type=Product Recall priority=Medium
+2026-10-08 10:26:25,855 INFO event=run_completed incident_count=24
+2026-10-08 11:51:14,442 INFO event=run_started retailer=Dollar Tree region=US
+2026-10-08 12:13:06,804 INFO event=run_started retailer=Dollar Tree region=US
+2026-10-08 12:21:48,141 INFO event=incident_created incident_id=WX-8B657997AEC2 type=Weather priority=(blank)
+2026-10-08 12:21:48,198 INFO event=incident_created incident_id=WX-7EB62A0A4EEB type=Weather priority=High
+2026-10-08 12:21:48,227 INFO event=incident_created incident_id=WX-7FB695652A7A type=Weather priority=(blank)
+2026-10-08 12:21:48,250 INFO event=incident_created incident_id=WX-62810760CACC type=Weather priority=(blank)
+2026-10-08 12:21:48,277 INFO event=incident_created incident_id=WX-B0D52A97F564 type=Weather priority=(blank)
+2026-10-08 12:21:48,305 INFO event=incident_created incident_id=WX-141E54D6A1CD type=Weather priority=(blank)
+2026-10-08 12:21:48,330 INFO event=incident_created incident_id=RC-D0294DB1EADD type=Product Recall priority=Medium
+2026-10-08 12:21:48,355 INFO event=incident_created incident_id=RC-543128E84A8D type=Product Recall priority=Medium
+2026-10-08 12:21:48,380 INFO event=incident_created incident_id=RC-20919E3A2E87 type=Product Recall priority=High
+2026-10-08 12:21:48,404 INFO event=incident_created incident_id=RC-B764C1AF4389 type=Product Recall priority=Medium
+2026-10-08 12:21:48,432 INFO event=incident_created incident_id=RC-25F7792133B6 type=Product Recall priority=Medium
+2026-10-08 12:21:48,453 INFO event=incident_created incident_id=RC-D37A2FA9B751 type=Product Recall priority=Medium
+2026-10-08 12:21:48,479 INFO event=incident_created incident_id=RC-1FFC1DEF298D type=Product Recall priority=Medium
+2026-10-08 12:21:48,503 INFO event=incident_created incident_id=RC-825B6AC21705 type=Product Recall priority=Medium
+2026-10-08 12:21:48,529 INFO event=incident_created incident_id=RC-276B62AB8ABA type=Product Recall priority=Medium
+2026-10-08 12:21:48,555 INFO event=incident_created incident_id=RC-3A651AF9B945 type=Product Recall priority=Medium
+2026-10-08 12:21:48,578 INFO event=incident_created incident_id=RC-899501A90E86 type=Product Recall priority=High
+2026-10-08 12:21:48,607 INFO event=incident_created incident_id=RC-B24ECBAEE8EA type=Product Recall priority=High
+2026-10-08 12:21:48,630 INFO event=incident_created incident_id=RC-B9DF25FF61B1 type=Product Recall priority=High
+2026-10-08 12:21:48,655 INFO event=incident_created incident_id=RC-4BDE70015114 type=Product Recall priority=Medium
+2026-10-08 12:21:48,681 INFO event=incident_created incident_id=RC-B7D8A37A5062 type=Product Recall priority=Medium
+2026-10-08 12:21:48,708 INFO event=incident_created incident_id=RC-D4B74F4EAA3D type=Product Recall priority=Medium
+2026-10-08 12:21:48,733 INFO event=incident_created incident_id=RC-0A384224AB61 type=Product Recall priority=Medium
+2026-10-08 12:21:48,759 INFO event=incident_created incident_id=RC-CA4D52AD89DD type=Product Recall priority=Medium
+2026-10-08 12:21:48,785 INFO event=incident_created incident_id=RC-CF3CF60927FC type=Product Recall priority=Medium
+2026-10-08 12:21:48,810 INFO event=incident_created incident_id=RC-189C5A5B73E2 type=Product Recall priority=Medium
+2026-10-08 12:21:48,925 INFO event=run_completed incident_count=26
+2026-10-08 12:28:50,672 INFO event=run_started retailer=Dollar Tree region=US
+2026-10-08 12:34:13,356 INFO event=run_started retailer=Dollar Tree region=US
+2026-10-08 12:34:28,240 INFO event=incident_created incident_id=WX-8B657997AEC2 type=Weather priority=(blank)
+2026-10-08 12:34:28,283 INFO event=incident_created incident_id=WX-7EB62A0A4EEB type=Weather priority=High
+2026-10-08 12:34:28,311 INFO event=incident_created incident_id=WX-7FB695652A7A type=Weather priority=(blank)
+2026-10-08 12:34:28,333 INFO event=incident_created incident_id=WX-62810760CACC type=Weather priority=(blank)
+2026-10-08 12:34:28,355 INFO event=incident_created incident_id=WX-B0D52A97F564 type=Weather priority=(blank)
+2026-10-08 12:34:28,378 INFO event=incident_created incident_id=WX-141E54D6A1CD type=Weather priority=(blank)
+2026-10-08 12:34:28,403 INFO event=incident_created incident_id=RC-D0294DB1EADD type=Product Recall priority=Medium
+2026-10-08 12:34:28,426 INFO event=incident_created incident_id=RC-543128E84A8D type=Product Recall priority=Medium
+2026-10-08 12:34:28,450 INFO event=incident_created incident_id=RC-20919E3A2E87 type=Product Recall priority=High
+2026-10-08 12:34:28,471 INFO event=incident_created incident_id=RC-B764C1AF4389 type=Product Recall priority=Medium
+2026-10-08 12:34:28,493 INFO event=incident_created incident_id=RC-25F7792133B6 type=Product Recall priority=Medium
+2026-10-08 12:34:28,515 INFO event=incident_created incident_id=RC-D37A2FA9B751 type=Product Recall priority=Medium
+2026-10-08 12:34:28,538 INFO event=incident_created incident_id=RC-1FFC1DEF298D type=Product Recall priority=Medium
+2026-10-08 12:34:28,561 INFO event=incident_created incident_id=RC-825B6AC21705 type=Product Recall priority=Medium
+2026-10-08 12:34:28,585 INFO event=incident_created incident_id=RC-276B62AB8ABA type=Product Recall priority=Medium
+2026-10-08 12:34:28,610 INFO event=incident_created incident_id=RC-3A651AF9B945 type=Product Recall priority=Medium
+2026-10-08 12:34:28,631 INFO event=incident_created incident_id=RC-899501A90E86 type=Product Recall priority=High
+2026-10-08 12:34:28,655 INFO event=incident_created incident_id=RC-B24ECBAEE8EA type=Product Recall priority=High
+2026-10-08 12:34:28,677 INFO event=incident_created incident_id=RC-B9DF25FF61B1 type=Product Recall priority=High
+2026-10-08 12:34:28,700 INFO event=incident_created incident_id=RC-4BDE70015114 type=Product Recall priority=Medium
+2026-10-08 12:34:28,723 INFO event=incident_created incident_id=RC-B7D8A37A5062 type=Product Recall priority=Medium
+2026-10-08 12:34:28,747 INFO event=incident_created incident_id=RC-D4B74F4EAA3D type=Product Recall priority=Medium
+2026-10-08 12:34:28,771 INFO event=incident_created incident_id=RC-0A384224AB61 type=Product Recall priority=Medium
+2026-10-08 12:34:28,795 INFO event=incident_created incident_id=RC-CA4D52AD89DD type=Product Recall priority=Medium
+2026-10-08 12:34:28,832 INFO event=incident_created incident_id=RC-CF3CF60927FC type=Product Recall priority=Medium
+2026-10-08 12:34:28,860 INFO event=incident_created incident_id=RC-189C5A5B73E2 type=Product Recall priority=Medium
+2026-10-08 12:34:28,996 INFO event=run_completed incident_count=26
+2026-10-08 12:54:13,297 INFO event=run_started retailer=Dollar Tree region=US
+2026-10-08 12:54:29,485 INFO event=incident_created incident_id=WX-8B657997AEC2 type=Weather priority=(blank)
+2026-10-08 12:54:29,523 INFO event=incident_created incident_id=WX-7EB62A0A4EEB type=Weather priority=High
+2026-10-08 12:54:29,543 INFO event=incident_created incident_id=WX-7FB695652A7A type=Weather priority=(blank)
+2026-10-08 12:54:29,563 INFO event=incident_created incident_id=WX-62810760CACC type=Weather priority=(blank)
+2026-10-08 12:54:29,584 INFO event=incident_created incident_id=WX-B0D52A97F564 type=Weather priority=(blank)
+2026-10-08 12:54:29,609 INFO event=incident_created incident_id=WX-141E54D6A1CD type=Weather priority=(blank)
+2026-10-08 12:54:29,635 INFO event=incident_created incident_id=RC-D0294DB1EADD type=Product Recall priority=Medium
+2026-10-08 12:54:29,660 INFO event=incident_created incident_id=RC-543128E84A8D type=Product Recall priority=Medium
+2026-10-08 12:54:29,680 INFO event=incident_created incident_id=RC-20919E3A2E87 type=Product Recall priority=High
+2026-10-08 12:54:29,703 INFO event=incident_created incident_id=RC-B764C1AF4389 type=Product Recall priority=Medium
+2026-10-08 12:54:29,722 INFO event=incident_created incident_id=RC-25F7792133B6 type=Product Recall priority=Medium
+2026-10-08 12:54:29,743 INFO event=incident_created incident_id=RC-D37A2FA9B751 type=Product Recall priority=Medium
+2026-10-08 12:54:29,763 INFO event=incident_created incident_id=RC-1FFC1DEF298D type=Product Recall priority=Medium
+2026-10-08 12:54:29,784 INFO event=incident_created incident_id=RC-825B6AC21705 type=Product Recall priority=Medium
+2026-10-08 12:54:29,805 INFO event=incident_created incident_id=RC-276B62AB8ABA type=Product Recall priority=Medium
+2026-10-08 12:54:29,825 INFO event=incident_created incident_id=RC-3A651AF9B945 type=Product Recall priority=Medium
+2026-10-08 12:54:29,848 INFO event=incident_created incident_id=RC-899501A90E86 type=Product Recall priority=High
+2026-10-08 12:54:29,868 INFO event=incident_created incident_id=RC-B24ECBAEE8EA type=Product Recall priority=High
+2026-10-08 12:54:29,878 INFO event=incident_created incident_id=RC-B9DF25FF61B1 type=Product Recall priority=High
+2026-10-08 12:54:29,939 INFO event=incident_created incident_id=RC-4BDE70015114 type=Product Recall priority=Medium
+2026-10-08 12:54:29,969 INFO event=incident_created incident_id=RC-B7D8A37A5062 type=Product Recall priority=Medium
+2026-10-08 12:54:29,995 INFO event=incident_created incident_id=RC-D4B74F4EAA3D type=Product Recall priority=Medium
+2026-10-08 12:54:30,015 INFO event=incident_created incident_id=RC-0A384224AB61 type=Product Recall priority=Medium
+2026-10-08 12:54:30,037 INFO event=incident_created incident_id=RC-CA4D52AD89DD type=Product Recall priority=Medium
+2026-10-08 12:54:30,059 INFO event=incident_created incident_id=RC-CF3CF60927FC type=Product Recall priority=Medium
+2026-10-08 12:54:30,086 INFO event=incident_created incident_id=RC-189C5A5B73E2 type=Product Recall priority=Medium
+2026-10-08 12:54:30,183 INFO event=run_completed incident_count=26
+2026-10-08 13:06:55,627 INFO event=run_started retailer=Dollar Tree region=US
+2026-10-08 13:07:32,966 INFO event=incident_created incident_id=WX-8B657997AEC2 type=Weather priority=(blank)
+2026-10-08 13:07:33,005 INFO event=incident_created incident_id=WX-7EB62A0A4EEB type=Weather priority=High
+2026-10-08 13:07:33,024 INFO event=incident_created incident_id=WX-7FB695652A7A type=Weather priority=(blank)
+2026-10-08 13:07:33,041 INFO event=incident_created incident_id=WX-62810760CACC type=Weather priority=(blank)
+2026-10-08 13:07:33,065 INFO event=incident_created incident_id=WX-B0D52A97F564 type=Weather priority=(blank)
+2026-10-08 13:07:33,086 INFO event=incident_created incident_id=WX-141E54D6A1CD type=Weather priority=(blank)
+2026-10-08 13:07:33,168 INFO event=run_completed incident_count=6
+2026-10-08 15:44:50,897 INFO event=run_started retailer=Dollar Tree region=US
+2026-10-08 15:45:29,832 INFO event=incident_created incident_id=WX-8B657997AEC2 type=Weather priority=(blank)
+2026-10-08 15:45:29,894 INFO event=incident_created incident_id=WX-7EB62A0A4EEB type=Weather priority=High
+2026-10-08 15:45:29,931 INFO event=incident_created incident_id=WX-7FB695652A7A type=Weather priority=(blank)
+2026-10-08 15:45:29,963 INFO event=incident_created incident_id=WX-62810760CACC type=Weather priority=(blank)
+2026-10-08 15:45:29,996 INFO event=incident_created incident_id=WX-B0D52A97F564 type=Weather priority=(blank)
+2026-10-08 15:45:30,033 INFO event=incident_created incident_id=WX-141E54D6A1CD type=Weather priority=(blank)
+2026-10-08 15:45:30,064 INFO event=incident_created incident_id=RC-D0294DB1EADD type=Product Recall priority=Medium
+2026-10-08 15:45:30,097 INFO event=incident_created incident_id=RC-543128E84A8D type=Product Recall priority=Medium
+2026-10-08 15:45:30,126 INFO event=incident_created incident_id=RC-20919E3A2E87 type=Product Recall priority=High
+2026-10-08 15:45:30,159 INFO event=incident_created incident_id=RC-B764C1AF4389 type=Product Recall priority=Medium
+2026-10-08 15:45:30,189 INFO event=incident_created incident_id=RC-25F7792133B6 type=Product Recall priority=Medium
+2026-10-08 15:45:30,224 INFO event=incident_created incident_id=RC-D37A2FA9B751 type=Product Recall priority=Medium
+2026-10-08 15:45:30,254 INFO event=incident_created incident_id=RC-1FFC1DEF298D type=Product Recall priority=Medium
+2026-10-08 15:45:30,284 INFO event=incident_created incident_id=RC-825B6AC21705 type=Product Recall priority=Medium
+2026-10-08 15:45:30,316 INFO event=incident_created incident_id=RC-276B62AB8ABA type=Product Recall priority=Medium
+2026-10-08 15:45:30,348 INFO event=incident_created incident_id=RC-3A651AF9B945 type=Product Recall priority=Medium
+2026-10-08 15:45:30,381 INFO event=incident_created incident_id=RC-899501A90E86 type=Product Recall priority=High
+2026-10-08 15:45:30,414 INFO event=incident_created incident_id=RC-B24ECBAEE8EA type=Product Recall priority=High
+2026-10-08 15:45:30,448 INFO event=incident_created incident_id=RC-B9DF25FF61B1 type=Product Recall priority=High
+2026-10-08 15:45:30,485 INFO event=incident_created incident_id=RC-4BDE70015114 type=Product Recall priority=Medium
+2026-10-08 15:45:30,526 INFO event=incident_created incident_id=RC-B7D8A37A5062 type=Product Recall priority=Medium
+2026-10-08 15:45:30,559 INFO event=incident_created incident_id=RC-D4B74F4EAA3D type=Product Recall priority=Medium
+2026-10-08 15:45:30,597 INFO event=incident_created incident_id=RC-0A384224AB61 type=Product Recall priority=Medium
+2026-10-08 15:45:30,629 INFO event=incident_created incident_id=RC-CA4D52AD89DD type=Product Recall priority=Medium
+2026-10-08 15:45:30,666 INFO event=incident_created incident_id=RC-CF3CF60927FC type=Product Recall priority=Medium
+2026-10-08 15:45:30,700 INFO event=incident_created incident_id=RC-189C5A5B73E2 type=Product Recall priority=Medium
+2026-10-08 15:45:30,839 INFO event=run_completed incident_count=26
+2026-10-08 15:58:43,996 INFO event=run_started retailer=Dollar Tree region=US
+2026-10-08 15:59:21,590 INFO event=incident_created incident_id=WX-8B657997AEC2 type=Weather priority=(blank)
+2026-10-08 15:59:21,656 INFO event=incident_created incident_id=WX-7EB62A0A4EEB type=Weather priority=High
+2026-10-08 15:59:21,688 INFO event=incident_created incident_id=WX-7FB695652A7A type=Weather priority=(blank)
+2026-10-08 15:59:21,725 INFO event=incident_created incident_id=WX-62810760CACC type=Weather priority=(blank)
+2026-10-08 15:59:21,756 INFO event=incident_created incident_id=WX-B0D52A97F564 type=Weather priority=(blank)
+2026-10-08 15:59:21,791 INFO event=incident_created incident_id=WX-141E54D6A1CD type=Weather priority=(blank)
+2026-10-08 15:59:21,820 INFO event=incident_created incident_id=RC-D0294DB1EADD type=Product Recall priority=Medium
+2026-10-08 15:59:21,854 INFO event=incident_created incident_id=RC-543128E84A8D type=Product Recall priority=Medium
+2026-10-08 15:59:21,881 INFO event=incident_created incident_id=RC-20919E3A2E87 type=Product Recall priority=High
+2026-10-08 15:59:21,913 INFO event=incident_created incident_id=RC-B764C1AF4389 type=Product Recall priority=Medium
+2026-10-08 15:59:21,943 INFO event=incident_created incident_id=RC-25F7792133B6 type=Product Recall priority=Medium
+2026-10-08 15:59:21,974 INFO event=incident_created incident_id=RC-D37A2FA9B751 type=Product Recall priority=Medium
+2026-10-08 15:59:22,003 INFO event=incident_created incident_id=RC-1FFC1DEF298D type=Product Recall priority=Medium
+2026-10-08 15:59:22,033 INFO event=incident_created incident_id=RC-825B6AC21705 type=Product Recall priority=Medium
+2026-10-08 15:59:22,063 INFO event=incident_created incident_id=RC-276B62AB8ABA type=Product Recall priority=Medium
+2026-10-08 15:59:22,095 INFO event=incident_created incident_id=RC-3A651AF9B945 type=Product Recall priority=Medium
+2026-10-08 15:59:22,123 INFO event=incident_created incident_id=RC-899501A90E86 type=Product Recall priority=High
+2026-10-08 15:59:22,154 INFO event=incident_created incident_id=RC-B24ECBAEE8EA type=Product Recall priority=High
+2026-10-08 15:59:22,185 INFO event=incident_created incident_id=RC-B9DF25FF61B1 type=Product Recall priority=High
+2026-10-08 15:59:22,217 INFO event=incident_created incident_id=RC-4BDE70015114 type=Product Recall priority=Medium
+2026-10-08 15:59:22,251 INFO event=incident_created incident_id=RC-B7D8A37A5062 type=Product Recall priority=Medium
+2026-10-08 15:59:22,282 INFO event=incident_created incident_id=RC-D4B74F4EAA3D type=Product Recall priority=Medium
+2026-10-08 15:59:22,315 INFO event=incident_created incident_id=RC-0A384224AB61 type=Product Recall priority=Medium
+2026-10-08 15:59:22,349 INFO event=incident_created incident_id=RC-CA4D52AD89DD type=Product Recall priority=Medium
+2026-10-08 15:59:22,380 INFO event=incident_created incident_id=RC-CF3CF60927FC type=Product Recall priority=Medium
+2026-10-08 15:59:22,414 INFO event=incident_created incident_id=RC-189C5A5B73E2 type=Product Recall priority=Medium
+2026-10-08 15:59:22,575 INFO event=run_completed incident_count=26
+2026-10-08 16:31:04,711 INFO event=run_started retailer=Dollar Tree region=US
+2026-10-08 16:31:49,597 INFO event=incident_created incident_id=WX-8B657997AEC2 type=Weather priority=(blank)
+2026-10-08 16:31:49,687 INFO event=incident_created incident_id=WX-7EB62A0A4EEB type=Weather priority=High
+2026-10-08 16:31:49,725 INFO event=incident_created incident_id=WX-7FB695652A7A type=Weather priority=(blank)
+2026-10-08 16:31:49,763 INFO event=incident_created incident_id=WX-62810760CACC type=Weather priority=(blank)
+2026-10-08 16:31:49,794 INFO event=incident_created incident_id=WX-B0D52A97F564 type=Weather priority=(blank)
+2026-10-08 16:31:49,837 INFO event=incident_created incident_id=WX-141E54D6A1CD type=Weather priority=(blank)
+2026-10-08 16:31:49,862 INFO event=incident_created incident_id=RC-D0294DB1EADD type=Product Recall priority=Medium
+2026-10-08 16:31:49,893 INFO event=incident_created incident_id=RC-543128E84A8D type=Product Recall priority=Medium
+2026-10-08 16:31:49,917 INFO event=incident_created incident_id=RC-20919E3A2E87 type=Product Recall priority=High
+2026-10-08 16:31:49,944 INFO event=incident_created incident_id=RC-B764C1AF4389 type=Product Recall priority=Medium
+2026-10-08 16:31:49,970 INFO event=incident_created incident_id=RC-25F7792133B6 type=Product Recall priority=Medium
+2026-10-08 16:31:50,000 INFO event=incident_created incident_id=RC-D37A2FA9B751 type=Product Recall priority=Medium
+2026-10-08 16:31:50,026 INFO event=incident_created incident_id=RC-1FFC1DEF298D type=Product Recall priority=Medium
+2026-10-08 16:31:50,052 INFO event=incident_created incident_id=RC-825B6AC21705 type=Product Recall priority=Medium
+2026-10-08 16:31:50,076 INFO event=incident_created incident_id=RC-276B62AB8ABA type=Product Recall priority=Medium
+2026-10-08 16:31:50,102 INFO event=incident_created incident_id=RC-3A651AF9B945 type=Product Recall priority=Medium
+2026-10-08 16:31:50,128 INFO event=incident_created incident_id=RC-899501A90E86 type=Product Recall priority=High
+2026-10-08 16:31:50,156 INFO event=incident_created incident_id=RC-B24ECBAEE8EA type=Product Recall priority=High
+2026-10-08 16:31:50,180 INFO event=incident_created incident_id=RC-B9DF25FF61B1 type=Product Recall priority=High
+2026-10-08 16:31:50,208 INFO event=incident_created incident_id=RC-4BDE70015114 type=Product Recall priority=Medium
+2026-10-08 16:31:50,237 INFO event=incident_created incident_id=RC-B7D8A37A5062 type=Product Recall priority=Medium
+2026-10-08 16:31:50,261 INFO event=incident_created incident_id=RC-D4B74F4EAA3D type=Product Recall priority=Medium
+2026-10-08 16:31:50,289 INFO event=incident_created incident_id=RC-0A384224AB61 type=Product Recall priority=Medium
+2026-10-08 16:31:50,319 INFO event=incident_created incident_id=RC-CA4D52AD89DD type=Product Recall priority=Medium
+2026-10-08 16:31:50,345 INFO event=incident_created incident_id=RC-CF3CF60927FC type=Product Recall priority=Medium
+2026-10-08 16:31:50,370 INFO event=incident_created incident_id=RC-189C5A5B73E2 type=Product Recall priority=Medium
+2026-10-08 16:31:50,491 INFO event=run_completed incident_count=26
+2026-10-08 16:54:39,642 INFO event=run_started retailer=Dollar Tree region=US
+2026-10-08 16:55:13,975 INFO event=incident_created incident_id=WX-8B657997AEC2 type=Weather priority=(blank)
+2026-10-08 16:55:14,016 INFO event=incident_created incident_id=WX-7EB62A0A4EEB type=Weather priority=High
+2026-10-08 16:55:14,043 INFO event=incident_created incident_id=WX-7FB695652A7A type=Weather priority=(blank)
+2026-10-08 16:55:14,067 INFO event=incident_created incident_id=WX-62810760CACC type=Weather priority=(blank)
+2026-10-08 16:55:14,092 INFO event=incident_created incident_id=WX-B0D52A97F564 type=Weather priority=(blank)
+2026-10-08 16:55:14,122 INFO event=incident_created incident_id=WX-141E54D6A1CD type=Weather priority=(blank)
+2026-10-08 16:55:14,147 INFO event=incident_created incident_id=RC-D0294DB1EADD type=Product Recall priority=Medium
+2026-10-08 16:55:14,169 INFO event=incident_created incident_id=RC-543128E84A8D type=Product Recall priority=Medium
+2026-10-08 16:55:14,191 INFO event=incident_created incident_id=RC-20919E3A2E87 type=Product Recall priority=High
+2026-10-08 16:55:14,214 INFO event=incident_created incident_id=RC-B764C1AF4389 type=Product Recall priority=Medium
+2026-10-08 16:55:14,235 INFO event=incident_created incident_id=RC-25F7792133B6 type=Product Recall priority=Medium
+2026-10-08 16:55:14,257 INFO event=incident_created incident_id=RC-D37A2FA9B751 type=Product Recall priority=Medium
+2026-10-08 16:55:14,277 INFO event=incident_created incident_id=RC-1FFC1DEF298D type=Product Recall priority=Medium
+2026-10-08 16:55:14,299 INFO event=incident_created incident_id=RC-825B6AC21705 type=Product Recall priority=Medium
+2026-10-08 16:55:14,321 INFO event=incident_created incident_id=RC-276B62AB8ABA type=Product Recall priority=Medium
+2026-10-08 16:55:14,345 INFO event=incident_created incident_id=RC-3A651AF9B945 type=Product Recall priority=Medium
+2026-10-08 16:55:14,371 INFO event=incident_created incident_id=RC-899501A90E86 type=Product Recall priority=High
+2026-10-08 16:55:14,401 INFO event=incident_created incident_id=RC-B24ECBAEE8EA type=Product Recall priority=High
+2026-10-08 16:55:14,422 INFO event=incident_created incident_id=RC-B9DF25FF61B1 type=Product Recall priority=High
+2026-10-08 16:55:14,445 INFO event=incident_created incident_id=RC-4BDE70015114 type=Product Recall priority=Medium
+2026-10-08 16:55:14,468 INFO event=incident_created incident_id=RC-B7D8A37A5062 type=Product Recall priority=Medium
+2026-10-08 16:55:14,492 INFO event=incident_created incident_id=RC-D4B74F4EAA3D type=Product Recall priority=Medium
+2026-10-08 16:55:14,515 INFO event=incident_created incident_id=RC-0A384224AB61 type=Product Recall priority=Medium
+2026-10-08 16:55:14,538 INFO event=incident_created incident_id=RC-CA4D52AD89DD type=Product Recall priority=Medium
+2026-10-08 16:55:14,563 INFO event=incident_created incident_id=RC-CF3CF60927FC type=Product Recall priority=Medium
+2026-10-08 16:55:14,593 INFO event=incident_created incident_id=RC-189C5A5B73E2 type=Product Recall priority=Medium
+2026-10-08 16:55:14,868 INFO event=run_completed incident_count=26
