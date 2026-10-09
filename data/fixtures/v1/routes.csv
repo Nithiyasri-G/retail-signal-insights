@@ -1,0 +1,17 @@
+DC ID,Store ID,Transit Hours,Route Counties,Route Weather Exposure,ETA Hours,Eligible,Captured At
+DC-TX1,101,1.0,Dallas County,False,1.0,True,2026-09-23T00:00:00+00:00
+DC-TX1,102,1.6,Dallas County; Tarrant County,False,1.6,True,2026-09-23T00:00:00+00:00
+DC-TX1,103,5.7,Dallas County; Harris County,False,5.7,True,2026-09-23T00:00:00+00:00
+DC-TX1,104,1.4,Dallas County; Tarrant County,False,1.4,True,2026-09-23T00:00:00+00:00
+DC-TX1,105,1.4,Dallas County; Collin County,False,1.4,True,2026-09-23T00:00:00+00:00
+DC-TX1,106,4.8,Dallas County; Williamson County; Travis County,False,4.8,True,2026-09-23T00:00:00+00:00
+DC-TX1,107,6.3,Dallas County; Bexar County,False,6.3,True,2026-09-23T00:00:00+00:00
+DC-TX1,108,12.9,Dallas County; El Paso County,False,12.9,True,2026-09-23T00:00:00+00:00
+DC-GA1,201,1.0,Fulton County,False,1.0,True,2026-09-23T00:00:00+00:00
+DC-GA1,202,1.1,Fulton County; DeKalb County,False,1.1,True,2026-09-23T00:00:00+00:00
+DC-GA1,203,1.4,Fulton County; Cobb County,False,1.4,True,2026-09-23T00:00:00+00:00
+DC-GA1,204,5.7,Fulton County; Chatham County,True,5.7,True,2026-09-23T00:00:00+00:00
+DC-GA1,205,3.9,Fulton County; Richmond County,True,3.9,True,2026-09-23T00:00:00+00:00
+DC-GA1,206,2.6,Fulton County; Bibb County,False,2.6,True,2026-09-23T00:00:00+00:00
+DC-GA1,207,3.0,Fulton County; Muscogee County,False,3.0,True,2026-09-23T00:00:00+00:00
+DC-GA1,208,2.3,Fulton County; Clarke County,False,2.3,True,2026-09-23T00:00:00+00:00

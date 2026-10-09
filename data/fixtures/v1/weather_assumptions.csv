@@ -1,0 +1,640 @@
+Event ID,Event Type,Region,Category,Phase,Demand Uplift %,Traffic Delta %,Store Operating Status
+Winter-Storm-Warning-SO-1,Winter Storm Warning,South Central,Emergency Essentials,Pre-Event,16.8,58.0,Open
+Winter-Storm-Warning-SO-1,Winter Storm Warning,South Central,Emergency Essentials,During-Event,42.0,-72.0,Open
+Winter-Storm-Warning-SO-1,Winter Storm Warning,South Central,Emergency Essentials,Post-Event,21.0,38.0,Open
+Winter-Storm-Warning-SO-2,Winter Storm Warning,South Central,Emergency Essentials,Pre-Event,19.2,60.0,Closed Early
+Winter-Storm-Warning-SO-2,Winter Storm Warning,South Central,Emergency Essentials,During-Event,48.0,-70.0,Closed Early
+Winter-Storm-Warning-SO-2,Winter Storm Warning,South Central,Emergency Essentials,Post-Event,24.0,40.0,Closed Early
+Winter-Storm-Warning-SO-3,Winter Storm Warning,South Central,Emergency Essentials,Pre-Event,15.6,62.0,Open
+Winter-Storm-Warning-SO-3,Winter Storm Warning,South Central,Emergency Essentials,During-Event,39.0,-68.0,Open
+Winter-Storm-Warning-SO-3,Winter Storm Warning,South Central,Emergency Essentials,Post-Event,19.5,42.0,Open
+Winter-Weather-Advisory-SO-1,Winter Weather Advisory,South Central,Emergency Essentials,Pre-Event,9.6,28.0,Open
+Winter-Weather-Advisory-SO-1,Winter Weather Advisory,South Central,Emergency Essentials,During-Event,24.0,-32.0,Open
+Winter-Weather-Advisory-SO-1,Winter Weather Advisory,South Central,Emergency Essentials,Post-Event,12.0,13.0,Open
+Winter-Weather-Advisory-SO-2,Winter Weather Advisory,South Central,Emergency Essentials,Pre-Event,10.8,30.0,Open
+Winter-Weather-Advisory-SO-2,Winter Weather Advisory,South Central,Emergency Essentials,During-Event,27.0,-30.0,Open
+Winter-Weather-Advisory-SO-2,Winter Weather Advisory,South Central,Emergency Essentials,Post-Event,13.5,15.0,Open
+Winter-Weather-Advisory-SO-3,Winter Weather Advisory,South Central,Emergency Essentials,Pre-Event,8.8,32.0,Open
+Winter-Weather-Advisory-SO-3,Winter Weather Advisory,South Central,Emergency Essentials,During-Event,22.0,-28.0,Open
+Winter-Weather-Advisory-SO-3,Winter Weather Advisory,South Central,Emergency Essentials,Post-Event,11.0,17.0,Open
+Winter-Storm-Watch-SO-1,Winter Storm Watch,South Central,Emergency Essentials,Pre-Event,7.2,18.0,Open
+Winter-Storm-Watch-SO-1,Winter Storm Watch,South Central,Emergency Essentials,During-Event,18.0,-17.0,Open
+Winter-Storm-Watch-SO-1,Winter Storm Watch,South Central,Emergency Essentials,Post-Event,9.0,8.0,Open
+Winter-Storm-Watch-SO-2,Winter Storm Watch,South Central,Emergency Essentials,Pre-Event,8.4,20.0,Open
+Winter-Storm-Watch-SO-2,Winter Storm Watch,South Central,Emergency Essentials,During-Event,21.0,-15.0,Open
+Winter-Storm-Watch-SO-2,Winter Storm Watch,South Central,Emergency Essentials,Post-Event,10.5,10.0,Open
+Winter-Storm-Watch-SO-3,Winter Storm Watch,South Central,Emergency Essentials,Pre-Event,6.4,22.0,Open
+Winter-Storm-Watch-SO-3,Winter Storm Watch,South Central,Emergency Essentials,During-Event,16.0,-13.0,Open
+Winter-Storm-Watch-SO-3,Winter Storm Watch,South Central,Emergency Essentials,Post-Event,8.0,12.0,Open
+Flood-Warning-SO-1,Flood Warning,South Central,Emergency Essentials,Pre-Event,11.2,23.0,Open
+Flood-Warning-SO-1,Flood Warning,South Central,Emergency Essentials,During-Event,28.0,-47.0,Open
+Flood-Warning-SO-1,Flood Warning,South Central,Emergency Essentials,Post-Event,14.0,18.0,Open
+Flood-Warning-SO-2,Flood Warning,South Central,Emergency Essentials,Pre-Event,13.2,25.0,Open
+Flood-Warning-SO-2,Flood Warning,South Central,Emergency Essentials,During-Event,33.0,-45.0,Open
+Flood-Warning-SO-2,Flood Warning,South Central,Emergency Essentials,Post-Event,16.5,20.0,Open
+Flood-Warning-SO-3,Flood Warning,South Central,Emergency Essentials,Pre-Event,10.0,27.0,Closed Early
+Flood-Warning-SO-3,Flood Warning,South Central,Emergency Essentials,During-Event,25.0,-43.0,Closed Early
+Flood-Warning-SO-3,Flood Warning,South Central,Emergency Essentials,Post-Event,12.5,22.0,Closed Early
+Flood-Advisory-SO-1,Flood Advisory,South Central,Emergency Essentials,Pre-Event,5.6,8.0,Open
+Flood-Advisory-SO-1,Flood Advisory,South Central,Emergency Essentials,During-Event,14.0,-22.0,Open
+Flood-Advisory-SO-1,Flood Advisory,South Central,Emergency Essentials,Post-Event,7.0,6.0,Open
+Flood-Advisory-SO-2,Flood Advisory,South Central,Emergency Essentials,Pre-Event,6.4,10.0,Open
+Flood-Advisory-SO-2,Flood Advisory,South Central,Emergency Essentials,During-Event,16.0,-20.0,Open
+Flood-Advisory-SO-2,Flood Advisory,South Central,Emergency Essentials,Post-Event,8.0,8.0,Open
+Flood-Advisory-SO-3,Flood Advisory,South Central,Emergency Essentials,Pre-Event,4.8,12.0,Open
+Flood-Advisory-SO-3,Flood Advisory,South Central,Emergency Essentials,During-Event,12.0,-18.0,Open
+Flood-Advisory-SO-3,Flood Advisory,South Central,Emergency Essentials,Post-Event,6.0,10.0,Open
+Flash-Flood-Warning-SO-1,Flash Flood Warning,South Central,Emergency Essentials,Pre-Event,12.8,13.0,Open
+Flash-Flood-Warning-SO-1,Flash Flood Warning,South Central,Emergency Essentials,During-Event,32.0,-57.0,Open
+Flash-Flood-Warning-SO-1,Flash Flood Warning,South Central,Emergency Essentials,Post-Event,16.0,23.0,Open
+Flash-Flood-Warning-SO-2,Flash Flood Warning,South Central,Emergency Essentials,Pre-Event,15.2,15.0,Closed Early
+Flash-Flood-Warning-SO-2,Flash Flood Warning,South Central,Emergency Essentials,During-Event,38.0,-55.0,Closed Early
+Flash-Flood-Warning-SO-2,Flash Flood Warning,South Central,Emergency Essentials,Post-Event,19.0,25.0,Closed Early
+Flash-Flood-Warning-SO-3,Flash Flood Warning,South Central,Emergency Essentials,Pre-Event,12.0,17.0,Open
+Flash-Flood-Warning-SO-3,Flash Flood Warning,South Central,Emergency Essentials,During-Event,30.0,-53.0,Open
+Flash-Flood-Warning-SO-3,Flash Flood Warning,South Central,Emergency Essentials,Post-Event,15.0,27.0,Open
+Tornado-Warning-SO-1,Tornado Warning,South Central,Emergency Essentials,Pre-Event,7.2,8.0,Closed Early
+Tornado-Warning-SO-1,Tornado Warning,South Central,Emergency Essentials,During-Event,18.0,-82.0,Closed Early
+Tornado-Warning-SO-1,Tornado Warning,South Central,Emergency Essentials,Post-Event,9.0,13.0,Closed Early
+Tornado-Warning-SO-2,Tornado Warning,South Central,Emergency Essentials,Pre-Event,8.8,10.0,Open
+Tornado-Warning-SO-2,Tornado Warning,South Central,Emergency Essentials,During-Event,22.0,-80.0,Open
+Tornado-Warning-SO-2,Tornado Warning,South Central,Emergency Essentials,Post-Event,11.0,15.0,Open
+Tornado-Warning-SO-3,Tornado Warning,South Central,Emergency Essentials,Pre-Event,8.0,12.0,Open
+Tornado-Warning-SO-3,Tornado Warning,South Central,Emergency Essentials,During-Event,20.0,-78.0,Open
+Tornado-Warning-SO-3,Tornado Warning,South Central,Emergency Essentials,Post-Event,10.0,17.0,Open
+Severe-Thunderstorm-Warning-SO-1,Severe Thunderstorm Warning,South Central,Emergency Essentials,Pre-Event,4.8,6.0,Open
+Severe-Thunderstorm-Warning-SO-1,Severe Thunderstorm Warning,South Central,Emergency Essentials,During-Event,12.0,-62.0,Open
+Severe-Thunderstorm-Warning-SO-1,Severe Thunderstorm Warning,South Central,Emergency Essentials,Post-Event,6.0,18.0,Open
+Severe-Thunderstorm-Warning-SO-2,Severe Thunderstorm Warning,South Central,Emergency Essentials,Pre-Event,6.0,8.0,Open
+Severe-Thunderstorm-Warning-SO-2,Severe Thunderstorm Warning,South Central,Emergency Essentials,During-Event,15.0,-60.0,Open
+Severe-Thunderstorm-Warning-SO-2,Severe Thunderstorm Warning,South Central,Emergency Essentials,Post-Event,7.5,20.0,Open
+Severe-Thunderstorm-Warning-SO-3,Severe Thunderstorm Warning,South Central,Emergency Essentials,Pre-Event,4.4,10.0,Closed Early
+Severe-Thunderstorm-Warning-SO-3,Severe Thunderstorm Warning,South Central,Emergency Essentials,During-Event,11.0,-58.0,Closed Early
+Severe-Thunderstorm-Warning-SO-3,Severe Thunderstorm Warning,South Central,Emergency Essentials,Post-Event,5.5,22.0,Closed Early
+High-Wind-Warning-SO-1,High Wind Warning,South Central,Emergency Essentials,Pre-Event,8.0,13.0,Open
+High-Wind-Warning-SO-1,High Wind Warning,South Central,Emergency Essentials,During-Event,20.0,-37.0,Open
+High-Wind-Warning-SO-1,High Wind Warning,South Central,Emergency Essentials,Post-Event,10.0,16.0,Open
+High-Wind-Warning-SO-2,High Wind Warning,South Central,Emergency Essentials,Pre-Event,9.6,15.0,Open
+High-Wind-Warning-SO-2,High Wind Warning,South Central,Emergency Essentials,During-Event,24.0,-35.0,Open
+High-Wind-Warning-SO-2,High Wind Warning,South Central,Emergency Essentials,Post-Event,12.0,18.0,Open
+High-Wind-Warning-SO-3,High Wind Warning,South Central,Emergency Essentials,Pre-Event,7.6,17.0,Closed Early
+High-Wind-Warning-SO-3,High Wind Warning,South Central,Emergency Essentials,During-Event,19.0,-33.0,Closed Early
+High-Wind-Warning-SO-3,High Wind Warning,South Central,Emergency Essentials,Post-Event,9.5,20.0,Closed Early
+Wind-Advisory-SO-1,Wind Advisory,South Central,Emergency Essentials,Pre-Event,4.0,6.0,Open
+Wind-Advisory-SO-1,Wind Advisory,South Central,Emergency Essentials,During-Event,10.0,-14.0,Open
+Wind-Advisory-SO-1,Wind Advisory,South Central,Emergency Essentials,Post-Event,5.0,5.0,Open
+Wind-Advisory-SO-2,Wind Advisory,South Central,Emergency Essentials,Pre-Event,4.8,8.0,Open
+Wind-Advisory-SO-2,Wind Advisory,South Central,Emergency Essentials,During-Event,12.0,-12.0,Open
+Wind-Advisory-SO-2,Wind Advisory,South Central,Emergency Essentials,Post-Event,6.0,7.0,Open
+Wind-Advisory-SO-3,Wind Advisory,South Central,Emergency Essentials,Pre-Event,3.6,10.0,Open
+Wind-Advisory-SO-3,Wind Advisory,South Central,Emergency Essentials,During-Event,9.0,-10.0,Open
+Wind-Advisory-SO-3,Wind Advisory,South Central,Emergency Essentials,Post-Event,4.5,9.0,Open
+Extreme-Heat-Warning-SO-1,Extreme Heat Warning,South Central,Food / Consumables,Pre-Event,5.6,16.0,Open
+Extreme-Heat-Warning-SO-1,Extreme Heat Warning,South Central,Food / Consumables,During-Event,14.0,-14.0,Open
+Extreme-Heat-Warning-SO-1,Extreme Heat Warning,South Central,Food / Consumables,Post-Event,7.0,8.0,Open
+Extreme-Heat-Warning-SO-2,Extreme Heat Warning,South Central,Food / Consumables,Pre-Event,6.8,18.0,Open
+Extreme-Heat-Warning-SO-2,Extreme Heat Warning,South Central,Food / Consumables,During-Event,17.0,-12.0,Open
+Extreme-Heat-Warning-SO-2,Extreme Heat Warning,South Central,Food / Consumables,Post-Event,8.5,10.0,Open
+Extreme-Heat-Warning-SO-3,Extreme Heat Warning,South Central,Food / Consumables,Pre-Event,5.2,20.0,Open
+Extreme-Heat-Warning-SO-3,Extreme Heat Warning,South Central,Food / Consumables,During-Event,13.0,-10.0,Open
+Extreme-Heat-Warning-SO-3,Extreme Heat Warning,South Central,Food / Consumables,Post-Event,6.5,12.0,Open
+Heat-Advisory-SO-1,Heat Advisory,South Central,Food / Consumables,Pre-Event,3.2,8.0,Open
+Heat-Advisory-SO-1,Heat Advisory,South Central,Food / Consumables,During-Event,8.0,-8.0,Open
+Heat-Advisory-SO-1,Heat Advisory,South Central,Food / Consumables,Post-Event,4.0,4.0,Open
+Heat-Advisory-SO-2,Heat Advisory,South Central,Food / Consumables,Pre-Event,4.0,10.0,Open
+Heat-Advisory-SO-2,Heat Advisory,South Central,Food / Consumables,During-Event,10.0,-6.0,Open
+Heat-Advisory-SO-2,Heat Advisory,South Central,Food / Consumables,Post-Event,5.0,6.0,Open
+Heat-Advisory-SO-3,Heat Advisory,South Central,Food / Consumables,Pre-Event,2.8,12.0,Open
+Heat-Advisory-SO-3,Heat Advisory,South Central,Food / Consumables,During-Event,7.0,-4.0,Open
+Heat-Advisory-SO-3,Heat Advisory,South Central,Food / Consumables,Post-Event,3.5,8.0,Open
+Freeze-Warning-SO-1,Freeze Warning,South Central,Household,Pre-Event,4.4,10.0,Open
+Freeze-Warning-SO-1,Freeze Warning,South Central,Household,During-Event,11.0,-12.0,Open
+Freeze-Warning-SO-1,Freeze Warning,South Central,Household,Post-Event,5.5,6.0,Open
+Freeze-Warning-SO-2,Freeze Warning,South Central,Household,Pre-Event,5.2,12.0,Open
+Freeze-Warning-SO-2,Freeze Warning,South Central,Household,During-Event,13.0,-10.0,Open
+Freeze-Warning-SO-2,Freeze Warning,South Central,Household,Post-Event,6.5,8.0,Open
+Freeze-Warning-SO-3,Freeze Warning,South Central,Household,Pre-Event,4.0,14.0,Open
+Freeze-Warning-SO-3,Freeze Warning,South Central,Household,During-Event,10.0,-8.0,Open
+Freeze-Warning-SO-3,Freeze Warning,South Central,Household,Post-Event,5.0,10.0,Open
+Frost-Advisory-SO-1,Frost Advisory,South Central,Household,Pre-Event,2.4,4.0,Open
+Frost-Advisory-SO-1,Frost Advisory,South Central,Household,During-Event,6.0,-7.0,Open
+Frost-Advisory-SO-1,Frost Advisory,South Central,Household,Post-Event,3.0,2.0,Open
+Frost-Advisory-SO-2,Frost Advisory,South Central,Household,Pre-Event,2.8,6.0,Open
+Frost-Advisory-SO-2,Frost Advisory,South Central,Household,During-Event,7.0,-5.0,Open
+Frost-Advisory-SO-2,Frost Advisory,South Central,Household,Post-Event,3.5,4.0,Open
+Frost-Advisory-SO-3,Frost Advisory,South Central,Household,Pre-Event,2.0,8.0,Open
+Frost-Advisory-SO-3,Frost Advisory,South Central,Household,During-Event,5.0,-3.0,Open
+Frost-Advisory-SO-3,Frost Advisory,South Central,Household,Post-Event,2.5,6.0,Open
+Dense-Fog-Advisory-SO-1,Dense Fog Advisory,South Central,Household,Pre-Event,1.2,-7.0,Open
+Dense-Fog-Advisory-SO-1,Dense Fog Advisory,South Central,Household,During-Event,3.0,-17.0,Open
+Dense-Fog-Advisory-SO-1,Dense Fog Advisory,South Central,Household,Post-Event,1.5,3.0,Open
+Dense-Fog-Advisory-SO-2,Dense Fog Advisory,South Central,Household,Pre-Event,1.6,-5.0,Open
+Dense-Fog-Advisory-SO-2,Dense Fog Advisory,South Central,Household,During-Event,4.0,-15.0,Open
+Dense-Fog-Advisory-SO-2,Dense Fog Advisory,South Central,Household,Post-Event,2.0,5.0,Open
+Dense-Fog-Advisory-SO-3,Dense Fog Advisory,South Central,Household,Pre-Event,1.2,-3.0,Open
+Dense-Fog-Advisory-SO-3,Dense Fog Advisory,South Central,Household,During-Event,3.0,-13.0,Open
+Dense-Fog-Advisory-SO-3,Dense Fog Advisory,South Central,Household,Post-Event,1.5,7.0,Open
+Red-Flag-Warning-SO-1,Red Flag Warning,South Central,Household,Pre-Event,2.4,3.0,Open
+Red-Flag-Warning-SO-1,Red Flag Warning,South Central,Household,During-Event,6.0,-7.0,Open
+Red-Flag-Warning-SO-1,Red Flag Warning,South Central,Household,Post-Event,3.0,3.0,Open
+Red-Flag-Warning-SO-2,Red Flag Warning,South Central,Household,Pre-Event,3.2,5.0,Open
+Red-Flag-Warning-SO-2,Red Flag Warning,South Central,Household,During-Event,8.0,-5.0,Open
+Red-Flag-Warning-SO-2,Red Flag Warning,South Central,Household,Post-Event,4.0,5.0,Open
+Red-Flag-Warning-SO-3,Red Flag Warning,South Central,Household,Pre-Event,2.0,7.0,Open
+Red-Flag-Warning-SO-3,Red Flag Warning,South Central,Household,During-Event,5.0,-3.0,Open
+Red-Flag-Warning-SO-3,Red Flag Warning,South Central,Household,Post-Event,2.5,7.0,Open
+Hurricane-Warning-SO-1,Hurricane Warning,Southeast,Emergency Essentials,Pre-Event,23.2,68.0,Closed Early
+Hurricane-Warning-SO-1,Hurricane Warning,Southeast,Emergency Essentials,During-Event,58.0,-77.0,Closed Early
+Hurricane-Warning-SO-1,Hurricane Warning,Southeast,Emergency Essentials,Post-Event,29.0,43.0,Closed Early
+Hurricane-Warning-SO-2,Hurricane Warning,Southeast,Emergency Essentials,Pre-Event,26.0,70.0,Closed
+Hurricane-Warning-SO-2,Hurricane Warning,Southeast,Emergency Essentials,During-Event,65.0,-75.0,Closed
+Hurricane-Warning-SO-2,Hurricane Warning,Southeast,Emergency Essentials,Post-Event,32.5,45.0,Closed
+Hurricane-Warning-SO-3,Hurricane Warning,Southeast,Emergency Essentials,Pre-Event,22.0,72.0,Closed Early
+Hurricane-Warning-SO-3,Hurricane Warning,Southeast,Emergency Essentials,During-Event,55.0,-73.0,Closed Early
+Hurricane-Warning-SO-3,Hurricane Warning,Southeast,Emergency Essentials,Post-Event,27.5,47.0,Closed Early
+Tropical-Storm-Warning-SO-1,Tropical Storm Warning,Southeast,Emergency Essentials,Pre-Event,14.4,43.0,Open
+Tropical-Storm-Warning-SO-1,Tropical Storm Warning,Southeast,Emergency Essentials,During-Event,36.0,-57.0,Open
+Tropical-Storm-Warning-SO-1,Tropical Storm Warning,Southeast,Emergency Essentials,Post-Event,18.0,28.0,Open
+Tropical-Storm-Warning-SO-2,Tropical Storm Warning,Southeast,Emergency Essentials,Pre-Event,16.0,45.0,Closed Early
+Tropical-Storm-Warning-SO-2,Tropical Storm Warning,Southeast,Emergency Essentials,During-Event,40.0,-55.0,Closed Early
+Tropical-Storm-Warning-SO-2,Tropical Storm Warning,Southeast,Emergency Essentials,Post-Event,20.0,30.0,Closed Early
+Tropical-Storm-Warning-SO-3,Tropical Storm Warning,Southeast,Emergency Essentials,Pre-Event,13.2,47.0,Open
+Tropical-Storm-Warning-SO-3,Tropical Storm Warning,Southeast,Emergency Essentials,During-Event,33.0,-53.0,Open
+Tropical-Storm-Warning-SO-3,Tropical Storm Warning,Southeast,Emergency Essentials,Post-Event,16.5,32.0,Open
+Flood-Warning-SO-1,Flood Warning,Southeast,Emergency Essentials,Pre-Event,12.0,23.0,Open
+Flood-Warning-SO-1,Flood Warning,Southeast,Emergency Essentials,During-Event,30.0,-52.0,Open
+Flood-Warning-SO-1,Flood Warning,Southeast,Emergency Essentials,Post-Event,15.0,20.0,Open
+Flood-Warning-SO-2,Flood Warning,Southeast,Emergency Essentials,Pre-Event,10.8,25.0,Open
+Flood-Warning-SO-2,Flood Warning,Southeast,Emergency Essentials,During-Event,27.0,-50.0,Open
+Flood-Warning-SO-2,Flood Warning,Southeast,Emergency Essentials,Post-Event,13.5,22.0,Open
+Flood-Warning-SO-3,Flood Warning,Southeast,Emergency Essentials,Pre-Event,13.6,27.0,Closed Early
+Flood-Warning-SO-3,Flood Warning,Southeast,Emergency Essentials,During-Event,34.0,-48.0,Closed Early
+Flood-Warning-SO-3,Flood Warning,Southeast,Emergency Essentials,Post-Event,17.0,24.0,Closed Early
+Flood-Advisory-SO-1,Flood Advisory,Southeast,Emergency Essentials,Pre-Event,6.0,9.0,Open
+Flood-Advisory-SO-1,Flood Advisory,Southeast,Emergency Essentials,During-Event,15.0,-24.0,Open
+Flood-Advisory-SO-1,Flood Advisory,Southeast,Emergency Essentials,Post-Event,7.5,7.0,Open
+Flood-Advisory-SO-2,Flood Advisory,Southeast,Emergency Essentials,Pre-Event,6.8,11.0,Open
+Flood-Advisory-SO-2,Flood Advisory,Southeast,Emergency Essentials,During-Event,17.0,-22.0,Open
+Flood-Advisory-SO-2,Flood Advisory,Southeast,Emergency Essentials,Post-Event,8.5,9.0,Open
+Flood-Advisory-SO-3,Flood Advisory,Southeast,Emergency Essentials,Pre-Event,5.2,13.0,Open
+Flood-Advisory-SO-3,Flood Advisory,Southeast,Emergency Essentials,During-Event,13.0,-20.0,Open
+Flood-Advisory-SO-3,Flood Advisory,Southeast,Emergency Essentials,Post-Event,6.5,11.0,Open
+Flash-Flood-Warning-SO-1,Flash Flood Warning,Southeast,Emergency Essentials,Pre-Event,13.2,14.0,Open
+Flash-Flood-Warning-SO-1,Flash Flood Warning,Southeast,Emergency Essentials,During-Event,33.0,-60.0,Open
+Flash-Flood-Warning-SO-1,Flash Flood Warning,Southeast,Emergency Essentials,Post-Event,16.5,22.0,Open
+Flash-Flood-Warning-SO-2,Flash Flood Warning,Southeast,Emergency Essentials,Pre-Event,12.0,16.0,Closed Early
+Flash-Flood-Warning-SO-2,Flash Flood Warning,Southeast,Emergency Essentials,During-Event,30.0,-58.0,Closed Early
+Flash-Flood-Warning-SO-2,Flash Flood Warning,Southeast,Emergency Essentials,Post-Event,15.0,24.0,Closed Early
+Flash-Flood-Warning-SO-3,Flash Flood Warning,Southeast,Emergency Essentials,Pre-Event,14.4,18.0,Open
+Flash-Flood-Warning-SO-3,Flash Flood Warning,Southeast,Emergency Essentials,During-Event,36.0,-56.0,Open
+Flash-Flood-Warning-SO-3,Flash Flood Warning,Southeast,Emergency Essentials,Post-Event,18.0,26.0,Open
+Coastal-Flood-Warning-SO-1,Coastal Flood Warning,Southeast,Emergency Essentials,Pre-Event,9.6,16.0,Open
+Coastal-Flood-Warning-SO-1,Coastal Flood Warning,Southeast,Emergency Essentials,During-Event,24.0,-42.0,Open
+Coastal-Flood-Warning-SO-1,Coastal Flood Warning,Southeast,Emergency Essentials,Post-Event,12.0,18.0,Open
+Coastal-Flood-Warning-SO-2,Coastal Flood Warning,Southeast,Emergency Essentials,Pre-Event,10.4,18.0,Open
+Coastal-Flood-Warning-SO-2,Coastal Flood Warning,Southeast,Emergency Essentials,During-Event,26.0,-40.0,Open
+Coastal-Flood-Warning-SO-2,Coastal Flood Warning,Southeast,Emergency Essentials,Post-Event,13.0,20.0,Open
+Coastal-Flood-Warning-SO-3,Coastal Flood Warning,Southeast,Emergency Essentials,Pre-Event,8.8,20.0,Closed Early
+Coastal-Flood-Warning-SO-3,Coastal Flood Warning,Southeast,Emergency Essentials,During-Event,22.0,-38.0,Closed Early
+Coastal-Flood-Warning-SO-3,Coastal Flood Warning,Southeast,Emergency Essentials,Post-Event,11.0,22.0,Closed Early
+Tornado-Warning-SO-1,Tornado Warning,Southeast,Emergency Essentials,Pre-Event,7.6,8.0,Open
+Tornado-Warning-SO-1,Tornado Warning,Southeast,Emergency Essentials,During-Event,19.0,-82.0,Open
+Tornado-Warning-SO-1,Tornado Warning,Southeast,Emergency Essentials,Post-Event,9.5,13.0,Open
+Tornado-Warning-SO-2,Tornado Warning,Southeast,Emergency Essentials,Pre-Event,9.6,10.0,Closed Early
+Tornado-Warning-SO-2,Tornado Warning,Southeast,Emergency Essentials,During-Event,24.0,-80.0,Closed Early
+Tornado-Warning-SO-2,Tornado Warning,Southeast,Emergency Essentials,Post-Event,12.0,15.0,Closed Early
+Tornado-Warning-SO-3,Tornado Warning,Southeast,Emergency Essentials,Pre-Event,8.4,12.0,Open
+Tornado-Warning-SO-3,Tornado Warning,Southeast,Emergency Essentials,During-Event,21.0,-78.0,Open
+Tornado-Warning-SO-3,Tornado Warning,Southeast,Emergency Essentials,Post-Event,10.5,17.0,Open
+Severe-Thunderstorm-Warning-SO-1,Severe Thunderstorm Warning,Southeast,Emergency Essentials,Pre-Event,5.2,7.0,Open
+Severe-Thunderstorm-Warning-SO-1,Severe Thunderstorm Warning,Southeast,Emergency Essentials,During-Event,13.0,-62.0,Open
+Severe-Thunderstorm-Warning-SO-1,Severe Thunderstorm Warning,Southeast,Emergency Essentials,Post-Event,6.5,18.0,Open
+Severe-Thunderstorm-Warning-SO-2,Severe Thunderstorm Warning,Southeast,Emergency Essentials,Pre-Event,6.4,9.0,Open
+Severe-Thunderstorm-Warning-SO-2,Severe Thunderstorm Warning,Southeast,Emergency Essentials,During-Event,16.0,-60.0,Open
+Severe-Thunderstorm-Warning-SO-2,Severe Thunderstorm Warning,Southeast,Emergency Essentials,Post-Event,8.0,20.0,Open
+Severe-Thunderstorm-Warning-SO-3,Severe Thunderstorm Warning,Southeast,Emergency Essentials,Pre-Event,4.8,11.0,Closed Early
+Severe-Thunderstorm-Warning-SO-3,Severe Thunderstorm Warning,Southeast,Emergency Essentials,During-Event,12.0,-58.0,Closed Early
+Severe-Thunderstorm-Warning-SO-3,Severe Thunderstorm Warning,Southeast,Emergency Essentials,Post-Event,6.0,22.0,Closed Early
+High-Wind-Warning-SO-1,High Wind Warning,Southeast,Emergency Essentials,Pre-Event,7.6,12.0,Open
+High-Wind-Warning-SO-1,High Wind Warning,Southeast,Emergency Essentials,During-Event,19.0,-37.0,Open
+High-Wind-Warning-SO-1,High Wind Warning,Southeast,Emergency Essentials,Post-Event,9.5,15.0,Open
+High-Wind-Warning-SO-2,High Wind Warning,Southeast,Emergency Essentials,Pre-Event,9.2,14.0,Open
+High-Wind-Warning-SO-2,High Wind Warning,Southeast,Emergency Essentials,During-Event,23.0,-35.0,Open
+High-Wind-Warning-SO-2,High Wind Warning,Southeast,Emergency Essentials,Post-Event,11.5,17.0,Open
+High-Wind-Warning-SO-3,High Wind Warning,Southeast,Emergency Essentials,Pre-Event,7.2,16.0,Closed Early
+High-Wind-Warning-SO-3,High Wind Warning,Southeast,Emergency Essentials,During-Event,18.0,-33.0,Closed Early
+High-Wind-Warning-SO-3,High Wind Warning,Southeast,Emergency Essentials,Post-Event,9.0,19.0,Closed Early
+Wind-Advisory-SO-1,Wind Advisory,Southeast,Emergency Essentials,Pre-Event,3.6,5.0,Open
+Wind-Advisory-SO-1,Wind Advisory,Southeast,Emergency Essentials,During-Event,9.0,-13.0,Open
+Wind-Advisory-SO-1,Wind Advisory,Southeast,Emergency Essentials,Post-Event,4.5,4.0,Open
+Wind-Advisory-SO-2,Wind Advisory,Southeast,Emergency Essentials,Pre-Event,4.4,7.0,Open
+Wind-Advisory-SO-2,Wind Advisory,Southeast,Emergency Essentials,During-Event,11.0,-11.0,Open
+Wind-Advisory-SO-2,Wind Advisory,Southeast,Emergency Essentials,Post-Event,5.5,6.0,Open
+Wind-Advisory-SO-3,Wind Advisory,Southeast,Emergency Essentials,Pre-Event,3.2,9.0,Open
+Wind-Advisory-SO-3,Wind Advisory,Southeast,Emergency Essentials,During-Event,8.0,-9.0,Open
+Wind-Advisory-SO-3,Wind Advisory,Southeast,Emergency Essentials,Post-Event,4.0,8.0,Open
+Frost-Advisory-SO-1,Frost Advisory,Southeast,Household,Pre-Event,2.0,3.0,Open
+Frost-Advisory-SO-1,Frost Advisory,Southeast,Household,During-Event,5.0,-6.0,Open
+Frost-Advisory-SO-1,Frost Advisory,Southeast,Household,Post-Event,2.5,2.0,Open
+Frost-Advisory-SO-2,Frost Advisory,Southeast,Household,Pre-Event,2.4,5.0,Open
+Frost-Advisory-SO-2,Frost Advisory,Southeast,Household,During-Event,6.0,-4.0,Open
+Frost-Advisory-SO-2,Frost Advisory,Southeast,Household,Post-Event,3.0,4.0,Open
+Frost-Advisory-SO-3,Frost Advisory,Southeast,Household,Pre-Event,1.6,7.0,Open
+Frost-Advisory-SO-3,Frost Advisory,Southeast,Household,During-Event,4.0,-2.0,Open
+Frost-Advisory-SO-3,Frost Advisory,Southeast,Household,Post-Event,2.0,6.0,Open
+Dense-Fog-Advisory-SO-1,Dense Fog Advisory,Southeast,Household,Pre-Event,1.2,-6.0,Open
+Dense-Fog-Advisory-SO-1,Dense Fog Advisory,Southeast,Household,During-Event,3.0,-16.0,Open
+Dense-Fog-Advisory-SO-1,Dense Fog Advisory,Southeast,Household,Post-Event,1.5,3.0,Open
+Dense-Fog-Advisory-SO-2,Dense Fog Advisory,Southeast,Household,Pre-Event,1.6,-4.0,Open
+Dense-Fog-Advisory-SO-2,Dense Fog Advisory,Southeast,Household,During-Event,4.0,-14.0,Open
+Dense-Fog-Advisory-SO-2,Dense Fog Advisory,Southeast,Household,Post-Event,2.0,5.0,Open
+Dense-Fog-Advisory-SO-3,Dense Fog Advisory,Southeast,Household,Pre-Event,1.2,-2.0,Open
+Dense-Fog-Advisory-SO-3,Dense Fog Advisory,Southeast,Household,During-Event,3.0,-12.0,Open
+Dense-Fog-Advisory-SO-3,Dense Fog Advisory,Southeast,Household,Post-Event,1.5,7.0,Open
+Extreme-Heat-Warning-SO-1,Extreme Heat Warning,Southeast,Food / Consumables,Pre-Event,6.4,18.0,Open
+Extreme-Heat-Warning-SO-1,Extreme Heat Warning,Southeast,Food / Consumables,During-Event,16.0,-17.0,Open
+Extreme-Heat-Warning-SO-1,Extreme Heat Warning,Southeast,Food / Consumables,Post-Event,8.0,8.0,Open
+Extreme-Heat-Warning-SO-2,Extreme Heat Warning,Southeast,Food / Consumables,Pre-Event,7.6,20.0,Open
+Extreme-Heat-Warning-SO-2,Extreme Heat Warning,Southeast,Food / Consumables,During-Event,19.0,-15.0,Open
+Extreme-Heat-Warning-SO-2,Extreme Heat Warning,Southeast,Food / Consumables,Post-Event,9.5,10.0,Open
+Extreme-Heat-Warning-SO-3,Extreme Heat Warning,Southeast,Food / Consumables,Pre-Event,6.0,22.0,Open
+Extreme-Heat-Warning-SO-3,Extreme Heat Warning,Southeast,Food / Consumables,During-Event,15.0,-13.0,Open
+Extreme-Heat-Warning-SO-3,Extreme Heat Warning,Southeast,Food / Consumables,Post-Event,7.5,12.0,Open
+Heat-Advisory-SO-1,Heat Advisory,Southeast,Food / Consumables,Pre-Event,3.6,9.0,Open
+Heat-Advisory-SO-1,Heat Advisory,Southeast,Food / Consumables,During-Event,9.0,-9.0,Open
+Heat-Advisory-SO-1,Heat Advisory,Southeast,Food / Consumables,Post-Event,4.5,4.0,Open
+Heat-Advisory-SO-2,Heat Advisory,Southeast,Food / Consumables,Pre-Event,4.4,11.0,Open
+Heat-Advisory-SO-2,Heat Advisory,Southeast,Food / Consumables,During-Event,11.0,-7.0,Open
+Heat-Advisory-SO-2,Heat Advisory,Southeast,Food / Consumables,Post-Event,5.5,6.0,Open
+Heat-Advisory-SO-3,Heat Advisory,Southeast,Food / Consumables,Pre-Event,3.2,13.0,Open
+Heat-Advisory-SO-3,Heat Advisory,Southeast,Food / Consumables,During-Event,8.0,-5.0,Open
+Heat-Advisory-SO-3,Heat Advisory,Southeast,Food / Consumables,Post-Event,4.0,8.0,Open
+Freeze-Warning-SO-1,Freeze Warning,Southeast,Household,Pre-Event,4.0,9.0,Open
+Freeze-Warning-SO-1,Freeze Warning,Southeast,Household,During-Event,10.0,-11.0,Open
+Freeze-Warning-SO-1,Freeze Warning,Southeast,Household,Post-Event,5.0,5.0,Open
+Freeze-Warning-SO-2,Freeze Warning,Southeast,Household,Pre-Event,4.8,11.0,Open
+Freeze-Warning-SO-2,Freeze Warning,Southeast,Household,During-Event,12.0,-9.0,Open
+Freeze-Warning-SO-2,Freeze Warning,Southeast,Household,Post-Event,6.0,7.0,Open
+Freeze-Warning-SO-3,Freeze Warning,Southeast,Household,Pre-Event,3.6,13.0,Open
+Freeze-Warning-SO-3,Freeze Warning,Southeast,Household,During-Event,9.0,-7.0,Open
+Freeze-Warning-SO-3,Freeze Warning,Southeast,Household,Post-Event,4.5,9.0,Open
+Flash-Flood-Watch-SO-1,Flash Flood Watch,South Central,Emergency Essentials,Pre-Event,7.7,7.3,Open
+Flash-Flood-Watch-SO-1,Flash Flood Watch,South Central,Emergency Essentials,During-Event,19.2,-36.1,Open
+Flash-Flood-Watch-SO-1,Flash Flood Watch,South Central,Emergency Essentials,Post-Event,9.6,13.5,Open
+Flash-Flood-Watch-SO-2,Flash Flood Watch,South Central,Emergency Essentials,Pre-Event,10.2,9.3,Open
+Flash-Flood-Watch-SO-2,Flash Flood Watch,South Central,Emergency Essentials,During-Event,25.4,-34.1,Open
+Flash-Flood-Watch-SO-2,Flash Flood Watch,South Central,Emergency Essentials,Post-Event,12.7,15.5,Open
+Flash-Flood-Watch-SO-3,Flash Flood Watch,South Central,Emergency Essentials,Pre-Event,6.7,11.3,Open
+Flash-Flood-Watch-SO-3,Flash Flood Watch,South Central,Emergency Essentials,During-Event,16.7,-32.1,Open
+Flash-Flood-Watch-SO-3,Flash Flood Watch,South Central,Emergency Essentials,Post-Event,8.3,17.5,Open
+Tornado-Watch-SO-1,Tornado Watch,South Central,Emergency Essentials,Pre-Event,4.3,4.2,Open
+Tornado-Watch-SO-1,Tornado Watch,South Central,Emergency Essentials,During-Event,10.8,-51.6,Open
+Tornado-Watch-SO-1,Tornado Watch,South Central,Emergency Essentials,Post-Event,5.4,7.3,Open
+Tornado-Watch-SO-2,Tornado Watch,South Central,Emergency Essentials,Pre-Event,5.9,6.2,Open
+Tornado-Watch-SO-2,Tornado Watch,South Central,Emergency Essentials,During-Event,14.7,-49.6,Open
+Tornado-Watch-SO-2,Tornado Watch,South Central,Emergency Essentials,Post-Event,7.3,9.3,Open
+Tornado-Watch-SO-3,Tornado Watch,South Central,Emergency Essentials,Pre-Event,4.5,8.2,Open
+Tornado-Watch-SO-3,Tornado Watch,South Central,Emergency Essentials,During-Event,11.2,-47.6,Open
+Tornado-Watch-SO-3,Tornado Watch,South Central,Emergency Essentials,Post-Event,5.6,11.3,Open
+Severe-Thunderstorm-Watch-SO-1,Severe Thunderstorm Watch,South Central,Emergency Essentials,Pre-Event,2.9,3.0,Open
+Severe-Thunderstorm-Watch-SO-1,Severe Thunderstorm Watch,South Central,Emergency Essentials,During-Event,7.2,-39.2,Open
+Severe-Thunderstorm-Watch-SO-1,Severe Thunderstorm Watch,South Central,Emergency Essentials,Post-Event,3.6,10.4,Open
+Severe-Thunderstorm-Watch-SO-2,Severe Thunderstorm Watch,South Central,Emergency Essentials,Pre-Event,4.0,5.0,Open
+Severe-Thunderstorm-Watch-SO-2,Severe Thunderstorm Watch,South Central,Emergency Essentials,During-Event,10.0,-37.2,Open
+Severe-Thunderstorm-Watch-SO-2,Severe Thunderstorm Watch,South Central,Emergency Essentials,Post-Event,5.0,12.4,Open
+Severe-Thunderstorm-Watch-SO-3,Severe Thunderstorm Watch,South Central,Emergency Essentials,Pre-Event,2.4,7.0,Open
+Severe-Thunderstorm-Watch-SO-3,Severe Thunderstorm Watch,South Central,Emergency Essentials,During-Event,6.1,-35.2,Open
+Severe-Thunderstorm-Watch-SO-3,Severe Thunderstorm Watch,South Central,Emergency Essentials,Post-Event,3.0,14.4,Open
+High-Wind-Watch-SO-1,High Wind Watch,South Central,Emergency Essentials,Pre-Event,4.8,7.3,Open
+High-Wind-Watch-SO-1,High Wind Watch,South Central,Emergency Essentials,During-Event,12.0,-23.7,Open
+High-Wind-Watch-SO-1,High Wind Watch,South Central,Emergency Essentials,Post-Event,6.0,9.2,Open
+High-Wind-Watch-SO-2,High Wind Watch,South Central,Emergency Essentials,Pre-Event,6.4,9.3,Open
+High-Wind-Watch-SO-2,High Wind Watch,South Central,Emergency Essentials,During-Event,16.1,-21.7,Open
+High-Wind-Watch-SO-2,High Wind Watch,South Central,Emergency Essentials,Post-Event,8.1,11.2,Open
+High-Wind-Watch-SO-3,High Wind Watch,South Central,Emergency Essentials,Pre-Event,4.2,11.3,Open
+High-Wind-Watch-SO-3,High Wind Watch,South Central,Emergency Essentials,During-Event,10.6,-19.7,Open
+High-Wind-Watch-SO-3,High Wind Watch,South Central,Emergency Essentials,Post-Event,5.3,13.2,Open
+Flood-Watch-SO-1,Flood Watch,South Central,Emergency Essentials,Pre-Event,6.7,13.5,Open
+Flood-Watch-SO-1,Flood Watch,South Central,Emergency Essentials,During-Event,16.8,-29.9,Open
+Flood-Watch-SO-1,Flood Watch,South Central,Emergency Essentials,Post-Event,8.4,10.4,Open
+Flood-Watch-SO-2,Flood Watch,South Central,Emergency Essentials,Pre-Event,8.8,15.5,Open
+Flood-Watch-SO-2,Flood Watch,South Central,Emergency Essentials,During-Event,22.1,-27.9,Open
+Flood-Watch-SO-2,Flood Watch,South Central,Emergency Essentials,Post-Event,11.1,12.4,Open
+Flood-Watch-SO-3,Flood Watch,South Central,Emergency Essentials,Pre-Event,5.6,17.5,Open
+Flood-Watch-SO-3,Flood Watch,South Central,Emergency Essentials,During-Event,14.0,-25.9,Open
+Flood-Watch-SO-3,Flood Watch,South Central,Emergency Essentials,Post-Event,7.0,14.4,Open
+Extreme-Heat-Watch-SO-1,Extreme Heat Watch,South Central,Food / Consumables,Pre-Event,3.4,9.2,Open
+Extreme-Heat-Watch-SO-1,Extreme Heat Watch,South Central,Food / Consumables,During-Event,8.4,-9.4,Open
+Extreme-Heat-Watch-SO-1,Extreme Heat Watch,South Central,Food / Consumables,Post-Event,4.2,4.2,Open
+Extreme-Heat-Watch-SO-2,Extreme Heat Watch,South Central,Food / Consumables,Pre-Event,4.6,11.2,Open
+Extreme-Heat-Watch-SO-2,Extreme Heat Watch,South Central,Food / Consumables,During-Event,11.4,-7.4,Open
+Extreme-Heat-Watch-SO-2,Extreme Heat Watch,South Central,Food / Consumables,Post-Event,5.7,6.2,Open
+Extreme-Heat-Watch-SO-3,Extreme Heat Watch,South Central,Food / Consumables,Pre-Event,2.9,13.2,Open
+Extreme-Heat-Watch-SO-3,Extreme Heat Watch,South Central,Food / Consumables,During-Event,7.3,-5.4,Open
+Extreme-Heat-Watch-SO-3,Extreme Heat Watch,South Central,Food / Consumables,Post-Event,3.6,8.2,Open
+Freeze-Watch-SO-1,Freeze Watch,South Central,Household,Pre-Event,2.6,5.4,Open
+Freeze-Watch-SO-1,Freeze Watch,South Central,Household,During-Event,6.6,-8.2,Open
+Freeze-Watch-SO-1,Freeze Watch,South Central,Household,Post-Event,3.3,3.0,Open
+Freeze-Watch-SO-2,Freeze Watch,South Central,Household,Pre-Event,3.5,7.4,Open
+Freeze-Watch-SO-2,Freeze Watch,South Central,Household,During-Event,8.7,-6.2,Open
+Freeze-Watch-SO-2,Freeze Watch,South Central,Household,Post-Event,4.3,5.0,Open
+Freeze-Watch-SO-3,Freeze Watch,South Central,Household,Pre-Event,2.2,9.4,Open
+Freeze-Watch-SO-3,Freeze Watch,South Central,Household,During-Event,5.6,-4.2,Open
+Freeze-Watch-SO-3,Freeze Watch,South Central,Household,Post-Event,2.8,7.0,Open
+Fire-Weather-Watch-SO-1,Fire Weather Watch,South Central,Household,Pre-Event,1.4,1.1,Open
+Fire-Weather-Watch-SO-1,Fire Weather Watch,South Central,Household,During-Event,3.6,-5.1,Open
+Fire-Weather-Watch-SO-1,Fire Weather Watch,South Central,Household,Post-Event,1.8,1.1,Open
+Fire-Weather-Watch-SO-2,Fire Weather Watch,South Central,Household,Pre-Event,2.2,3.1,Open
+Fire-Weather-Watch-SO-2,Fire Weather Watch,South Central,Household,During-Event,5.4,-3.1,Open
+Fire-Weather-Watch-SO-2,Fire Weather Watch,South Central,Household,Post-Event,2.7,3.1,Open
+Fire-Weather-Watch-SO-3,Fire Weather Watch,South Central,Household,Pre-Event,1.1,5.1,Open
+Fire-Weather-Watch-SO-3,Fire Weather Watch,South Central,Household,During-Event,2.8,-1.1,Open
+Fire-Weather-Watch-SO-3,Fire Weather Watch,South Central,Household,Post-Event,1.4,5.1,Open
+Dust-Storm-Warning-SO-1,Dust Storm Warning,South Central,Emergency Essentials,Pre-Event,7.8,13.0,Open
+Dust-Storm-Warning-SO-1,Dust Storm Warning,South Central,Emergency Essentials,During-Event,19.4,-37.0,Open
+Dust-Storm-Warning-SO-1,Dust Storm Warning,South Central,Emergency Essentials,Post-Event,9.7,16.0,Open
+Dust-Storm-Warning-SO-2,Dust Storm Warning,South Central,Emergency Essentials,Pre-Event,10.4,15.0,Open
+Dust-Storm-Warning-SO-2,Dust Storm Warning,South Central,Emergency Essentials,During-Event,25.9,-35.0,Open
+Dust-Storm-Warning-SO-2,Dust Storm Warning,South Central,Emergency Essentials,Post-Event,12.9,18.0,Open
+Dust-Storm-Warning-SO-3,Dust Storm Warning,South Central,Emergency Essentials,Pre-Event,6.8,17.0,Closed Early
+Dust-Storm-Warning-SO-3,Dust Storm Warning,South Central,Emergency Essentials,During-Event,17.1,-33.0,Closed Early
+Dust-Storm-Warning-SO-3,Dust Storm Warning,South Central,Emergency Essentials,Post-Event,8.6,20.0,Closed Early
+Blowing-Dust-Advisory-SO-1,Blowing Dust Advisory,South Central,Household,Pre-Event,3.5,4.8,Open
+Blowing-Dust-Advisory-SO-1,Blowing Dust Advisory,South Central,Household,During-Event,8.7,-17.8,Open
+Blowing-Dust-Advisory-SO-1,Blowing Dust Advisory,South Central,Household,Post-Event,4.3,6.1,Open
+Blowing-Dust-Advisory-SO-2,Blowing Dust Advisory,South Central,Household,Pre-Event,4.7,6.8,Open
+Blowing-Dust-Advisory-SO-2,Blowing Dust Advisory,South Central,Household,During-Event,11.7,-15.8,Open
+Blowing-Dust-Advisory-SO-2,Blowing Dust Advisory,South Central,Household,Post-Event,5.8,8.1,Open
+Blowing-Dust-Advisory-SO-3,Blowing Dust Advisory,South Central,Household,Pre-Event,3.1,8.8,Open
+Blowing-Dust-Advisory-SO-3,Blowing Dust Advisory,South Central,Household,During-Event,7.7,-13.8,Open
+Blowing-Dust-Advisory-SO-3,Blowing Dust Advisory,South Central,Household,Post-Event,3.9,10.1,Open
+Hazardous-Weather-Outlook-SO-1,Hazardous Weather Outlook,South Central,Household,Pre-Event,0.6,-0.8,Open
+Hazardous-Weather-Outlook-SO-1,Hazardous Weather Outlook,South Central,Household,During-Event,1.5,-3.8,Open
+Hazardous-Weather-Outlook-SO-1,Hazardous Weather Outlook,South Central,Household,Post-Event,0.8,-0.9,Open
+Hazardous-Weather-Outlook-SO-2,Hazardous Weather Outlook,South Central,Household,Pre-Event,0.8,1.2,Open
+Hazardous-Weather-Outlook-SO-2,Hazardous Weather Outlook,South Central,Household,During-Event,1.9,-1.8,Open
+Hazardous-Weather-Outlook-SO-2,Hazardous Weather Outlook,South Central,Household,Post-Event,0.9,1.1,Open
+Hazardous-Weather-Outlook-SO-3,Hazardous Weather Outlook,South Central,Household,Pre-Event,0.5,3.2,Open
+Hazardous-Weather-Outlook-SO-3,Hazardous Weather Outlook,South Central,Household,During-Event,1.2,0.2,Open
+Hazardous-Weather-Outlook-SO-3,Hazardous Weather Outlook,South Central,Household,Post-Event,0.6,3.1,Open
+Special-Weather-Statement-SO-1,Special Weather Statement,South Central,Household,Pre-Event,0.6,-0.8,Open
+Special-Weather-Statement-SO-1,Special Weather Statement,South Central,Household,During-Event,1.5,-3.8,Open
+Special-Weather-Statement-SO-1,Special Weather Statement,South Central,Household,Post-Event,0.8,-0.9,Open
+Special-Weather-Statement-SO-2,Special Weather Statement,South Central,Household,Pre-Event,0.8,1.2,Open
+Special-Weather-Statement-SO-2,Special Weather Statement,South Central,Household,During-Event,1.9,-1.8,Open
+Special-Weather-Statement-SO-2,Special Weather Statement,South Central,Household,Post-Event,0.9,1.1,Open
+Special-Weather-Statement-SO-3,Special Weather Statement,South Central,Household,Pre-Event,0.5,3.2,Open
+Special-Weather-Statement-SO-3,Special Weather Statement,South Central,Household,During-Event,1.2,0.2,Open
+Special-Weather-Statement-SO-3,Special Weather Statement,South Central,Household,Post-Event,0.6,3.1,Open
+Ice-Storm-Warning-SO-1,Ice Storm Warning,South Central,Emergency Essentials,Pre-Event,16.3,58.0,Open
+Ice-Storm-Warning-SO-1,Ice Storm Warning,South Central,Emergency Essentials,During-Event,40.7,-72.0,Open
+Ice-Storm-Warning-SO-1,Ice Storm Warning,South Central,Emergency Essentials,Post-Event,20.4,38.0,Open
+Ice-Storm-Warning-SO-2,Ice Storm Warning,South Central,Emergency Essentials,Pre-Event,20.7,60.0,Closed Early
+Ice-Storm-Warning-SO-2,Ice Storm Warning,South Central,Emergency Essentials,During-Event,51.8,-70.0,Closed Early
+Ice-Storm-Warning-SO-2,Ice Storm Warning,South Central,Emergency Essentials,Post-Event,25.9,40.0,Closed Early
+Ice-Storm-Warning-SO-3,Ice Storm Warning,South Central,Emergency Essentials,Pre-Event,14.0,62.0,Open
+Ice-Storm-Warning-SO-3,Ice Storm Warning,South Central,Emergency Essentials,During-Event,35.1,-68.0,Open
+Ice-Storm-Warning-SO-3,Ice Storm Warning,South Central,Emergency Essentials,Post-Event,17.6,42.0,Open
+Wind-Chill-Warning-SO-1,Wind Chill Warning,South Central,Emergency Essentials,Pre-Event,16.3,58.0,Open
+Wind-Chill-Warning-SO-1,Wind Chill Warning,South Central,Emergency Essentials,During-Event,40.7,-72.0,Open
+Wind-Chill-Warning-SO-1,Wind Chill Warning,South Central,Emergency Essentials,Post-Event,20.4,38.0,Open
+Wind-Chill-Warning-SO-2,Wind Chill Warning,South Central,Emergency Essentials,Pre-Event,20.7,60.0,Open
+Wind-Chill-Warning-SO-2,Wind Chill Warning,South Central,Emergency Essentials,During-Event,51.8,-70.0,Open
+Wind-Chill-Warning-SO-2,Wind Chill Warning,South Central,Emergency Essentials,Post-Event,25.9,40.0,Open
+Wind-Chill-Warning-SO-3,Wind Chill Warning,South Central,Emergency Essentials,Pre-Event,14.0,62.0,Open
+Wind-Chill-Warning-SO-3,Wind Chill Warning,South Central,Emergency Essentials,During-Event,35.1,-68.0,Open
+Wind-Chill-Warning-SO-3,Wind Chill Warning,South Central,Emergency Essentials,Post-Event,17.6,42.0,Open
+Wind-Chill-Advisory-SO-1,Wind Chill Advisory,South Central,Household,Pre-Event,4.2,11.5,Open
+Wind-Chill-Advisory-SO-1,Wind Chill Advisory,South Central,Household,During-Event,10.5,-15.5,Open
+Wind-Chill-Advisory-SO-1,Wind Chill Advisory,South Central,Household,Post-Event,5.2,4.8,Open
+Wind-Chill-Advisory-SO-2,Wind Chill Advisory,South Central,Household,Pre-Event,5.2,13.5,Open
+Wind-Chill-Advisory-SO-2,Wind Chill Advisory,South Central,Household,During-Event,13.1,-13.5,Open
+Wind-Chill-Advisory-SO-2,Wind Chill Advisory,South Central,Household,Post-Event,6.5,6.8,Open
+Wind-Chill-Advisory-SO-3,Wind Chill Advisory,South Central,Household,Pre-Event,3.6,15.5,Open
+Wind-Chill-Advisory-SO-3,Wind Chill Advisory,South Central,Household,During-Event,8.9,-11.5,Open
+Wind-Chill-Advisory-SO-3,Wind Chill Advisory,South Central,Household,Post-Event,4.5,8.8,Open
+Freezing-Rain-Advisory-SO-1,Freezing Rain Advisory,South Central,Household,Pre-Event,4.2,11.5,Open
+Freezing-Rain-Advisory-SO-1,Freezing Rain Advisory,South Central,Household,During-Event,10.5,-15.5,Open
+Freezing-Rain-Advisory-SO-1,Freezing Rain Advisory,South Central,Household,Post-Event,5.2,4.8,Open
+Freezing-Rain-Advisory-SO-2,Freezing Rain Advisory,South Central,Household,Pre-Event,5.2,13.5,Open
+Freezing-Rain-Advisory-SO-2,Freezing Rain Advisory,South Central,Household,During-Event,13.1,-13.5,Open
+Freezing-Rain-Advisory-SO-2,Freezing Rain Advisory,South Central,Household,Post-Event,6.5,6.8,Open
+Freezing-Rain-Advisory-SO-3,Freezing Rain Advisory,South Central,Household,Pre-Event,3.6,15.5,Open
+Freezing-Rain-Advisory-SO-3,Freezing Rain Advisory,South Central,Household,During-Event,8.9,-11.5,Open
+Freezing-Rain-Advisory-SO-3,Freezing Rain Advisory,South Central,Household,Post-Event,4.5,8.8,Open
+Freezing-Fog-Advisory-SO-1,Freezing Fog Advisory,South Central,Household,Pre-Event,0.5,-4.2,Open
+Freezing-Fog-Advisory-SO-1,Freezing Fog Advisory,South Central,Household,During-Event,1.3,-8.8,Open
+Freezing-Fog-Advisory-SO-1,Freezing Fog Advisory,South Central,Household,Post-Event,0.7,0.2,Open
+Freezing-Fog-Advisory-SO-2,Freezing Fog Advisory,South Central,Household,Pre-Event,0.8,-2.2,Open
+Freezing-Fog-Advisory-SO-2,Freezing Fog Advisory,South Central,Household,During-Event,1.9,-6.8,Open
+Freezing-Fog-Advisory-SO-2,Freezing Fog Advisory,South Central,Household,Post-Event,0.9,2.2,Open
+Freezing-Fog-Advisory-SO-3,Freezing Fog Advisory,South Central,Household,Pre-Event,0.5,-0.2,Open
+Freezing-Fog-Advisory-SO-3,Freezing Fog Advisory,South Central,Household,During-Event,1.2,-4.8,Open
+Freezing-Fog-Advisory-SO-3,Freezing Fog Advisory,South Central,Household,Post-Event,0.6,4.2,Open
+Hard-Freeze-Warning-SO-1,Hard Freeze Warning,South Central,Household,Pre-Event,4.3,10.0,Open
+Hard-Freeze-Warning-SO-1,Hard Freeze Warning,South Central,Household,During-Event,10.7,-12.0,Open
+Hard-Freeze-Warning-SO-1,Hard Freeze Warning,South Central,Household,Post-Event,5.3,6.0,Open
+Hard-Freeze-Warning-SO-2,Hard Freeze Warning,South Central,Household,Pre-Event,5.6,12.0,Open
+Hard-Freeze-Warning-SO-2,Hard Freeze Warning,South Central,Household,During-Event,14.0,-10.0,Open
+Hard-Freeze-Warning-SO-2,Hard Freeze Warning,South Central,Household,Post-Event,7.0,8.0,Open
+Hard-Freeze-Warning-SO-3,Hard Freeze Warning,South Central,Household,Pre-Event,3.6,14.0,Open
+Hard-Freeze-Warning-SO-3,Hard Freeze Warning,South Central,Household,During-Event,9.0,-8.0,Open
+Hard-Freeze-Warning-SO-3,Hard Freeze Warning,South Central,Household,Post-Event,4.5,10.0,Open
+Hard-Freeze-Watch-SO-1,Hard Freeze Watch,South Central,Household,Pre-Event,2.6,5.4,Open
+Hard-Freeze-Watch-SO-1,Hard Freeze Watch,South Central,Household,During-Event,6.6,-8.2,Open
+Hard-Freeze-Watch-SO-1,Hard Freeze Watch,South Central,Household,Post-Event,3.3,3.0,Open
+Hard-Freeze-Watch-SO-2,Hard Freeze Watch,South Central,Household,Pre-Event,3.5,7.4,Open
+Hard-Freeze-Watch-SO-2,Hard Freeze Watch,South Central,Household,During-Event,8.7,-6.2,Open
+Hard-Freeze-Watch-SO-2,Hard Freeze Watch,South Central,Household,Post-Event,4.3,5.0,Open
+Hard-Freeze-Watch-SO-3,Hard Freeze Watch,South Central,Household,Pre-Event,2.2,9.4,Open
+Hard-Freeze-Watch-SO-3,Hard Freeze Watch,South Central,Household,During-Event,5.6,-4.2,Open
+Hard-Freeze-Watch-SO-3,Hard Freeze Watch,South Central,Household,Post-Event,2.8,7.0,Open
+Air-Quality-Alert-SO-1,Air Quality Alert,South Central,Household,Pre-Event,0.6,-0.8,Open
+Air-Quality-Alert-SO-1,Air Quality Alert,South Central,Household,During-Event,1.5,-3.8,Open
+Air-Quality-Alert-SO-1,Air Quality Alert,South Central,Household,Post-Event,0.8,-0.9,Open
+Air-Quality-Alert-SO-2,Air Quality Alert,South Central,Household,Pre-Event,0.8,1.2,Open
+Air-Quality-Alert-SO-2,Air Quality Alert,South Central,Household,During-Event,1.9,-1.8,Open
+Air-Quality-Alert-SO-2,Air Quality Alert,South Central,Household,Post-Event,0.9,1.1,Open
+Air-Quality-Alert-SO-3,Air Quality Alert,South Central,Household,Pre-Event,0.5,3.2,Open
+Air-Quality-Alert-SO-3,Air Quality Alert,South Central,Household,During-Event,1.2,0.2,Open
+Air-Quality-Alert-SO-3,Air Quality Alert,South Central,Household,Post-Event,0.6,3.1,Open
+Flash-Flood-Watch-SO-1,Flash Flood Watch,Southeast,Emergency Essentials,Pre-Event,7.9,7.9,Open
+Flash-Flood-Watch-SO-1,Flash Flood Watch,Southeast,Emergency Essentials,During-Event,19.8,-38.0,Open
+Flash-Flood-Watch-SO-1,Flash Flood Watch,Southeast,Emergency Essentials,Post-Event,9.9,12.9,Open
+Flash-Flood-Watch-SO-2,Flash Flood Watch,Southeast,Emergency Essentials,Pre-Event,8.0,9.9,Open
+Flash-Flood-Watch-SO-2,Flash Flood Watch,Southeast,Emergency Essentials,During-Event,20.1,-36.0,Open
+Flash-Flood-Watch-SO-2,Flash Flood Watch,Southeast,Emergency Essentials,Post-Event,10.1,14.9,Open
+Flash-Flood-Watch-SO-3,Flash Flood Watch,Southeast,Emergency Essentials,Pre-Event,8.0,11.9,Open
+Flash-Flood-Watch-SO-3,Flash Flood Watch,Southeast,Emergency Essentials,During-Event,20.1,-34.0,Open
+Flash-Flood-Watch-SO-3,Flash Flood Watch,Southeast,Emergency Essentials,Post-Event,10.1,16.9,Open
+Tornado-Watch-SO-1,Tornado Watch,Southeast,Emergency Essentials,Pre-Event,4.6,4.2,Open
+Tornado-Watch-SO-1,Tornado Watch,Southeast,Emergency Essentials,During-Event,11.4,-51.6,Open
+Tornado-Watch-SO-1,Tornado Watch,Southeast,Emergency Essentials,Post-Event,5.7,7.3,Open
+Tornado-Watch-SO-2,Tornado Watch,Southeast,Emergency Essentials,Pre-Event,6.4,6.2,Open
+Tornado-Watch-SO-2,Tornado Watch,Southeast,Emergency Essentials,During-Event,16.1,-49.6,Open
+Tornado-Watch-SO-2,Tornado Watch,Southeast,Emergency Essentials,Post-Event,8.1,9.3,Open
+Tornado-Watch-SO-3,Tornado Watch,Southeast,Emergency Essentials,Pre-Event,4.7,8.2,Open
+Tornado-Watch-SO-3,Tornado Watch,Southeast,Emergency Essentials,During-Event,11.7,-47.6,Open
+Tornado-Watch-SO-3,Tornado Watch,Southeast,Emergency Essentials,Post-Event,5.8,11.3,Open
+Severe-Thunderstorm-Watch-SO-1,Severe Thunderstorm Watch,Southeast,Emergency Essentials,Pre-Event,3.1,3.6,Open
+Severe-Thunderstorm-Watch-SO-1,Severe Thunderstorm Watch,Southeast,Emergency Essentials,During-Event,7.8,-39.2,Open
+Severe-Thunderstorm-Watch-SO-1,Severe Thunderstorm Watch,Southeast,Emergency Essentials,Post-Event,3.9,10.4,Open
+Severe-Thunderstorm-Watch-SO-2,Severe Thunderstorm Watch,Southeast,Emergency Essentials,Pre-Event,4.3,5.6,Open
+Severe-Thunderstorm-Watch-SO-2,Severe Thunderstorm Watch,Southeast,Emergency Essentials,During-Event,10.7,-37.2,Open
+Severe-Thunderstorm-Watch-SO-2,Severe Thunderstorm Watch,Southeast,Emergency Essentials,Post-Event,5.3,12.4,Open
+Severe-Thunderstorm-Watch-SO-3,Severe Thunderstorm Watch,Southeast,Emergency Essentials,Pre-Event,2.7,7.6,Open
+Severe-Thunderstorm-Watch-SO-3,Severe Thunderstorm Watch,Southeast,Emergency Essentials,During-Event,6.7,-35.2,Open
+Severe-Thunderstorm-Watch-SO-3,Severe Thunderstorm Watch,Southeast,Emergency Essentials,Post-Event,3.4,14.4,Open
+High-Wind-Watch-SO-1,High Wind Watch,Southeast,Emergency Essentials,Pre-Event,4.6,6.7,Open
+High-Wind-Watch-SO-1,High Wind Watch,Southeast,Emergency Essentials,During-Event,11.4,-23.7,Open
+High-Wind-Watch-SO-1,High Wind Watch,Southeast,Emergency Essentials,Post-Event,5.7,8.5,Open
+High-Wind-Watch-SO-2,High Wind Watch,Southeast,Emergency Essentials,Pre-Event,6.2,8.7,Open
+High-Wind-Watch-SO-2,High Wind Watch,Southeast,Emergency Essentials,During-Event,15.4,-21.7,Open
+High-Wind-Watch-SO-2,High Wind Watch,Southeast,Emergency Essentials,Post-Event,7.7,10.5,Open
+High-Wind-Watch-SO-3,High Wind Watch,Southeast,Emergency Essentials,Pre-Event,4.0,10.7,Open
+High-Wind-Watch-SO-3,High Wind Watch,Southeast,Emergency Essentials,During-Event,10.0,-19.7,Open
+High-Wind-Watch-SO-3,High Wind Watch,Southeast,Emergency Essentials,Post-Event,5.0,12.5,Open
+Flood-Watch-SO-1,Flood Watch,Southeast,Emergency Essentials,Pre-Event,7.2,13.5,Open
+Flood-Watch-SO-1,Flood Watch,Southeast,Emergency Essentials,During-Event,18.0,-33.0,Open
+Flood-Watch-SO-1,Flood Watch,Southeast,Emergency Essentials,Post-Event,9.0,11.6,Open
+Flood-Watch-SO-2,Flood Watch,Southeast,Emergency Essentials,Pre-Event,7.2,15.5,Open
+Flood-Watch-SO-2,Flood Watch,Southeast,Emergency Essentials,During-Event,18.1,-31.0,Open
+Flood-Watch-SO-2,Flood Watch,Southeast,Emergency Essentials,Post-Event,9.1,13.6,Open
+Flood-Watch-SO-3,Flood Watch,Southeast,Emergency Essentials,Pre-Event,7.6,17.5,Open
+Flood-Watch-SO-3,Flood Watch,Southeast,Emergency Essentials,During-Event,19.0,-29.0,Open
+Flood-Watch-SO-3,Flood Watch,Southeast,Emergency Essentials,Post-Event,9.5,15.6,Open
+Coastal-Flood-Advisory-SO-1,Coastal Flood Advisory,Southeast,Emergency Essentials,Pre-Event,4.2,6.1,Open
+Coastal-Flood-Advisory-SO-1,Coastal Flood Advisory,Southeast,Emergency Essentials,During-Event,10.5,-20.0,Open
+Coastal-Flood-Advisory-SO-1,Coastal Flood Advisory,Southeast,Emergency Essentials,Post-Event,5.2,7.0,Open
+Coastal-Flood-Advisory-SO-2,Coastal Flood Advisory,Southeast,Emergency Essentials,Pre-Event,5.0,8.1,Open
+Coastal-Flood-Advisory-SO-2,Coastal Flood Advisory,Southeast,Emergency Essentials,During-Event,12.6,-18.0,Open
+Coastal-Flood-Advisory-SO-2,Coastal Flood Advisory,Southeast,Emergency Essentials,Post-Event,6.3,9.0,Open
+Coastal-Flood-Advisory-SO-3,Coastal Flood Advisory,Southeast,Emergency Essentials,Pre-Event,3.6,10.1,Open
+Coastal-Flood-Advisory-SO-3,Coastal Flood Advisory,Southeast,Emergency Essentials,During-Event,8.9,-16.0,Open
+Coastal-Flood-Advisory-SO-3,Coastal Flood Advisory,Southeast,Emergency Essentials,Post-Event,4.5,11.0,Open
+Coastal-Flood-Watch-SO-1,Coastal Flood Watch,Southeast,Emergency Essentials,Pre-Event,5.8,9.2,Open
+Coastal-Flood-Watch-SO-1,Coastal Flood Watch,Southeast,Emergency Essentials,During-Event,14.4,-26.8,Open
+Coastal-Flood-Watch-SO-1,Coastal Flood Watch,Southeast,Emergency Essentials,Post-Event,7.2,10.4,Open
+Coastal-Flood-Watch-SO-2,Coastal Flood Watch,Southeast,Emergency Essentials,Pre-Event,7.0,11.2,Open
+Coastal-Flood-Watch-SO-2,Coastal Flood Watch,Southeast,Emergency Essentials,During-Event,17.4,-24.8,Open
+Coastal-Flood-Watch-SO-2,Coastal Flood Watch,Southeast,Emergency Essentials,Post-Event,8.7,12.4,Open
+Coastal-Flood-Watch-SO-3,Coastal Flood Watch,Southeast,Emergency Essentials,Pre-Event,4.9,13.2,Open
+Coastal-Flood-Watch-SO-3,Coastal Flood Watch,Southeast,Emergency Essentials,During-Event,12.3,-22.8,Open
+Coastal-Flood-Watch-SO-3,Coastal Flood Watch,Southeast,Emergency Essentials,Post-Event,6.2,14.4,Open
+Hurricane-Watch-SO-1,Hurricane Watch,Southeast,Emergency Essentials,Pre-Event,14.0,41.4,Open
+Hurricane-Watch-SO-1,Hurricane Watch,Southeast,Emergency Essentials,During-Event,34.9,-48.5,Open
+Hurricane-Watch-SO-1,Hurricane Watch,Southeast,Emergency Essentials,Post-Event,17.4,25.9,Open
+Hurricane-Watch-SO-2,Hurricane Watch,Southeast,Emergency Essentials,Pre-Event,17.4,43.4,Open
+Hurricane-Watch-SO-2,Hurricane Watch,Southeast,Emergency Essentials,During-Event,43.5,-46.5,Open
+Hurricane-Watch-SO-2,Hurricane Watch,Southeast,Emergency Essentials,Post-Event,21.8,27.9,Open
+Hurricane-Watch-SO-3,Hurricane Watch,Southeast,Emergency Essentials,Pre-Event,12.3,45.4,Open
+Hurricane-Watch-SO-3,Hurricane Watch,Southeast,Emergency Essentials,During-Event,30.7,-44.5,Open
+Hurricane-Watch-SO-3,Hurricane Watch,Southeast,Emergency Essentials,Post-Event,15.3,29.9,Open
+Tropical-Storm-Watch-SO-1,Tropical Storm Watch,Southeast,Emergency Essentials,Pre-Event,8.7,25.9,Open
+Tropical-Storm-Watch-SO-1,Tropical Storm Watch,Southeast,Emergency Essentials,During-Event,21.7,-36.1,Open
+Tropical-Storm-Watch-SO-1,Tropical Storm Watch,Southeast,Emergency Essentials,Post-Event,10.8,16.6,Open
+Tropical-Storm-Watch-SO-2,Tropical Storm Watch,Southeast,Emergency Essentials,Pre-Event,10.7,27.9,Open
+Tropical-Storm-Watch-SO-2,Tropical Storm Watch,Southeast,Emergency Essentials,During-Event,26.8,-34.1,Open
+Tropical-Storm-Watch-SO-2,Tropical Storm Watch,Southeast,Emergency Essentials,Post-Event,13.4,18.6,Open
+Tropical-Storm-Watch-SO-3,Tropical Storm Watch,Southeast,Emergency Essentials,Pre-Event,7.4,29.9,Open
+Tropical-Storm-Watch-SO-3,Tropical Storm Watch,Southeast,Emergency Essentials,During-Event,18.4,-32.1,Open
+Tropical-Storm-Watch-SO-3,Tropical Storm Watch,Southeast,Emergency Essentials,Post-Event,9.2,20.6,Open
+Extreme-Heat-Watch-SO-1,Extreme Heat Watch,Southeast,Food / Consumables,Pre-Event,3.8,10.4,Open
+Extreme-Heat-Watch-SO-1,Extreme Heat Watch,Southeast,Food / Consumables,During-Event,9.6,-11.3,Open
+Extreme-Heat-Watch-SO-1,Extreme Heat Watch,Southeast,Food / Consumables,Post-Event,4.8,4.2,Open
+Extreme-Heat-Watch-SO-2,Extreme Heat Watch,Southeast,Food / Consumables,Pre-Event,5.1,12.4,Open
+Extreme-Heat-Watch-SO-2,Extreme Heat Watch,Southeast,Food / Consumables,During-Event,12.7,-9.3,Open
+Extreme-Heat-Watch-SO-2,Extreme Heat Watch,Southeast,Food / Consumables,Post-Event,6.3,6.2,Open
+Extreme-Heat-Watch-SO-3,Extreme Heat Watch,Southeast,Food / Consumables,Pre-Event,3.4,14.4,Open
+Extreme-Heat-Watch-SO-3,Extreme Heat Watch,Southeast,Food / Consumables,During-Event,8.4,-7.3,Open
+Extreme-Heat-Watch-SO-3,Extreme Heat Watch,Southeast,Food / Consumables,Post-Event,4.2,8.2,Open
+Freeze-Watch-SO-1,Freeze Watch,Southeast,Household,Pre-Event,2.4,4.8,Open
+Freeze-Watch-SO-1,Freeze Watch,Southeast,Household,During-Event,6.0,-7.6,Open
+Freeze-Watch-SO-1,Freeze Watch,Southeast,Household,Post-Event,3.0,2.3,Open
+Freeze-Watch-SO-2,Freeze Watch,Southeast,Household,Pre-Event,3.2,6.8,Open
+Freeze-Watch-SO-2,Freeze Watch,Southeast,Household,During-Event,8.0,-5.6,Open
+Freeze-Watch-SO-2,Freeze Watch,Southeast,Household,Post-Event,4.0,4.3,Open
+Freeze-Watch-SO-3,Freeze Watch,Southeast,Household,Pre-Event,2.0,8.8,Open
+Freeze-Watch-SO-3,Freeze Watch,Southeast,Household,During-Event,5.0,-3.6,Open
+Freeze-Watch-SO-3,Freeze Watch,Southeast,Household,Post-Event,2.5,6.3,Open
+Rip-Current-Statement-SO-1,Rip Current Statement,Southeast,Household,Pre-Event,0.5,-0.9,Open
+Rip-Current-Statement-SO-1,Rip Current Statement,Southeast,Household,During-Event,1.3,-3.6,Open
+Rip-Current-Statement-SO-1,Rip Current Statement,Southeast,Household,Post-Event,0.7,-1.1,Open
+Rip-Current-Statement-SO-2,Rip Current Statement,Southeast,Household,Pre-Event,0.7,1.1,Open
+Rip-Current-Statement-SO-2,Rip Current Statement,Southeast,Household,During-Event,1.8,-1.6,Open
+Rip-Current-Statement-SO-2,Rip Current Statement,Southeast,Household,Post-Event,0.9,0.9,Open
+Rip-Current-Statement-SO-3,Rip Current Statement,Southeast,Household,Pre-Event,0.4,3.1,Open
+Rip-Current-Statement-SO-3,Rip Current Statement,Southeast,Household,During-Event,1.1,0.4,Open
+Rip-Current-Statement-SO-3,Rip Current Statement,Southeast,Household,Post-Event,0.6,2.9,Open
+Small-Craft-Advisory-SO-1,Small Craft Advisory,Southeast,Household,Pre-Event,1.6,1.1,Open
+Small-Craft-Advisory-SO-1,Small Craft Advisory,Southeast,Household,During-Event,3.9,-7.0,Open
+Small-Craft-Advisory-SO-1,Small Craft Advisory,Southeast,Household,Post-Event,1.9,0.7,Open
+Small-Craft-Advisory-SO-2,Small Craft Advisory,Southeast,Household,Pre-Event,2.1,3.1,Open
+Small-Craft-Advisory-SO-2,Small Craft Advisory,Southeast,Household,During-Event,5.3,-5.0,Open
+Small-Craft-Advisory-SO-2,Small Craft Advisory,Southeast,Household,Post-Event,2.6,2.7,Open
+Small-Craft-Advisory-SO-3,Small Craft Advisory,Southeast,Household,Pre-Event,1.3,5.1,Open
+Small-Craft-Advisory-SO-3,Small Craft Advisory,Southeast,Household,During-Event,3.2,-3.0,Open
+Small-Craft-Advisory-SO-3,Small Craft Advisory,Southeast,Household,Post-Event,1.6,4.7,Open
+Hazardous-Weather-Outlook-SO-1,Hazardous Weather Outlook,Southeast,Household,Pre-Event,0.5,-0.9,Open
+Hazardous-Weather-Outlook-SO-1,Hazardous Weather Outlook,Southeast,Household,During-Event,1.3,-3.6,Open
+Hazardous-Weather-Outlook-SO-1,Hazardous Weather Outlook,Southeast,Household,Post-Event,0.7,-1.1,Open
+Hazardous-Weather-Outlook-SO-2,Hazardous Weather Outlook,Southeast,Household,Pre-Event,0.7,1.1,Open
+Hazardous-Weather-Outlook-SO-2,Hazardous Weather Outlook,Southeast,Household,During-Event,1.8,-1.6,Open
+Hazardous-Weather-Outlook-SO-2,Hazardous Weather Outlook,Southeast,Household,Post-Event,0.9,0.9,Open
+Hazardous-Weather-Outlook-SO-3,Hazardous Weather Outlook,Southeast,Household,Pre-Event,0.4,3.1,Open
+Hazardous-Weather-Outlook-SO-3,Hazardous Weather Outlook,Southeast,Household,During-Event,1.1,0.4,Open
+Hazardous-Weather-Outlook-SO-3,Hazardous Weather Outlook,Southeast,Household,Post-Event,0.6,2.9,Open
+Special-Weather-Statement-SO-1,Special Weather Statement,Southeast,Household,Pre-Event,0.5,-0.9,Open
+Special-Weather-Statement-SO-1,Special Weather Statement,Southeast,Household,During-Event,1.3,-3.6,Open
+Special-Weather-Statement-SO-1,Special Weather Statement,Southeast,Household,Post-Event,0.7,-1.1,Open
+Special-Weather-Statement-SO-2,Special Weather Statement,Southeast,Household,Pre-Event,0.7,1.1,Open
+Special-Weather-Statement-SO-2,Special Weather Statement,Southeast,Household,During-Event,1.8,-1.6,Open
+Special-Weather-Statement-SO-2,Special Weather Statement,Southeast,Household,Post-Event,0.9,0.9,Open
+Special-Weather-Statement-SO-3,Special Weather Statement,Southeast,Household,Pre-Event,0.4,3.1,Open
+Special-Weather-Statement-SO-3,Special Weather Statement,Southeast,Household,During-Event,1.1,0.4,Open
+Special-Weather-Statement-SO-3,Special Weather Statement,Southeast,Household,Post-Event,0.6,2.9,Open
+Storm-Surge-Warning-SO-1,Storm Surge Warning,Southeast,Emergency Essentials,Pre-Event,22.5,68.0,Closed Early
+Storm-Surge-Warning-SO-1,Storm Surge Warning,Southeast,Emergency Essentials,During-Event,56.3,-77.0,Closed Early
+Storm-Surge-Warning-SO-1,Storm Surge Warning,Southeast,Emergency Essentials,Post-Event,28.1,43.0,Closed Early
+Storm-Surge-Warning-SO-2,Storm Surge Warning,Southeast,Emergency Essentials,Pre-Event,28.1,70.0,Closed
+Storm-Surge-Warning-SO-2,Storm Surge Warning,Southeast,Emergency Essentials,During-Event,70.2,-75.0,Closed
+Storm-Surge-Warning-SO-2,Storm Surge Warning,Southeast,Emergency Essentials,Post-Event,35.1,45.0,Closed
+Storm-Surge-Warning-SO-3,Storm Surge Warning,Southeast,Emergency Essentials,Pre-Event,19.8,72.0,Closed Early
+Storm-Surge-Warning-SO-3,Storm Surge Warning,Southeast,Emergency Essentials,During-Event,49.5,-73.0,Closed Early
+Storm-Surge-Warning-SO-3,Storm Surge Warning,Southeast,Emergency Essentials,Post-Event,24.8,47.0,Closed Early
+Storm-Surge-Watch-SO-1,Storm Surge Watch,Southeast,Emergency Essentials,Pre-Event,14.0,41.4,Open
+Storm-Surge-Watch-SO-1,Storm Surge Watch,Southeast,Emergency Essentials,During-Event,34.9,-48.5,Open
+Storm-Surge-Watch-SO-1,Storm Surge Watch,Southeast,Emergency Essentials,Post-Event,17.4,25.9,Open
+Storm-Surge-Watch-SO-2,Storm Surge Watch,Southeast,Emergency Essentials,Pre-Event,17.4,43.4,Open
+Storm-Surge-Watch-SO-2,Storm Surge Watch,Southeast,Emergency Essentials,During-Event,43.5,-46.5,Open
+Storm-Surge-Watch-SO-2,Storm Surge Watch,Southeast,Emergency Essentials,Post-Event,21.8,27.9,Open
+Storm-Surge-Watch-SO-3,Storm Surge Watch,Southeast,Emergency Essentials,Pre-Event,12.3,45.4,Open
+Storm-Surge-Watch-SO-3,Storm Surge Watch,Southeast,Emergency Essentials,During-Event,30.7,-44.5,Open
+Storm-Surge-Watch-SO-3,Storm Surge Watch,Southeast,Emergency Essentials,Post-Event,15.3,29.9,Open
+Gale-Warning-SO-1,Gale Warning,Southeast,Household,Pre-Event,7.4,12.0,Open
+Gale-Warning-SO-1,Gale Warning,Southeast,Household,During-Event,18.4,-37.0,Open
+Gale-Warning-SO-1,Gale Warning,Southeast,Household,Post-Event,9.2,15.0,Open
+Gale-Warning-SO-2,Gale Warning,Southeast,Household,Pre-Event,9.9,14.0,Open
+Gale-Warning-SO-2,Gale Warning,Southeast,Household,During-Event,24.8,-35.0,Open
+Gale-Warning-SO-2,Gale Warning,Southeast,Household,Post-Event,12.4,17.0,Open
+Gale-Warning-SO-3,Gale Warning,Southeast,Household,Pre-Event,6.5,16.0,Open
+Gale-Warning-SO-3,Gale Warning,Southeast,Household,During-Event,16.2,-33.0,Open
+Gale-Warning-SO-3,Gale Warning,Southeast,Household,Post-Event,8.1,19.0,Open
+Air-Quality-Alert-SO-1,Air Quality Alert,Southeast,Household,Pre-Event,0.5,-0.9,Open
+Air-Quality-Alert-SO-1,Air Quality Alert,Southeast,Household,During-Event,1.3,-3.6,Open
+Air-Quality-Alert-SO-1,Air Quality Alert,Southeast,Household,Post-Event,0.7,-1.1,Open
+Air-Quality-Alert-SO-2,Air Quality Alert,Southeast,Household,Pre-Event,0.7,1.1,Open
+Air-Quality-Alert-SO-2,Air Quality Alert,Southeast,Household,During-Event,1.8,-1.6,Open
+Air-Quality-Alert-SO-2,Air Quality Alert,Southeast,Household,Post-Event,0.9,0.9,Open
+Air-Quality-Alert-SO-3,Air Quality Alert,Southeast,Household,Pre-Event,0.4,3.1,Open
+Air-Quality-Alert-SO-3,Air Quality Alert,Southeast,Household,During-Event,1.1,0.4,Open
+Air-Quality-Alert-SO-3,Air Quality Alert,Southeast,Household,Post-Event,0.6,2.9,Open
+Beach-Hazards-Statement-SO-1,Beach Hazards Statement,Southeast,Household,Pre-Event,0.5,-0.9,Open
+Beach-Hazards-Statement-SO-1,Beach Hazards Statement,Southeast,Household,During-Event,1.3,-3.6,Open
+Beach-Hazards-Statement-SO-1,Beach Hazards Statement,Southeast,Household,Post-Event,0.7,-1.1,Open
+Beach-Hazards-Statement-SO-2,Beach Hazards Statement,Southeast,Household,Pre-Event,0.7,1.1,Open
+Beach-Hazards-Statement-SO-2,Beach Hazards Statement,Southeast,Household,During-Event,1.8,-1.6,Open
+Beach-Hazards-Statement-SO-2,Beach Hazards Statement,Southeast,Household,Post-Event,0.9,0.9,Open
+Beach-Hazards-Statement-SO-3,Beach Hazards Statement,Southeast,Household,Pre-Event,0.4,3.1,Open
+Beach-Hazards-Statement-SO-3,Beach Hazards Statement,Southeast,Household,During-Event,1.1,0.4,Open
+Beach-Hazards-Statement-SO-3,Beach Hazards Statement,Southeast,Household,Post-Event,0.6,2.9,Open

@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_version": "recall_v1",
+  "generation_method": "Deterministic: original v1 rows plus generic fictional grocery items (generate_recall_fixtures.py)",
+  "owner": "Market Intelligence POC team",
+  "provenance": "synthetic",
+  "files": {
+    "products.csv": {
+      "rows": 133,
+      "sha256": "e1c080bc866ee08cbf265de7fb50cb9d3ca00006e26c3824ee33143a17f93610"
+    },
+    "suppliers.csv": {
+      "rows": 20,
+      "sha256": "f1b6dc03915503b2e2f706cad6f0b5cc3b42035c24be91c4250452f4f5cf2eba"
+    },
+    "lots.csv": {
+      "rows": 84,
+      "sha256": "c2915fde023b669d359f3e141742ff28d0d77d79b14768f826c1f4430e912125"
+    },
+    "store_inventory.csv": {
+      "rows": 1660,
+      "sha256": "2dd2a5c00aab0c49e75668c1282b733d98515344d76c3f3ed94c3a810070cff8"
+    },
+    "dc_inventory.csv": {
+      "rows": 532,
+      "sha256": "5356283746fc42201ba7092b9118f14243ea6315f024bfddaa43a213b9781abe"
+    },
+    "sales_summary.csv": {
+      "rows": 1044,
+      "sha256": "981f9a04311e313378bd8e4cb4b0a3adf2b4f4531e639b70a9da134a1d641f5d"
+    },
+    "customer_purchases.csv": {
+      "rows": 2600,
+      "sha256": "6f1f37d0e1461be5f845c3de79cb03ec11fd0ef5b9c050c3d21d3cae59116389"
+    },
+    "substitutes.csv": {
+      "rows": 8,
+      "sha256": "94c4601859d5450c58af3f34db2153e53682e0fbc1d09edd3acea4c5da8fb0bd"
+    }
+  }
+}

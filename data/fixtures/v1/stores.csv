@@ -1,0 +1,17 @@
+﻿Store ID,Store Name,State,County,FIPS,Region,Nearby DC ID,Latitude,Longitude,Operating Status
+101,"Store 101 - Dallas, TX",TX,Dallas County,48113,South Central,DC-TX1,32.7767,-96.797,Open
+102,"Store 102 - Fort Worth, TX",TX,Tarrant County,48439,South Central,DC-TX1,32.7555,-97.3308,Open
+103,"Store 103 - Houston, TX",TX,Harris County,48201,South Central,DC-TX1,29.7604,-95.3698,Open
+104,"Store 104 - Arlington, TX",TX,Tarrant County,48439,South Central,DC-TX1,32.7357,-97.1081,Open
+105,"Store 105 - Plano, TX",TX,Collin County,48085,South Central,DC-TX1,33.0198,-96.6989,Open
+106,"Store 106 - Austin, TX",TX,Travis County,48453,South Central,DC-TX1,30.2672,-97.7431,Open
+107,"Store 107 - San Antonio, TX",TX,Bexar County,48029,South Central,DC-TX1,29.4241,-98.4936,Open
+108,"Store 108 - El Paso, TX",TX,El Paso County,48141,South Central,DC-TX1,31.7619,-106.485,Closed
+201,"Store 201 - Atlanta, GA",GA,Fulton County,13121,Southeast,DC-GA1,33.749,-84.388,Open
+202,"Store 202 - Decatur, GA",GA,DeKalb County,13089,Southeast,DC-GA1,33.7748,-84.2963,Open
+203,"Store 203 - Marietta, GA",GA,Cobb County,13067,Southeast,DC-GA1,33.9526,-84.5499,Open
+204,"Store 204 - Savannah, GA",GA,Chatham County,13051,Southeast,DC-GA1,32.0809,-81.0912,Open
+205,"Store 205 - Augusta, GA",GA,Richmond County,13245,Southeast,DC-GA1,33.4735,-82.0105,Open
+206,"Store 206 - Macon, GA",GA,Bibb County,13021,Southeast,DC-GA1,32.8407,-83.6324,Open
+207,"Store 207 - Columbus, GA",GA,Muscogee County,13215,Southeast,DC-GA1,32.461,-84.9877,Open
+208,"Store 208 - Athens, GA",GA,Clarke County,13059,Southeast,DC-GA1,33.9519,-83.3576,Open

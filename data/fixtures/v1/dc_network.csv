@@ -1,0 +1,5 @@
+DC ID,DC Name,State,County,Region,Backup DC ID
+DC-TX1,Dallas Regional DC,TX,Dallas County,South Central,DC-TX2
+DC-TX2,Texas Alternate DC,TX,Tarrant County,South Central,DC-TX1
+DC-GA1,Atlanta Regional DC,GA,Fulton County,Southeast,DC-GA2
+DC-GA2,Southeast Alternate DC,GA,Bibb County,Southeast,DC-GA1

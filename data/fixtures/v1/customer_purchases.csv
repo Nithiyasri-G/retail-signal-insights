@@ -1,0 +1,1025 @@
+Store ID,Product,Lot ID,Customer Token,Units,Exposure Type
+101,First Aid Kit,LOT-0027-A,CUST-TOK-34761,8,Loyalty-linked
+101,First Aid Kit,LOT-0027-A,CUST-TOK-29994,8,Loyalty-linked
+101,First Aid Kit,LOT-0027-A,CUST-TOK-03336,8,Loyalty-linked
+101,First Aid Kit,LOT-0027-A,ANONYMOUS,47,Anonymous (no loyalty link)
+101,First Aid Kit,LOT-0027-B,CUST-TOK-66191,14,Loyalty-linked
+101,First Aid Kit,LOT-0027-B,CUST-TOK-40745,14,Loyalty-linked
+101,First Aid Kit,LOT-0027-B,CUST-TOK-08940,15,Loyalty-linked
+101,First Aid Kit,LOT-0027-B,ANONYMOUS,81,Anonymous (no loyalty link)
+101,Peanut Butter,LOT-5162-A,CUST-TOK-28634,10,Loyalty-linked
+101,Peanut Butter,LOT-5162-A,CUST-TOK-09257,10,Loyalty-linked
+101,Peanut Butter,LOT-5162-A,CUST-TOK-08998,11,Loyalty-linked
+101,Peanut Butter,LOT-5162-A,ANONYMOUS,58,Anonymous (no loyalty link)
+101,Peanut Butter,LOT-5162-B,CUST-TOK-00328,14,Loyalty-linked
+101,Peanut Butter,LOT-5162-B,CUST-TOK-76956,14,Loyalty-linked
+101,Peanut Butter,LOT-5162-B,CUST-TOK-19444,15,Loyalty-linked
+101,Peanut Butter,LOT-5162-B,ANONYMOUS,80,Anonymous (no loyalty link)
+101,Granola Bars,LOT-5867-A,CUST-TOK-69354,22,Loyalty-linked
+101,Granola Bars,LOT-5867-A,CUST-TOK-43056,22,Loyalty-linked
+101,Granola Bars,LOT-5867-A,CUST-TOK-42678,23,Loyalty-linked
+101,Granola Bars,LOT-5867-A,ANONYMOUS,127,Anonymous (no loyalty link)
+101,Granola Bars,LOT-5867-B,CUST-TOK-32412,5,Loyalty-linked
+101,Granola Bars,LOT-5867-B,CUST-TOK-91881,6,Loyalty-linked
+101,Granola Bars,LOT-5867-B,CUST-TOK-96744,6,Loyalty-linked
+101,Granola Bars,LOT-5867-B,ANONYMOUS,34,Anonymous (no loyalty link)
+101,Canned Soup,LOT-2516-A,CUST-TOK-96936,11,Loyalty-linked
+101,Canned Soup,LOT-2516-A,CUST-TOK-78267,11,Loyalty-linked
+101,Canned Soup,LOT-2516-A,CUST-TOK-74804,11,Loyalty-linked
+101,Canned Soup,LOT-2516-A,ANONYMOUS,63,Anonymous (no loyalty link)
+101,Canned Soup,LOT-2516-B,CUST-TOK-76593,16,Loyalty-linked
+101,Canned Soup,LOT-2516-B,CUST-TOK-11769,17,Loyalty-linked
+101,Canned Soup,LOT-2516-B,CUST-TOK-44818,17,Loyalty-linked
+101,Canned Soup,LOT-2516-B,ANONYMOUS,94,Anonymous (no loyalty link)
+101,Bread,LOT-2104-A,CUST-TOK-63837,15,Loyalty-linked
+101,Bread,LOT-2104-A,CUST-TOK-74583,15,Loyalty-linked
+101,Bread,LOT-2104-A,CUST-TOK-44177,15,Loyalty-linked
+101,Bread,LOT-2104-A,ANONYMOUS,86,Anonymous (no loyalty link)
+101,Bread,LOT-2104-B,CUST-TOK-69115,15,Loyalty-linked
+101,Bread,LOT-2104-B,CUST-TOK-02284,15,Loyalty-linked
+101,Bread,LOT-2104-B,CUST-TOK-62168,16,Loyalty-linked
+101,Bread,LOT-2104-B,ANONYMOUS,88,Anonymous (no loyalty link)
+101,Baby Formula,LOT-1218-A,CUST-TOK-97278,5,Loyalty-linked
+101,Baby Formula,LOT-1218-A,CUST-TOK-06079,5,Loyalty-linked
+101,Baby Formula,LOT-1218-A,CUST-TOK-44691,6,Loyalty-linked
+101,Baby Formula,LOT-1218-A,ANONYMOUS,30,Anonymous (no loyalty link)
+101,Baby Formula,LOT-1218-B,CUST-TOK-47340,11,Loyalty-linked
+101,Baby Formula,LOT-1218-B,CUST-TOK-43100,12,Loyalty-linked
+101,Baby Formula,LOT-1218-B,CUST-TOK-17759,12,Loyalty-linked
+101,Baby Formula,LOT-1218-B,ANONYMOUS,66,Anonymous (no loyalty link)
+101,Hand Sanitizer,LOT-0013-A,CUST-TOK-23422,4,Loyalty-linked
+101,Hand Sanitizer,LOT-0013-A,CUST-TOK-11952,5,Loyalty-linked
+101,Hand Sanitizer,LOT-0013-A,CUST-TOK-99413,5,Loyalty-linked
+101,Hand Sanitizer,LOT-0013-A,ANONYMOUS,28,Anonymous (no loyalty link)
+101,Hand Sanitizer,LOT-0013-B,CUST-TOK-26868,10,Loyalty-linked
+101,Hand Sanitizer,LOT-0013-B,CUST-TOK-52907,10,Loyalty-linked
+101,Hand Sanitizer,LOT-0013-B,CUST-TOK-89832,10,Loyalty-linked
+101,Hand Sanitizer,LOT-0013-B,ANONYMOUS,56,Anonymous (no loyalty link)
+101,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-49497,3,Loyalty-linked
+101,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-75881,3,Loyalty-linked
+101,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-42780,3,Loyalty-linked
+101,LPG Cylinder 20lb,LOT-7895-A,ANONYMOUS,17,Anonymous (no loyalty link)
+101,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-82119,5,Loyalty-linked
+101,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-57518,5,Loyalty-linked
+101,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-19931,5,Loyalty-linked
+101,LPG Cylinder 20lb,LOT-7895-B,ANONYMOUS,28,Anonymous (no loyalty link)
+102,First Aid Kit,LOT-0027-A,CUST-TOK-37203,7,Loyalty-linked
+102,First Aid Kit,LOT-0027-A,CUST-TOK-31040,8,Loyalty-linked
+102,First Aid Kit,LOT-0027-A,CUST-TOK-71580,8,Loyalty-linked
+102,First Aid Kit,LOT-0027-A,ANONYMOUS,45,Anonymous (no loyalty link)
+102,First Aid Kit,LOT-0027-B,CUST-TOK-20292,14,Loyalty-linked
+102,First Aid Kit,LOT-0027-B,CUST-TOK-83618,14,Loyalty-linked
+102,First Aid Kit,LOT-0027-B,CUST-TOK-56971,14,Loyalty-linked
+102,First Aid Kit,LOT-0027-B,ANONYMOUS,78,Anonymous (no loyalty link)
+102,Peanut Butter,LOT-5162-A,CUST-TOK-89087,19,Loyalty-linked
+102,Peanut Butter,LOT-5162-A,CUST-TOK-36103,19,Loyalty-linked
+102,Peanut Butter,LOT-5162-A,CUST-TOK-89854,19,Loyalty-linked
+102,Peanut Butter,LOT-5162-A,ANONYMOUS,108,Anonymous (no loyalty link)
+102,Peanut Butter,LOT-5162-B,CUST-TOK-54719,7,Loyalty-linked
+102,Peanut Butter,LOT-5162-B,CUST-TOK-81813,7,Loyalty-linked
+102,Peanut Butter,LOT-5162-B,CUST-TOK-23970,8,Loyalty-linked
+102,Peanut Butter,LOT-5162-B,ANONYMOUS,42,Anonymous (no loyalty link)
+102,Granola Bars,LOT-5867-A,CUST-TOK-73799,19,Loyalty-linked
+102,Granola Bars,LOT-5867-A,CUST-TOK-97869,19,Loyalty-linked
+102,Granola Bars,LOT-5867-A,CUST-TOK-50289,19,Loyalty-linked
+102,Granola Bars,LOT-5867-A,ANONYMOUS,107,Anonymous (no loyalty link)
+102,Granola Bars,LOT-5867-B,CUST-TOK-19900,6,Loyalty-linked
+102,Granola Bars,LOT-5867-B,CUST-TOK-05769,6,Loyalty-linked
+102,Granola Bars,LOT-5867-B,CUST-TOK-63106,7,Loyalty-linked
+102,Granola Bars,LOT-5867-B,ANONYMOUS,38,Anonymous (no loyalty link)
+102,Canned Soup,LOT-2516-A,CUST-TOK-16188,7,Loyalty-linked
+102,Canned Soup,LOT-2516-A,CUST-TOK-48728,7,Loyalty-linked
+102,Canned Soup,LOT-2516-A,CUST-TOK-47784,8,Loyalty-linked
+102,Canned Soup,LOT-2516-A,ANONYMOUS,41,Anonymous (no loyalty link)
+102,Canned Soup,LOT-2516-B,CUST-TOK-26860,8,Loyalty-linked
+102,Canned Soup,LOT-2516-B,CUST-TOK-30993,8,Loyalty-linked
+102,Canned Soup,LOT-2516-B,CUST-TOK-15292,8,Loyalty-linked
+102,Canned Soup,LOT-2516-B,ANONYMOUS,45,Anonymous (no loyalty link)
+102,Bread,LOT-2104-A,CUST-TOK-43105,9,Loyalty-linked
+102,Bread,LOT-2104-A,CUST-TOK-22588,9,Loyalty-linked
+102,Bread,LOT-2104-A,CUST-TOK-10070,10,Loyalty-linked
+102,Bread,LOT-2104-A,ANONYMOUS,53,Anonymous (no loyalty link)
+102,Bread,LOT-2104-B,CUST-TOK-96039,22,Loyalty-linked
+102,Bread,LOT-2104-B,CUST-TOK-86852,23,Loyalty-linked
+102,Bread,LOT-2104-B,CUST-TOK-67032,23,Loyalty-linked
+102,Bread,LOT-2104-B,ANONYMOUS,127,Anonymous (no loyalty link)
+102,Baby Formula,LOT-1218-A,CUST-TOK-18194,19,Loyalty-linked
+102,Baby Formula,LOT-1218-A,CUST-TOK-47892,19,Loyalty-linked
+102,Baby Formula,LOT-1218-A,CUST-TOK-80158,20,Loyalty-linked
+102,Baby Formula,LOT-1218-A,ANONYMOUS,110,Anonymous (no loyalty link)
+102,Baby Formula,LOT-1218-B,CUST-TOK-31945,3,Loyalty-linked
+102,Baby Formula,LOT-1218-B,CUST-TOK-41723,4,Loyalty-linked
+102,Baby Formula,LOT-1218-B,CUST-TOK-21948,4,Loyalty-linked
+102,Baby Formula,LOT-1218-B,ANONYMOUS,21,Anonymous (no loyalty link)
+102,Hand Sanitizer,LOT-0013-A,CUST-TOK-33364,22,Loyalty-linked
+102,Hand Sanitizer,LOT-0013-A,CUST-TOK-30170,22,Loyalty-linked
+102,Hand Sanitizer,LOT-0013-A,CUST-TOK-46115,23,Loyalty-linked
+102,Hand Sanitizer,LOT-0013-A,ANONYMOUS,126,Anonymous (no loyalty link)
+102,Hand Sanitizer,LOT-0013-B,CUST-TOK-05029,15,Loyalty-linked
+102,Hand Sanitizer,LOT-0013-B,CUST-TOK-52957,15,Loyalty-linked
+102,Hand Sanitizer,LOT-0013-B,CUST-TOK-69809,15,Loyalty-linked
+102,Hand Sanitizer,LOT-0013-B,ANONYMOUS,85,Anonymous (no loyalty link)
+102,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-37466,20,Loyalty-linked
+102,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-69471,21,Loyalty-linked
+102,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-68493,21,Loyalty-linked
+102,LPG Cylinder 20lb,LOT-7895-A,ANONYMOUS,117,Anonymous (no loyalty link)
+102,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-87891,7,Loyalty-linked
+102,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-57354,7,Loyalty-linked
+102,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-87407,8,Loyalty-linked
+102,LPG Cylinder 20lb,LOT-7895-B,ANONYMOUS,41,Anonymous (no loyalty link)
+103,First Aid Kit,LOT-0027-A,CUST-TOK-44684,4,Loyalty-linked
+103,First Aid Kit,LOT-0027-A,CUST-TOK-44444,5,Loyalty-linked
+103,First Aid Kit,LOT-0027-A,CUST-TOK-15054,5,Loyalty-linked
+103,First Aid Kit,LOT-0027-A,ANONYMOUS,28,Anonymous (no loyalty link)
+103,First Aid Kit,LOT-0027-B,CUST-TOK-06168,17,Loyalty-linked
+103,First Aid Kit,LOT-0027-B,CUST-TOK-05738,17,Loyalty-linked
+103,First Aid Kit,LOT-0027-B,CUST-TOK-08634,18,Loyalty-linked
+103,First Aid Kit,LOT-0027-B,ANONYMOUS,97,Anonymous (no loyalty link)
+103,Peanut Butter,LOT-5162-A,CUST-TOK-19248,5,Loyalty-linked
+103,Peanut Butter,LOT-5162-A,CUST-TOK-51617,5,Loyalty-linked
+103,Peanut Butter,LOT-5162-A,CUST-TOK-98951,5,Loyalty-linked
+103,Peanut Butter,LOT-5162-A,ANONYMOUS,29,Anonymous (no loyalty link)
+103,Peanut Butter,LOT-5162-B,CUST-TOK-02700,2,Loyalty-linked
+103,Peanut Butter,LOT-5162-B,CUST-TOK-04327,3,Loyalty-linked
+103,Peanut Butter,LOT-5162-B,CUST-TOK-36951,3,Loyalty-linked
+103,Peanut Butter,LOT-5162-B,ANONYMOUS,17,Anonymous (no loyalty link)
+103,Granola Bars,LOT-5867-A,CUST-TOK-10997,21,Loyalty-linked
+103,Granola Bars,LOT-5867-A,CUST-TOK-32315,21,Loyalty-linked
+103,Granola Bars,LOT-5867-A,CUST-TOK-41456,22,Loyalty-linked
+103,Granola Bars,LOT-5867-A,ANONYMOUS,121,Anonymous (no loyalty link)
+103,Granola Bars,LOT-5867-B,CUST-TOK-26181,2,Loyalty-linked
+103,Granola Bars,LOT-5867-B,CUST-TOK-93549,2,Loyalty-linked
+103,Granola Bars,LOT-5867-B,CUST-TOK-43331,3,Loyalty-linked
+103,Granola Bars,LOT-5867-B,ANONYMOUS,14,Anonymous (no loyalty link)
+103,Canned Soup,LOT-2516-A,CUST-TOK-11780,8,Loyalty-linked
+103,Canned Soup,LOT-2516-A,CUST-TOK-64237,9,Loyalty-linked
+103,Canned Soup,LOT-2516-A,CUST-TOK-78258,9,Loyalty-linked
+103,Canned Soup,LOT-2516-A,ANONYMOUS,50,Anonymous (no loyalty link)
+103,Canned Soup,LOT-2516-B,CUST-TOK-85112,22,Loyalty-linked
+103,Canned Soup,LOT-2516-B,CUST-TOK-96539,22,Loyalty-linked
+103,Canned Soup,LOT-2516-B,CUST-TOK-16144,23,Loyalty-linked
+103,Canned Soup,LOT-2516-B,ANONYMOUS,127,Anonymous (no loyalty link)
+103,Bread,LOT-2104-A,CUST-TOK-48430,11,Loyalty-linked
+103,Bread,LOT-2104-A,CUST-TOK-63649,11,Loyalty-linked
+103,Bread,LOT-2104-A,CUST-TOK-42486,11,Loyalty-linked
+103,Bread,LOT-2104-A,ANONYMOUS,64,Anonymous (no loyalty link)
+103,Bread,LOT-2104-B,CUST-TOK-67212,7,Loyalty-linked
+103,Bread,LOT-2104-B,CUST-TOK-54923,7,Loyalty-linked
+103,Bread,LOT-2104-B,CUST-TOK-82600,7,Loyalty-linked
+103,Bread,LOT-2104-B,ANONYMOUS,40,Anonymous (no loyalty link)
+103,Baby Formula,LOT-1218-A,CUST-TOK-73589,16,Loyalty-linked
+103,Baby Formula,LOT-1218-A,CUST-TOK-24582,17,Loyalty-linked
+103,Baby Formula,LOT-1218-A,CUST-TOK-52618,17,Loyalty-linked
+103,Baby Formula,LOT-1218-A,ANONYMOUS,94,Anonymous (no loyalty link)
+103,Baby Formula,LOT-1218-B,CUST-TOK-27346,19,Loyalty-linked
+103,Baby Formula,LOT-1218-B,CUST-TOK-40557,19,Loyalty-linked
+103,Baby Formula,LOT-1218-B,CUST-TOK-63407,20,Loyalty-linked
+103,Baby Formula,LOT-1218-B,ANONYMOUS,109,Anonymous (no loyalty link)
+103,Hand Sanitizer,LOT-0013-A,CUST-TOK-99177,14,Loyalty-linked
+103,Hand Sanitizer,LOT-0013-A,CUST-TOK-05192,14,Loyalty-linked
+103,Hand Sanitizer,LOT-0013-A,CUST-TOK-63372,15,Loyalty-linked
+103,Hand Sanitizer,LOT-0013-A,ANONYMOUS,82,Anonymous (no loyalty link)
+103,Hand Sanitizer,LOT-0013-B,CUST-TOK-09386,10,Loyalty-linked
+103,Hand Sanitizer,LOT-0013-B,CUST-TOK-71695,10,Loyalty-linked
+103,Hand Sanitizer,LOT-0013-B,CUST-TOK-49727,10,Loyalty-linked
+103,Hand Sanitizer,LOT-0013-B,ANONYMOUS,56,Anonymous (no loyalty link)
+103,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-84586,4,Loyalty-linked
+103,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-57324,4,Loyalty-linked
+103,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-22574,4,Loyalty-linked
+103,LPG Cylinder 20lb,LOT-7895-A,ANONYMOUS,25,Anonymous (no loyalty link)
+103,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-53412,12,Loyalty-linked
+103,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-70147,12,Loyalty-linked
+103,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-20556,13,Loyalty-linked
+103,LPG Cylinder 20lb,LOT-7895-B,ANONYMOUS,69,Anonymous (no loyalty link)
+104,First Aid Kit,LOT-0027-A,CUST-TOK-58544,19,Loyalty-linked
+104,First Aid Kit,LOT-0027-A,CUST-TOK-24376,19,Loyalty-linked
+104,First Aid Kit,LOT-0027-A,CUST-TOK-51649,20,Loyalty-linked
+104,First Aid Kit,LOT-0027-A,ANONYMOUS,110,Anonymous (no loyalty link)
+104,First Aid Kit,LOT-0027-B,CUST-TOK-64339,9,Loyalty-linked
+104,First Aid Kit,LOT-0027-B,CUST-TOK-96981,9,Loyalty-linked
+104,First Aid Kit,LOT-0027-B,CUST-TOK-72666,10,Loyalty-linked
+104,First Aid Kit,LOT-0027-B,ANONYMOUS,54,Anonymous (no loyalty link)
+104,Peanut Butter,LOT-5162-A,CUST-TOK-17289,13,Loyalty-linked
+104,Peanut Butter,LOT-5162-A,CUST-TOK-56783,14,Loyalty-linked
+104,Peanut Butter,LOT-5162-A,CUST-TOK-55352,14,Loyalty-linked
+104,Peanut Butter,LOT-5162-A,ANONYMOUS,78,Anonymous (no loyalty link)
+104,Peanut Butter,LOT-5162-B,CUST-TOK-21235,15,Loyalty-linked
+104,Peanut Butter,LOT-5162-B,CUST-TOK-63502,16,Loyalty-linked
+104,Peanut Butter,LOT-5162-B,CUST-TOK-62121,16,Loyalty-linked
+104,Peanut Butter,LOT-5162-B,ANONYMOUS,89,Anonymous (no loyalty link)
+104,Granola Bars,LOT-5867-A,CUST-TOK-24593,15,Loyalty-linked
+104,Granola Bars,LOT-5867-A,CUST-TOK-74382,15,Loyalty-linked
+104,Granola Bars,LOT-5867-A,CUST-TOK-31207,16,Loyalty-linked
+104,Granola Bars,LOT-5867-A,ANONYMOUS,88,Anonymous (no loyalty link)
+104,Granola Bars,LOT-5867-B,CUST-TOK-99731,16,Loyalty-linked
+104,Granola Bars,LOT-5867-B,CUST-TOK-86564,17,Loyalty-linked
+104,Granola Bars,LOT-5867-B,CUST-TOK-99737,17,Loyalty-linked
+104,Granola Bars,LOT-5867-B,ANONYMOUS,94,Anonymous (no loyalty link)
+104,Canned Soup,LOT-2516-A,CUST-TOK-54437,18,Loyalty-linked
+104,Canned Soup,LOT-2516-A,CUST-TOK-44942,19,Loyalty-linked
+104,Canned Soup,LOT-2516-A,CUST-TOK-81575,19,Loyalty-linked
+104,Canned Soup,LOT-2516-A,ANONYMOUS,104,Anonymous (no loyalty link)
+104,Canned Soup,LOT-2516-B,CUST-TOK-03338,18,Loyalty-linked
+104,Canned Soup,LOT-2516-B,CUST-TOK-57700,19,Loyalty-linked
+104,Canned Soup,LOT-2516-B,CUST-TOK-14342,19,Loyalty-linked
+104,Canned Soup,LOT-2516-B,ANONYMOUS,106,Anonymous (no loyalty link)
+104,Bread,LOT-2104-A,CUST-TOK-04355,17,Loyalty-linked
+104,Bread,LOT-2104-A,CUST-TOK-46234,18,Loyalty-linked
+104,Bread,LOT-2104-A,CUST-TOK-43139,18,Loyalty-linked
+104,Bread,LOT-2104-A,ANONYMOUS,99,Anonymous (no loyalty link)
+104,Bread,LOT-2104-B,CUST-TOK-80772,15,Loyalty-linked
+104,Bread,LOT-2104-B,CUST-TOK-73280,15,Loyalty-linked
+104,Bread,LOT-2104-B,CUST-TOK-35125,15,Loyalty-linked
+104,Bread,LOT-2104-B,ANONYMOUS,86,Anonymous (no loyalty link)
+104,Baby Formula,LOT-1218-A,CUST-TOK-64844,6,Loyalty-linked
+104,Baby Formula,LOT-1218-A,CUST-TOK-08913,6,Loyalty-linked
+104,Baby Formula,LOT-1218-A,CUST-TOK-42097,7,Loyalty-linked
+104,Baby Formula,LOT-1218-A,ANONYMOUS,38,Anonymous (no loyalty link)
+104,Baby Formula,LOT-1218-B,CUST-TOK-38270,3,Loyalty-linked
+104,Baby Formula,LOT-1218-B,CUST-TOK-73258,3,Loyalty-linked
+104,Baby Formula,LOT-1218-B,CUST-TOK-76489,3,Loyalty-linked
+104,Baby Formula,LOT-1218-B,ANONYMOUS,18,Anonymous (no loyalty link)
+104,Hand Sanitizer,LOT-0013-A,CUST-TOK-42523,10,Loyalty-linked
+104,Hand Sanitizer,LOT-0013-A,CUST-TOK-59891,10,Loyalty-linked
+104,Hand Sanitizer,LOT-0013-A,CUST-TOK-01064,11,Loyalty-linked
+104,Hand Sanitizer,LOT-0013-A,ANONYMOUS,60,Anonymous (no loyalty link)
+104,Hand Sanitizer,LOT-0013-B,CUST-TOK-02195,7,Loyalty-linked
+104,Hand Sanitizer,LOT-0013-B,CUST-TOK-35861,7,Loyalty-linked
+104,Hand Sanitizer,LOT-0013-B,CUST-TOK-81583,7,Loyalty-linked
+104,Hand Sanitizer,LOT-0013-B,ANONYMOUS,39,Anonymous (no loyalty link)
+104,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-12380,16,Loyalty-linked
+104,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-47629,17,Loyalty-linked
+104,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-98792,17,Loyalty-linked
+104,LPG Cylinder 20lb,LOT-7895-A,ANONYMOUS,94,Anonymous (no loyalty link)
+104,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-72188,20,Loyalty-linked
+104,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-46219,21,Loyalty-linked
+104,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-12342,21,Loyalty-linked
+104,LPG Cylinder 20lb,LOT-7895-B,ANONYMOUS,116,Anonymous (no loyalty link)
+105,First Aid Kit,LOT-0027-A,CUST-TOK-05308,12,Loyalty-linked
+105,First Aid Kit,LOT-0027-A,CUST-TOK-14115,12,Loyalty-linked
+105,First Aid Kit,LOT-0027-A,CUST-TOK-35804,12,Loyalty-linked
+105,First Aid Kit,LOT-0027-A,ANONYMOUS,68,Anonymous (no loyalty link)
+105,First Aid Kit,LOT-0027-B,CUST-TOK-02910,18,Loyalty-linked
+105,First Aid Kit,LOT-0027-B,CUST-TOK-15718,18,Loyalty-linked
+105,First Aid Kit,LOT-0027-B,CUST-TOK-57167,18,Loyalty-linked
+105,First Aid Kit,LOT-0027-B,ANONYMOUS,102,Anonymous (no loyalty link)
+105,Peanut Butter,LOT-5162-A,CUST-TOK-00555,16,Loyalty-linked
+105,Peanut Butter,LOT-5162-A,CUST-TOK-45572,17,Loyalty-linked
+105,Peanut Butter,LOT-5162-A,CUST-TOK-24397,17,Loyalty-linked
+105,Peanut Butter,LOT-5162-A,ANONYMOUS,94,Anonymous (no loyalty link)
+105,Peanut Butter,LOT-5162-B,CUST-TOK-82966,5,Loyalty-linked
+105,Peanut Butter,LOT-5162-B,CUST-TOK-49686,6,Loyalty-linked
+105,Peanut Butter,LOT-5162-B,CUST-TOK-61813,6,Loyalty-linked
+105,Peanut Butter,LOT-5162-B,ANONYMOUS,32,Anonymous (no loyalty link)
+105,Granola Bars,LOT-5867-A,CUST-TOK-79336,16,Loyalty-linked
+105,Granola Bars,LOT-5867-A,CUST-TOK-77170,16,Loyalty-linked
+105,Granola Bars,LOT-5867-A,CUST-TOK-77472,16,Loyalty-linked
+105,Granola Bars,LOT-5867-A,ANONYMOUS,90,Anonymous (no loyalty link)
+105,Granola Bars,LOT-5867-B,CUST-TOK-85390,20,Loyalty-linked
+105,Granola Bars,LOT-5867-B,CUST-TOK-42700,20,Loyalty-linked
+105,Granola Bars,LOT-5867-B,CUST-TOK-82635,20,Loyalty-linked
+105,Granola Bars,LOT-5867-B,ANONYMOUS,113,Anonymous (no loyalty link)
+105,Canned Soup,LOT-2516-A,CUST-TOK-30217,21,Loyalty-linked
+105,Canned Soup,LOT-2516-A,CUST-TOK-99022,21,Loyalty-linked
+105,Canned Soup,LOT-2516-A,CUST-TOK-58876,22,Loyalty-linked
+105,Canned Soup,LOT-2516-A,ANONYMOUS,121,Anonymous (no loyalty link)
+105,Canned Soup,LOT-2516-B,CUST-TOK-55586,8,Loyalty-linked
+105,Canned Soup,LOT-2516-B,CUST-TOK-14812,8,Loyalty-linked
+105,Canned Soup,LOT-2516-B,CUST-TOK-72555,9,Loyalty-linked
+105,Canned Soup,LOT-2516-B,ANONYMOUS,47,Anonymous (no loyalty link)
+105,Bread,LOT-2104-A,CUST-TOK-69573,19,Loyalty-linked
+105,Bread,LOT-2104-A,CUST-TOK-79514,20,Loyalty-linked
+105,Bread,LOT-2104-A,CUST-TOK-04491,20,Loyalty-linked
+105,Bread,LOT-2104-A,ANONYMOUS,111,Anonymous (no loyalty link)
+105,Bread,LOT-2104-B,CUST-TOK-08626,22,Loyalty-linked
+105,Bread,LOT-2104-B,CUST-TOK-46733,23,Loyalty-linked
+105,Bread,LOT-2104-B,CUST-TOK-98343,23,Loyalty-linked
+105,Bread,LOT-2104-B,ANONYMOUS,127,Anonymous (no loyalty link)
+105,Baby Formula,LOT-1218-A,CUST-TOK-60264,6,Loyalty-linked
+105,Baby Formula,LOT-1218-A,CUST-TOK-32737,6,Loyalty-linked
+105,Baby Formula,LOT-1218-A,CUST-TOK-79506,7,Loyalty-linked
+105,Baby Formula,LOT-1218-A,ANONYMOUS,37,Anonymous (no loyalty link)
+105,Baby Formula,LOT-1218-B,CUST-TOK-77573,10,Loyalty-linked
+105,Baby Formula,LOT-1218-B,CUST-TOK-50779,10,Loyalty-linked
+105,Baby Formula,LOT-1218-B,CUST-TOK-25222,11,Loyalty-linked
+105,Baby Formula,LOT-1218-B,ANONYMOUS,59,Anonymous (no loyalty link)
+105,Hand Sanitizer,LOT-0013-A,CUST-TOK-62193,6,Loyalty-linked
+105,Hand Sanitizer,LOT-0013-A,CUST-TOK-44493,7,Loyalty-linked
+105,Hand Sanitizer,LOT-0013-A,CUST-TOK-75162,7,Loyalty-linked
+105,Hand Sanitizer,LOT-0013-A,ANONYMOUS,39,Anonymous (no loyalty link)
+105,Hand Sanitizer,LOT-0013-B,CUST-TOK-37647,16,Loyalty-linked
+105,Hand Sanitizer,LOT-0013-B,CUST-TOK-84953,16,Loyalty-linked
+105,Hand Sanitizer,LOT-0013-B,CUST-TOK-66134,16,Loyalty-linked
+105,Hand Sanitizer,LOT-0013-B,ANONYMOUS,91,Anonymous (no loyalty link)
+105,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-81556,20,Loyalty-linked
+105,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-18190,20,Loyalty-linked
+105,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-21309,20,Loyalty-linked
+105,LPG Cylinder 20lb,LOT-7895-A,ANONYMOUS,113,Anonymous (no loyalty link)
+105,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-00948,20,Loyalty-linked
+105,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-30675,21,Loyalty-linked
+105,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-82329,21,Loyalty-linked
+105,LPG Cylinder 20lb,LOT-7895-B,ANONYMOUS,117,Anonymous (no loyalty link)
+106,First Aid Kit,LOT-0027-A,CUST-TOK-59727,3,Loyalty-linked
+106,First Aid Kit,LOT-0027-A,CUST-TOK-65327,3,Loyalty-linked
+106,First Aid Kit,LOT-0027-A,CUST-TOK-95992,3,Loyalty-linked
+106,First Aid Kit,LOT-0027-A,ANONYMOUS,18,Anonymous (no loyalty link)
+106,First Aid Kit,LOT-0027-B,CUST-TOK-16305,2,Loyalty-linked
+106,First Aid Kit,LOT-0027-B,CUST-TOK-55607,3,Loyalty-linked
+106,First Aid Kit,LOT-0027-B,CUST-TOK-02600,3,Loyalty-linked
+106,First Aid Kit,LOT-0027-B,ANONYMOUS,15,Anonymous (no loyalty link)
+106,Peanut Butter,LOT-5162-A,CUST-TOK-47931,12,Loyalty-linked
+106,Peanut Butter,LOT-5162-A,CUST-TOK-17326,13,Loyalty-linked
+106,Peanut Butter,LOT-5162-A,CUST-TOK-52759,13,Loyalty-linked
+106,Peanut Butter,LOT-5162-A,ANONYMOUS,71,Anonymous (no loyalty link)
+106,Peanut Butter,LOT-5162-B,CUST-TOK-18506,18,Loyalty-linked
+106,Peanut Butter,LOT-5162-B,CUST-TOK-80005,19,Loyalty-linked
+106,Peanut Butter,LOT-5162-B,CUST-TOK-37179,19,Loyalty-linked
+106,Peanut Butter,LOT-5162-B,ANONYMOUS,105,Anonymous (no loyalty link)
+106,Granola Bars,LOT-5867-A,CUST-TOK-84334,4,Loyalty-linked
+106,Granola Bars,LOT-5867-A,CUST-TOK-02945,4,Loyalty-linked
+106,Granola Bars,LOT-5867-A,CUST-TOK-23767,5,Loyalty-linked
+106,Granola Bars,LOT-5867-A,ANONYMOUS,26,Anonymous (no loyalty link)
+106,Granola Bars,LOT-5867-B,CUST-TOK-28150,7,Loyalty-linked
+106,Granola Bars,LOT-5867-B,CUST-TOK-86640,7,Loyalty-linked
+106,Granola Bars,LOT-5867-B,CUST-TOK-52346,7,Loyalty-linked
+106,Granola Bars,LOT-5867-B,ANONYMOUS,39,Anonymous (no loyalty link)
+106,Canned Soup,LOT-2516-A,CUST-TOK-71027,5,Loyalty-linked
+106,Canned Soup,LOT-2516-A,CUST-TOK-93485,5,Loyalty-linked
+106,Canned Soup,LOT-2516-A,CUST-TOK-89961,5,Loyalty-linked
+106,Canned Soup,LOT-2516-A,ANONYMOUS,29,Anonymous (no loyalty link)
+106,Canned Soup,LOT-2516-B,CUST-TOK-40835,8,Loyalty-linked
+106,Canned Soup,LOT-2516-B,CUST-TOK-46331,8,Loyalty-linked
+106,Canned Soup,LOT-2516-B,CUST-TOK-47015,8,Loyalty-linked
+106,Canned Soup,LOT-2516-B,ANONYMOUS,46,Anonymous (no loyalty link)
+106,Bread,LOT-2104-A,CUST-TOK-18758,14,Loyalty-linked
+106,Bread,LOT-2104-A,CUST-TOK-27508,14,Loyalty-linked
+106,Bread,LOT-2104-A,CUST-TOK-35858,15,Loyalty-linked
+106,Bread,LOT-2104-A,ANONYMOUS,82,Anonymous (no loyalty link)
+106,Bread,LOT-2104-B,CUST-TOK-18544,17,Loyalty-linked
+106,Bread,LOT-2104-B,CUST-TOK-71494,18,Loyalty-linked
+106,Bread,LOT-2104-B,CUST-TOK-03245,18,Loyalty-linked
+106,Bread,LOT-2104-B,ANONYMOUS,99,Anonymous (no loyalty link)
+106,Baby Formula,LOT-1218-A,CUST-TOK-85982,7,Loyalty-linked
+106,Baby Formula,LOT-1218-A,CUST-TOK-53146,7,Loyalty-linked
+106,Baby Formula,LOT-1218-A,CUST-TOK-60396,8,Loyalty-linked
+106,Baby Formula,LOT-1218-A,ANONYMOUS,43,Anonymous (no loyalty link)
+106,Baby Formula,LOT-1218-B,CUST-TOK-23019,12,Loyalty-linked
+106,Baby Formula,LOT-1218-B,CUST-TOK-72714,12,Loyalty-linked
+106,Baby Formula,LOT-1218-B,CUST-TOK-77503,13,Loyalty-linked
+106,Baby Formula,LOT-1218-B,ANONYMOUS,70,Anonymous (no loyalty link)
+106,Hand Sanitizer,LOT-0013-A,CUST-TOK-36894,13,Loyalty-linked
+106,Hand Sanitizer,LOT-0013-A,CUST-TOK-54600,14,Loyalty-linked
+106,Hand Sanitizer,LOT-0013-A,CUST-TOK-77302,14,Loyalty-linked
+106,Hand Sanitizer,LOT-0013-A,ANONYMOUS,77,Anonymous (no loyalty link)
+106,Hand Sanitizer,LOT-0013-B,CUST-TOK-93658,10,Loyalty-linked
+106,Hand Sanitizer,LOT-0013-B,CUST-TOK-26494,10,Loyalty-linked
+106,Hand Sanitizer,LOT-0013-B,CUST-TOK-40971,10,Loyalty-linked
+106,Hand Sanitizer,LOT-0013-B,ANONYMOUS,58,Anonymous (no loyalty link)
+106,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-20719,9,Loyalty-linked
+106,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-30409,10,Loyalty-linked
+106,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-38338,10,Loyalty-linked
+106,LPG Cylinder 20lb,LOT-7895-A,ANONYMOUS,54,Anonymous (no loyalty link)
+106,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-70792,2,Loyalty-linked
+106,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-56667,3,Loyalty-linked
+106,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-11001,3,Loyalty-linked
+106,LPG Cylinder 20lb,LOT-7895-B,ANONYMOUS,17,Anonymous (no loyalty link)
+107,First Aid Kit,LOT-0027-A,CUST-TOK-93082,2,Loyalty-linked
+107,First Aid Kit,LOT-0027-A,CUST-TOK-79534,2,Loyalty-linked
+107,First Aid Kit,LOT-0027-A,CUST-TOK-55750,3,Loyalty-linked
+107,First Aid Kit,LOT-0027-A,ANONYMOUS,15,Anonymous (no loyalty link)
+107,First Aid Kit,LOT-0027-B,CUST-TOK-66479,22,Loyalty-linked
+107,First Aid Kit,LOT-0027-B,CUST-TOK-11565,22,Loyalty-linked
+107,First Aid Kit,LOT-0027-B,CUST-TOK-38666,22,Loyalty-linked
+107,First Aid Kit,LOT-0027-B,ANONYMOUS,124,Anonymous (no loyalty link)
+107,Peanut Butter,LOT-5162-A,CUST-TOK-82702,21,Loyalty-linked
+107,Peanut Butter,LOT-5162-A,CUST-TOK-03016,21,Loyalty-linked
+107,Peanut Butter,LOT-5162-A,CUST-TOK-55780,22,Loyalty-linked
+107,Peanut Butter,LOT-5162-A,ANONYMOUS,121,Anonymous (no loyalty link)
+107,Peanut Butter,LOT-5162-B,CUST-TOK-67785,2,Loyalty-linked
+107,Peanut Butter,LOT-5162-B,CUST-TOK-03454,3,Loyalty-linked
+107,Peanut Butter,LOT-5162-B,CUST-TOK-34400,3,Loyalty-linked
+107,Peanut Butter,LOT-5162-B,ANONYMOUS,16,Anonymous (no loyalty link)
+107,Granola Bars,LOT-5867-A,CUST-TOK-00870,22,Loyalty-linked
+107,Granola Bars,LOT-5867-A,CUST-TOK-77921,22,Loyalty-linked
+107,Granola Bars,LOT-5867-A,CUST-TOK-03256,22,Loyalty-linked
+107,Granola Bars,LOT-5867-A,ANONYMOUS,125,Anonymous (no loyalty link)
+107,Granola Bars,LOT-5867-B,CUST-TOK-30729,4,Loyalty-linked
+107,Granola Bars,LOT-5867-B,CUST-TOK-91964,4,Loyalty-linked
+107,Granola Bars,LOT-5867-B,CUST-TOK-14235,5,Loyalty-linked
+107,Granola Bars,LOT-5867-B,ANONYMOUS,25,Anonymous (no loyalty link)
+107,Canned Soup,LOT-2516-A,CUST-TOK-32229,6,Loyalty-linked
+107,Canned Soup,LOT-2516-A,CUST-TOK-56227,6,Loyalty-linked
+107,Canned Soup,LOT-2516-A,CUST-TOK-40552,6,Loyalty-linked
+107,Canned Soup,LOT-2516-A,ANONYMOUS,36,Anonymous (no loyalty link)
+107,Canned Soup,LOT-2516-B,CUST-TOK-25704,5,Loyalty-linked
+107,Canned Soup,LOT-2516-B,CUST-TOK-53960,5,Loyalty-linked
+107,Canned Soup,LOT-2516-B,CUST-TOK-30149,5,Loyalty-linked
+107,Canned Soup,LOT-2516-B,ANONYMOUS,30,Anonymous (no loyalty link)
+107,Bread,LOT-2104-A,CUST-TOK-39718,3,Loyalty-linked
+107,Bread,LOT-2104-A,CUST-TOK-45324,3,Loyalty-linked
+107,Bread,LOT-2104-A,CUST-TOK-17266,3,Loyalty-linked
+107,Bread,LOT-2104-A,ANONYMOUS,18,Anonymous (no loyalty link)
+107,Bread,LOT-2104-B,CUST-TOK-77529,7,Loyalty-linked
+107,Bread,LOT-2104-B,CUST-TOK-53427,7,Loyalty-linked
+107,Bread,LOT-2104-B,CUST-TOK-24244,8,Loyalty-linked
+107,Bread,LOT-2104-B,ANONYMOUS,42,Anonymous (no loyalty link)
+107,Baby Formula,LOT-1218-A,CUST-TOK-92100,6,Loyalty-linked
+107,Baby Formula,LOT-1218-A,CUST-TOK-79225,6,Loyalty-linked
+107,Baby Formula,LOT-1218-A,CUST-TOK-11375,7,Loyalty-linked
+107,Baby Formula,LOT-1218-A,ANONYMOUS,36,Anonymous (no loyalty link)
+107,Baby Formula,LOT-1218-B,CUST-TOK-21112,2,Loyalty-linked
+107,Baby Formula,LOT-1218-B,CUST-TOK-75290,2,Loyalty-linked
+107,Baby Formula,LOT-1218-B,CUST-TOK-03406,3,Loyalty-linked
+107,Baby Formula,LOT-1218-B,ANONYMOUS,13,Anonymous (no loyalty link)
+107,Hand Sanitizer,LOT-0013-A,CUST-TOK-41869,19,Loyalty-linked
+107,Hand Sanitizer,LOT-0013-A,CUST-TOK-23456,20,Loyalty-linked
+107,Hand Sanitizer,LOT-0013-A,CUST-TOK-76525,20,Loyalty-linked
+107,Hand Sanitizer,LOT-0013-A,ANONYMOUS,110,Anonymous (no loyalty link)
+107,Hand Sanitizer,LOT-0013-B,CUST-TOK-05739,6,Loyalty-linked
+107,Hand Sanitizer,LOT-0013-B,CUST-TOK-40917,6,Loyalty-linked
+107,Hand Sanitizer,LOT-0013-B,CUST-TOK-11944,6,Loyalty-linked
+107,Hand Sanitizer,LOT-0013-B,ANONYMOUS,36,Anonymous (no loyalty link)
+107,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-85549,11,Loyalty-linked
+107,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-74920,11,Loyalty-linked
+107,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-81272,11,Loyalty-linked
+107,LPG Cylinder 20lb,LOT-7895-A,ANONYMOUS,62,Anonymous (no loyalty link)
+107,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-56004,8,Loyalty-linked
+107,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-95717,8,Loyalty-linked
+107,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-02214,8,Loyalty-linked
+107,LPG Cylinder 20lb,LOT-7895-B,ANONYMOUS,45,Anonymous (no loyalty link)
+108,First Aid Kit,LOT-0027-A,CUST-TOK-90410,6,Loyalty-linked
+108,First Aid Kit,LOT-0027-A,CUST-TOK-67025,7,Loyalty-linked
+108,First Aid Kit,LOT-0027-A,CUST-TOK-26969,7,Loyalty-linked
+108,First Aid Kit,LOT-0027-A,ANONYMOUS,38,Anonymous (no loyalty link)
+108,First Aid Kit,LOT-0027-B,CUST-TOK-27072,22,Loyalty-linked
+108,First Aid Kit,LOT-0027-B,CUST-TOK-21407,22,Loyalty-linked
+108,First Aid Kit,LOT-0027-B,CUST-TOK-95105,22,Loyalty-linked
+108,First Aid Kit,LOT-0027-B,ANONYMOUS,124,Anonymous (no loyalty link)
+108,Peanut Butter,LOT-5162-A,CUST-TOK-42797,7,Loyalty-linked
+108,Peanut Butter,LOT-5162-A,CUST-TOK-60266,7,Loyalty-linked
+108,Peanut Butter,LOT-5162-A,CUST-TOK-19976,8,Loyalty-linked
+108,Peanut Butter,LOT-5162-A,ANONYMOUS,43,Anonymous (no loyalty link)
+108,Peanut Butter,LOT-5162-B,CUST-TOK-71945,7,Loyalty-linked
+108,Peanut Butter,LOT-5162-B,CUST-TOK-64277,7,Loyalty-linked
+108,Peanut Butter,LOT-5162-B,CUST-TOK-10844,8,Loyalty-linked
+108,Peanut Butter,LOT-5162-B,ANONYMOUS,41,Anonymous (no loyalty link)
+108,Granola Bars,LOT-5867-A,CUST-TOK-10864,2,Loyalty-linked
+108,Granola Bars,LOT-5867-A,CUST-TOK-85801,3,Loyalty-linked
+108,Granola Bars,LOT-5867-A,CUST-TOK-56685,3,Loyalty-linked
+108,Granola Bars,LOT-5867-A,ANONYMOUS,15,Anonymous (no loyalty link)
+108,Granola Bars,LOT-5867-B,CUST-TOK-53900,13,Loyalty-linked
+108,Granola Bars,LOT-5867-B,CUST-TOK-82137,13,Loyalty-linked
+108,Granola Bars,LOT-5867-B,CUST-TOK-60188,14,Loyalty-linked
+108,Granola Bars,LOT-5867-B,ANONYMOUS,75,Anonymous (no loyalty link)
+108,Canned Soup,LOT-2516-A,CUST-TOK-10874,5,Loyalty-linked
+108,Canned Soup,LOT-2516-A,CUST-TOK-80974,5,Loyalty-linked
+108,Canned Soup,LOT-2516-A,CUST-TOK-13987,6,Loyalty-linked
+108,Canned Soup,LOT-2516-A,ANONYMOUS,31,Anonymous (no loyalty link)
+108,Canned Soup,LOT-2516-B,CUST-TOK-88737,14,Loyalty-linked
+108,Canned Soup,LOT-2516-B,CUST-TOK-18799,15,Loyalty-linked
+108,Canned Soup,LOT-2516-B,CUST-TOK-54871,15,Loyalty-linked
+108,Canned Soup,LOT-2516-B,ANONYMOUS,84,Anonymous (no loyalty link)
+108,Bread,LOT-2104-A,CUST-TOK-27046,15,Loyalty-linked
+108,Bread,LOT-2104-A,CUST-TOK-53118,15,Loyalty-linked
+108,Bread,LOT-2104-A,CUST-TOK-48337,16,Loyalty-linked
+108,Bread,LOT-2104-A,ANONYMOUS,86,Anonymous (no loyalty link)
+108,Bread,LOT-2104-B,CUST-TOK-00990,22,Loyalty-linked
+108,Bread,LOT-2104-B,CUST-TOK-63838,22,Loyalty-linked
+108,Bread,LOT-2104-B,CUST-TOK-62895,22,Loyalty-linked
+108,Bread,LOT-2104-B,ANONYMOUS,125,Anonymous (no loyalty link)
+108,Baby Formula,LOT-1218-A,CUST-TOK-10576,9,Loyalty-linked
+108,Baby Formula,LOT-1218-A,CUST-TOK-47902,9,Loyalty-linked
+108,Baby Formula,LOT-1218-A,CUST-TOK-07553,10,Loyalty-linked
+108,Baby Formula,LOT-1218-A,ANONYMOUS,52,Anonymous (no loyalty link)
+108,Baby Formula,LOT-1218-B,CUST-TOK-42581,14,Loyalty-linked
+108,Baby Formula,LOT-1218-B,CUST-TOK-63080,15,Loyalty-linked
+108,Baby Formula,LOT-1218-B,CUST-TOK-38369,15,Loyalty-linked
+108,Baby Formula,LOT-1218-B,ANONYMOUS,84,Anonymous (no loyalty link)
+108,Hand Sanitizer,LOT-0013-A,CUST-TOK-19513,4,Loyalty-linked
+108,Hand Sanitizer,LOT-0013-A,CUST-TOK-32165,4,Loyalty-linked
+108,Hand Sanitizer,LOT-0013-A,CUST-TOK-63552,5,Loyalty-linked
+108,Hand Sanitizer,LOT-0013-A,ANONYMOUS,26,Anonymous (no loyalty link)
+108,Hand Sanitizer,LOT-0013-B,CUST-TOK-75147,7,Loyalty-linked
+108,Hand Sanitizer,LOT-0013-B,CUST-TOK-25103,7,Loyalty-linked
+108,Hand Sanitizer,LOT-0013-B,CUST-TOK-04751,7,Loyalty-linked
+108,Hand Sanitizer,LOT-0013-B,ANONYMOUS,39,Anonymous (no loyalty link)
+108,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-71030,13,Loyalty-linked
+108,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-57481,13,Loyalty-linked
+108,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-30475,13,Loyalty-linked
+108,LPG Cylinder 20lb,LOT-7895-A,ANONYMOUS,73,Anonymous (no loyalty link)
+108,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-56854,16,Loyalty-linked
+108,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-64130,16,Loyalty-linked
+108,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-37942,17,Loyalty-linked
+108,LPG Cylinder 20lb,LOT-7895-B,ANONYMOUS,93,Anonymous (no loyalty link)
+201,First Aid Kit,LOT-0027-A,CUST-TOK-35075,12,Loyalty-linked
+201,First Aid Kit,LOT-0027-A,CUST-TOK-15124,12,Loyalty-linked
+201,First Aid Kit,LOT-0027-A,CUST-TOK-32980,12,Loyalty-linked
+201,First Aid Kit,LOT-0027-A,ANONYMOUS,68,Anonymous (no loyalty link)
+201,First Aid Kit,LOT-0027-B,CUST-TOK-72013,6,Loyalty-linked
+201,First Aid Kit,LOT-0027-B,CUST-TOK-49781,7,Loyalty-linked
+201,First Aid Kit,LOT-0027-B,CUST-TOK-55736,7,Loyalty-linked
+201,First Aid Kit,LOT-0027-B,ANONYMOUS,38,Anonymous (no loyalty link)
+201,Peanut Butter,LOT-5162-A,CUST-TOK-45897,13,Loyalty-linked
+201,Peanut Butter,LOT-5162-A,CUST-TOK-60928,13,Loyalty-linked
+201,Peanut Butter,LOT-5162-A,CUST-TOK-45765,13,Loyalty-linked
+201,Peanut Butter,LOT-5162-A,ANONYMOUS,73,Anonymous (no loyalty link)
+201,Peanut Butter,LOT-5162-B,CUST-TOK-62711,8,Loyalty-linked
+201,Peanut Butter,LOT-5162-B,CUST-TOK-16042,8,Loyalty-linked
+201,Peanut Butter,LOT-5162-B,CUST-TOK-46798,9,Loyalty-linked
+201,Peanut Butter,LOT-5162-B,ANONYMOUS,48,Anonymous (no loyalty link)
+201,Granola Bars,LOT-5867-A,CUST-TOK-76206,5,Loyalty-linked
+201,Granola Bars,LOT-5867-A,CUST-TOK-87776,6,Loyalty-linked
+201,Granola Bars,LOT-5867-A,CUST-TOK-21532,6,Loyalty-linked
+201,Granola Bars,LOT-5867-A,ANONYMOUS,34,Anonymous (no loyalty link)
+201,Granola Bars,LOT-5867-B,CUST-TOK-35527,11,Loyalty-linked
+201,Granola Bars,LOT-5867-B,CUST-TOK-55333,12,Loyalty-linked
+201,Granola Bars,LOT-5867-B,CUST-TOK-68432,12,Loyalty-linked
+201,Granola Bars,LOT-5867-B,ANONYMOUS,67,Anonymous (no loyalty link)
+201,Canned Soup,LOT-2516-A,CUST-TOK-26122,15,Loyalty-linked
+201,Canned Soup,LOT-2516-A,CUST-TOK-93336,15,Loyalty-linked
+201,Canned Soup,LOT-2516-A,CUST-TOK-05469,16,Loyalty-linked
+201,Canned Soup,LOT-2516-A,ANONYMOUS,87,Anonymous (no loyalty link)
+201,Canned Soup,LOT-2516-B,CUST-TOK-45891,17,Loyalty-linked
+201,Canned Soup,LOT-2516-B,CUST-TOK-86894,17,Loyalty-linked
+201,Canned Soup,LOT-2516-B,CUST-TOK-08506,17,Loyalty-linked
+201,Canned Soup,LOT-2516-B,ANONYMOUS,95,Anonymous (no loyalty link)
+201,Bread,LOT-2104-A,CUST-TOK-49103,10,Loyalty-linked
+201,Bread,LOT-2104-A,CUST-TOK-71172,11,Loyalty-linked
+201,Bread,LOT-2104-A,CUST-TOK-10968,11,Loyalty-linked
+201,Bread,LOT-2104-A,ANONYMOUS,60,Anonymous (no loyalty link)
+201,Bread,LOT-2104-B,CUST-TOK-91868,20,Loyalty-linked
+201,Bread,LOT-2104-B,CUST-TOK-53548,20,Loyalty-linked
+201,Bread,LOT-2104-B,CUST-TOK-86118,20,Loyalty-linked
+201,Bread,LOT-2104-B,ANONYMOUS,114,Anonymous (no loyalty link)
+201,Baby Formula,LOT-1218-A,CUST-TOK-73102,4,Loyalty-linked
+201,Baby Formula,LOT-1218-A,CUST-TOK-55253,4,Loyalty-linked
+201,Baby Formula,LOT-1218-A,CUST-TOK-18523,5,Loyalty-linked
+201,Baby Formula,LOT-1218-A,ANONYMOUS,26,Anonymous (no loyalty link)
+201,Baby Formula,LOT-1218-B,CUST-TOK-86746,17,Loyalty-linked
+201,Baby Formula,LOT-1218-B,CUST-TOK-04530,17,Loyalty-linked
+201,Baby Formula,LOT-1218-B,CUST-TOK-74368,17,Loyalty-linked
+201,Baby Formula,LOT-1218-B,ANONYMOUS,97,Anonymous (no loyalty link)
+201,Hand Sanitizer,LOT-0013-A,CUST-TOK-71278,20,Loyalty-linked
+201,Hand Sanitizer,LOT-0013-A,CUST-TOK-96180,20,Loyalty-linked
+201,Hand Sanitizer,LOT-0013-A,CUST-TOK-66700,21,Loyalty-linked
+201,Hand Sanitizer,LOT-0013-A,ANONYMOUS,114,Anonymous (no loyalty link)
+201,Hand Sanitizer,LOT-0013-B,CUST-TOK-53352,11,Loyalty-linked
+201,Hand Sanitizer,LOT-0013-B,CUST-TOK-59746,11,Loyalty-linked
+201,Hand Sanitizer,LOT-0013-B,CUST-TOK-66330,11,Loyalty-linked
+201,Hand Sanitizer,LOT-0013-B,ANONYMOUS,64,Anonymous (no loyalty link)
+201,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-23972,22,Loyalty-linked
+201,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-22135,22,Loyalty-linked
+201,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-73564,22,Loyalty-linked
+201,LPG Cylinder 20lb,LOT-7895-A,ANONYMOUS,124,Anonymous (no loyalty link)
+201,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-18410,22,Loyalty-linked
+201,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-26087,22,Loyalty-linked
+201,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-31770,23,Loyalty-linked
+201,LPG Cylinder 20lb,LOT-7895-B,ANONYMOUS,127,Anonymous (no loyalty link)
+202,First Aid Kit,LOT-0027-A,CUST-TOK-50345,3,Loyalty-linked
+202,First Aid Kit,LOT-0027-A,CUST-TOK-98439,4,Loyalty-linked
+202,First Aid Kit,LOT-0027-A,CUST-TOK-07891,4,Loyalty-linked
+202,First Aid Kit,LOT-0027-A,ANONYMOUS,21,Anonymous (no loyalty link)
+202,First Aid Kit,LOT-0027-B,CUST-TOK-36323,6,Loyalty-linked
+202,First Aid Kit,LOT-0027-B,CUST-TOK-51427,6,Loyalty-linked
+202,First Aid Kit,LOT-0027-B,CUST-TOK-90370,6,Loyalty-linked
+202,First Aid Kit,LOT-0027-B,ANONYMOUS,36,Anonymous (no loyalty link)
+202,Peanut Butter,LOT-5162-A,CUST-TOK-17089,17,Loyalty-linked
+202,Peanut Butter,LOT-5162-A,CUST-TOK-24445,18,Loyalty-linked
+202,Peanut Butter,LOT-5162-A,CUST-TOK-46049,18,Loyalty-linked
+202,Peanut Butter,LOT-5162-A,ANONYMOUS,101,Anonymous (no loyalty link)
+202,Peanut Butter,LOT-5162-B,CUST-TOK-00295,9,Loyalty-linked
+202,Peanut Butter,LOT-5162-B,CUST-TOK-33955,9,Loyalty-linked
+202,Peanut Butter,LOT-5162-B,CUST-TOK-70395,10,Loyalty-linked
+202,Peanut Butter,LOT-5162-B,ANONYMOUS,54,Anonymous (no loyalty link)
+202,Granola Bars,LOT-5867-A,CUST-TOK-01369,5,Loyalty-linked
+202,Granola Bars,LOT-5867-A,CUST-TOK-08781,5,Loyalty-linked
+202,Granola Bars,LOT-5867-A,CUST-TOK-93505,6,Loyalty-linked
+202,Granola Bars,LOT-5867-A,ANONYMOUS,31,Anonymous (no loyalty link)
+202,Granola Bars,LOT-5867-B,CUST-TOK-14905,4,Loyalty-linked
+202,Granola Bars,LOT-5867-B,CUST-TOK-87087,5,Loyalty-linked
+202,Granola Bars,LOT-5867-B,CUST-TOK-58853,5,Loyalty-linked
+202,Granola Bars,LOT-5867-B,ANONYMOUS,26,Anonymous (no loyalty link)
+202,Canned Soup,LOT-2516-A,CUST-TOK-47568,15,Loyalty-linked
+202,Canned Soup,LOT-2516-A,CUST-TOK-66381,16,Loyalty-linked
+202,Canned Soup,LOT-2516-A,CUST-TOK-30278,16,Loyalty-linked
+202,Canned Soup,LOT-2516-A,ANONYMOUS,88,Anonymous (no loyalty link)
+202,Canned Soup,LOT-2516-B,CUST-TOK-20777,10,Loyalty-linked
+202,Canned Soup,LOT-2516-B,CUST-TOK-50431,11,Loyalty-linked
+202,Canned Soup,LOT-2516-B,CUST-TOK-64986,11,Loyalty-linked
+202,Canned Soup,LOT-2516-B,ANONYMOUS,60,Anonymous (no loyalty link)
+202,Bread,LOT-2104-A,CUST-TOK-46375,20,Loyalty-linked
+202,Bread,LOT-2104-A,CUST-TOK-91239,20,Loyalty-linked
+202,Bread,LOT-2104-A,CUST-TOK-89156,21,Loyalty-linked
+202,Bread,LOT-2104-A,ANONYMOUS,116,Anonymous (no loyalty link)
+202,Bread,LOT-2104-B,CUST-TOK-92131,6,Loyalty-linked
+202,Bread,LOT-2104-B,CUST-TOK-30475,7,Loyalty-linked
+202,Bread,LOT-2104-B,CUST-TOK-83839,7,Loyalty-linked
+202,Bread,LOT-2104-B,ANONYMOUS,38,Anonymous (no loyalty link)
+202,Baby Formula,LOT-1218-A,CUST-TOK-47119,4,Loyalty-linked
+202,Baby Formula,LOT-1218-A,CUST-TOK-65315,4,Loyalty-linked
+202,Baby Formula,LOT-1218-A,CUST-TOK-95661,5,Loyalty-linked
+202,Baby Formula,LOT-1218-A,ANONYMOUS,26,Anonymous (no loyalty link)
+202,Baby Formula,LOT-1218-B,CUST-TOK-72049,21,Loyalty-linked
+202,Baby Formula,LOT-1218-B,CUST-TOK-31630,21,Loyalty-linked
+202,Baby Formula,LOT-1218-B,CUST-TOK-29581,21,Loyalty-linked
+202,Baby Formula,LOT-1218-B,ANONYMOUS,118,Anonymous (no loyalty link)
+202,Hand Sanitizer,LOT-0013-A,CUST-TOK-79536,5,Loyalty-linked
+202,Hand Sanitizer,LOT-0013-A,CUST-TOK-01877,6,Loyalty-linked
+202,Hand Sanitizer,LOT-0013-A,CUST-TOK-29096,6,Loyalty-linked
+202,Hand Sanitizer,LOT-0013-A,ANONYMOUS,33,Anonymous (no loyalty link)
+202,Hand Sanitizer,LOT-0013-B,CUST-TOK-77999,8,Loyalty-linked
+202,Hand Sanitizer,LOT-0013-B,CUST-TOK-91180,8,Loyalty-linked
+202,Hand Sanitizer,LOT-0013-B,CUST-TOK-29336,8,Loyalty-linked
+202,Hand Sanitizer,LOT-0013-B,ANONYMOUS,47,Anonymous (no loyalty link)
+202,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-37117,2,Loyalty-linked
+202,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-00441,3,Loyalty-linked
+202,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-49350,3,Loyalty-linked
+202,LPG Cylinder 20lb,LOT-7895-A,ANONYMOUS,15,Anonymous (no loyalty link)
+202,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-31420,9,Loyalty-linked
+202,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-58031,10,Loyalty-linked
+202,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-52492,10,Loyalty-linked
+202,LPG Cylinder 20lb,LOT-7895-B,ANONYMOUS,55,Anonymous (no loyalty link)
+203,First Aid Kit,LOT-0027-A,CUST-TOK-28804,5,Loyalty-linked
+203,First Aid Kit,LOT-0027-A,CUST-TOK-68988,5,Loyalty-linked
+203,First Aid Kit,LOT-0027-A,CUST-TOK-04074,5,Loyalty-linked
+203,First Aid Kit,LOT-0027-A,ANONYMOUS,30,Anonymous (no loyalty link)
+203,First Aid Kit,LOT-0027-B,CUST-TOK-10376,14,Loyalty-linked
+203,First Aid Kit,LOT-0027-B,CUST-TOK-65966,15,Loyalty-linked
+203,First Aid Kit,LOT-0027-B,CUST-TOK-39354,15,Loyalty-linked
+203,First Aid Kit,LOT-0027-B,ANONYMOUS,83,Anonymous (no loyalty link)
+203,Peanut Butter,LOT-5162-A,CUST-TOK-56845,20,Loyalty-linked
+203,Peanut Butter,LOT-5162-A,CUST-TOK-94431,20,Loyalty-linked
+203,Peanut Butter,LOT-5162-A,CUST-TOK-52815,20,Loyalty-linked
+203,Peanut Butter,LOT-5162-A,ANONYMOUS,114,Anonymous (no loyalty link)
+203,Peanut Butter,LOT-5162-B,CUST-TOK-21221,7,Loyalty-linked
+203,Peanut Butter,LOT-5162-B,CUST-TOK-10066,7,Loyalty-linked
+203,Peanut Butter,LOT-5162-B,CUST-TOK-57140,7,Loyalty-linked
+203,Peanut Butter,LOT-5162-B,ANONYMOUS,41,Anonymous (no loyalty link)
+203,Granola Bars,LOT-5867-A,CUST-TOK-27886,5,Loyalty-linked
+203,Granola Bars,LOT-5867-A,CUST-TOK-04976,5,Loyalty-linked
+203,Granola Bars,LOT-5867-A,CUST-TOK-55048,6,Loyalty-linked
+203,Granola Bars,LOT-5867-A,ANONYMOUS,32,Anonymous (no loyalty link)
+203,Granola Bars,LOT-5867-B,CUST-TOK-84865,11,Loyalty-linked
+203,Granola Bars,LOT-5867-B,CUST-TOK-02983,12,Loyalty-linked
+203,Granola Bars,LOT-5867-B,CUST-TOK-65616,12,Loyalty-linked
+203,Granola Bars,LOT-5867-B,ANONYMOUS,65,Anonymous (no loyalty link)
+203,Canned Soup,LOT-2516-A,CUST-TOK-01501,11,Loyalty-linked
+203,Canned Soup,LOT-2516-A,CUST-TOK-36476,11,Loyalty-linked
+203,Canned Soup,LOT-2516-A,CUST-TOK-59123,11,Loyalty-linked
+203,Canned Soup,LOT-2516-A,ANONYMOUS,63,Anonymous (no loyalty link)
+203,Canned Soup,LOT-2516-B,CUST-TOK-14307,15,Loyalty-linked
+203,Canned Soup,LOT-2516-B,CUST-TOK-75394,15,Loyalty-linked
+203,Canned Soup,LOT-2516-B,CUST-TOK-49331,15,Loyalty-linked
+203,Canned Soup,LOT-2516-B,ANONYMOUS,84,Anonymous (no loyalty link)
+203,Bread,LOT-2104-A,CUST-TOK-46819,11,Loyalty-linked
+203,Bread,LOT-2104-A,CUST-TOK-10011,12,Loyalty-linked
+203,Bread,LOT-2104-A,CUST-TOK-50773,12,Loyalty-linked
+203,Bread,LOT-2104-A,ANONYMOUS,65,Anonymous (no loyalty link)
+203,Bread,LOT-2104-B,CUST-TOK-13491,14,Loyalty-linked
+203,Bread,LOT-2104-B,CUST-TOK-37090,15,Loyalty-linked
+203,Bread,LOT-2104-B,CUST-TOK-29601,15,Loyalty-linked
+203,Bread,LOT-2104-B,ANONYMOUS,83,Anonymous (no loyalty link)
+203,Baby Formula,LOT-1218-A,CUST-TOK-70195,2,Loyalty-linked
+203,Baby Formula,LOT-1218-A,CUST-TOK-77241,2,Loyalty-linked
+203,Baby Formula,LOT-1218-A,CUST-TOK-03829,3,Loyalty-linked
+203,Baby Formula,LOT-1218-A,ANONYMOUS,13,Anonymous (no loyalty link)
+203,Baby Formula,LOT-1218-B,CUST-TOK-51617,3,Loyalty-linked
+203,Baby Formula,LOT-1218-B,CUST-TOK-52889,3,Loyalty-linked
+203,Baby Formula,LOT-1218-B,CUST-TOK-71674,3,Loyalty-linked
+203,Baby Formula,LOT-1218-B,ANONYMOUS,18,Anonymous (no loyalty link)
+203,Hand Sanitizer,LOT-0013-A,CUST-TOK-61166,7,Loyalty-linked
+203,Hand Sanitizer,LOT-0013-A,CUST-TOK-05597,8,Loyalty-linked
+203,Hand Sanitizer,LOT-0013-A,CUST-TOK-83852,8,Loyalty-linked
+203,Hand Sanitizer,LOT-0013-A,ANONYMOUS,44,Anonymous (no loyalty link)
+203,Hand Sanitizer,LOT-0013-B,CUST-TOK-90729,5,Loyalty-linked
+203,Hand Sanitizer,LOT-0013-B,CUST-TOK-23386,5,Loyalty-linked
+203,Hand Sanitizer,LOT-0013-B,CUST-TOK-87036,6,Loyalty-linked
+203,Hand Sanitizer,LOT-0013-B,ANONYMOUS,31,Anonymous (no loyalty link)
+203,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-76944,16,Loyalty-linked
+203,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-06120,16,Loyalty-linked
+203,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-95680,16,Loyalty-linked
+203,LPG Cylinder 20lb,LOT-7895-A,ANONYMOUS,90,Anonymous (no loyalty link)
+203,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-22425,20,Loyalty-linked
+203,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-88559,20,Loyalty-linked
+203,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-55705,21,Loyalty-linked
+203,LPG Cylinder 20lb,LOT-7895-B,ANONYMOUS,114,Anonymous (no loyalty link)
+204,First Aid Kit,LOT-0027-A,CUST-TOK-50690,4,Loyalty-linked
+204,First Aid Kit,LOT-0027-A,CUST-TOK-61278,4,Loyalty-linked
+204,First Aid Kit,LOT-0027-A,CUST-TOK-07851,4,Loyalty-linked
+204,First Aid Kit,LOT-0027-A,ANONYMOUS,25,Anonymous (no loyalty link)
+204,First Aid Kit,LOT-0027-B,CUST-TOK-49265,20,Loyalty-linked
+204,First Aid Kit,LOT-0027-B,CUST-TOK-24993,20,Loyalty-linked
+204,First Aid Kit,LOT-0027-B,CUST-TOK-90856,20,Loyalty-linked
+204,First Aid Kit,LOT-0027-B,ANONYMOUS,114,Anonymous (no loyalty link)
+204,Peanut Butter,LOT-5162-A,CUST-TOK-00156,9,Loyalty-linked
+204,Peanut Butter,LOT-5162-A,CUST-TOK-59362,10,Loyalty-linked
+204,Peanut Butter,LOT-5162-A,CUST-TOK-26230,10,Loyalty-linked
+204,Peanut Butter,LOT-5162-A,ANONYMOUS,54,Anonymous (no loyalty link)
+204,Peanut Butter,LOT-5162-B,CUST-TOK-39218,16,Loyalty-linked
+204,Peanut Butter,LOT-5162-B,CUST-TOK-14486,16,Loyalty-linked
+204,Peanut Butter,LOT-5162-B,CUST-TOK-73979,16,Loyalty-linked
+204,Peanut Butter,LOT-5162-B,ANONYMOUS,91,Anonymous (no loyalty link)
+204,Granola Bars,LOT-5867-A,CUST-TOK-99091,10,Loyalty-linked
+204,Granola Bars,LOT-5867-A,CUST-TOK-93591,10,Loyalty-linked
+204,Granola Bars,LOT-5867-A,CUST-TOK-72488,10,Loyalty-linked
+204,Granola Bars,LOT-5867-A,ANONYMOUS,56,Anonymous (no loyalty link)
+204,Granola Bars,LOT-5867-B,CUST-TOK-21803,9,Loyalty-linked
+204,Granola Bars,LOT-5867-B,CUST-TOK-22061,9,Loyalty-linked
+204,Granola Bars,LOT-5867-B,CUST-TOK-85692,9,Loyalty-linked
+204,Granola Bars,LOT-5867-B,ANONYMOUS,52,Anonymous (no loyalty link)
+204,Canned Soup,LOT-2516-A,CUST-TOK-41698,7,Loyalty-linked
+204,Canned Soup,LOT-2516-A,CUST-TOK-05367,7,Loyalty-linked
+204,Canned Soup,LOT-2516-A,CUST-TOK-50984,7,Loyalty-linked
+204,Canned Soup,LOT-2516-A,ANONYMOUS,41,Anonymous (no loyalty link)
+204,Canned Soup,LOT-2516-B,CUST-TOK-69038,11,Loyalty-linked
+204,Canned Soup,LOT-2516-B,CUST-TOK-57233,11,Loyalty-linked
+204,Canned Soup,LOT-2516-B,CUST-TOK-87093,11,Loyalty-linked
+204,Canned Soup,LOT-2516-B,ANONYMOUS,63,Anonymous (no loyalty link)
+204,Bread,LOT-2104-A,CUST-TOK-39918,15,Loyalty-linked
+204,Bread,LOT-2104-A,CUST-TOK-49631,15,Loyalty-linked
+204,Bread,LOT-2104-A,CUST-TOK-86298,15,Loyalty-linked
+204,Bread,LOT-2104-A,ANONYMOUS,86,Anonymous (no loyalty link)
+204,Bread,LOT-2104-B,CUST-TOK-24611,19,Loyalty-linked
+204,Bread,LOT-2104-B,CUST-TOK-74064,20,Loyalty-linked
+204,Bread,LOT-2104-B,CUST-TOK-03756,20,Loyalty-linked
+204,Bread,LOT-2104-B,ANONYMOUS,111,Anonymous (no loyalty link)
+204,Baby Formula,LOT-1218-A,CUST-TOK-66799,8,Loyalty-linked
+204,Baby Formula,LOT-1218-A,CUST-TOK-88291,8,Loyalty-linked
+204,Baby Formula,LOT-1218-A,CUST-TOK-44010,8,Loyalty-linked
+204,Baby Formula,LOT-1218-A,ANONYMOUS,45,Anonymous (no loyalty link)
+204,Baby Formula,LOT-1218-B,CUST-TOK-12709,6,Loyalty-linked
+204,Baby Formula,LOT-1218-B,CUST-TOK-90142,7,Loyalty-linked
+204,Baby Formula,LOT-1218-B,CUST-TOK-99877,7,Loyalty-linked
+204,Baby Formula,LOT-1218-B,ANONYMOUS,39,Anonymous (no loyalty link)
+204,Hand Sanitizer,LOT-0013-A,CUST-TOK-01111,16,Loyalty-linked
+204,Hand Sanitizer,LOT-0013-A,CUST-TOK-97860,16,Loyalty-linked
+204,Hand Sanitizer,LOT-0013-A,CUST-TOK-59777,16,Loyalty-linked
+204,Hand Sanitizer,LOT-0013-A,ANONYMOUS,91,Anonymous (no loyalty link)
+204,Hand Sanitizer,LOT-0013-B,CUST-TOK-73927,20,Loyalty-linked
+204,Hand Sanitizer,LOT-0013-B,CUST-TOK-39654,20,Loyalty-linked
+204,Hand Sanitizer,LOT-0013-B,CUST-TOK-53371,21,Loyalty-linked
+204,Hand Sanitizer,LOT-0013-B,ANONYMOUS,114,Anonymous (no loyalty link)
+204,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-02891,16,Loyalty-linked
+204,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-92210,17,Loyalty-linked
+204,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-91990,17,Loyalty-linked
+204,LPG Cylinder 20lb,LOT-7895-A,ANONYMOUS,93,Anonymous (no loyalty link)
+204,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-63109,15,Loyalty-linked
+204,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-74722,15,Loyalty-linked
+204,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-67980,16,Loyalty-linked
+204,LPG Cylinder 20lb,LOT-7895-B,ANONYMOUS,87,Anonymous (no loyalty link)
+205,First Aid Kit,LOT-0027-A,CUST-TOK-31131,20,Loyalty-linked
+205,First Aid Kit,LOT-0027-A,CUST-TOK-94578,20,Loyalty-linked
+205,First Aid Kit,LOT-0027-A,CUST-TOK-62943,21,Loyalty-linked
+205,First Aid Kit,LOT-0027-A,ANONYMOUS,116,Anonymous (no loyalty link)
+205,First Aid Kit,LOT-0027-B,CUST-TOK-69758,21,Loyalty-linked
+205,First Aid Kit,LOT-0027-B,CUST-TOK-73630,21,Loyalty-linked
+205,First Aid Kit,LOT-0027-B,CUST-TOK-01000,21,Loyalty-linked
+205,First Aid Kit,LOT-0027-B,ANONYMOUS,119,Anonymous (no loyalty link)
+205,Peanut Butter,LOT-5162-A,CUST-TOK-78286,10,Loyalty-linked
+205,Peanut Butter,LOT-5162-A,CUST-TOK-14083,10,Loyalty-linked
+205,Peanut Butter,LOT-5162-A,CUST-TOK-12914,10,Loyalty-linked
+205,Peanut Butter,LOT-5162-A,ANONYMOUS,58,Anonymous (no loyalty link)
+205,Peanut Butter,LOT-5162-B,CUST-TOK-61030,21,Loyalty-linked
+205,Peanut Butter,LOT-5162-B,CUST-TOK-10787,21,Loyalty-linked
+205,Peanut Butter,LOT-5162-B,CUST-TOK-37910,22,Loyalty-linked
+205,Peanut Butter,LOT-5162-B,ANONYMOUS,120,Anonymous (no loyalty link)
+205,Granola Bars,LOT-5867-A,CUST-TOK-91029,6,Loyalty-linked
+205,Granola Bars,LOT-5867-A,CUST-TOK-20851,7,Loyalty-linked
+205,Granola Bars,LOT-5867-A,CUST-TOK-38443,7,Loyalty-linked
+205,Granola Bars,LOT-5867-A,ANONYMOUS,38,Anonymous (no loyalty link)
+205,Granola Bars,LOT-5867-B,CUST-TOK-44187,22,Loyalty-linked
+205,Granola Bars,LOT-5867-B,CUST-TOK-10386,23,Loyalty-linked
+205,Granola Bars,LOT-5867-B,CUST-TOK-75181,23,Loyalty-linked
+205,Granola Bars,LOT-5867-B,ANONYMOUS,128,Anonymous (no loyalty link)
+205,Canned Soup,LOT-2516-A,CUST-TOK-57695,7,Loyalty-linked
+205,Canned Soup,LOT-2516-A,CUST-TOK-22391,8,Loyalty-linked
+205,Canned Soup,LOT-2516-A,CUST-TOK-25748,8,Loyalty-linked
+205,Canned Soup,LOT-2516-A,ANONYMOUS,45,Anonymous (no loyalty link)
+205,Canned Soup,LOT-2516-B,CUST-TOK-80012,7,Loyalty-linked
+205,Canned Soup,LOT-2516-B,CUST-TOK-43729,7,Loyalty-linked
+205,Canned Soup,LOT-2516-B,CUST-TOK-16695,8,Loyalty-linked
+205,Canned Soup,LOT-2516-B,ANONYMOUS,42,Anonymous (no loyalty link)
+205,Bread,LOT-2104-A,CUST-TOK-07381,5,Loyalty-linked
+205,Bread,LOT-2104-A,CUST-TOK-23471,6,Loyalty-linked
+205,Bread,LOT-2104-A,CUST-TOK-16744,6,Loyalty-linked
+205,Bread,LOT-2104-A,ANONYMOUS,32,Anonymous (no loyalty link)
+205,Bread,LOT-2104-B,CUST-TOK-90921,2,Loyalty-linked
+205,Bread,LOT-2104-B,CUST-TOK-31304,3,Loyalty-linked
+205,Bread,LOT-2104-B,CUST-TOK-08651,3,Loyalty-linked
+205,Bread,LOT-2104-B,ANONYMOUS,17,Anonymous (no loyalty link)
+205,Baby Formula,LOT-1218-A,CUST-TOK-82804,2,Loyalty-linked
+205,Baby Formula,LOT-1218-A,CUST-TOK-75641,2,Loyalty-linked
+205,Baby Formula,LOT-1218-A,CUST-TOK-58196,3,Loyalty-linked
+205,Baby Formula,LOT-1218-A,ANONYMOUS,15,Anonymous (no loyalty link)
+205,Baby Formula,LOT-1218-B,CUST-TOK-67262,12,Loyalty-linked
+205,Baby Formula,LOT-1218-B,CUST-TOK-81091,12,Loyalty-linked
+205,Baby Formula,LOT-1218-B,CUST-TOK-19452,12,Loyalty-linked
+205,Baby Formula,LOT-1218-B,ANONYMOUS,68,Anonymous (no loyalty link)
+205,Hand Sanitizer,LOT-0013-A,CUST-TOK-81283,17,Loyalty-linked
+205,Hand Sanitizer,LOT-0013-A,CUST-TOK-89458,17,Loyalty-linked
+205,Hand Sanitizer,LOT-0013-A,CUST-TOK-35256,17,Loyalty-linked
+205,Hand Sanitizer,LOT-0013-A,ANONYMOUS,95,Anonymous (no loyalty link)
+205,Hand Sanitizer,LOT-0013-B,CUST-TOK-64711,17,Loyalty-linked
+205,Hand Sanitizer,LOT-0013-B,CUST-TOK-00493,17,Loyalty-linked
+205,Hand Sanitizer,LOT-0013-B,CUST-TOK-67647,17,Loyalty-linked
+205,Hand Sanitizer,LOT-0013-B,ANONYMOUS,97,Anonymous (no loyalty link)
+205,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-73046,19,Loyalty-linked
+205,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-80786,20,Loyalty-linked
+205,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-30747,20,Loyalty-linked
+205,LPG Cylinder 20lb,LOT-7895-A,ANONYMOUS,112,Anonymous (no loyalty link)
+205,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-42406,21,Loyalty-linked
+205,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-67130,22,Loyalty-linked
+205,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-00765,22,Loyalty-linked
+205,LPG Cylinder 20lb,LOT-7895-B,ANONYMOUS,122,Anonymous (no loyalty link)
+206,First Aid Kit,LOT-0027-A,CUST-TOK-76555,2,Loyalty-linked
+206,First Aid Kit,LOT-0027-A,CUST-TOK-84556,3,Loyalty-linked
+206,First Aid Kit,LOT-0027-A,CUST-TOK-82849,3,Loyalty-linked
+206,First Aid Kit,LOT-0027-A,ANONYMOUS,16,Anonymous (no loyalty link)
+206,First Aid Kit,LOT-0027-B,CUST-TOK-57041,7,Loyalty-linked
+206,First Aid Kit,LOT-0027-B,CUST-TOK-23176,8,Loyalty-linked
+206,First Aid Kit,LOT-0027-B,CUST-TOK-51290,8,Loyalty-linked
+206,First Aid Kit,LOT-0027-B,ANONYMOUS,43,Anonymous (no loyalty link)
+206,Peanut Butter,LOT-5162-A,CUST-TOK-34653,7,Loyalty-linked
+206,Peanut Butter,LOT-5162-A,CUST-TOK-03443,7,Loyalty-linked
+206,Peanut Butter,LOT-5162-A,CUST-TOK-42210,8,Loyalty-linked
+206,Peanut Butter,LOT-5162-A,ANONYMOUS,43,Anonymous (no loyalty link)
+206,Peanut Butter,LOT-5162-B,CUST-TOK-87831,3,Loyalty-linked
+206,Peanut Butter,LOT-5162-B,CUST-TOK-36674,3,Loyalty-linked
+206,Peanut Butter,LOT-5162-B,CUST-TOK-28250,4,Loyalty-linked
+206,Peanut Butter,LOT-5162-B,ANONYMOUS,21,Anonymous (no loyalty link)
+206,Granola Bars,LOT-5867-A,CUST-TOK-38876,22,Loyalty-linked
+206,Granola Bars,LOT-5867-A,CUST-TOK-03037,23,Loyalty-linked
+206,Granola Bars,LOT-5867-A,CUST-TOK-10763,23,Loyalty-linked
+206,Granola Bars,LOT-5867-A,ANONYMOUS,129,Anonymous (no loyalty link)
+206,Granola Bars,LOT-5867-B,CUST-TOK-01703,15,Loyalty-linked
+206,Granola Bars,LOT-5867-B,CUST-TOK-32932,15,Loyalty-linked
+206,Granola Bars,LOT-5867-B,CUST-TOK-87482,16,Loyalty-linked
+206,Granola Bars,LOT-5867-B,ANONYMOUS,88,Anonymous (no loyalty link)
+206,Canned Soup,LOT-2516-A,CUST-TOK-38756,19,Loyalty-linked
+206,Canned Soup,LOT-2516-A,CUST-TOK-75100,19,Loyalty-linked
+206,Canned Soup,LOT-2516-A,CUST-TOK-46825,19,Loyalty-linked
+206,Canned Soup,LOT-2516-A,ANONYMOUS,106,Anonymous (no loyalty link)
+206,Canned Soup,LOT-2516-B,CUST-TOK-66162,21,Loyalty-linked
+206,Canned Soup,LOT-2516-B,CUST-TOK-34446,22,Loyalty-linked
+206,Canned Soup,LOT-2516-B,CUST-TOK-31103,22,Loyalty-linked
+206,Canned Soup,LOT-2516-B,ANONYMOUS,122,Anonymous (no loyalty link)
+206,Bread,LOT-2104-A,CUST-TOK-94683,7,Loyalty-linked
+206,Bread,LOT-2104-A,CUST-TOK-51142,8,Loyalty-linked
+206,Bread,LOT-2104-A,CUST-TOK-98822,8,Loyalty-linked
+206,Bread,LOT-2104-A,ANONYMOUS,43,Anonymous (no loyalty link)
+206,Bread,LOT-2104-B,CUST-TOK-59869,23,Loyalty-linked
+206,Bread,LOT-2104-B,CUST-TOK-30152,23,Loyalty-linked
+206,Bread,LOT-2104-B,CUST-TOK-87537,23,Loyalty-linked
+206,Bread,LOT-2104-B,ANONYMOUS,129,Anonymous (no loyalty link)
+206,Baby Formula,LOT-1218-A,CUST-TOK-60272,15,Loyalty-linked
+206,Baby Formula,LOT-1218-A,CUST-TOK-46044,15,Loyalty-linked
+206,Baby Formula,LOT-1218-A,CUST-TOK-90492,15,Loyalty-linked
+206,Baby Formula,LOT-1218-A,ANONYMOUS,86,Anonymous (no loyalty link)
+206,Baby Formula,LOT-1218-B,CUST-TOK-37370,8,Loyalty-linked
+206,Baby Formula,LOT-1218-B,CUST-TOK-73819,8,Loyalty-linked
+206,Baby Formula,LOT-1218-B,CUST-TOK-91059,9,Loyalty-linked
+206,Baby Formula,LOT-1218-B,ANONYMOUS,48,Anonymous (no loyalty link)
+206,Hand Sanitizer,LOT-0013-A,CUST-TOK-44974,9,Loyalty-linked
+206,Hand Sanitizer,LOT-0013-A,CUST-TOK-44867,10,Loyalty-linked
+206,Hand Sanitizer,LOT-0013-A,CUST-TOK-55106,10,Loyalty-linked
+206,Hand Sanitizer,LOT-0013-A,ANONYMOUS,55,Anonymous (no loyalty link)
+206,Hand Sanitizer,LOT-0013-B,CUST-TOK-18827,13,Loyalty-linked
+206,Hand Sanitizer,LOT-0013-B,CUST-TOK-21674,13,Loyalty-linked
+206,Hand Sanitizer,LOT-0013-B,CUST-TOK-58231,14,Loyalty-linked
+206,Hand Sanitizer,LOT-0013-B,ANONYMOUS,76,Anonymous (no loyalty link)
+206,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-10746,21,Loyalty-linked
+206,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-61134,21,Loyalty-linked
+206,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-47134,22,Loyalty-linked
+206,LPG Cylinder 20lb,LOT-7895-A,ANONYMOUS,121,Anonymous (no loyalty link)
+206,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-91572,22,Loyalty-linked
+206,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-38592,23,Loyalty-linked
+206,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-14346,23,Loyalty-linked
+206,LPG Cylinder 20lb,LOT-7895-B,ANONYMOUS,127,Anonymous (no loyalty link)
+207,First Aid Kit,LOT-0027-A,CUST-TOK-77925,21,Loyalty-linked
+207,First Aid Kit,LOT-0027-A,CUST-TOK-42364,21,Loyalty-linked
+207,First Aid Kit,LOT-0027-A,CUST-TOK-60414,21,Loyalty-linked
+207,First Aid Kit,LOT-0027-A,ANONYMOUS,119,Anonymous (no loyalty link)
+207,First Aid Kit,LOT-0027-B,CUST-TOK-80261,3,Loyalty-linked
+207,First Aid Kit,LOT-0027-B,CUST-TOK-13969,4,Loyalty-linked
+207,First Aid Kit,LOT-0027-B,CUST-TOK-22872,4,Loyalty-linked
+207,First Aid Kit,LOT-0027-B,ANONYMOUS,21,Anonymous (no loyalty link)
+207,Peanut Butter,LOT-5162-A,CUST-TOK-71357,8,Loyalty-linked
+207,Peanut Butter,LOT-5162-A,CUST-TOK-22179,8,Loyalty-linked
+207,Peanut Butter,LOT-5162-A,CUST-TOK-81834,8,Loyalty-linked
+207,Peanut Butter,LOT-5162-A,ANONYMOUS,46,Anonymous (no loyalty link)
+207,Peanut Butter,LOT-5162-B,CUST-TOK-69916,5,Loyalty-linked
+207,Peanut Butter,LOT-5162-B,CUST-TOK-55640,5,Loyalty-linked
+207,Peanut Butter,LOT-5162-B,CUST-TOK-91283,6,Loyalty-linked
+207,Peanut Butter,LOT-5162-B,ANONYMOUS,31,Anonymous (no loyalty link)
+207,Granola Bars,LOT-5867-A,CUST-TOK-80604,17,Loyalty-linked
+207,Granola Bars,LOT-5867-A,CUST-TOK-62351,17,Loyalty-linked
+207,Granola Bars,LOT-5867-A,CUST-TOK-61300,18,Loyalty-linked
+207,Granola Bars,LOT-5867-A,ANONYMOUS,98,Anonymous (no loyalty link)
+207,Granola Bars,LOT-5867-B,CUST-TOK-16844,6,Loyalty-linked
+207,Granola Bars,LOT-5867-B,CUST-TOK-12887,6,Loyalty-linked
+207,Granola Bars,LOT-5867-B,CUST-TOK-46667,7,Loyalty-linked
+207,Granola Bars,LOT-5867-B,ANONYMOUS,36,Anonymous (no loyalty link)
+207,Canned Soup,LOT-2516-A,CUST-TOK-28103,8,Loyalty-linked
+207,Canned Soup,LOT-2516-A,CUST-TOK-92020,8,Loyalty-linked
+207,Canned Soup,LOT-2516-A,CUST-TOK-57296,8,Loyalty-linked
+207,Canned Soup,LOT-2516-A,ANONYMOUS,45,Anonymous (no loyalty link)
+207,Canned Soup,LOT-2516-B,CUST-TOK-43808,22,Loyalty-linked
+207,Canned Soup,LOT-2516-B,CUST-TOK-99154,23,Loyalty-linked
+207,Canned Soup,LOT-2516-B,CUST-TOK-83939,23,Loyalty-linked
+207,Canned Soup,LOT-2516-B,ANONYMOUS,129,Anonymous (no loyalty link)
+207,Bread,LOT-2104-A,CUST-TOK-39635,7,Loyalty-linked
+207,Bread,LOT-2104-A,CUST-TOK-42508,7,Loyalty-linked
+207,Bread,LOT-2104-A,CUST-TOK-14668,8,Loyalty-linked
+207,Bread,LOT-2104-A,ANONYMOUS,43,Anonymous (no loyalty link)
+207,Bread,LOT-2104-B,CUST-TOK-63641,13,Loyalty-linked
+207,Bread,LOT-2104-B,CUST-TOK-28881,13,Loyalty-linked
+207,Bread,LOT-2104-B,CUST-TOK-40462,13,Loyalty-linked
+207,Bread,LOT-2104-B,ANONYMOUS,73,Anonymous (no loyalty link)
+207,Baby Formula,LOT-1218-A,CUST-TOK-52768,17,Loyalty-linked
+207,Baby Formula,LOT-1218-A,CUST-TOK-74362,17,Loyalty-linked
+207,Baby Formula,LOT-1218-A,CUST-TOK-33196,17,Loyalty-linked
+207,Baby Formula,LOT-1218-A,ANONYMOUS,96,Anonymous (no loyalty link)
+207,Baby Formula,LOT-1218-B,CUST-TOK-03497,11,Loyalty-linked
+207,Baby Formula,LOT-1218-B,CUST-TOK-22202,12,Loyalty-linked
+207,Baby Formula,LOT-1218-B,CUST-TOK-90946,12,Loyalty-linked
+207,Baby Formula,LOT-1218-B,ANONYMOUS,67,Anonymous (no loyalty link)
+207,Hand Sanitizer,LOT-0013-A,CUST-TOK-13201,10,Loyalty-linked
+207,Hand Sanitizer,LOT-0013-A,CUST-TOK-91819,10,Loyalty-linked
+207,Hand Sanitizer,LOT-0013-A,CUST-TOK-03706,10,Loyalty-linked
+207,Hand Sanitizer,LOT-0013-A,ANONYMOUS,58,Anonymous (no loyalty link)
+207,Hand Sanitizer,LOT-0013-B,CUST-TOK-27380,22,Loyalty-linked
+207,Hand Sanitizer,LOT-0013-B,CUST-TOK-41871,23,Loyalty-linked
+207,Hand Sanitizer,LOT-0013-B,CUST-TOK-18575,23,Loyalty-linked
+207,Hand Sanitizer,LOT-0013-B,ANONYMOUS,129,Anonymous (no loyalty link)
+207,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-86965,3,Loyalty-linked
+207,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-12854,3,Loyalty-linked
+207,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-39492,4,Loyalty-linked
+207,LPG Cylinder 20lb,LOT-7895-A,ANONYMOUS,19,Anonymous (no loyalty link)
+207,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-47770,11,Loyalty-linked
+207,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-30190,12,Loyalty-linked
+207,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-19231,12,Loyalty-linked
+207,LPG Cylinder 20lb,LOT-7895-B,ANONYMOUS,66,Anonymous (no loyalty link)
+208,First Aid Kit,LOT-0027-A,CUST-TOK-10271,9,Loyalty-linked
+208,First Aid Kit,LOT-0027-A,CUST-TOK-06380,9,Loyalty-linked
+208,First Aid Kit,LOT-0027-A,CUST-TOK-81290,9,Loyalty-linked
+208,First Aid Kit,LOT-0027-A,ANONYMOUS,52,Anonymous (no loyalty link)
+208,First Aid Kit,LOT-0027-B,CUST-TOK-71649,4,Loyalty-linked
+208,First Aid Kit,LOT-0027-B,CUST-TOK-84775,5,Loyalty-linked
+208,First Aid Kit,LOT-0027-B,CUST-TOK-35263,5,Loyalty-linked
+208,First Aid Kit,LOT-0027-B,ANONYMOUS,27,Anonymous (no loyalty link)
+208,Peanut Butter,LOT-5162-A,CUST-TOK-99208,12,Loyalty-linked
+208,Peanut Butter,LOT-5162-A,CUST-TOK-08982,12,Loyalty-linked
+208,Peanut Butter,LOT-5162-A,CUST-TOK-83010,12,Loyalty-linked
+208,Peanut Butter,LOT-5162-A,ANONYMOUS,68,Anonymous (no loyalty link)
+208,Peanut Butter,LOT-5162-B,CUST-TOK-83608,14,Loyalty-linked
+208,Peanut Butter,LOT-5162-B,CUST-TOK-96983,14,Loyalty-linked
+208,Peanut Butter,LOT-5162-B,CUST-TOK-25778,14,Loyalty-linked
+208,Peanut Butter,LOT-5162-B,ANONYMOUS,78,Anonymous (no loyalty link)
+208,Granola Bars,LOT-5867-A,CUST-TOK-65377,17,Loyalty-linked
+208,Granola Bars,LOT-5867-A,CUST-TOK-70763,18,Loyalty-linked
+208,Granola Bars,LOT-5867-A,CUST-TOK-86801,18,Loyalty-linked
+208,Granola Bars,LOT-5867-A,ANONYMOUS,99,Anonymous (no loyalty link)
+208,Granola Bars,LOT-5867-B,CUST-TOK-93944,9,Loyalty-linked
+208,Granola Bars,LOT-5867-B,CUST-TOK-51405,10,Loyalty-linked
+208,Granola Bars,LOT-5867-B,CUST-TOK-62885,10,Loyalty-linked
+208,Granola Bars,LOT-5867-B,ANONYMOUS,55,Anonymous (no loyalty link)
+208,Canned Soup,LOT-2516-A,CUST-TOK-05473,14,Loyalty-linked
+208,Canned Soup,LOT-2516-A,CUST-TOK-09227,15,Loyalty-linked
+208,Canned Soup,LOT-2516-A,CUST-TOK-24003,15,Loyalty-linked
+208,Canned Soup,LOT-2516-A,ANONYMOUS,82,Anonymous (no loyalty link)
+208,Canned Soup,LOT-2516-B,CUST-TOK-51919,5,Loyalty-linked
+208,Canned Soup,LOT-2516-B,CUST-TOK-51910,5,Loyalty-linked
+208,Canned Soup,LOT-2516-B,CUST-TOK-67386,5,Loyalty-linked
+208,Canned Soup,LOT-2516-B,ANONYMOUS,28,Anonymous (no loyalty link)
+208,Bread,LOT-2104-A,CUST-TOK-48259,15,Loyalty-linked
+208,Bread,LOT-2104-A,CUST-TOK-44793,15,Loyalty-linked
+208,Bread,LOT-2104-A,CUST-TOK-20013,16,Loyalty-linked
+208,Bread,LOT-2104-A,ANONYMOUS,87,Anonymous (no loyalty link)
+208,Bread,LOT-2104-B,CUST-TOK-76242,23,Loyalty-linked
+208,Bread,LOT-2104-B,CUST-TOK-05898,23,Loyalty-linked
+208,Bread,LOT-2104-B,CUST-TOK-14189,23,Loyalty-linked
+208,Bread,LOT-2104-B,ANONYMOUS,129,Anonymous (no loyalty link)
+208,Baby Formula,LOT-1218-A,CUST-TOK-94038,18,Loyalty-linked
+208,Baby Formula,LOT-1218-A,CUST-TOK-52106,18,Loyalty-linked
+208,Baby Formula,LOT-1218-A,CUST-TOK-20997,19,Loyalty-linked
+208,Baby Formula,LOT-1218-A,ANONYMOUS,103,Anonymous (no loyalty link)
+208,Baby Formula,LOT-1218-B,CUST-TOK-53228,14,Loyalty-linked
+208,Baby Formula,LOT-1218-B,CUST-TOK-63172,15,Loyalty-linked
+208,Baby Formula,LOT-1218-B,CUST-TOK-54380,15,Loyalty-linked
+208,Baby Formula,LOT-1218-B,ANONYMOUS,84,Anonymous (no loyalty link)
+208,Hand Sanitizer,LOT-0013-A,CUST-TOK-69950,6,Loyalty-linked
+208,Hand Sanitizer,LOT-0013-A,CUST-TOK-22521,6,Loyalty-linked
+208,Hand Sanitizer,LOT-0013-A,CUST-TOK-15320,7,Loyalty-linked
+208,Hand Sanitizer,LOT-0013-A,ANONYMOUS,37,Anonymous (no loyalty link)
+208,Hand Sanitizer,LOT-0013-B,CUST-TOK-20921,17,Loyalty-linked
+208,Hand Sanitizer,LOT-0013-B,CUST-TOK-78251,18,Loyalty-linked
+208,Hand Sanitizer,LOT-0013-B,CUST-TOK-44308,18,Loyalty-linked
+208,Hand Sanitizer,LOT-0013-B,ANONYMOUS,100,Anonymous (no loyalty link)
+208,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-20276,4,Loyalty-linked
+208,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-70087,4,Loyalty-linked
+208,LPG Cylinder 20lb,LOT-7895-A,CUST-TOK-72521,4,Loyalty-linked
+208,LPG Cylinder 20lb,LOT-7895-A,ANONYMOUS,24,Anonymous (no loyalty link)
+208,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-81360,6,Loyalty-linked
+208,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-45967,6,Loyalty-linked
+208,LPG Cylinder 20lb,LOT-7895-B,CUST-TOK-39150,6,Loyalty-linked
+208,LPG Cylinder 20lb,LOT-7895-B,ANONYMOUS,35,Anonymous (no loyalty link)

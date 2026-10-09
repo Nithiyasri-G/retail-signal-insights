@@ -1,0 +1,22 @@
+UPC,Product,Category,Supplier ID,Lot Tracked,Unit Price,Case Pack,MOQ,Sellable Unit
+049000028911,Bottled Water,Emergency Essentials,SUP-1,False,4.99,24,48,EA
+039800011906,Batteries,Emergency Essentials,SUP-2,False,6.99,12,24,EA
+030878004508,Flashlights,Emergency Essentials,SUP-2,False,8.99,6,12,EA
+041303011003,Rock Salt,Emergency Essentials,SUP-3,False,5.49,8,16,EA
+052088880018,Space Heater,Emergency Essentials,SUP-2,False,24.99,2,4,EA
+073168300019,Rain Ponchos,Emergency Essentials,SUP-1,False,2.99,6,12,EA
+072140010027,First Aid Kit,Emergency Essentials,SUP-4,True,9.99,6,12,EA
+051500255162,Peanut Butter,Food / Consumables,SUP-5,True,3.49,6,12,EA
+016000275867,Granola Bars,Food / Consumables,SUP-5,True,4.29,6,12,EA
+051000012516,Canned Soup,Food / Consumables,SUP-5,True,1.99,6,12,EA
+070038640119,Trail Mix,Food / Consumables,SUP-5,False,3.99,6,12,EA
+028400090460,Value Snacks,Food / Consumables,SUP-6,False,2.49,6,12,EA
+073730002104,Bread,Food / Consumables,SUP-5,True,2.79,6,12,EA
+300871231218,Baby Formula,Food / Consumables,SUP-7,True,18.99,6,12,EA
+017800130039,Pet Food,Household,SUP-6,False,12.99,6,12,EA
+037000127109,Laundry Detergent,Household,SUP-3,False,7.99,6,12,EA
+030772057008,Paper Towels,Household,SUP-3,False,5.99,6,12,EA
+037000424116,Toothpaste,Personal Care,SUP-8,False,2.99,6,12,EA
+080878179271,Shampoo,Personal Care,SUP-8,False,4.49,6,12,EA
+301871220013,Hand Sanitizer,Personal Care,SUP-4,True,3.29,6,12,EA
+081234567895,LPG Cylinder 20lb,Emergency Essentials,SUP-2,True,34.99,1,2,EA

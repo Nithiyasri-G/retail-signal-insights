@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_version": "v1",
+  "generation_method": "Deterministic export of reviewed POC generators",
+  "owner": "Market Intelligence POC team",
+  "created_at": "2026-09-23T05:04:49.672147+00:00",
+  "provenance": "synthetic",
+  "files": {
+    "stores.csv": {
+      "rows": 16,
+      "sha256": "1bac1fe1d935509dc870b87e6c2595df460ebc615a787602f439c1ac32beac98"
+    },
+    "dc_network.csv": {
+      "rows": 4,
+      "sha256": "cb53749f8047d923c2786806ec100bc2bbddfeaedf8d7b8efc2f87a9293b444c"
+    },
+    "store_sku_dc_lanes.csv": {
+      "rows": 672,
+      "sha256": "013c8afd7bd7e6b944c72ec4259444bdc6bfca459dc4c1fca0d8c9c04b08b900"
+    },
+    "products.csv": {
+      "rows": 21,
+      "sha256": "cc8117a68f8c73daed3e860d133a19c895e9244b4a3a1d896a2caccc19955c97"
+    },
+    "store_inventory.csv": {
+      "rows": 336,
+      "sha256": "4391235837345f12f6d24a381417f38cfb5102aa03939a2bdecfc64d682def20"
+    },
+    "dc_inventory.csv": {
+      "rows": 84,
+      "sha256": "bf6caff27886efa44fddf1509b9967857a3dcfcebf1688ef12d2982ca22811ba"
+    },
+    "routes.csv": {
+      "rows": 16,
+      "sha256": "5d7ec62d48f7d9cbad0d7ef109e25ec5be9195d5c9d7ae1b3e92c59500a8aa86"
+    },
+    "staffing.csv": {
+      "rows": 112,
+      "sha256": "28c833a2386ac34b9de7d0b6bca0925cf996c0bddeef934abf82f938a9f218f9"
+    },
+    "weather_assumptions.csv": {
+      "rows": 639,
+      "sha256": "3dc919a195d500ad6caf3236185f3ebc8b5ca1147c770082c396176bc2e43423"
+    },
+    "market_signals.csv": {
+      "rows": 3,
+      "sha256": "6b167a6ea5e24f65f5199f173b4b355b5297d8747b81eca0d968df6d53fb6cab"
+    },
+    "suppliers.csv": {
+      "rows": 8,
+      "sha256": "a7ff3f2ae548cd7099c8f66b3c32e0243c727c262e7b3a09a400edd20d06d290"
+    },
+    "lots.csv": {
+      "rows": 16,
+      "sha256": "cf6ab5f57f8eaad8903ee46833f7b75376b6ba9d67ecbb3c6c2587645e62ebae"
+    },
+    "sales_summary.csv": {
+      "rows": 256,
+      "sha256": "775a24da886c3c2792fc09e612ff655e4dfdd9cc480ea089a329457a4e19e67c"
+    },
+    "customer_purchases.csv": {
+      "rows": 1024,
+      "sha256": "e41b626aa32071c8e3948f9d5c870f5934f94eafcc65e42b645c746725264edb"
+    },
+    "substitutes.csv": {
+      "rows": 4,
+      "sha256": "4f9f9e4e4fabe4639ce5e0b0d19168e56c699e5d21b2c80be43b2956c69cc593"
+    },
+    "staffing_summary.csv": {
+      "rows": 448,
+      "sha256": "f226e6a33e925a71c294d8f11443dfb0e1380b1be1467aa114a3fbff814f7104"
+    },
+    "zip_centroids.csv": {
+      "rows": 75,
+      "sha256": "ea96dc36034d2f2f67f257474da33bd1ca7b3ed0964fa6d5f55896666e08d09a",
+      "provenance": "approximate demonstration ZIP centroids; not authoritative geocoding data"
+    }
+  }
+}
