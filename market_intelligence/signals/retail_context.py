@@ -5,6 +5,45 @@ import pandas as pd
 from market_intelligence.signals.labels import readable_signal_name
 
 
+def _is_true(value: Any) -> bool:
+    try:
+        return (not pd.isna(value)) and bool(value)
+    except (TypeError, ValueError):
+        return False
+
+
+def _whole_number(value: Any) -> Any:
+    try:
+        return None if pd.isna(value) else int(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _weather_store_exposure(row: Dict[str, Any]) -> tuple:
+    """(screened, matched, fetched) from the NOAA collector's store-county screening."""
+    screened = _is_true(row.get("store_screening_applied"))
+    return screened, _whole_number(row.get("operationally_relevant_fetched_count")), _whole_number(row.get("fetched_count"))
+
+
+def internal_exposure_for_signal(row: Dict[str, Any]) -> str:
+    """What has been checked against the store network, kept apart from the external severity."""
+    area = str(row.get("signal_area", "")).lower()
+    source = str(row.get("source", "")).lower()
+    if "weather" in area or "noaa" in source:
+        screened, matched, fetched = _weather_store_exposure(row)
+        if not screened or matched is None or fetched is None:
+            return "Store screening not recorded; DC and route exposure not evaluated"
+        if fetched == 0:
+            return "No active alerts"
+        if matched == 0:
+            return "No configured-store county match; DC and route exposure not evaluated"
+        noun = "alert" if fetched == 1 else "alerts"
+        return f"{matched} of {fetched} fetched {noun} matched a store county (preliminary); DC and route exposure not evaluated"
+    if "recall" in area or "fda" in source:
+        return "Not confirmed here; each recall is matched to internal products in Operational Impact Center"
+    return "Not applicable; market-level signal"
+
+
 def retail_context_for_signal(row: Dict[str, Any]) -> Dict[str, str]:
     area = str(row.get("signal_area", "")).lower()
     name = str(row.get("signal_name", "")).lower()
@@ -24,6 +63,7 @@ def retail_context_for_signal(row: Dict[str, Any]) -> Dict[str, str]:
         "action_priority": priority,
         "evidence_grade": "Live public API" if source else "Unknown",
         "internal_data_needed": "POS sales, category hierarchy, inventory, store/DC mapping, promotion calendar",
+        "internal_exposure": internal_exposure_for_signal(row),
     }
 
     # D04: a CPI signal's raw_reference text (e.g. "Food at home: CPI 298.5") contains
@@ -38,7 +78,7 @@ def retail_context_for_signal(row: Dict[str, Any]) -> Dict[str, str]:
     ):
         context.update(
             {
-                "retail_category": "Snacks, candy, beverages, and consumables",
+                "retail_category": "Food and beverage consumables (FDA search scope)",
                 "enterprise_kpi": "Safety and Compliance Risk",
                 "planning_owner": "Compliance + Category Buyer",
                 "demand_direction": "Downside risk / substitution demand",
@@ -61,6 +101,13 @@ def retail_context_for_signal(row: Dict[str, Any]) -> Dict[str, str]:
                 "internal_data_needed": "Store locations, DC routes, state/category sales, inventory by store",
             }
         )
+        # Same rule as the Operational Impact Center: when alerts exist but no store is in
+        # the alert counties, Action Priority is left blank -- not Low or Monitor -- because
+        # no store action applies. Risk Level still shows the state severity, and Internal
+        # Exposure says why. A state with no alerts at all keeps its normal priority.
+        screened, matched, fetched = _weather_store_exposure(row)
+        if screened and matched == 0 and fetched:
+            context["action_priority"] = ""
     elif "headline cpi" in name or ("inflation" in area and "category" not in area):
         context.update(
             {
@@ -108,7 +155,7 @@ def retail_context_for_signal(row: Dict[str, Any]) -> Dict[str, str]:
     elif "household" in name:
         context.update(
             {
-                "retail_category": "Household supplies, cleaning, home basics",
+                "retail_category": "Household goods (mapped from the BLS household furnishings index)",
                 "enterprise_kpi": "Household Essentials Pressure",
                 "planning_owner": "Household Category Manager",
                 "demand_direction": "Potential mix shift toward value household items",
@@ -134,7 +181,7 @@ def retail_context_for_signal(row: Dict[str, Any]) -> Dict[str, str]:
     elif "news" in area or "gnews" in source:
         context.update(
             {
-                "retail_category": "Enterprise market events and competitor pressure",
+                "retail_category": "Retailer and retail-market events",
                 "enterprise_kpi": "Market Event Risk",
                 "planning_owner": "Merchandising Leadership + Category Manager",
                 "demand_direction": "Depends on event type and affected category",

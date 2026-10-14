@@ -2599,3 +2599,227 @@ Store ID,Product,Lot ID,Customer Token,Units,Exposure Type
 208,Multivitamins,LOT-7000-A,CUST-TOK-22908,1,Anonymous (no loyalty link)
 208,Multivitamins,LOT-7000-B,CUST-TOK-44963,2,Loyalty-linked
 208,Multivitamins,LOT-7000-B,CUST-TOK-97573,2,Anonymous (no loyalty link)
+101,Marketside Tomato Bisque Soup Kit,260815,CUST-TOK-34167,6,Loyalty-linked
+101,Marketside Tomato Bisque Soup Kit,260815,CUST-TOK-16836,5,Anonymous (no loyalty link)
+101,Marketside Tomato Bisque Soup Kit,LOT-4004-B,CUST-TOK-73679,1,Loyalty-linked
+101,Marketside Tomato Bisque Soup Kit,LOT-4004-B,CUST-TOK-18441,3,Anonymous (no loyalty link)
+104,Marketside Tomato Bisque Soup Kit,260815,CUST-TOK-87320,3,Loyalty-linked
+104,Marketside Tomato Bisque Soup Kit,260815,CUST-TOK-22657,4,Anonymous (no loyalty link)
+104,Marketside Tomato Bisque Soup Kit,LOT-4004-B,CUST-TOK-38173,2,Loyalty-linked
+104,Marketside Tomato Bisque Soup Kit,LOT-4004-B,CUST-TOK-48688,4,Anonymous (no loyalty link)
+105,Marketside Tomato Bisque Soup Kit,260815,CUST-TOK-60390,4,Loyalty-linked
+105,Marketside Tomato Bisque Soup Kit,260815,CUST-TOK-22633,6,Anonymous (no loyalty link)
+105,Marketside Tomato Bisque Soup Kit,LOT-4004-B,CUST-TOK-74300,1,Loyalty-linked
+105,Marketside Tomato Bisque Soup Kit,LOT-4004-B,CUST-TOK-67223,4,Anonymous (no loyalty link)
+107,Marketside Tomato Bisque Soup Kit,260815,CUST-TOK-74586,6,Loyalty-linked
+107,Marketside Tomato Bisque Soup Kit,260815,CUST-TOK-95377,6,Anonymous (no loyalty link)
+107,Marketside Tomato Bisque Soup Kit,LOT-4004-B,CUST-TOK-72601,3,Loyalty-linked
+107,Marketside Tomato Bisque Soup Kit,LOT-4004-B,CUST-TOK-96488,6,Anonymous (no loyalty link)
+203,Marketside Tomato Bisque Soup Kit,260815,CUST-TOK-42069,2,Loyalty-linked
+203,Marketside Tomato Bisque Soup Kit,260815,CUST-TOK-18721,1,Anonymous (no loyalty link)
+203,Marketside Tomato Bisque Soup Kit,LOT-4004-B,CUST-TOK-33983,3,Loyalty-linked
+203,Marketside Tomato Bisque Soup Kit,LOT-4004-B,CUST-TOK-77122,3,Anonymous (no loyalty link)
+205,Marketside Tomato Bisque Soup Kit,260815,CUST-TOK-74654,6,Loyalty-linked
+205,Marketside Tomato Bisque Soup Kit,260815,CUST-TOK-80630,5,Anonymous (no loyalty link)
+205,Marketside Tomato Bisque Soup Kit,LOT-4004-B,CUST-TOK-53861,2,Loyalty-linked
+205,Marketside Tomato Bisque Soup Kit,LOT-4004-B,CUST-TOK-25375,1,Anonymous (no loyalty link)
+206,Marketside Tomato Bisque Soup Kit,260815,CUST-TOK-70000,2,Loyalty-linked
+206,Marketside Tomato Bisque Soup Kit,260815,CUST-TOK-58600,6,Anonymous (no loyalty link)
+206,Marketside Tomato Bisque Soup Kit,LOT-4004-B,CUST-TOK-28482,1,Loyalty-linked
+206,Marketside Tomato Bisque Soup Kit,LOT-4004-B,CUST-TOK-53469,3,Anonymous (no loyalty link)
+207,Marketside Tomato Bisque Soup Kit,260815,CUST-TOK-21278,1,Loyalty-linked
+207,Marketside Tomato Bisque Soup Kit,260815,CUST-TOK-39472,1,Anonymous (no loyalty link)
+207,Marketside Tomato Bisque Soup Kit,LOT-4004-B,CUST-TOK-58692,5,Loyalty-linked
+207,Marketside Tomato Bisque Soup Kit,LOT-4004-B,CUST-TOK-38890,3,Anonymous (no loyalty link)
+101,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-43264,1,Loyalty-linked
+101,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-17637,1,Anonymous (no loyalty link)
+101,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-66153,5,Loyalty-linked
+101,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-79406,2,Anonymous (no loyalty link)
+102,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-60010,3,Loyalty-linked
+102,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-21236,2,Anonymous (no loyalty link)
+102,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-66478,1,Loyalty-linked
+102,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-44389,4,Anonymous (no loyalty link)
+103,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-48641,6,Loyalty-linked
+103,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-46014,6,Anonymous (no loyalty link)
+103,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-25227,3,Loyalty-linked
+103,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-62636,2,Anonymous (no loyalty link)
+104,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-21366,2,Loyalty-linked
+104,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-10804,4,Anonymous (no loyalty link)
+104,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-99777,1,Loyalty-linked
+104,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-76827,5,Anonymous (no loyalty link)
+106,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-47251,4,Loyalty-linked
+106,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-86699,3,Anonymous (no loyalty link)
+106,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-72175,6,Loyalty-linked
+106,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-31151,3,Anonymous (no loyalty link)
+108,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-42792,3,Loyalty-linked
+108,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-12242,1,Anonymous (no loyalty link)
+108,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-13143,4,Loyalty-linked
+108,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-81553,3,Anonymous (no loyalty link)
+201,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-22898,6,Loyalty-linked
+201,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-59129,3,Anonymous (no loyalty link)
+201,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-53137,4,Loyalty-linked
+201,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-62536,4,Anonymous (no loyalty link)
+202,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-47676,6,Loyalty-linked
+202,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-40840,1,Anonymous (no loyalty link)
+202,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-43420,4,Loyalty-linked
+202,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-53578,5,Anonymous (no loyalty link)
+204,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-56982,6,Loyalty-linked
+204,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-23615,2,Anonymous (no loyalty link)
+204,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-66762,1,Loyalty-linked
+204,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-30637,4,Anonymous (no loyalty link)
+205,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-35929,1,Loyalty-linked
+205,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-39079,3,Anonymous (no loyalty link)
+205,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-78334,2,Loyalty-linked
+205,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-87729,3,Anonymous (no loyalty link)
+208,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-68388,4,Loyalty-linked
+208,Organic Lentil Soup Light in Sodium,260710,CUST-TOK-26533,5,Anonymous (no loyalty link)
+208,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-14593,5,Loyalty-linked
+208,Organic Lentil Soup Light in Sodium,LOT-5833-B,CUST-TOK-23898,3,Anonymous (no loyalty link)
+101,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-65673,3,Loyalty-linked
+101,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-99864,6,Anonymous (no loyalty link)
+101,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-56056,4,Loyalty-linked
+101,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-76691,5,Anonymous (no loyalty link)
+102,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-68144,3,Loyalty-linked
+102,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-51243,4,Anonymous (no loyalty link)
+102,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-71511,6,Loyalty-linked
+102,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-83859,3,Anonymous (no loyalty link)
+103,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-31067,1,Loyalty-linked
+103,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-37745,6,Anonymous (no loyalty link)
+103,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-66811,2,Loyalty-linked
+103,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-90442,3,Anonymous (no loyalty link)
+104,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-40178,6,Loyalty-linked
+104,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-12436,2,Anonymous (no loyalty link)
+104,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-64187,3,Loyalty-linked
+104,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-99110,3,Anonymous (no loyalty link)
+105,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-89628,4,Loyalty-linked
+105,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-81891,3,Anonymous (no loyalty link)
+105,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-27847,3,Loyalty-linked
+105,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-87199,3,Anonymous (no loyalty link)
+107,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-86435,5,Loyalty-linked
+107,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-33683,5,Anonymous (no loyalty link)
+107,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-80500,3,Loyalty-linked
+107,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-97563,1,Anonymous (no loyalty link)
+108,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-74208,1,Loyalty-linked
+108,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-49959,1,Anonymous (no loyalty link)
+108,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-16351,3,Loyalty-linked
+108,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-48807,2,Anonymous (no loyalty link)
+201,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-93390,2,Loyalty-linked
+201,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-34665,6,Anonymous (no loyalty link)
+201,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-43947,3,Loyalty-linked
+201,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-67749,4,Anonymous (no loyalty link)
+203,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-81799,6,Loyalty-linked
+203,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-93210,1,Anonymous (no loyalty link)
+203,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-13652,5,Loyalty-linked
+203,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-29274,4,Anonymous (no loyalty link)
+205,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-44716,3,Loyalty-linked
+205,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-20258,6,Anonymous (no loyalty link)
+205,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-56789,2,Loyalty-linked
+205,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-12305,4,Anonymous (no loyalty link)
+207,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-22844,1,Loyalty-linked
+207,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-20024,2,Anonymous (no loyalty link)
+207,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-85515,1,Loyalty-linked
+207,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-31670,4,Anonymous (no loyalty link)
+208,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-35350,2,Loyalty-linked
+208,Greek Style Shortbread Cookies Apricot Cocoa,260315,CUST-TOK-33644,6,Anonymous (no loyalty link)
+208,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-45123,5,Loyalty-linked
+208,Greek Style Shortbread Cookies Apricot Cocoa,LOT-5846-B,CUST-TOK-32988,2,Anonymous (no loyalty link)
+101,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-65673,3,Loyalty-linked
+101,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-99864,6,Anonymous (no loyalty link)
+101,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-12612,5,Loyalty-linked
+101,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-47299,1,Anonymous (no loyalty link)
+102,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-68144,3,Loyalty-linked
+102,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-51243,4,Anonymous (no loyalty link)
+102,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-88123,3,Loyalty-linked
+102,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-55161,6,Anonymous (no loyalty link)
+104,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-40178,6,Loyalty-linked
+104,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-12436,2,Anonymous (no loyalty link)
+104,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-10448,2,Loyalty-linked
+104,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-65287,5,Anonymous (no loyalty link)
+105,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-89628,4,Loyalty-linked
+105,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-81891,3,Anonymous (no loyalty link)
+105,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-74169,4,Loyalty-linked
+105,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-25682,1,Anonymous (no loyalty link)
+106,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-40750,5,Loyalty-linked
+106,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-28373,6,Anonymous (no loyalty link)
+106,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-62605,1,Loyalty-linked
+106,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-65090,2,Anonymous (no loyalty link)
+107,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-86435,5,Loyalty-linked
+107,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-33683,5,Anonymous (no loyalty link)
+107,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-76438,3,Loyalty-linked
+107,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-65828,3,Anonymous (no loyalty link)
+108,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-74208,1,Loyalty-linked
+108,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-49959,1,Anonymous (no loyalty link)
+108,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-84725,5,Loyalty-linked
+108,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-14702,3,Anonymous (no loyalty link)
+201,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-93390,2,Loyalty-linked
+201,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-34665,6,Anonymous (no loyalty link)
+201,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-29854,3,Loyalty-linked
+201,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-42963,6,Anonymous (no loyalty link)
+202,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-92538,3,Loyalty-linked
+202,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-85098,4,Anonymous (no loyalty link)
+202,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-98347,2,Loyalty-linked
+202,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-33477,1,Anonymous (no loyalty link)
+203,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-81799,6,Loyalty-linked
+203,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-93210,1,Anonymous (no loyalty link)
+203,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-64735,3,Loyalty-linked
+203,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-52573,5,Anonymous (no loyalty link)
+205,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-44716,3,Loyalty-linked
+205,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-20258,6,Anonymous (no loyalty link)
+205,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-35734,3,Loyalty-linked
+205,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-34033,4,Anonymous (no loyalty link)
+206,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-61327,2,Loyalty-linked
+206,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-16788,5,Anonymous (no loyalty link)
+206,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-99055,2,Loyalty-linked
+206,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-95987,3,Anonymous (no loyalty link)
+207,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-22844,1,Loyalty-linked
+207,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-20024,2,Anonymous (no loyalty link)
+207,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-89799,6,Loyalty-linked
+207,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-84345,4,Anonymous (no loyalty link)
+208,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-35350,2,Loyalty-linked
+208,Greek Style Shortbread Cookies Chocolate Truffle,260315,CUST-TOK-33644,6,Anonymous (no loyalty link)
+208,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-71681,3,Loyalty-linked
+208,Greek Style Shortbread Cookies Chocolate Truffle,LOT-5839-B,CUST-TOK-61287,1,Anonymous (no loyalty link)
+101,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-95548,5,Loyalty-linked
+101,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-60562,6,Anonymous (no loyalty link)
+101,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-16281,6,Loyalty-linked
+101,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-53857,2,Anonymous (no loyalty link)
+102,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-16717,2,Loyalty-linked
+102,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-70257,6,Anonymous (no loyalty link)
+102,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-32181,4,Loyalty-linked
+102,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-63250,6,Anonymous (no loyalty link)
+103,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-95510,4,Loyalty-linked
+103,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-14405,5,Anonymous (no loyalty link)
+103,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-29253,3,Loyalty-linked
+103,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-78759,6,Anonymous (no loyalty link)
+106,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-62309,5,Loyalty-linked
+106,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-80994,1,Anonymous (no loyalty link)
+106,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-53943,4,Loyalty-linked
+106,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-83866,1,Anonymous (no loyalty link)
+108,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-75458,5,Loyalty-linked
+108,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-36766,5,Anonymous (no loyalty link)
+108,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-79219,1,Loyalty-linked
+108,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-51046,3,Anonymous (no loyalty link)
+201,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-19544,4,Loyalty-linked
+201,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-20917,2,Anonymous (no loyalty link)
+201,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-61464,5,Loyalty-linked
+201,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-44587,1,Anonymous (no loyalty link)
+202,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-61860,1,Loyalty-linked
+202,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-30261,5,Anonymous (no loyalty link)
+202,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-48957,5,Loyalty-linked
+202,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-99935,2,Anonymous (no loyalty link)
+203,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-18176,2,Loyalty-linked
+203,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-81312,1,Anonymous (no loyalty link)
+203,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-32249,1,Loyalty-linked
+203,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-23430,2,Anonymous (no loyalty link)
+204,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-51265,4,Loyalty-linked
+204,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-60369,5,Anonymous (no loyalty link)
+204,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-63004,4,Loyalty-linked
+204,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-13977,5,Anonymous (no loyalty link)
+205,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-80958,3,Loyalty-linked
+205,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-14029,2,Anonymous (no loyalty link)
+205,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-98490,4,Loyalty-linked
+205,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-74938,6,Anonymous (no loyalty link)
+206,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-73500,4,Loyalty-linked
+206,Pumpkin Spice Oat Cookies (No Bake),20326,CUST-TOK-27169,1,Anonymous (no loyalty link)
+206,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-65746,2,Loyalty-linked
+206,Pumpkin Spice Oat Cookies (No Bake),LOT-0875-B,CUST-TOK-84608,3,Anonymous (no loyalty link)

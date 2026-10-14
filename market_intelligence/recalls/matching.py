@@ -6,6 +6,7 @@ from typing import List
 from typing import Optional
 import pandas as pd
 
+from market_intelligence.recalls.families import family_store_statement, match_product_family
 from market_intelligence.data.demo import _demo_seed, demo_dc_network, demo_recall_catalog, demo_recall_customer_purchases, demo_recall_dc_inventory, demo_recall_lot_master, demo_recall_sales_summary, demo_recall_store_inventory, demo_recall_substitute_products, demo_recall_supplier_master, demo_store_master
 
 
@@ -294,7 +295,14 @@ def _match_recall_core(
     # UPC with an unconfirmed lot, so it could never reach a later UPC's exact match.
     # `continue` past a non-exact UPC instead, and only fall through to
     # lot_review_required after every UPC in the list has been checked.
-    lot_review_candidate = None
+    # A lot either matches or it does not -- there is no "pending" outcome:
+    #   * the recall lists lots and one is ours            -> confirmed_exact (those lots)
+    #   * the recall lists NO lots (FDA gave no lot codes)  -> confirmed_exact (all lots of the
+    #     UPC): a recall that names no lot covers every lot of the product
+    #   * the recall lists lots and none of them is ours     -> lot_not_in_stock (not affected)
+    all_lots_candidate = None
+    lots_not_ours_candidate = None
+    all_lots_assumed = False
 
     for upc in upcs:
         product_row = catalog[catalog["UPC"] == upc]
@@ -316,21 +324,33 @@ def _match_recall_core(
                 matched_lot_ids = matching_lots["Lot ID"].tolist()
                 match_status = "confirmed_exact"
                 break
-        if lot_review_candidate is None:
-            lot_review_candidate = candidate_product
+            if lots_not_ours_candidate is None:
+                lots_not_ours_candidate = candidate_product
+        elif all_lots_candidate is None:
+            # No lot codes to compare: either the recall lists none, or the item has no
+            # lot records, so no lot can be ruled out.
+            all_lots_candidate = candidate_product
 
-    if match_status != "confirmed_exact" and lot_review_candidate is not None:
-        # R02: parse distribution state evidence the same way every other exit path
-        # does, rather than defaulting to an empty list -- this branch was previously
-        # the only one that silently discarded distribution evidence already present in
-        # the recall text.
+    if match_status != "confirmed_exact" and all_lots_candidate is not None:
+        matched_product = all_lots_candidate
+        matched_lot_ids = lot_master.loc[lot_master["UPC"] == all_lots_candidate["UPC"], "Lot ID"].tolist()
+        match_status = "confirmed_exact"
+        all_lots_assumed = True
+
+    if match_status != "confirmed_exact" and lots_not_ours_candidate is not None:
+        # R02: parse distribution state evidence the same way every other exit path does.
         _, distribution_states = _store_distribution_overlap(recall_item, store_master)
-        return _empty_recall_exposure_result(
-            recall_item, match_status="lot_review_required", match_type="UPC matched; lot unconfirmed",
-            reason="UPC matched, but the supplied lot did not match exactly or no lot was supplied. Confirm lot coverage before quantifying exposure.",
-            category=str(lot_review_candidate.get("Category", "")),
+        result = _empty_recall_exposure_result(
+            recall_item, match_status="lot_not_in_stock", match_type="UPC matched; recalled lots not in stock",
+            reason=(
+                f"The UPC matches internal item {lots_not_ours_candidate.get('Product', '')}, but none of the recalled lots "
+                f"({', '.join(lots)}) is in internal stock, so no stock is affected and no store action applies."
+            ),
+            category=str(lots_not_ours_candidate.get("Category", "")),
             distribution_states=distribution_states,
         )
+        result["matched_product"] = str(lots_not_ours_candidate.get("Product", ""))
+        return result
 
     if matched_product is None:
         best_product = _best_product_text_match(product_text, catalog)
@@ -340,6 +360,32 @@ def _match_recall_core(
                 product_lots = lot_master[lot_master["UPC"] == matched_product["UPC"]]
                 matched_lot_ids = product_lots["Lot ID"].tolist() if not product_lots.empty else []
                 match_status = "probable_text_match"
+
+    if matched_product is None:
+        # Analog tier, the recall counterpart of weather's Analog Scenario Match: no internal item is
+        # named in the recall, but its product family is carried in the distribution footprint.
+        family = match_product_family(
+            recall_item, product_title(product_text), catalog, store_master, store_inventory, dc_inventory, demo_dc_network(),
+        )
+        if family is not None:
+            _, distribution_states = _store_distribution_overlap(recall_item, store_master)
+            result = _empty_recall_exposure_result(
+                recall_item,
+                match_status="product_family_match",
+                match_type="Product-Family Analog Match",
+                reason="",
+                category=family["family_category"],
+                distribution_states=distribution_states,
+            )
+            result.update(family)
+            result["matched_product"] = f"Product family: {family['product_family']}"
+            result["brand_matched"] = False
+            result["match_reason"] = (
+                f"No internal item is named in the recall, but its product title maps to the {family['product_family']} family. "
+                f"{family_store_statement(result)} Same-family stock is a planning estimate only; confirm the UPC and lot "
+                "before treating any of it as affected inventory."
+            )
+            return result
 
     if matched_product is None:
         category_match = recall_category_from_text(recall_item)
@@ -503,9 +549,14 @@ def _match_recall_core(
 
     return {
         "match_status": match_status,
-        "match_type": "Exact UPC/Lot Match" if match_status == "confirmed_exact" else "UPC Match" if match_status == "confirmed_upc_only" else "Product/Vendor Match",
-        "match_reason": "Exact UPC/lot matched internal item and lot data." if match_status == "confirmed_exact" else "UPC matched internal item data; recall lot was not confirmed." if match_status == "confirmed_upc_only" else "Product text matched an internal catalog item; UPC/lot confirmation is still required.",
+        "match_type": "Exact UPC match (all lots)" if all_lots_assumed else "Exact UPC/Lot Match" if match_status == "confirmed_exact" else "UPC Match" if match_status == "confirmed_upc_only" else "Product/Vendor Match",
+        "match_reason": (
+            "UPC matched an internal item and the FDA record lists no lot codes, so every lot of this UPC is treated as affected."
+            if all_lots_assumed
+            else "Exact UPC/lot matched internal item and lot data."
+        ) if match_status == "confirmed_exact" else "UPC matched internal item data; recall lot was not confirmed." if match_status == "confirmed_upc_only" else "Product text matched an internal catalog item; UPC/lot confirmation is still required.",
         "is_probable": match_status == "probable_text_match",
+        "all_lots_assumed": all_lots_assumed,
         "matched_product": product_name,
         "upc": upc,
         "matched_lots": matched_lot_ids,

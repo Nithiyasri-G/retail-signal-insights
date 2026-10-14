@@ -195,6 +195,115 @@ def main() -> None:
                 "Captured At": CAPTURED, "Committed": reserved, "Eligible Inbound Before Cutoff": 0,
             })
 
+    # Catalog and inventory items mapped directly to live openFDA recall UPCs and lots
+    # so live recall events achieve exact UPC/lot matching with quantified store & DC exposure.
+    RECALL_MATCHING_ITEMS = [
+        (
+            "Marketside Tomato Bisque Soup Kit",
+            FOOD,
+            "SUP-10",
+            6.99,
+            "14 oz",
+            "194346474004",
+            [("260815", "2026-08-15"), ("LOT-4004-B", "2026-08-20")],
+            "Tomato Bisque Soup Kit",
+        ),
+        (
+            "Organic Lentil Soup Light in Sodium",
+            FOOD,
+            "SUP-10",
+            2.29,
+            "14.5 oz",
+            "042272005833",
+            [("260710", "2026-07-10"), ("LOT-5833-B", "2026-07-25")],
+            "Lentil Soup",
+        ),
+        # Live openFDA recalls H-1275-2026 and H-1274-2026 (Greek-style shortbread cookies, lot
+        # 260315, distributed to GA among other states) and H-1386-2026 (pumpkin spice no-bake
+        # cookie, lot 20326, distributed to GA among other states). These records carry both a
+        # UPC and a lot code in the openFDA text, so the matcher can reach a confirmed exact
+        # UPC + lot match and quantify Georgia store and DC exposure. The "-B" lot on each item
+        # is a second, unaffected lot so the lot split is visible.
+        (
+            "Greek Style Shortbread Cookies Apricot Cocoa",
+            FOOD,
+            "SUP-12",
+            4.99,
+            "330 g",
+            "4056489125846",
+            [("260315", "2026-03-15"), ("LOT-5846-B", "2026-04-12")],
+            "Shortbread Cookies",
+        ),
+        (
+            "Greek Style Shortbread Cookies Chocolate Truffle",
+            FOOD,
+            "SUP-12",
+            4.99,
+            "330 g",
+            "4056489125839",
+            [("260315", "2026-03-15"), ("LOT-5839-B", "2026-04-12")],
+            "Shortbread Cookies",
+        ),
+        (
+            "Pumpkin Spice Oat Cookies (No Bake)",
+            FOOD,
+            "SUP-18",
+            2.49,
+            "3.5 oz",
+            "810158140875",
+            [("20326", "2026-03-26"), ("LOT-0875-B", "2026-05-02")],
+            "Oatmeal Cookies",
+        ),
+    ]
+
+    for name, category, vendor_id, price, size, explicit_upc, explicit_lots, sub_product in RECALL_MATCHING_ITEMS:
+        vendor = V[vendor_id]
+        case_pack = 6 if price >= 3 else 12
+        new_products.append({
+            "UPC": explicit_upc, "Product": name, "Category": category, "Supplier ID": vendor_id, "Lot Tracked": True,
+            "Unit Price": price, "Case Pack": case_pack, "MOQ": case_pack * 2, "Sellable Unit": "EA",
+            "Brand": vendor[2], "Package Size": size,
+            "Description": f"{vendor[2]} {name}, {size}. Illustrative catalog item for live recall verification.",
+        })
+        lot_ids = []
+        for lot_id, made in explicit_lots:
+            lot_ids.append(lot_id)
+            new_lots.append({"Lot ID": lot_id, "UPC": explicit_upc, "Product": name, "Manufacture Date": made})
+        for store in stores:
+            if seed("carry", store, explicit_upc) % 4 == 0:
+                continue
+            on_hand = 20 + seed("oh", store, explicit_upc) % 230
+            inbound = seed("in", store, explicit_upc) % 60
+            baseline = on_hand + inbound + seed("bl", store, explicit_upc) % 40
+            new_store.append({
+                "Store ID": store, "UPC": explicit_upc, "Product": name, "Category": category, "Case Pack": case_pack,
+                "MOQ": case_pack * 2, "Sellable Unit": "EA", "Baseline Forecast": baseline,
+                "Historical Average": max(baseline - 10, 0), "On Hand": on_hand, "Inbound": inbound,
+                "Captured At": CAPTURED, "Committed": 0, "Safety Stock": 0,
+                "Eligible Inbound Before Cutoff": inbound, "ATP": on_hand + inbound,
+            })
+            for lot_id in lot_ids:
+                units = 15 + seed("sold", store, lot_id) % 120
+                new_sales.append({"Store ID": store, "UPC": explicit_upc, "Product": name, "Lot ID": lot_id,
+                                  "Units Sold": units, "Period": "Last 90 days"})
+                for token in range(2):
+                    new_buy.append({
+                        "Store ID": store, "Product": name, "Lot ID": lot_id,
+                        "Customer Token": f"CUST-TOK-{seed('tok', store, lot_id, token) % 90000 + 10000}",
+                        "Units": 1 + seed("u", store, lot_id, token) % 6,
+                        "Exposure Type": "Loyalty-linked" if token == 0 else "Anonymous (no loyalty link)",
+                    })
+        for dc in dcs:
+            on_hand = 300 + seed("dcoh", dc, explicit_upc) % 1200
+            in_transit = 20 + seed("dcit", dc, explicit_upc) % 150
+            reserved = int(on_hand * 0.8)
+            push = on_hand - reserved
+            new_dc.append({
+                "DC ID": dc, "UPC": explicit_upc, "Product": name, "On Hand": on_hand, "In Transit": in_transit,
+                "Available to Push": push, "Reserved": reserved, "Safety Stock": 0, "ATP": push,
+                "Captured At": CAPTURED, "Committed": reserved, "Eligible Inbound Before Cutoff": 0,
+            })
+
     products_out = pd.concat([products, pd.DataFrame(new_products)], ignore_index=True)
     suppliers_out = pd.concat(
         [suppliers, pd.DataFrame([{"Supplier ID": v[0], "Supplier Name": v[1], "Prior Recall Count": v[3]} for v in VENDORS])],
@@ -205,6 +314,11 @@ def main() -> None:
         {"Product": "French Bread", "Substitute Product": "Sourdough Bread"},
         {"Product": "Fresh Salsa", "Substitute Product": "Salsa Verde"},
         {"Product": "Granola", "Substitute Product": "Trail Mix"},
+        {"Product": "Marketside Tomato Bisque Soup Kit", "Substitute Product": "Tomato Bisque Soup Kit"},
+        {"Product": "Organic Lentil Soup Light in Sodium", "Substitute Product": "Lentil Soup"},
+        {"Product": "Greek Style Shortbread Cookies Apricot Cocoa", "Substitute Product": "Shortbread Cookies"},
+        {"Product": "Greek Style Shortbread Cookies Chocolate Truffle", "Substitute Product": "Shortbread Cookies"},
+        {"Product": "Pumpkin Spice Oat Cookies (No Bake)", "Substitute Product": "Oatmeal Cookies"},
     ])
     tables = {
         "products": products_out,

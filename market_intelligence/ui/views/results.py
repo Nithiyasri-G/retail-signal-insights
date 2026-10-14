@@ -144,7 +144,7 @@ def render_decision_summary(feature_df: pd.DataFrame, results: Dict[str, Dict[st
     for action in build_recommended_actions(feature_df, results):
         why, _, next_step = str(action["body"]).partition("Next:")
         next_html = (
-            f"<div class='decision-label'>Next step</div><div class='decision-body'>{escape(next_step.strip())}</div>"
+            f"<div class='decision-label'>Suggested next step</div><div class='decision-body'>{escape(next_step.strip())}</div>"
             if next_step.strip()
             else ""
         )
@@ -152,7 +152,7 @@ def render_decision_summary(feature_df: pd.DataFrame, results: Dict[str, Dict[st
             "<div class='decision-card'>"
             f"<div class='decision-owner'>{escape(action['label'])}</div>"
             f"<div class='decision-title'>{escape(action['title'])}</div>"
-            f"<div class='decision-label'>Why</div><div class='decision-body'>{escape(why.strip())}</div>"
+            f"<div class='decision-label'>Why it may matter</div><div class='decision-body'>{escape(why.strip())}</div>"
             f"{next_html}"
             "</div>"
         )
@@ -197,15 +197,21 @@ def render_retail_impact_matrix(feature_df: pd.DataFrame, admin: bool = False) -
     if admin:
         preferred_cols += ["demand_direction", "forecast_feature", "impact_hypothesis", "internal_data_needed", "source"]
     visible_cols = [col for col in preferred_cols if col in feature_df.columns]
-    sort_cols = [col for col in ["action_priority", "risk_score"] if col in feature_df.columns]
-    ascending = [True if col == "action_priority" else False for col in sort_cols]
-    matrix_source = feature_df.sort_values(sort_cols, ascending=ascending) if sort_cols else feature_df
+    # Fixed priority order, not alphabetical: a blank priority (no store action applies)
+    # sorts last instead of first.
+    priority_rank = {"High": 0, "Medium": 1, "Monitor": 2}
+    ranked = feature_df.copy()
+    if "action_priority" in ranked.columns:
+        ranked["_priority_rank"] = ranked["action_priority"].map(lambda value: priority_rank.get(str(value or ""), 3))
+    sort_cols = [col for col in ["_priority_rank", "risk_score"] if col in ranked.columns]
+    ascending = [True if col == "_priority_rank" else False for col in sort_cols]
+    matrix_source = ranked.sort_values(sort_cols, ascending=ascending, kind="mergesort") if sort_cols else ranked
     matrix = readable_feature_values(matrix_source[visible_cols].copy())
     if "risk_score" in matrix.columns:
         matrix["risk_score"] = matrix["risk_score"].apply(lambda x: risk_band(float(x or 0)))
         matrix = matrix.rename(columns={"risk_score": "Risk Level"})
     labelled = with_client_labels(matrix)
-    widths = {"Retail Category": "medium", "Region": "small", "Enterprise KPI": "medium", "Risk Level": "small", "Action Priority": "small", "Planning Owner": "medium"}
+    widths = {"Retail Category": "medium", "Region": "small", "Business Risk Indicator": "medium", "Risk Level": "small", "Action Priority": "small", "Planning Owner": "medium"}
     column_config = None if admin else {
         name: st.column_config.TextColumn(width=width) for name, width in widths.items() if name in labelled.columns
     }
@@ -256,11 +262,12 @@ def render_scenario_simulator(feature_df: pd.DataFrame) -> None:
     st.markdown(
         "<div class='enterprise-band'>"
         f"<div class='enterprise-band-title'>{escape(selected)}</div>"
-        f"<div class='enterprise-band-copy'><strong>Likely retail category:</strong> {escape(scenario['category'])}<br>"
+        "<div class='enterprise-band-copy'><strong>Example interpretation</strong> (predefined, not generated from this run)<br>"
+        f"<strong>Likely retail category:</strong> {escape(scenario['category'])}<br>"
         f"<strong>Owner:</strong> {escape(scenario['owner'])}<br>"
         f"<strong>Forecast feature:</strong> {escape(scenario['feature'])}<br>"
         f"<strong>Action:</strong> {escape(scenario['action'])}<br>"
-        f"<strong>Run evidence:</strong> {escape(evidence_note)}</div>"
+        f"<br><strong>Evidence in this run:</strong> {escape(evidence_note)}</div>"
         "</div>",
         unsafe_allow_html=True,
     )

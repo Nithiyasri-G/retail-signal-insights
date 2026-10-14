@@ -22,6 +22,15 @@ DEFAULT_FDA_QUERY = (
 )
 
 
+def _fda_query() -> str:
+    """The configured openFDA search, or the default when the field was left empty.
+
+    An empty field would otherwise be sent as '() AND status:"Ongoing"', which is not a
+    meaningful product search.
+    """
+    return str(st.session_state.get("fda_query") or "").strip() or DEFAULT_FDA_QUERY
+
+
 class _StreamlitRunObserver:
     """Renders run progress into the page and publishes the finished run to session state."""
 
@@ -82,7 +91,7 @@ def build_run_request(ctx) -> RunRequest:
         "trends_keywords": trends_keywords[:APIFY_HARD_KEYWORD_LIMIT],
         "gnews_period": st.session_state.get("gnews_period", "7d"),
         "max_news": int(st.session_state.get("max_news", 24)),
-        "fda_query": st.session_state.get("fda_query", DEFAULT_FDA_QUERY),
+        "fda_query": _fda_query(),
         "fda_limit": int(st.session_state.get("fda_limit", 20)),
         "weather_area": ", ".join(weather_areas),
         "weather_limit": int(st.session_state.get("weather_limit", 5)),
@@ -110,7 +119,7 @@ def build_run_request(ctx) -> RunRequest:
         trends_keywords=trends_keywords,
         gnews_period=st.session_state.get("gnews_period", "7d"),
         max_news=int(st.session_state.get("max_news", 24)),
-        fda_query=st.session_state.get("fda_query", DEFAULT_FDA_QUERY),
+        fda_query=_fda_query(),
         fda_limit=int(st.session_state.get("fda_limit", 20)),
         weather_areas=weather_areas,
         weather_limit=int(st.session_state.get("weather_limit", 5)),

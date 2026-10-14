@@ -921,9 +921,10 @@ def test_cross_incident_shared_capacity_and_dedup():
             assert total<=float(inv.loc[(inv['UPC']==upc)&(inv['DC ID']==dc),'Available to Push'].iloc[0])
 
 def test_recall_partial_or_unmatched_lot_not_confirmed():
+    # The recall lists a lot that is not ours: a definite "not affected", never "pending".
     item=demo_recall_scenario('Peanut Butter');item['lots']=item['lots'][:-1]
     result=match_recall_to_catalog(item)
-    assert result['match_status']=='lot_review_required'
+    assert result['match_status']=='lot_not_in_stock'
     assert result['exposed_units']==0
 
 def test_single_lot_gets_only_its_share():
@@ -975,7 +976,7 @@ def test_recall_distribution_evidence_preserved_on_lot_and_product_review_branch
     lot_review_item['lots'] = 'SOME-OTHER-LOT-NOT-IN-MASTER'
     lot_review_item['distribution_pattern'] = 'Texas and Georgia'
     lot_review_result = match_recall_to_catalog(lot_review_item)
-    assert lot_review_result['match_status'] == 'lot_review_required'
+    assert lot_review_result['match_status'] == 'lot_not_in_stock'
     assert set(lot_review_result['distribution_states']) == {'TX', 'GA'}
 
     product_review_item = demo_recall_scenario('Peanut Butter')

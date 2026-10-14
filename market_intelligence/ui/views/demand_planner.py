@@ -102,6 +102,31 @@ def _related_incident_note(run: Dict[str, Any], signal_row: Dict[str, Any]) -> s
     return ""
 
 
+def _weather_reached_store_ids(run: Dict[str, Any], signal_row: Dict[str, Any]) -> Any:
+    """Stores the selected weather signal's alerts actually reached in this run.
+
+    The signal is raised per state, but only the Operational Impact Center's alert
+    intersection says which stores an alert reaches. Returns a set of Store IDs, or None
+    when this is not a weather signal or there is no run to read incidents from (then the
+    state-level scope is the only information available).
+    """
+    area = str(signal_row.get("Signal Area", "")).lower()
+    region = str(signal_row.get("Region", "") or "").strip().upper()
+    if not run or "weather" not in area or len(region) != 2:
+        return None
+    incidents = run.get("operational_incidents_snapshot")
+    if incidents is None:
+        return None
+    reached = set()
+    for incident in incidents:
+        if incident.get("Type") != "Weather":
+            continue
+        if str((incident.get("Scenario", {}) or {}).get("state", "")).upper() != region:
+            continue
+        reached.update(str(value) for value in (incident.get("Store IDs") or []) if str(value).strip())
+    return reached
+
+
 def render_demand_planner_view(nvidia_key: str, nvidia_model: str) -> None:
     admin = bool(st.session_state.get("admin_view", False))
     st.markdown("<div class='page-head'><div class='page-title'>Demand Planner</div></div>", unsafe_allow_html=True)
@@ -165,6 +190,9 @@ def render_demand_planner_view(nvidia_key: str, nvidia_model: str) -> None:
     # The store the planner picks here has to be reconcilable with the stores the Operational Impact
     # Center says the alert reached; stores a signal does not reach are marked, not hidden.
     exposed_store_ids, store_scope_basis = signal_store_scope(signal_row, store_master)
+    # For weather, a store in the signal's state is only baseline context unless an alert in
+    # this run actually reached it (the Operational Impact Center's alert intersection).
+    reached_store_ids = _weather_reached_store_ids(run, signal_row)
     store_options: Dict[str, str] = {}
     for _, row in store_master.iterrows():
         store_id = str(row["Store ID"])
@@ -173,13 +201,24 @@ def render_demand_planner_view(nvidia_key: str, nvidia_model: str) -> None:
             continue  # closed stores get no new planning calculation; historical review is Admin-only
         in_scope = not exposed_store_ids or store_id in exposed_store_ids
         suffix = "" if in_scope else "  (not exposed to this signal)"
+        if reached_store_ids is not None and in_scope:
+            suffix = (
+                "  (alert reaches this store)"
+                if store_id in reached_store_ids
+                else "  (baseline context; alert does not reach this store)"
+            )
         if closed:
             suffix = "  (Closed - historical review only)" + suffix
         store_options[f"{store_id} - {row['Store Name']}{suffix}"] = store_id
 
     # Default to a store the signal actually reaches, so the two views line up.
     default_index = 0
-    if exposed_store_ids:
+    if reached_store_ids:
+        for position, store_id in enumerate(store_options.values()):
+            if store_id in reached_store_ids:
+                default_index = position
+                break
+    elif exposed_store_ids:
         for position, store_id in enumerate(store_options.values()):
             if store_id in exposed_store_ids:
                 default_index = position
@@ -198,6 +237,11 @@ def render_demand_planner_view(nvidia_key: str, nvidia_model: str) -> None:
             f"Store {selected_store_id} is outside this signal's geography. {store_scope_basis} "
             "The figures below are this store's baseline position, not its exposure to this signal, "
             "and they will not reconcile with the Operational Impact Center."
+        )
+    elif reached_store_ids is not None and selected_store_id not in reached_store_ids:
+        st.caption(
+            f"No weather alert in this run reaches Store {selected_store_id}. It is shown as baseline context "
+            "because it is in the signal's state; the figures below are its baseline position, not exposure to the alert."
         )
     else:
         st.caption(store_scope_basis)

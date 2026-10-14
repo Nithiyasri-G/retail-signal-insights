@@ -137,4 +137,5 @@ def test_cpi_rows_get_run_date_and_data_period():
     table = client_feature_table(rows, for_export=True, run_date="2026-10-08")
     assert (table["Run Date"] == "2026-10-08").all()
     assert list(table["Data Period"][:2]) == ["Aug 2026", "Aug 2026"]
-    assert (table["Data Period"][2:] == "At run time").all()
+    # Recall and weather rows are "active as of run time"; a row with no window stays "At run time".
+    assert list(table["Data Period"][2:]) == ["Active as of run time"] * 3 + ["At run time"]

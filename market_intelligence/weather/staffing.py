@@ -112,6 +112,16 @@ def evaluate_staffing_exposure(
                     distance_miles,
                     commute_hours,
                 )
+            if alert_is_active:
+                # Conditions are already present, so "arrives before conditions worsen" cannot
+                # be concluded from the time left until the alert ends. Flag it for confirmation.
+                return (
+                    True,
+                    f"~{distance_miles:.0f} mi / {commute_hours:.1f}h estimated commute from home ZIP {zip_code}; "
+                    "alert already active, commute requires confirmation.",
+                    distance_miles,
+                    commute_hours,
+                )
             at_risk = commute_hours > time_budget_hours
             outcome = (
                 "may not arrive before conditions worsen" if at_risk

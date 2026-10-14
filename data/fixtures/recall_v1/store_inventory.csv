@@ -1659,3 +1659,59 @@ Store ID,UPC,Product,Category,Case Pack,MOQ,Sellable Unit,Baseline Forecast,Hist
 205,099011284004,Bar Soap,Personal Care,6,12,EA,279,269,249,3,2026-09-23T00:00:00+00:00,0,0,3,252
 206,099011284004,Bar Soap,Personal Care,6,12,EA,207,197,131,45,2026-09-23T00:00:00+00:00,0,0,45,176
 208,099011284004,Bar Soap,Personal Care,6,12,EA,84,74,38,25,2026-09-23T00:00:00+00:00,0,0,25,63
+101,194346474004,Marketside Tomato Bisque Soup Kit,Food / Consumables,6,12,EA,187,177,132,32,2026-09-23T00:00:00+00:00,0,0,32,164
+104,194346474004,Marketside Tomato Bisque Soup Kit,Food / Consumables,6,12,EA,122,112,88,3,2026-09-23T00:00:00+00:00,0,0,3,91
+105,194346474004,Marketside Tomato Bisque Soup Kit,Food / Consumables,6,12,EA,258,248,199,23,2026-09-23T00:00:00+00:00,0,0,23,222
+107,194346474004,Marketside Tomato Bisque Soup Kit,Food / Consumables,6,12,EA,99,89,27,53,2026-09-23T00:00:00+00:00,0,0,53,80
+203,194346474004,Marketside Tomato Bisque Soup Kit,Food / Consumables,6,12,EA,215,205,125,52,2026-09-23T00:00:00+00:00,0,0,52,177
+205,194346474004,Marketside Tomato Bisque Soup Kit,Food / Consumables,6,12,EA,157,147,136,5,2026-09-23T00:00:00+00:00,0,0,5,141
+206,194346474004,Marketside Tomato Bisque Soup Kit,Food / Consumables,6,12,EA,276,266,226,34,2026-09-23T00:00:00+00:00,0,0,34,260
+207,194346474004,Marketside Tomato Bisque Soup Kit,Food / Consumables,6,12,EA,257,247,203,29,2026-09-23T00:00:00+00:00,0,0,29,232
+101,042272005833,Organic Lentil Soup Light in Sodium,Food / Consumables,12,24,EA,198,188,152,35,2026-09-23T00:00:00+00:00,0,0,35,187
+102,042272005833,Organic Lentil Soup Light in Sodium,Food / Consumables,12,24,EA,224,214,168,25,2026-09-23T00:00:00+00:00,0,0,25,193
+103,042272005833,Organic Lentil Soup Light in Sodium,Food / Consumables,12,24,EA,144,134,99,36,2026-09-23T00:00:00+00:00,0,0,36,135
+104,042272005833,Organic Lentil Soup Light in Sodium,Food / Consumables,12,24,EA,230,220,153,54,2026-09-23T00:00:00+00:00,0,0,54,207
+106,042272005833,Organic Lentil Soup Light in Sodium,Food / Consumables,12,24,EA,136,126,77,52,2026-09-23T00:00:00+00:00,0,0,52,129
+108,042272005833,Organic Lentil Soup Light in Sodium,Food / Consumables,12,24,EA,180,170,151,22,2026-09-23T00:00:00+00:00,0,0,22,173
+201,042272005833,Organic Lentil Soup Light in Sodium,Food / Consumables,12,24,EA,309,299,243,56,2026-09-23T00:00:00+00:00,0,0,56,299
+202,042272005833,Organic Lentil Soup Light in Sodium,Food / Consumables,12,24,EA,276,266,227,37,2026-09-23T00:00:00+00:00,0,0,37,264
+204,042272005833,Organic Lentil Soup Light in Sodium,Food / Consumables,12,24,EA,198,188,158,24,2026-09-23T00:00:00+00:00,0,0,24,182
+205,042272005833,Organic Lentil Soup Light in Sodium,Food / Consumables,12,24,EA,325,315,246,47,2026-09-23T00:00:00+00:00,0,0,47,293
+208,042272005833,Organic Lentil Soup Light in Sodium,Food / Consumables,12,24,EA,90,80,43,44,2026-09-23T00:00:00+00:00,0,0,44,87
+101,4056489125846,Greek Style Shortbread Cookies Apricot Cocoa,Food / Consumables,6,12,EA,260,250,230,0,2026-09-23T00:00:00+00:00,0,0,0,230
+102,4056489125846,Greek Style Shortbread Cookies Apricot Cocoa,Food / Consumables,6,12,EA,276,266,202,46,2026-09-23T00:00:00+00:00,0,0,46,248
+103,4056489125846,Greek Style Shortbread Cookies Apricot Cocoa,Food / Consumables,6,12,EA,241,231,217,1,2026-09-23T00:00:00+00:00,0,0,1,218
+104,4056489125846,Greek Style Shortbread Cookies Apricot Cocoa,Food / Consumables,6,12,EA,251,241,208,14,2026-09-23T00:00:00+00:00,0,0,14,222
+105,4056489125846,Greek Style Shortbread Cookies Apricot Cocoa,Food / Consumables,6,12,EA,42,32,32,5,2026-09-23T00:00:00+00:00,0,0,5,37
+107,4056489125846,Greek Style Shortbread Cookies Apricot Cocoa,Food / Consumables,6,12,EA,111,101,54,36,2026-09-23T00:00:00+00:00,0,0,36,90
+108,4056489125846,Greek Style Shortbread Cookies Apricot Cocoa,Food / Consumables,6,12,EA,81,71,26,29,2026-09-23T00:00:00+00:00,0,0,29,55
+201,4056489125846,Greek Style Shortbread Cookies Apricot Cocoa,Food / Consumables,6,12,EA,258,248,218,5,2026-09-23T00:00:00+00:00,0,0,5,223
+203,4056489125846,Greek Style Shortbread Cookies Apricot Cocoa,Food / Consumables,6,12,EA,148,138,137,1,2026-09-23T00:00:00+00:00,0,0,1,138
+205,4056489125846,Greek Style Shortbread Cookies Apricot Cocoa,Food / Consumables,6,12,EA,303,293,243,29,2026-09-23T00:00:00+00:00,0,0,29,272
+207,4056489125846,Greek Style Shortbread Cookies Apricot Cocoa,Food / Consumables,6,12,EA,173,163,103,59,2026-09-23T00:00:00+00:00,0,0,59,162
+208,4056489125846,Greek Style Shortbread Cookies Apricot Cocoa,Food / Consumables,6,12,EA,83,73,60,1,2026-09-23T00:00:00+00:00,0,0,1,61
+101,4056489125839,Greek Style Shortbread Cookies Chocolate Truffle,Food / Consumables,6,12,EA,135,125,64,58,2026-09-23T00:00:00+00:00,0,0,58,122
+102,4056489125839,Greek Style Shortbread Cookies Chocolate Truffle,Food / Consumables,6,12,EA,241,231,189,48,2026-09-23T00:00:00+00:00,0,0,48,237
+104,4056489125839,Greek Style Shortbread Cookies Chocolate Truffle,Food / Consumables,6,12,EA,212,202,160,18,2026-09-23T00:00:00+00:00,0,0,18,178
+105,4056489125839,Greek Style Shortbread Cookies Chocolate Truffle,Food / Consumables,6,12,EA,216,206,150,30,2026-09-23T00:00:00+00:00,0,0,30,180
+106,4056489125839,Greek Style Shortbread Cookies Chocolate Truffle,Food / Consumables,6,12,EA,204,194,162,33,2026-09-23T00:00:00+00:00,0,0,33,195
+107,4056489125839,Greek Style Shortbread Cookies Chocolate Truffle,Food / Consumables,6,12,EA,143,133,130,1,2026-09-23T00:00:00+00:00,0,0,1,131
+108,4056489125839,Greek Style Shortbread Cookies Chocolate Truffle,Food / Consumables,6,12,EA,75,65,29,9,2026-09-23T00:00:00+00:00,0,0,9,38
+201,4056489125839,Greek Style Shortbread Cookies Chocolate Truffle,Food / Consumables,6,12,EA,93,83,50,41,2026-09-23T00:00:00+00:00,0,0,41,91
+202,4056489125839,Greek Style Shortbread Cookies Chocolate Truffle,Food / Consumables,6,12,EA,166,156,142,21,2026-09-23T00:00:00+00:00,0,0,21,163
+203,4056489125839,Greek Style Shortbread Cookies Chocolate Truffle,Food / Consumables,6,12,EA,65,55,24,16,2026-09-23T00:00:00+00:00,0,0,16,40
+205,4056489125839,Greek Style Shortbread Cookies Chocolate Truffle,Food / Consumables,6,12,EA,60,50,46,6,2026-09-23T00:00:00+00:00,0,0,6,52
+206,4056489125839,Greek Style Shortbread Cookies Chocolate Truffle,Food / Consumables,6,12,EA,118,108,53,59,2026-09-23T00:00:00+00:00,0,0,59,112
+207,4056489125839,Greek Style Shortbread Cookies Chocolate Truffle,Food / Consumables,6,12,EA,167,157,80,49,2026-09-23T00:00:00+00:00,0,0,49,129
+208,4056489125839,Greek Style Shortbread Cookies Chocolate Truffle,Food / Consumables,6,12,EA,112,102,64,19,2026-09-23T00:00:00+00:00,0,0,19,83
+101,810158140875,Pumpkin Spice Oat Cookies (No Bake),Food / Consumables,12,24,EA,107,97,76,4,2026-09-23T00:00:00+00:00,0,0,4,80
+102,810158140875,Pumpkin Spice Oat Cookies (No Bake),Food / Consumables,12,24,EA,117,107,35,52,2026-09-23T00:00:00+00:00,0,0,52,87
+103,810158140875,Pumpkin Spice Oat Cookies (No Bake),Food / Consumables,12,24,EA,175,165,121,24,2026-09-23T00:00:00+00:00,0,0,24,145
+106,810158140875,Pumpkin Spice Oat Cookies (No Bake),Food / Consumables,12,24,EA,152,142,118,31,2026-09-23T00:00:00+00:00,0,0,31,149
+108,810158140875,Pumpkin Spice Oat Cookies (No Bake),Food / Consumables,12,24,EA,52,42,25,25,2026-09-23T00:00:00+00:00,0,0,25,50
+201,810158140875,Pumpkin Spice Oat Cookies (No Bake),Food / Consumables,12,24,EA,166,156,117,46,2026-09-23T00:00:00+00:00,0,0,46,163
+202,810158140875,Pumpkin Spice Oat Cookies (No Bake),Food / Consumables,12,24,EA,155,145,90,56,2026-09-23T00:00:00+00:00,0,0,56,146
+203,810158140875,Pumpkin Spice Oat Cookies (No Bake),Food / Consumables,12,24,EA,242,232,195,23,2026-09-23T00:00:00+00:00,0,0,23,218
+204,810158140875,Pumpkin Spice Oat Cookies (No Bake),Food / Consumables,12,24,EA,268,258,188,43,2026-09-23T00:00:00+00:00,0,0,43,231
+205,810158140875,Pumpkin Spice Oat Cookies (No Bake),Food / Consumables,12,24,EA,48,38,27,2,2026-09-23T00:00:00+00:00,0,0,2,29
+206,810158140875,Pumpkin Spice Oat Cookies (No Bake),Food / Consumables,12,24,EA,65,55,44,7,2026-09-23T00:00:00+00:00,0,0,7,51

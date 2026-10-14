@@ -132,3 +132,8 @@ UPC,Product,Category,Supplier ID,Lot Tracked,Unit Price,Case Pack,MOQ,Sellable U
 099011070003,Multivitamins,Personal Care,SUP-20,True,9.99,6,12,EA,Wellspring,90 ct,"Wellspring Multivitamins, 90 ct. Fictional private-label item for the recall-matching demo."
 099011177009,Dental Floss,Personal Care,SUP-20,False,2.49,12,24,EA,Wellspring,50 yd,"Wellspring Dental Floss, 50 yd. Fictional private-label item for the recall-matching demo."
 099011284004,Bar Soap,Personal Care,SUP-20,False,3.29,6,12,EA,Wellspring,4 ct,"Wellspring Bar Soap, 4 ct. Fictional private-label item for the recall-matching demo."
+194346474004,Marketside Tomato Bisque Soup Kit,Food / Consumables,SUP-10,True,6.99,6,12,EA,Sunridge,14 oz,"Sunridge Marketside Tomato Bisque Soup Kit, 14 oz. Illustrative catalog item for live recall verification."
+042272005833,Organic Lentil Soup Light in Sodium,Food / Consumables,SUP-10,True,2.29,12,24,EA,Sunridge,14.5 oz,"Sunridge Organic Lentil Soup Light in Sodium, 14.5 oz. Illustrative catalog item for live recall verification."
+4056489125846,Greek Style Shortbread Cookies Apricot Cocoa,Food / Consumables,SUP-12,True,4.99,6,12,EA,Blue Ridge,330 g,"Blue Ridge Greek Style Shortbread Cookies Apricot Cocoa, 330 g. Illustrative catalog item for live recall verification."
+4056489125839,Greek Style Shortbread Cookies Chocolate Truffle,Food / Consumables,SUP-12,True,4.99,6,12,EA,Blue Ridge,330 g,"Blue Ridge Greek Style Shortbread Cookies Chocolate Truffle, 330 g. Illustrative catalog item for live recall verification."
+810158140875,Pumpkin Spice Oat Cookies (No Bake),Food / Consumables,SUP-18,True,2.49,12,24,EA,Summit,3.5 oz,"Summit Pumpkin Spice Oat Cookies (No Bake), 3.5 oz. Illustrative catalog item for live recall verification."

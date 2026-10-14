@@ -23,7 +23,7 @@ def render_configure(ctx) -> None:
         {
             "name": "GNews/RSS",
             "status": "Enabled" if use_gnews else "Disabled",
-            "signal": "Retail news and competitor events",
+            "signal": "Retailer and retail-market news",
             "feature": "retail_news_event_score",
             "owner": "Category Manager",
             "output": "Market Event Risk",
@@ -74,19 +74,19 @@ def render_configure(ctx) -> None:
         for label, ok, value in checks
     )
     show_rows = admin or bool(blocking)
-    readiness_col, routing_col = st.columns([1, 1.7], gap="medium")
-    with readiness_col, st.container(key="readiness_card"):
-        st.markdown(
-            "<div class='panel'>"
-            "<div class='panel-title'>Run readiness</div>"
-            f"<div class='panel-status {summary_state}'>{escape(summary)}</div>"
-            f"{check_rows if show_rows else ''}"
-            f"<div class='panel-foot'>{escape(brief_note)}</div>"
-            "</div>",
-            unsafe_allow_html=True,
-        )
-        st.caption("Start the run with Run intelligence in the left panel." if not blocking else "Resolve the items above, then use Run intelligence in the left panel.")
-    with routing_col, st.container(key="sources_card"):
+    # Changing the news market only changes GNews; CPI, FDA and NOAA stay US sources. Say so
+    # on the main view, not only in Advanced settings.
+    news_country = str(getattr(ctx, "country", "") or st.session_state.get("country", "") or "US").strip().upper()
+    market_note = (
+        f"<div class='panel-foot'>News market: {escape(news_country)}. Inflation CPI (BLS), FDA recalls and NOAA weather "
+        "remain US sources and are not changed by this setting.</div>"
+        if news_country and news_country != "US"
+        else ""
+    )
+    # One full-width card: the readiness verdict is a status line under the Data Sources
+    # title. The pipeline status card above already shows the run itself, and the left
+    # panel shows retailer, region and sources, so a separate readiness card only repeated them.
+    with st.container(key="sources_card"):
         head = "<th>Source</th><th>Status</th><th>What it tells you</th>"
         if admin:
             head += "<th>Forecast feature</th><th>Owner</th><th>KPI</th>"
@@ -108,10 +108,15 @@ def render_configure(ctx) -> None:
         st.markdown(
             "<div class='panel'>"
             "<div class='panel-title'>Data sources</div>"
+            f"<div class='panel-status {summary_state}'>{escape(summary)} &middot; {escape(brief_note)}</div>"
+            f"{market_note}"
+            f"{check_rows if show_rows else ''}"
             f"<table class='data-table'><thead><tr>{head}</tr></thead><tbody>{''.join(body)}</tbody></table>"
             "</div>",
             unsafe_allow_html=True,
         )
+        if blocking:
+            st.caption("Resolve the items above, then use Run intelligence in the left panel.")
     st.markdown(
         "<div class='notice-bar'>Based on public external signals only. Internal sales and inventory data "
         "are not connected. Raw payloads are in Raw Data.</div>",
@@ -142,11 +147,12 @@ def render_configure(ctx) -> None:
                     "FDA recall search",
                     key="fda_query",
                     help=(
-                        "openFDA query. A live incident can only be quantified if a returned record's "
-                        "product matches the ~21-item internal demonstration catalog, so this defaults to "
+                        "openFDA query. It only limits which ongoing recall records are collected; it does "
+                        "not confirm that any product is carried internally. Each returned recall is then "
+                        "matched separately against the internal demonstration catalog. The default covers "
                         "every food category the catalog covers (snacks, candy, beverages, water, soup, "
                         "bread, cookies, cereal, peanut butter, granola bar, trail mix, infant/baby "
-                        "formula) rather than snacks/candy/beverages alone."
+                        "formula). If this field is left empty, the default search is used."
                     ),
                 )
                 st.slider(

@@ -1,8 +1,20 @@
-# Revised package: 29 September 2026
+# Revised package: 14 October 2026
 
 Status: local regression-tested candidate for client rehearsal. Live account connectivity and final client-demo acceptance remain outstanding.
 
-Validation: 141 tests passed on Python 3.12, including 31 review regression cases. Runtime versions are recorded in requirements.txt; test dependency in requirements-dev.txt. No new lint, coverage or vulnerability-scan claims are made.
+Validation: 270 tests passed on Python 3.12; Python compilation completed successfully. Runtime versions are recorded in requirements.txt; test dependency in requirements-dev.txt. No new lint, coverage or vulnerability-scan claims are made.
+
+Package contents: source, fixtures, tests and docs only. Local repository metadata (.git), the runtime run database (market_intelligence_runs.db) and the operations log (market_intelligence_operations.log) are not included; the database and log are recreated when the app runs.
+
+Corrected (14 October, product recalls): live recalls are matched to internal data in a fixed order -- exact UPC and lot, product name, product family (the recall counterpart of the weather event-family ladder), category, distribution. Priority is set only once the recall's UPC matches an internal item; otherwise it is left blank, the same rule as a weather alert with no store match. Lots are matched yes or no: a recall that lists no lot codes covers every lot of the UPC, and a recall whose lots are not in internal stock is "not affected". Withdrawal and POS block remain reserved for a UPC match. Synthetic inventory was added for three live recalls so exact matches can be demonstrated. The recall table no longer shows Distribution-Footprint Stores or Stores Carrying Possible Product Match; both remain in the incident detail.
+
+Corrected (14 October, weather): a weather alert with no store in its area has a blank priority and Actionability "Monitor" in the Operational Impact Center and the Results tables. A store inside the alert area that is closed is shown as "matched, closed" rather than "no Store matched". For an alert that is already active, employee commutes are marked for confirmation instead of being compared with the time until the alert ends. NOAA wording separates alerts fetched from alerts retained for scoring.
+
+Corrected (14 October, Demand Planner): weather store selection uses the stores an alert actually reached in the run; other stores in the same state are labelled as baseline context. Cards and calculations are unchanged. Store and product values (baseline forecast, on hand, inbound, available supply) are identical to the Operational Impact Center for every shared store and product.
+
+Corrected (14 October, wording and export): plain data notice; "Why it may matter" and "Suggested next step"; "External risk indicators" naming the driving signal; "Illustrative Signal Scenarios"; Evidence Audit caption matches the relevance-ranked news selection; news described as retailer and retail-market news (competitors are not tracked); Business Risk Indicator, Source Confidence and Internal Exposure columns; an empty FDA search falls back to the default query; a non-US news market states that CPI, FDA and NOAA remain US sources; the Configure page shows Data Sources at full width with the run status line; CSV and JSON exports include Run ID, Retailer and the numeric Risk Score.
+
+Earlier revision: 29 September 2026 (141 tests at that time). Its corrections follow.
 
 Corrected (29 September, DC logical consistency): Primary DC route exposure is now shown as a planner warning rather than an automatic allocation blocker. Previously, if the alert county overlapped the Store or Dallas lane, Dallas could show ATP and a 4-10h transit lane but still show 0 planned supply, which looked contradictory in Ajith's review. Now, when the Primary DC has ATP and the approved lane can arrive before the alert deadline, Primary Planned Qty is populated; Route Risk remains visible in the action text so planners still validate the lane before execution.
 

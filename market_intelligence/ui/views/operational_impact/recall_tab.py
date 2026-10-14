@@ -139,7 +139,9 @@ def render_recall_incident_tab(incidents: List[Dict[str, Any]], nvidia_key: str,
                     "confirmed_exact": "Exact UPC/Lot Match",
                     "confirmed_upc_only": "UPC Match",
                     "probable_text_match": "Product/Vendor Match",
+                    "product_family_match": "Product-Family Analog Match",
                     "category_hazard_match": "Category/Hazard Match",
+                    "lot_not_in_stock": "UPC matched; recalled lots not in stock",
                     "distribution_match": "Distribution Match",
                     "unmatched": "No Internal Match",
                 }.get(
@@ -157,6 +159,8 @@ def render_recall_incident_tab(incidents: List[Dict[str, Any]], nvidia_key: str,
                 footprint_stores = str(int(match.get("footprint_store_count", 0) or 0))
             if match_status == "product_review_required" and match.get("candidate_estimate_available"):
                 candidate_stores = str(int(match.get("candidate_stores_carrying", 0) or 0))
+            elif match_status == "product_family_match" and match.get("family_estimate_available"):
+                candidate_stores = f"{int(match.get('family_stores_carrying', 0) or 0)} (same-family items)"
             else:
                 candidate_stores = "Not assessed"
             if store_ids:
@@ -215,8 +219,9 @@ def render_recall_incident_tab(incidents: List[Dict[str, Any]], nvidia_key: str,
                 # Exposure -- does it reach us, and how firmly.
                 "Distribution",
                 "Match Level",
-                "Distribution-Footprint Stores",
-                "Stores Carrying Possible Product Match",
+                # Footprint and possible-match store counts are candidates, not affected stores,
+                # and raised more questions than they answered in the table; they stay in the
+                # incident detail (Impact tab) for anyone who opens a recall.
                 "UPC/Lot-Confirmed Affected Stores",
                 # Decision.
                 "Decision Status",
@@ -225,6 +230,9 @@ def render_recall_incident_tab(incidents: List[Dict[str, Any]], nvidia_key: str,
             recall_visible_cols = drop_empty_columns(
                 filtered_df, [c for c in recall_visible_cols if c in filtered_df.columns]
             )
+            # Priority is blank for a recall with no internal match; keep the column even if every row is blank.
+            if "Priority" in filtered_df.columns and "Priority" not in recall_visible_cols:
+                recall_visible_cols = ["Priority"] + recall_visible_cols
             # Priority and the incident number first so both are on screen without scrolling.
             recall_visible_cols = (
                 [c for c in ("Priority", "Incident ID", "Recall Number") if c in recall_visible_cols]
@@ -232,9 +240,8 @@ def render_recall_incident_tab(incidents: List[Dict[str, Any]], nvidia_key: str,
             )
 
             st.caption(
-                "Distribution-Footprint Stores are candidates inside the recall's distribution states, not confirmed affected "
-                "stores. Stores Carrying Possible Product Match applies to probable product matches only (internal assortment is synthetic). "
-                "UPC/Lot-Confirmed Affected Stores needs an exact UPC and lot match."
+                "UPC/Lot-Confirmed Affected Stores needs an exact UPC and lot match. Priority is blank when no internal UPC "
+                "matched, because no store action applies; open a recall to see candidate stores and estimates."
             )
             clicked = incident_table(
                 filtered_df[recall_visible_cols],

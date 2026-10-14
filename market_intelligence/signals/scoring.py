@@ -39,6 +39,28 @@ def compute_composite_scores(feature_df: pd.DataFrame) -> Dict[str, float]:
     }
 
 
+RETAIL_KPI_SIGNAL_AREAS: Dict[str, List[str]] = {
+    "Consumer Price Pressure": ["Inflation", "Category CPI"],
+    "Safety and Compliance Risk": ["Product Recalls"],
+    "Supply Chain Disruption Risk": ["Weather Risk"],
+    "Demand Signal Priority": ["Search Demand", "Retail News"],
+}
+
+
+def retail_kpi_driver(feature_df: pd.DataFrame, card: str) -> str:
+    """The signal that sets a summary card's level (the highest-scoring row among its areas)."""
+    from market_intelligence.signals.retail_context import signal_short_label
+
+    areas = RETAIL_KPI_SIGNAL_AREAS.get(card, [])
+    if feature_df is None or feature_df.empty or "signal_area" not in feature_df.columns:
+        return ""
+    rows = feature_df[feature_df["signal_area"].astype(str).isin(areas)]
+    if rows.empty:
+        return ""
+    top = rows.sort_values("risk_score", ascending=False, kind="mergesort").iloc[0]
+    return signal_short_label(top)
+
+
 def compute_retail_kpis(feature_df: pd.DataFrame) -> Dict[str, float]:
     """Headline KPI cards. Each card is the highest score among the signal areas it names.
 
@@ -106,6 +128,18 @@ def weather_exposure_note(row: Any) -> str:
     )
 
 
+def weather_next_step(row: Any) -> str:
+    """Suggested next step for a weather card, based on the store-county screening."""
+    from market_intelligence.signals.retail_context import _weather_store_exposure
+
+    screened, matched, fetched = _weather_store_exposure(dict(row))
+    if screened and fetched and matched == 0:
+        return "No store action needed now; keep watching the alert and refresh the run before order cut-off."
+    if screened and matched:
+        return "Review the matched store(s), nearby DCs and delivery routes in Operational Impact Center."
+    return "Check the alert counties against stores, DCs and delivery routes in Operational Impact Center."
+
+
 def build_trust_metrics(run: Dict[str, Any], feature_df: pd.DataFrame) -> List[Dict[str, str]]:
     results = run.get("results", {})
     llm_audit = run.get("llm_audit", {})
@@ -114,9 +148,10 @@ def build_trust_metrics(run: Dict[str, Any], feature_df: pd.DataFrame) -> List[D
     raw_records = sum(int(record.get("raw_records_pulled", 0) or 0) for record in evidence_records)
     mock_used = any_mock_used(results, llm_audit)
     brief_source = "Agent" if run.get("brief_source") == "nvidia" else "Rule-based"
+    external_note = "External signals include mock or scenario data." if mock_used else "External signals are live."
     return [
         {"label": "External Signals", "value": "Mixed / mock" if mock_used else "Live", "note": "Collector evidence is audited separately from internal operations data.", "state": "warn" if mock_used else "good"},
-        {"label": "Internal Operations", "value": "Synthetic", "note": "Versioned internal dataset for this proof of concept; not the client's ERP or WMS.", "state": "warn"},
+        {"label": "Internal Operations", "value": "Synthetic", "note": f"{external_note} Store, inventory, distribution-centre and staffing data are illustrative test data and are not connected to the client's ERP or WMS.", "state": "warn"},
         {"label": "Live Sources", "value": str(live_sources), "note": "Sources that made a live request or returned live evidence.", "state": "good"},
         {"label": "Raw Records", "value": str(raw_records), "note": "Inspectable source records behind the normalized rows.", "state": "good" if raw_records else "warn"},
         {"label": "Feature Rows", "value": str(len(feature_df)), "note": "Normalized external signal rows, ready to join to internal data.", "state": "good" if len(feature_df) else "warn"},
@@ -231,17 +266,20 @@ def build_recommended_actions(feature_df: pd.DataFrame, results: Dict[str, Dict[
         category = str(row.get("retail_category") or row.get("signal_area") or "Category")
         hypothesis = str(row.get("impact_hypothesis") or row.get("recommended_action") or "Review this signal with the category owner.")
         title = category
-        exposure = ""
+        body = f"{hypothesis} Next: {row.get('recommended_action', 'Review this signal with the category owner.')}"
         if str(row.get("signal_area", "")) == "Weather Risk":
             region = str(row.get("region", "") or "").strip()
             if region and region.upper() != "US":
                 title = f"{category} \u2014 {region}"
-            exposure = f" {weather_exposure_note(row)}"
+            # Kept short: the store-exposure qualification is what matters on this card;
+            # the full scoring detail stays in Explainability and Operational Impact.
+            # The next step depends on whether any store actually matched.
+            body = f"{weather_exposure_note(row)} Next: {weather_next_step(row)}"
         actions.append(
             {
                 "label": owner,
                 "title": title,
-                "body": f"{hypothesis}{exposure} Next: {row.get('recommended_action', 'Review this signal with the category owner.')}",
+                "body": body,
             }
         )
     apify_result = results.get("apify")

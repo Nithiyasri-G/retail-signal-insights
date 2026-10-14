@@ -41,7 +41,10 @@ CLIENT_COLUMN_LABELS: Dict[str, str] = {
     "signal_value": "Signal Value",
     "region": "Region",
     "region_scope": "Region Scope",
-    "confidence": "Confidence",
+    "confidence": "Source Confidence",
+    "internal_exposure": "Internal Exposure",
+    "risk_score_value": "Risk Score",
+    "run_id": "Run ID",
     "date": "Date",
     "data_period": "Data Period",
     "retailer": "Retailer",
@@ -49,7 +52,7 @@ CLIENT_COLUMN_LABELS: Dict[str, str] = {
     # Retail framing
     "retail_category": "Retail Category",
     "retail_relevance": "Relevance",
-    "enterprise_kpi": "Enterprise KPI",
+    "enterprise_kpi": "Business Risk Indicator",
     "planning_owner": "Planning Owner",
     "demand_direction": "Demand Direction",
     "action_priority": "Action Priority",
@@ -103,6 +106,7 @@ FEATURE_TABLE_COLUMNS: Tuple[str, ...] = (
     "forecast_feature",
     "risk_score",
     "confidence",
+    "internal_exposure",
     "score_reason",
     "business_impact",
     "recommended_action",
@@ -130,20 +134,32 @@ def readable_feature_values(df: pd.DataFrame) -> pd.DataFrame:
     return readable
 
 
-def _split_run_date_and_data_period(table: pd.DataFrame, run_date: Optional[str]) -> pd.DataFrame:
+def _non_month_data_period(row: pd.Series) -> str:
+    """Data Period for rows that are not a BLS reporting month."""
+    area = str(row.get("signal_area", "") or "")
+    if area in {"Weather Risk", "Product Recalls"}:
+        return "Active as of run time"
+    period = row.get("search_period")
+    if isinstance(period, str) and period.strip():
+        return f"Published in the last {period.strip()}"
+    return "At run time"
+
+
+def _split_run_date_and_data_period(table: pd.DataFrame, run_date: Optional[str], periods_hint: Optional[pd.Series] = None) -> pd.DataFrame:
     """Give every row an unambiguous Run Date plus a Data Period.
 
     The collectors disagree on what "date" means: news, recalls and weather stamp the run
     day (2026-10-08) but BLS CPI stamps the reporting month it published (2026-08). Mixing
     both in one column reads as inconsistent, so CPI rows keep their reporting month in
     ``Data Period`` ("Aug 2026") and show the run date in ``Run Date``; every other row's
-    period is simply "At run time".
+    period says what "now" means for it: alerts and recalls active as of the run, news
+    published within the search window, otherwise "At run time".
     """
     if "date" not in table.columns:
         return table
     out = table.copy()
     month = out["date"].astype(str).str.fullmatch(r"\d{4}-\d{2}")
-    periods = pd.Series("At run time", index=out.index)
+    periods = periods_hint.reindex(out.index).fillna("At run time") if periods_hint is not None else pd.Series("At run time", index=out.index)
     periods[month] = pd.to_datetime(out.loc[month, "date"] + "-01", errors="coerce").dt.strftime("%b %Y").fillna(out.loc[month, "date"])
     if run_date:
         out.loc[month, "date"] = run_date
@@ -151,7 +167,7 @@ def _split_run_date_and_data_period(table: pd.DataFrame, run_date: Optional[str]
     return out
 
 
-def client_feature_table(feature_df: pd.DataFrame, *, for_export: bool = False, run_date: Optional[str] = None) -> pd.DataFrame:
+def client_feature_table(feature_df: pd.DataFrame, *, for_export: bool = False, run_date: Optional[str] = None, run_id: Optional[str] = None) -> pd.DataFrame:
     """The signal rows a client should see: a fixed column set, named and readable.
 
     feature_df is the union of every collector's signal dict, so rendering it whole put
@@ -162,10 +178,20 @@ def client_feature_table(feature_df: pd.DataFrame, *, for_export: bool = False, 
     if feature_df is None or feature_df.empty:
         return pd.DataFrame()
     columns = [column for column in FEATURE_TABLE_COLUMNS if column in feature_df.columns]
-    table = _split_run_date_and_data_period(readable_feature_values(feature_df[columns].copy()), run_date)
+    periods_hint = feature_df.apply(_non_month_data_period, axis=1)
+    table = _split_run_date_and_data_period(readable_feature_values(feature_df[columns].copy()), run_date, periods_hint)
     if "risk_score" in table.columns:
+        numeric_score = pd.to_numeric(table["risk_score"], errors="coerce").round(2)
         table["risk_score"] = table["risk_score"].apply(lambda value: risk_band(float(value or 0)))
+        if for_export:
+            # The export keeps the number behind the band so the level can be checked.
+            table.insert(list(table.columns).index("risk_score") + 1, "risk_score_value", numeric_score)
         table = table.rename(columns={"risk_score": "Risk Level"})
+    if for_export:
+        # Identify the run and company on every row so exports from different runs can be told apart.
+        retailer = feature_df["retailer"].astype(str) if "retailer" in feature_df.columns else pd.Series("", index=feature_df.index)
+        table.insert(0, "retailer", retailer.reindex(table.index).fillna("").values)
+        table.insert(0, "run_id", str(run_id or ""))
     table = with_client_labels(table).rename(columns={"Date": "Run Date"})
     if for_export:
         table["Validation Status"] = CANDIDATE_VALIDATION_STATUS

@@ -199,7 +199,8 @@ def test_recall_fixture_set_is_consistent_and_leaves_the_weather_fixtures_alone(
     products, suppliers = wide.table("products"), wide.table("suppliers")
     assert wide.manifest["provenance"] == "synthetic" and len(products) > 100
     assert products["UPC"].is_unique and products["Product"].is_unique
-    assert products["UPC"].str.len().eq(12).all()
+    # UPC-A (12 digits) or EAN-13 (13 digits): live recalls H-1274/H-1275-2026 carry EAN-13 barcodes
+    assert products["UPC"].str.len().isin([12, 13]).all()
     assert set(products["Supplier ID"]) <= set(suppliers["Supplier ID"])
     assert set(wide.table("lots")["UPC"]) <= set(products["UPC"])
     assert set(wide.table("store_inventory")["UPC"]) <= set(products["UPC"])

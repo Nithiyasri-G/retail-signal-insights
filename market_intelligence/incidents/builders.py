@@ -7,6 +7,7 @@ import pandas as pd
 
 from market_intelligence.incidents.actions import recall_recommended_actions, weather_recommended_actions
 from market_intelligence.recalls.ladder import ladder_entry
+from market_intelligence.recalls.families import family_store_statement
 from market_intelligence.recalls.matching import candidate_store_statement
 from market_intelligence.recalls.parsing import normalize_recall_classification
 from market_intelligence.util.clock import utc_now
@@ -311,7 +312,7 @@ def build_recall_incidents(fda_result: Dict[str, Any], run_timestamp: str = "") 
         status = match_result["match_status"]
         match_type = str(match_result.get("match_type") or status.replace("_", " ").title())
         match_reason = str(match_result.get("match_reason") or match_result.get("reason") or "")
-        if status == "unmatched":
+        if status in {"unmatched", "lot_not_in_stock"}:
             # Consistency with Weather's no-Store-match policy (Principle: no-match is
             # not Low priority): "unmatched" means no internal catalog/UPC/lot evidence
             # was found at all, not that the recall was reviewed and judged low-severity.
@@ -328,15 +329,33 @@ def build_recall_incidents(fda_result: Dict[str, Any], run_timestamp: str = "") 
                     "Owner": "Compliance",
                     "Urgency": "None",
                     "Reason": match_reason or match_result.get("reason", "No internal catalog/UPC/lot match was found for this recall."),
-                    "Evidence": "Recall matched against internal product catalog; no product/UPC/lot evidence found.",
+                    "Evidence": (
+                        "UPC matched an internal item; none of the recalled lots is in internal stock."
+                        if status == "lot_not_in_stock"
+                        else "Recall matched against internal product catalog; no product/UPC/lot evidence found."
+                    ),
                     "Decision Support": str(ladder_entry(status)["action"]),
                     "Status": "No action required",
                 }
             ]
             limitations = [match_reason or match_result.get("reason", "")]
-            affected_scope = "No internal product match"
-        elif status in {"category_hazard_match", "distribution_match", "lot_review_required", "product_review_required", "distribution_review_required"}:
-            priority = "High" if normalize_recall_classification(item.get("classification")) == "Class I" else "Medium"
+            affected_scope = (
+                f"{match_result.get('matched_product')}: recalled lots not in stock"
+                if status == "lot_not_in_stock"
+                else "No internal product match"
+            )
+        elif status in {"category_hazard_match", "distribution_match", "lot_review_required", "product_review_required", "product_family_match", "distribution_review_required"}:
+            # Same rule as Weather's no-Store-match policy: a priority ranks a store action,
+            # and with no internal UPC match no store action applies, so Priority stays blank
+            # (text, product-family, category and distribution-only matches). Once the UPC
+            # has matched an internal item the product is ours -- only the lot or the
+            # distribution is still open -- so the FDA class sets the priority.
+            upc_matched = status in {"lot_review_required", "distribution_review_required"}
+            priority = (
+                ("High" if normalize_recall_classification(item.get("classification")) == "Class I" else "Medium")
+                if upc_matched
+                else ""
+            )
             category = str(match_result.get("matched_category") or "")
             distribution_states = match_result.get("distribution_states") or []
             impact_metrics = {
@@ -360,8 +379,25 @@ def build_recall_incidents(fda_result: Dict[str, Any], run_timestamp: str = "") 
                     impact_metrics["Estimated store on hand (planning only)"] = match_result["estimated_store_on_hand"]
                     impact_metrics["Estimated DC on hand (planning only)"] = match_result["estimated_dc_on_hand"]
                     impact_metrics["Estimated DC in transit (planning only)"] = match_result["estimated_dc_in_transit"]
-                limitations.append("Text-only match: severity drives priority, not because the product match is confirmed. Estimated quantities are planning visibility only and are not confirmed exposure.")
-            affected_scope = category or "Distribution overlap only"
+                limitations.append("Text-only match: no internal UPC matched, so no priority is set and no store action applies until the UPC and lot are confirmed. Estimated quantities are planning visibility only and are not confirmed exposure.")
+            if status == "product_family_match":
+                impact_metrics["Product family"] = match_result.get("product_family") or "Not identified"
+                impact_metrics["Same-family internal items"] = len(match_result.get("family_products") or [])
+                impact_metrics["Footprint stores carrying the family"] = family_store_statement(match_result)
+                impact_metrics["Same-family store on hand (planning only)"] = match_result.get("family_estimated_store_on_hand", 0)
+                impact_metrics["Same-family DC on hand (planning only)"] = match_result.get("family_estimated_dc_on_hand", 0)
+                impact_metrics["Same-family DC in transit (planning only)"] = match_result.get("family_estimated_dc_in_transit", 0)
+                impact_metrics["Same-family stock value (planning ceiling)"] = match_result.get("family_estimated_value", 0.0)
+                limitations.append(
+                    "Product-family analog match, like weather's Analog Scenario Match: quantities cover every same-family item "
+                    "in the footprint stores and DCs, so they are an upper bound for planning, not affected inventory. "
+                    "Internal assortment and inventory are synthetic."
+                )
+            affected_scope = (
+                f"{match_result.get('product_family')} family ({int(match_result.get('family_stores_carrying', 0) or 0)} footprint store(s))"
+                if status == "product_family_match"
+                else category or "Distribution overlap only"
+            )
             # Each status is a different open question -- a lot/UPC confirmation gap is not
             # a distribution-footprint gap, and naming the wrong one sends a buyer to check
             # the wrong thing while the Reason/Evidence text (built from the real status just
@@ -372,13 +408,14 @@ def build_recall_incidents(fda_result: Dict[str, Any], run_timestamp: str = "") 
                 "distribution_match": "Distribution footprint review",
                 "lot_review_required": "Lot confirmation review",
                 "product_review_required": "Product/UPC confirmation review",
+                "product_family_match": "Product-family shelf check",
                 "distribution_review_required": "Distribution footprint review",
             }[status]
             actions = [
                 {
                     "Action": action_name,
                     "Owner": "Compliance + Category Buyer",
-                    "Urgency": priority,
+                    "Urgency": priority or "None",
                     "Reason": match_reason,
                     "Evidence": f"Match type: {match_type}; category={category or 'not identified'}; states={', '.join(distribution_states) if distribution_states else 'not confirmed'}.",
                     "Decision Support": str(ladder_entry(status)["action"]),
@@ -389,6 +426,8 @@ def build_recall_incidents(fda_result: Dict[str, Any], run_timestamp: str = "") 
         else:
             priority = "High" if match_result["total_store_exposure"] > 0 or match_result["total_dc_in_transit"] > 0 else "Medium"
             limitations = ["Store, DC, sales, customer, substitute and supplier detail are synthetic. Lot inventory is a deterministic share of all known product lots, in whole estimated units that add back to the product-level totals, not observed lot-level stock."]
+            if match_result.get("all_lots_assumed"):
+                limitations.insert(0, "The FDA record lists no lot codes, so every lot of this UPC is treated as affected.")
             impact_metrics = {
                 "Evidence ladder": match_type,
                 "Distribution-footprint stores (candidates)": _footprint_metric(match_result),

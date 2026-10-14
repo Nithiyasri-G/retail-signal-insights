@@ -201,6 +201,17 @@ def collect_gnews(keywords: List[str], country: str, language: str, period: str,
     negative_count = sum(1 for article in deduped if article.get("sentiment") == "negative")
     high_conf_count = sum(1 for article in deduped if article.get("confidence") == "High")
     event_counts = pd.Series([article.get("event_type", "unknown") for article in deduped]).value_counts().to_dict()
+    retailer_name = str(retailer or "").strip().lower()
+    retailer_mentions = (
+        sum(
+            1
+            for article in deduped
+            if retailer_name in f"{article.get('title', '')} {article.get('description', '')}".lower()
+        )
+        if retailer_name and retailer_name != "retailer"
+        else 0
+    )
+    retailer_label = str(retailer or "").strip() or "the retailer"
     signal = {
         "date": utc_now()[:10],
         "retailer": retailer,
@@ -213,7 +224,7 @@ def collect_gnews(keywords: List[str], country: str, language: str, period: str,
         "risk_score": score,
         "confidence": "Medium",
         "score_reason": (
-            f"Average article risk across {len(deduped)} deduplicated articles; {negative_count} negative; "
+            f"Average article risk across {len(deduped)} deduplicated articles; {negative_count} negative (keyword rules); "
             f"{high_conf_count} from high-confidence publishers. Event mix: "
             + (
                 ", ".join(
@@ -224,8 +235,12 @@ def collect_gnews(keywords: List[str], country: str, language: str, period: str,
             )
             + "."
         ),
-        "business_impact": "Recent news can reveal competitor moves, pricing pressure, recalls, store changes, and supply-chain risk.",
+        "business_impact": "Articles may contain retailer, competitor, pricing, supply-chain or weather events requiring review.",
         "recommended_action": "Review the high-risk articles with the category owner before executive distribution.",
-        "raw_reference": f"{len(deduped)} articles",
+        "raw_reference": (
+            f"{len(deduped)} deduplicated articles; {retailer_mentions} mention {retailer_label}; "
+            "competitor-specific articles are not tracked separately"
+        ),
+        "search_period": period,
     }
     return {"status": "success", "source": "GNews", "error": "; ".join(errors), "raw": deduped, "rows": [signal], "items": deduped}

@@ -15,6 +15,14 @@ EVIDENCE_LADDER: Dict[str, Dict[str, object]] = {
         "store_action": True,
         "action": "Isolate confirmed affected inventory and initiate withdrawal.",
     },
+    "lot_not_in_stock": {
+        "level": "Exact UPC, recalled lots not in stock",
+        "confirmed": "The UPC matches an internal item, and none of the recalled lots is in internal stock.",
+        "estimated": "Nothing is estimated; no stock is affected.",
+        "required": "Nothing further; keep the recall on file.",
+        "store_action": False,
+        "action": "No store action; the recalled lots are not in internal stock.",
+    },
     "confirmed_upc_only": {
         "level": "Exact UPC, lot confirmation required",
         "confirmed": "The UPC matches an internal item.",
@@ -46,6 +54,14 @@ EVIDENCE_LADDER: Dict[str, Dict[str, object]] = {
         "required": "Confirm UPC, brand, package size and vendor.",
         "store_action": False,
         "action": "Validate UPC, brand, package size and vendor before store action.",
+    },
+    "product_family_match": {
+        "level": "Product-family analog match",
+        "confirmed": "The recall's product title maps to a product family the retailer carries in the distribution footprint.",
+        "estimated": "Same-family stock in footprint stores and DCs is a planning ceiling, not affected inventory.",
+        "required": "Check shelves for the recalled brand and product; confirm UPC and lot before any store action.",
+        "store_action": False,
+        "action": "Shelf check of same-family items in footprint stores; hold any matching brand pending UPC/lot confirmation; no withdrawal.",
     },
     "category_hazard_match": {
         "level": "Category or hazard match",

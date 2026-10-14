@@ -171,7 +171,7 @@ def test_client_tables_get_title_case_headers() -> None:
     labelled = with_client_labels(
         pd.DataFrame([{"retail_category": "Snacks", "enterprise_kpi": "Safety", "score_reason": "3 recalls"}])
     )
-    assert list(labelled.columns) == ["Retail Category", "Enterprise KPI", "Why This Level"]
+    assert list(labelled.columns) == ["Retail Category", "Business Risk Indicator", "Why This Level"]
 
 
 # --- Table formatting --------------------------------------------------------------
@@ -381,11 +381,9 @@ def _recall_item(**overrides: Any) -> Dict[str, Any]:
     return item
 
 
-def test_a_class_i_recall_is_not_capped_at_medium() -> None:
-    """Match confidence and hazard severity are different things.
-
-    Every text-matched recall was pinned to Medium, so a Class I recall -- the FDA class
-    for a reasonable probability of serious harm -- sat at Medium across sixteen stores.
+def test_a_text_only_recall_has_no_priority_like_a_weather_alert_with_no_store() -> None:
+    """No internal UPC match means no store action applies, so Priority stays blank --
+    the same rule as a weather alert with no Store match -- whatever the FDA class.
     """
     build = build_recall_incidents
 
@@ -395,11 +393,12 @@ def test_a_class_i_recall_is_not_capped_at_medium() -> None:
         "run",
     )[0]
 
-    assert class_one["Priority"] == "High"
-    assert class_two["Priority"] == "Medium"
+    assert class_one["Priority"] == ""
+    assert class_two["Priority"] == ""
+    assert class_one["Recommended Actions"][0]["Urgency"] == "None"
     # The match is still qualified rather than presented as confirmed.
     assert any("Text-only match" in limitation for limitation in class_one["Limitations"])
-    assert any("not because the product match is confirmed" in limitation for limitation in class_one["Limitations"])
+    assert any("no store action applies" in limitation for limitation in class_one["Limitations"])
 
 
 def test_recalls_of_one_product_are_told_apart() -> None:

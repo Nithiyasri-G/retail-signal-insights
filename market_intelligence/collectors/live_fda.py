@@ -67,7 +67,7 @@ def collect_fda_recalls(query: str, limit: int, retailer: str = "Retailer") -> D
         "signal_value": len(items),
         "risk_score": round(aggregate_score, 2),
         "confidence": "High",
-        "score_reason": f"Current scope: ongoing FDA recalls, newest initiation first (limited sample). Score uses highest adjusted recall severity. Inputs: {len(items)} records, {ongoing_count} ongoing, {class_i_count} Class I, {class_ii_count} Class II, {class_iii_count} Class III, {upc_count} records with UPCs, top risk type {str(top_risk_type).replace('_', ' ')}.",
+        "score_reason": f"Current scope: ongoing FDA recalls, newest initiation first (limited sample). Score uses highest adjusted recall severity. Inputs: {len(items)} records, {ongoing_count} ongoing, {class_i_count} Class I, {class_ii_count} Class II, {class_iii_count} Class III, {upc_count} records with UPCs, top risk type {str(top_risk_type).replace('_', ' ')}. This is external recall severity only; it does not confirm that the retailer carries any recalled product. Each recall is matched to internal products in Operational Impact Center.",
         # openFDA's state is the recalling firm's location, not the distribution
         # footprint. Keep that distinction explicit so downstream geography matching
         # never presents firm state as affected-store coverage.
@@ -79,7 +79,7 @@ def collect_fda_recalls(query: str, limit: int, retailer: str = "Retailer") -> D
         "class_iii_count": class_iii_count,
         "upc_record_count": upc_count,
         "sku_match_status": "unknown",
-        "affected_category": "Food / snacks / candy / beverages",
+        "affected_category": "Food and beverage (FDA search scope)",
         "catalog_categories": sorted(
             {
                 category

@@ -161,10 +161,10 @@
         color: var(--t) !important; border-bottom: 2px solid var(--or) !important; font-weight: 600;
     }
     button[data-variant="segmented_control"][aria-checked="true"] p { font-weight: 600 !important; }
-    .st-key-readiness_card, .st-key-sources_card {
-        background: var(--sf); border: 1px solid var(--bl); border-radius: 6px; padding: 20px 22px; min-height: 290px;
+    .st-key-sources_card {
+        background: var(--sf); border: 1px solid var(--bl); border-radius: 6px; padding: 20px 22px;
     }
-    .st-key-readiness_card .panel, .st-key-sources_card .panel { border: none; padding: 0; background: transparent; }
+    .st-key-sources_card .panel { border: none; padding: 0; background: transparent; }
     .panel { background: transparent; border: none; padding: 0; }
     .section-title { font-size: 14px; font-weight: 600; color: var(--t); margin: 4px 0 8px 0; }
     .panel-title { font-size: 16px; font-weight: 600; color: var(--t); margin-bottom: 12px; }

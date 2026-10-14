@@ -131,10 +131,11 @@ def enrich_weather_inbox(weather_df: pd.DataFrame) -> pd.DataFrame:
         record["Store Exposure"] = weather_store_exposure_label(inbox_row.store_scope)
         record["Store Names"] = weather_store_name_list(record.get("Store IDs", ""))
         record["Exposure Change"] = inbox_row.store_scope_change
-        # A blank priority read as missing data. "Monitor" says the alert was retained for
-        # visibility and not operationally assessed, which is what no Store match means (it is
-        # deliberately not "Low": nothing was assessed and found to be low risk).
-        record["Operational Priority"] = str(record.get("Priority", "") or "").strip() or "Monitor"
+        # No Store match means there is nothing to rank, so Operational Priority stays blank
+        # (deliberately not "Low": nothing was assessed and found to be low risk). That the
+        # alert is still being watched is said by Actionability ("Monitor") and the
+        # Recommended Action ("Monitor only; no Store matched ..."), not by the priority.
+        record["Operational Priority"] = str(record.get("Priority", "") or "").strip()
         window_closed = timing_phrase == "window closed"
         decision_status = str(record.get("Decision Status", "") or "")
         record["Action Status"] = expired_action_status(decision_status, window_closed)
@@ -250,6 +251,20 @@ def enrich_weather_inbox(weather_df: pd.DataFrame) -> pd.DataFrame:
         else:
             record["Assessment"] = payload_status.replace("_", " ").title() or "Not Assessed"
             record["Missing Evidence"] = scenario_reason or ""
+
+        # A Store inside the alert area that is closed is a different outcome from no Store
+        # matching at all; carry it so the exposure and the action can say which one it is.
+        closed_ids = [
+            str(item.get("Store ID", "")).strip()
+            for item in (scenario.get("closed_stores_in_footprint") or [])
+            if isinstance(item, dict) and str(item.get("Store ID", "")).strip()
+        ]
+        record["Closed Store IDs"] = ", ".join(closed_ids)
+        if closed_ids and not str(record.get("Store IDs", "") or "").strip():
+            locations = _weather_store_locations()
+            named = ", ".join(f"{sid} ({locations[sid]})" if locations.get(sid) else sid for sid in closed_ids)
+            noun = "Store" if len(closed_ids) == 1 else "Stores"
+            record["Store Exposure"] = f"{len(closed_ids)} {noun} matched · closed · {named}"
 
         record["Incident Summary"] = weather_incident_summary(record)
         record["Actionability"] = weather_actionability(record)
@@ -372,7 +387,9 @@ def _weather_store_ids_from_row(row: Dict[str, Any]) -> List[str]:
     if store_ids:
         return store_ids
     exposure = str(row.get("Store Exposure") or row.get("Store Scope") or "")
-    return re.findall(r"\b\d{3,6}\b", exposure)
+    # A closed Store named in the exposure text is not an exposed Store.
+    closed = {value.strip() for value in str(row.get("Closed Store IDs", "") or "").split(",") if value.strip()}
+    return [value for value in re.findall(r"\b\d{3,6}\b", exposure) if value not in closed]
 
 
 def _weather_store_count(row: Dict[str, Any]) -> int:
@@ -599,6 +616,11 @@ def weather_recommended_action(row: Dict[str, Any]) -> str:
             return "Confirm whether any Store falls inside this alert before planning a response."
         return f"Confirm Store exposure and internal evidence for {stores} {deadline}."
 
+    closed = [value.strip() for value in str(row.get("Closed Store IDs", "") or "").split(",") if value.strip()]
+    if closed:
+        noun = "Store" if len(closed) == 1 else "Stores"
+        verb = "is" if len(closed) == 1 else "are"
+        return f"Monitor only; {noun} {', '.join(closed)} {verb} inside the alert area but closed, so no Store action applies."
     return "Monitor only; no Store matched this alert geography, so no Store action applies."
 
 

@@ -199,7 +199,7 @@ def render_evidence_page(ctx) -> None:
                 if show_llm_trace_detail()
                 else ""
             )
-            st.caption(f"{model_note}Supporting news: first collected article sampling, not relevance-ranked.")
+            st.caption(f"{model_note}Supporting news: the single article most relevant to the top signals (relevance-ranked).")
             trace_cols = st.columns(4)
             with trace_cols[0]:
                 render_metric_card("Brief Source", "Agent" if run.get("brief_source") == "nvidia" else "Rule-based", "Agent if its response was used; rule-based if local logic was.")

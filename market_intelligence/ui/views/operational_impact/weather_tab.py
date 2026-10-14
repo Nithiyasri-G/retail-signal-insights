@@ -103,7 +103,7 @@ def render_weather_incident_tab(incidents: List[Dict[str, Any]], nvidia_key: str
         # covers 8 counties in TX and 8 in GA, so a live NOAA feed queried at the state
         # level (every active alert in TX/GA) will mostly cover counties with no demo
         # Store in them. That is a Store-network-coverage fact, not an app defect --
-        # this line says so up front instead of leaving a wall of "Monitor" rows unexplained.
+        # this line says so up front instead of leaving a wall of blank-priority rows unexplained.
         matched_count = int(inbox_df["Operational Priority"].astype(str).str.strip().isin(["High", "Medium", "Low"]).sum())
         total_count = int(len(inbox_df))
         if total_count:
@@ -136,6 +136,9 @@ def render_weather_incident_tab(incidents: List[Dict[str, Any]], nvidia_key: str
             visible_cols = drop_empty_columns(
                 filtered_df, [c for c in weather_inbox_columns() if c in filtered_df.columns]
             )
+            # Priority is blank when no Store matched; keep the column even if every row is blank.
+            if "Operational Priority" in filtered_df.columns and "Operational Priority" not in visible_cols:
+                visible_cols = ["Operational Priority"] + visible_cols
             # Priority and the incident number first so both are on screen without scrolling.
             visible_cols = (
                 [c for c in ("Operational Priority", "Incident Reference") if c in visible_cols]
@@ -252,6 +255,8 @@ def render_weather_incident_tab(incidents: List[Dict[str, Any]], nvidia_key: str
             "Created At",
         ]
         history_cols = drop_empty_columns(history_display, history_cols)
+        if "Operational Priority" in history_display.columns and "Operational Priority" not in history_cols:
+            history_cols = ["Operational Priority"] + history_cols
         history_cols = (
             [c for c in ("Operational Priority", "Incident Reference") if c in history_cols]
             + [c for c in history_cols if c not in ("Operational Priority", "Incident Reference")]

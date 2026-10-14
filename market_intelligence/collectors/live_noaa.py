@@ -185,19 +185,26 @@ def collect_weather_alerts(
             }
         )
     risk_score = round(min(10.0, sum(score_components)), 2) if items else 0.0
+    fetched_noun = "alert" if len(features) == 1 else "alerts"
     relevance_note = (
-        f"; {relevant_in_full_set} of {len(features)} fetched alert(s) were Store-footprint-relevant"
+        f" {relevant_in_full_set} of the {len(features)} fetched {fetched_noun} "
+        f"{'was' if relevant_in_full_set == 1 else 'were'} in a configured store county (preliminary screening)."
         if store_master is not None
         else ""
     )
     if items:
+        capped = " and was capped at 10" if sum(score_components) > 10 else ""
         score_reason = (
-            f"Score sums weighted active NOAA alerts for {state_area}, capped at 10. "
-            f"Inputs: kept {len(items)} of {len(features)} fetched alert(s) (configured sample limit {limit}), "
-            f"ranked by Store-footprint relevance then severity{relevance_note}, {severe_count} severe/extreme, {extreme_count} extreme; "
-            f"severity/urgency/certainty components total {sum(score_components):.2f}."
+            f"NOAA returned {len(features)} active {state_area} {fetched_noun}; {len(items)} "
+            f"{'was' if len(items) == 1 else 'were'} retained for scoring (configured sample limit {limit}), "
+            f"ranked by store-footprint relevance then severity.{relevance_note} "
+            f"{severe_count} of the {len(items)} retained {'was' if severe_count == 1 else 'were'} severe or extreme "
+            f"({extreme_count} extreme). Their severity/urgency/certainty components total {sum(score_components):.2f}{capped}."
         )
-        raw_reference = f"{len(items)} active NOAA alert(s); top event: {items[0].get('event') or 'Unknown'}"
+        raw_reference = (
+            f"{len(features)} active NOAA {fetched_noun} fetched; {len(items)} retained for scoring; "
+            f"top retained event: {items[0].get('event') or 'Unknown'}"
+        )
         recommended_action = "Check affected counties against store and DC routes; use alert severity as a short-horizon disruption and emergency-demand feature."
     else:
         score_reason = f"NOAA returned 0 active alerts for {state_area}. Score is 0 because no current weather disruption signal is present."
@@ -220,6 +227,8 @@ def collect_weather_alerts(
         "fetched_count": len(features),
         "retained_count": len(items),
         "operationally_relevant_fetched_count": relevant_in_full_set,
+        # Whether store-county screening actually ran; without a store master the count above is 0 by default.
+        "store_screening_applied": store_master is not None,
         "coverage": "Limited sample" if len(features) > len(items) else "All returned alerts",
         "top_event": str(items[0].get("event", "") or "") if items else "",
         "severe_or_extreme_count": severe_count,

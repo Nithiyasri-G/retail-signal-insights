@@ -13,6 +13,7 @@ from market_intelligence.config.settings import DEFAULT_NVIDIA_MODEL
 from market_intelligence.incidents.filters import apply_incident_scope_filters
 from market_intelligence.llm.incident import _DC_REPLENISHMENT_FACT_COLUMNS, generate_dc_replenishment_recommendation, generate_incident_explanation
 from market_intelligence.recalls.ladder import ladder_entry
+from market_intelligence.recalls.families import family_store_statement
 from market_intelligence.recalls.matching import candidate_store_statement
 from market_intelligence.persistence.operational_store import _json_safe_incident, load_decisions, save_decision
 from market_intelligence.signals.labels import readable_evidence_code
@@ -125,6 +126,42 @@ def _render_probable_estimate(match: Dict[str, Any]) -> None:
         unsafe_allow_html=True,
     )
     st.caption("Product-level stock in the distribution states; internal assortment and inventory are synthetic. Withdrawal stays disabled.")
+
+
+def _render_family_estimate(match: Dict[str, Any]) -> None:
+    """Analog tier for a recall: same-family stock in the footprint, never presented as confirmed exposure."""
+    _section_heading(f"Product-family analog match \u2014 {match.get('product_family', '')}")
+    st.caption(
+        "No internal item is named in this recall, so, as weather does with an Analog Scenario Match, the product family is used: "
+        "the figures below are every same-family item held in the footprint stores and DCs. They are a planning ceiling for a shelf check, "
+        "not affected inventory; confirm the UPC and lot before any withdrawal."
+    )
+    st.markdown(f"**{escape(family_store_statement(match))}**")
+    kpi_row(
+        [
+            ("Product family", str(match.get("product_family", "")), ""),
+            ("Footprint stores carrying family", str(int(match.get("family_stores_carrying", 0) or 0)), ""),
+            ("UPC/Lot-Confirmed Affected Stores", "0", ""),
+        ]
+    )
+    st.markdown(
+        "<div class='fact-line'>"
+        f"Same-family items <strong>{escape(', '.join(match.get('family_products') or []))}</strong>"
+        f" &middot; Store on hand <strong>{int(match.get('family_estimated_store_on_hand', 0)):,} units</strong>"
+        f" &middot; DC on hand <strong>{int(match.get('family_estimated_dc_on_hand', 0)):,} units</strong>"
+        f" &middot; DC in transit <strong>{int(match.get('family_estimated_dc_in_transit', 0)):,} units</strong>"
+        f" &middot; Stock value (ceiling) <strong>${float(match.get('family_estimated_value', 0.0)):,.2f}</strong>"
+        " &middot; UPC/lot confirmation required"
+        "</div>",
+        unsafe_allow_html=True,
+    )
+    if match.get("family_store_lines"):
+        with st.expander("Same-family stock by store (planning only)"):
+            st.dataframe(style_operational_dataframe(pd.DataFrame(match["family_store_lines"])), width="stretch", hide_index=True)
+    if match.get("family_dc_lines"):
+        with st.expander("Same-family stock by DC (planning only)"):
+            st.dataframe(style_operational_dataframe(pd.DataFrame(match["family_dc_lines"])), width="stretch", hide_index=True)
+    st.caption("Internal assortment and inventory are synthetic. Withdrawal and POS block stay disabled below an exact UPC and lot match.")
 
 
 def _recall_ladder_rows(incident: Dict[str, Any]) -> List[Tuple[str, str]]:
@@ -686,6 +723,8 @@ def render_incident_detail_panel(
             match = selected_incident.get("Match", {})
             if match.get("match_status") == "product_review_required":
                 _render_probable_estimate(match)
+            if match.get("match_status") == "product_family_match":
+                _render_family_estimate(match)
             if match.get("store_lines"):
                 _section_heading("Store-level exposure")
                 st.dataframe(style_operational_dataframe(_estimated_unit_columns(pd.DataFrame(match["store_lines"]))), width="stretch", hide_index=True)

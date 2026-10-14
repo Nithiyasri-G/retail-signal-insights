@@ -5,7 +5,7 @@ from market_intelligence.signals.labels import client_feature_table
 from market_intelligence.signals.retail_context import enrich_feature_rows_for_retailer
 from market_intelligence.signals.retail_context import top_signal_labels
 from market_intelligence.signals.risk import risk_band
-from market_intelligence.signals.scoring import compute_retail_kpis
+from market_intelligence.signals.scoring import compute_retail_kpis, retail_kpi_driver
 from market_intelligence.ui.brief import render_executive_brief
 from market_intelligence.ui.components import render_metric_card, style_level_dataframe
 from market_intelligence.ui.views.results import render_data_confidence, render_decision_summary, render_explainability_ladder, render_glossary, render_internal_validation_agent, render_previous_run_comparison, render_results_command_header, render_retail_impact_matrix, render_scenario_simulator, render_score_chart, render_score_explainability, render_trust_panel, render_workflow_strip
@@ -53,18 +53,24 @@ def _render_results_body(ctx) -> None:
                 render_decision_summary(feature_df, run["results"])
                 top_labels, top_level = top_signal_labels(feature_df)
                 if len(top_labels) > 3:
-                    st.caption(f"{len(top_labels)} signals are {top_level}; showing the 3 highest-ranked. All signals are in Evidence and Export.")
+                    st.caption(f"{len(top_labels)} {top_level}-priority signals were found. The three highest-ranked are shown above; view Evidence and Export for the complete list.")
                 else:
                     st.caption("Showing the highest-priority external signals from this run (up to three). Weather signals are state-specific; all signals are in Evidence and Export.")
 
-                st.markdown('<div class="small-header">Key performance indicators</div>', unsafe_allow_html=True)
+                st.markdown('<div class="small-header">External risk indicators</div>', unsafe_allow_html=True)
                 cscore_cols = st.columns(4)
+                # Each card takes the highest level among its signals, so the note names the
+                # signal that set it. Notes are kept to a similar length so the cards line up.
                 kpi_notes = {
-                    "Consumer Price Pressure": "Highest of Headline, Food, Household and Gasoline CPI. The category table below shows each separately.",
-                    "Safety and Compliance Risk": "Recall and compliance exposure.",
-                    "Supply Chain Disruption Risk": "Highest state-level weather signal; store/DC exposure is confirmed separately.",
-                    "Demand Signal Priority": "News and demand-interest signals.",
+                    "Consumer Price Pressure": "Highest of the four CPI series.",
+                    "Safety and Compliance Risk": "Highest single recall severity; company exposure is checked in Operational Impact.",
+                    "Supply Chain Disruption Risk": "State-level alert severity; store/DC exposure is checked separately.",
+                    "Demand Signal Priority": "News and search-interest context only.",
                 }
+                for name in kpi_notes:
+                    driver = retail_kpi_driver(feature_df, name)
+                    if driver:
+                        kpi_notes[name] = f"Driven by {driver}. {kpi_notes[name]}"
                 for col, (name, score) in zip(cscore_cols, retail_kpi_scores.items()):
                     with col:
                         render_metric_card(name, risk_band(float(score)), kpi_notes.get(name, "Current planning classification."))
@@ -82,7 +88,7 @@ def _render_results_body(ctx) -> None:
                 st.markdown('<div class="small-header">How The Agent Explains A Signal</div>', unsafe_allow_html=True)
                 render_explainability_ladder()
 
-                st.markdown('<div class="small-header">Signal Interpretation Examples</div>', unsafe_allow_html=True)
+                st.markdown('<div class="small-header">Illustrative Signal Scenarios</div>', unsafe_allow_html=True)
                 render_scenario_simulator(feature_df)
 
                 st.markdown('<div class="small-header">Signal Levels</div>', unsafe_allow_html=True)
@@ -100,12 +106,12 @@ def _render_results_body(ctx) -> None:
                 run_date = str(run.get("timestamp", ""))[:10] or None
                 display_feature_df = client_feature_table(feature_df, run_date=run_date)
                 st.dataframe(style_level_dataframe(display_feature_df), width="stretch", hide_index=True)
-                st.caption("These are candidate signals, not validated forecast features. Run Date is when the signal was collected; for CPI, Data Period is the latest month BLS has published (it reports with a delay).")
+                st.caption("These are candidate signals, not validated forecast features. Run Date is when the signal was collected; for CPI, Data Period is the latest month BLS has published (it reports with a delay). Risk Level is the external signal's severity; Internal Exposure says what has been checked against the store network.")
 
                 # The table above is labelled and column-limited; these two downloads
                 # used to ship the raw collector schema, which is what the label map and
                 # column allow-list exist to prevent.
-                export_feature_df = client_feature_table(feature_df, for_export=True, run_date=run_date)
+                export_feature_df = client_feature_table(feature_df, for_export=True, run_date=run_date, run_id=str(run.get("timestamp", "") or ""))
                 csv_data = export_feature_df.to_csv(index=False).encode("utf-8")
                 json_data = json.dumps(export_feature_df.to_dict(orient="records"), indent=2).encode("utf-8")
                 c1, c2 = st.columns([1, 1])
