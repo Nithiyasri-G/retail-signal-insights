@@ -11,7 +11,7 @@ import time
 from market_intelligence.config.settings import DEFAULT_NVIDIA_MODEL
 from market_intelligence.infra.nvidia import nvidia_request_body
 from market_intelligence.llm.audit import build_base_llm_audit
-from market_intelligence.llm.prompts import WEATHER_STORE_SCREENING_NOTE, _compact_signal_for_nvidia
+from market_intelligence.llm.prompts import _compact_signal_for_nvidia
 from market_intelligence.llm.validation import BRIEF_SECTIONS_FULL, validate_executive_brief
 from market_intelligence.signals.retail_context import signal_short_label, top_signal_labels
 from market_intelligence.signals.risk import risk_band
@@ -125,24 +125,6 @@ def rank_articles_for_signals(articles: List[Dict[str, Any]], signals: pd.DataFr
     return sorted(articles, key=score, reverse=True)
 
 
-def ensure_weather_screening_note(brief: str, signals: pd.DataFrame) -> str:
-    """Make sure a brief that covers weather says what a store-county match means.
-
-    The prompt asks the agent to state it; this guarantees it even if the agent does not, by adding
-    the note at the end of CONFIDENCE AND LIMITATIONS (the last section). Briefs without a weather
-    signal, or that already say "preliminary" and "synthetic", are returned unchanged.
-    """
-    if signals is None or signals.empty or "signal_area" not in signals.columns:
-        return brief
-    if not (signals["signal_area"].astype(str) == "Weather Risk").any():
-        return brief
-    text = str(brief or "")
-    lowered = text.lower()
-    if "preliminary" in lowered and "synthetic" in lowered:
-        return text
-    return text.rstrip() + "\n- Weather note: " + WEATHER_STORE_SCREENING_NOTE
-
-
 def generate_fallback_brief(feature_df: pd.DataFrame, retailer: str, region: str) -> str:
     """
     Grounded local Executive Brief used only when NVIDIA is unavailable.
@@ -187,7 +169,6 @@ def generate_fallback_brief(feature_df: pd.DataFrame, retailer: str, region: str
         )
         if str(row.get("signal_area", "")) == "Weather Risk":
             lines.append(f"  Store/DC exposure: {weather_exposure_note(row)}")
-            lines.append(f"  Weather note: {WEATHER_STORE_SCREENING_NOTE}")
 
     lines.extend(
         [
@@ -312,10 +293,7 @@ def generate_nvidia_brief(api_key: str, model: str, feature_df: pd.DataFrame,
         "Prefer qualitative explanations; include no new numeric claims. No tables. "
         "Supporting news is the single article most relevant to the top signals. "
         "For weather signals always name the state. In CONFIDENCE AND LIMITATIONS report confidence by source using each signal's confidence field, "
-        "never claim a single overall High confidence, state that a state-level weather level is not confirmed store or DC exposure. "
-        "A weather store-county match is preliminary geographic screening against synthetic POC store locations. "
-        "Even when operationally_relevant_fetched_count is above zero, it does not confirm client store, DC, route, "
-        "inventory, staffing, or operational exposure. State this clearly whenever a weather match is mentioned, "
+        "never claim a single overall High confidence, state that a state-level weather level is not confirmed store or DC exposure unless operationally_relevant_fetched_count is above zero, "
         "and say operational impact is unconfirmed until signals are joined to internal store, inventory and sales data.\nEVIDENCE:\n" + json.dumps(payload, default=str))
     backup = os.getenv("NVIDIA_BACKUP_MODEL", "meta/llama-3.3-70b-instruct").strip()
     models = [requested, requested] + ([backup] if backup and backup != requested else [])
@@ -343,8 +321,6 @@ def generate_nvidia_brief(api_key: str, model: str, feature_df: pd.DataFrame,
                      payload_hash_sha256=payload_hash(payload), request_hash_sha256=payload_hash(request),
                      raw_response=content, response_text=cleaned, model=selected_model)
         if ok and valid:
-            cleaned = ensure_weather_screening_note(cleaned, working)
-            audit["response_text"] = cleaned
             audit.update(provider="LLM agent", brief_source="nvidia", fallback_used=False, fallback_reason="",
                          accepted_response=True, response_chars=len(cleaned), accepted_attempt=index+1,
                          brief_generation_strategy="Complete five-section report; adequate output budget; reasoning disabled for the model; validated retry and backup model.")
