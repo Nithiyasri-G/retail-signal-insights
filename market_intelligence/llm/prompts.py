@@ -7,6 +7,15 @@ import pandas as pd
 from market_intelligence.config.settings import NVIDIA_MAX_ARTICLES, NVIDIA_MAX_FEATURE_ROWS
 from market_intelligence.signals.risk import risk_band
 
+# What a weather store-county match means. Sent with every weather signal to the Briefing Agent,
+# appended to any brief that mentions weather, and shown under the Executive Brief header, so the
+# clarification never depends only on what the agent writes.
+WEATHER_STORE_SCREENING_NOTE = (
+    "Any store-county match is preliminary geographic screening against "
+    "synthetic POC store locations. It does not confirm client store, DC, "
+    "route, inventory, staffing, or operational exposure."
+)
+
 
 def build_llm_payload(feature_df: pd.DataFrame, articles: List[Dict[str, Any]]) -> Dict[str, Any]:
     return {
@@ -84,6 +93,9 @@ def _compact_signal_for_nvidia(row: pd.Series) -> Dict[str, Any]:
         except Exception:
             pass
         compact[key] = value
+
+    if str(row.get("signal_area", "")) == "Weather Risk":
+        compact["weather_store_screening_note"] = WEATHER_STORE_SCREENING_NOTE
 
     try:
         compact["signal_level"] = risk_band(float(row.get("risk_score", 0)))

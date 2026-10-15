@@ -43,7 +43,9 @@ def test_context_only_signals_do_not_run_the_store_calculation():
     for key in ("gasoline_wallet_pressure_score", "headline_cpi_value_pressure_score"):
         assert planning_mode({"Signal Area": "Category CPI", "Signal Key": key})[0] == "context"
     mode, reason = planning_mode({"Signal Area": "Retail News"})
-    assert mode == "context" and "No product/category/store mapping" in reason
+    assert mode == "context" and reason.startswith("Not calculated by design") and "?" not in reason
+    cpi_mode, cpi_reason = planning_mode({"Signal Area": "Category CPI", "Signal Key": "gasoline_wallet_pressure_score"})
+    assert cpi_reason.startswith("Not calculated by design: headline and fuel inflation affect the whole basket")
     assert planning_mode({"Signal Area": "Category CPI", "Signal Key": "food_at_home_cpi_pressure_score"})[0] == "full"
 
 

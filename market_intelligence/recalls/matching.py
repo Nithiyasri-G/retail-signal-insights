@@ -57,9 +57,10 @@ RECALL_CATEGORY_KEYWORDS: dict[str, tuple[str, ...]] = {
         "first aid", "medical", "drug", "health", "cosmetic", "lotion", "toothpaste",
         "mouthwash", "hygiene", "skin", "bandage",
     ),
+    # Product words only. Reason words ("label", "misbrand", "mislabel") and a colour name used to
+    # sit here, which sent mislabelled food recalls and a food-colouring recall into Household.
     "Household": (
-        "detergent", "cleaner", "paper towel", "towel", "soap", "household", "label",
-        "misbrand", "mislabel", "yellow color",
+        "detergent", "cleaner", "paper towel", "towel", "soap", "household",
     ),
     "Emergency Essentials": (
         "battery", "flashlight", "heater", "water", "salt", "emergency",

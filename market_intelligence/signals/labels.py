@@ -89,6 +89,34 @@ CLIENT_COLUMN_LABELS: Dict[str, str] = {
 }
 
 
+def latest_cpi_month(feature_df: Any) -> str:
+    """The BLS reporting month behind a run's CPI rows, e.g. "Sep 2026" ("" if none)."""
+    import re
+
+    if not isinstance(feature_df, pd.DataFrame) or feature_df.empty or "date" not in feature_df.columns:
+        return ""
+    areas = feature_df.get("signal_area", pd.Series("", index=feature_df.index)).astype(str)
+    months = [
+        str(value) for value in feature_df.loc[areas.isin(["Inflation", "Category CPI"]), "date"].astype(str)
+        if re.fullmatch(r"\d{4}-\d{2}", str(value))
+    ]
+    if not months:
+        return ""
+    return pd.to_datetime(max(months) + "-01").strftime("%b %Y")
+
+
+def cpi_month_note(month: str) -> str:
+    """Note on why CPI shows an earlier month than the run date."""
+    if month:
+        lead = f"CPI data period: {month}, the newest month BLS has published."
+    else:
+        lead = "CPI data period: the newest month BLS has published."
+    return (
+        f"{lead} BLS releases each month's CPI about two weeks after that month ends, so CPI is always one month "
+        "behind the run date. News, recalls and weather are current as of the run."
+    )
+
+
 CANDIDATE_VALIDATION_STATUS = "Candidate only \u2014 not validated against internal sales"
 
 FEATURE_TABLE_COLUMNS: Tuple[str, ...] = (

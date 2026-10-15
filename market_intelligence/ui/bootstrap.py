@@ -12,7 +12,7 @@ def init_app_state(ctx) -> None:
     st.session_state.setdefault("signal_search_keywords", "")
     st.session_state.setdefault("signal_search_time_window", "Last 1 day")
     st.session_state.setdefault("signal_search_geo", "United States - National")
-    st.session_state.setdefault("gnews_period", "7d")
+    st.session_state.setdefault("gnews_period", "30d")  # one month of news (Sumit, 15 Oct)
     st.session_state.setdefault("max_news", 48)
     st.session_state.setdefault("fda_query", "product_description:(snacks OR candy OR beverages OR water OR soup OR bread OR cookies OR cereal OR \"peanut butter\" OR \"granola bar\" OR \"trail mix\" OR \"infant formula\" OR \"baby formula\")")
     st.session_state.setdefault("fda_limit", 20)

@@ -41,6 +41,39 @@ def _section_heading(label: str) -> None:
     st.markdown(f"<div class='section-title spaced'>{escape(label)}</div>", unsafe_allow_html=True)
 
 
+def _scope_line(text: str) -> None:
+    """One line under a section heading saying which incident and store the section shows."""
+    st.markdown(f"<div class='scope-line'><strong>Showing:</strong> {escape(text)}</div>", unsafe_allow_html=True)
+
+
+def weather_selection_summary(
+    incident: Dict[str, Any],
+    scenario_df: pd.DataFrame,
+    store_filter: List[str],
+    product_filter: List[str],
+    primary_dc_filter: List[str],
+    backup_dc_filter: List[str],
+) -> Tuple[str, str]:
+    """(incident label, filter scope) for the selection bar and the section lines.
+
+    e.g. ("Air Quality Alert · WX-7EB62A0A4EEB", "Store 201 - Atlanta, GA · All products · All DCs").
+    """
+    event = str(incident.get("Event", "") or "Weather alert").strip()
+    incident_label = f"{event} · {incident.get('Incident ID', '')}".strip(" ·")
+    names: Dict[str, str] = {}
+    if isinstance(scenario_df, pd.DataFrame) and {"Store ID", "Store Name"} <= set(scenario_df.columns):
+        names = dict(zip(scenario_df["Store ID"].astype(str), scenario_df["Store Name"].astype(str)))
+    stores = ", ".join(names.get(str(s), f"Store {s}") for s in store_filter) if store_filter else "All stores"
+    products = ", ".join(product_filter) if product_filter else "All products"
+    dc_parts = []
+    if primary_dc_filter:
+        dc_parts.append("Primary DC: " + ", ".join(primary_dc_filter))
+    if backup_dc_filter:
+        dc_parts.append("Backup DC: " + ", ".join(backup_dc_filter))
+    dcs = " · ".join(dc_parts) if dc_parts else "All DCs"
+    return incident_label, f"{stores} · {products} · {dcs}"
+
+
 def _kv_list(rows: List[Tuple[str, str]]) -> None:
     """Label / value rows. Values are HTML that the caller has already escaped."""
     body = "".join(
@@ -543,8 +576,14 @@ def render_incident_detail_panel(
             product_filter: List[str] = []
             primary_dc_filter: List[str] = []
             backup_dc_filter: List[str] = []
+            full_weather_df = weather_df
+            # Ajith's review: the selected incident and store were out of sight once the planner
+            # scrolled into the tables. The incident name and these filters sit in a bar that stays
+            # pinned at the top of the screen while this incident's detail is scrolled.
+            selection_bar = st.container(key=f"incident_selection_bar_{re.sub(r'[^0-9A-Za-z]+', '_', filter_key_prefix)}")
+            selection_title = selection_bar.empty()
             if not weather_df.empty:
-                f1, f2, f3, f4 = st.columns(4)
+                f1, f2, f3, f4 = selection_bar.columns(4)
                 with f1:
                     store_options = sorted(weather_df["Store ID"].dropna().astype(str).unique().tolist())
                     store_filter = st.multiselect("Store", store_options, key=f"{filter_key_prefix}_store", placeholder="All stores", label_visibility="collapsed")
@@ -579,6 +618,14 @@ def render_incident_detail_panel(
                 )
                 if any([store_filter, product_filter, primary_dc_filter, backup_dc_filter]) and weather_df.empty:
                     st.info("No Store/product rows match the selected filters.")
+            incident_label, filter_scope = weather_selection_summary(
+                selected_incident, full_weather_df, store_filter, product_filter, primary_dc_filter, backup_dc_filter
+            )
+            selection_title.markdown(
+                f"<div class='selection-bar-title'>{escape(incident_label)}"
+                f"<span class='selection-bar-scope'> &middot; {escape(filter_scope)}</span></div>",
+                unsafe_allow_html=True,
+            )
 
             # --------------------------------------------------------------
             # Replenishment by store and product
@@ -590,6 +637,7 @@ def render_incident_detail_panel(
             # the Order Quantity.
             # --------------------------------------------------------------
             _section_heading("Replenishment by store and product")
+            _scope_line(f"{incident_label} · {filter_scope}")
             # The uplift is one published assumption for the whole event, so it is stated once
             # instead of repeating the same number on every row.
             uplift_values = sorted(
@@ -617,16 +665,19 @@ def render_incident_detail_panel(
                 with right_col:
                     st.markdown("<div class='section-title'>DC replenishment</div>", unsafe_allow_html=True)
                     _render_replenishment_table(replenishment_frame, DC_COLUMNS)
-                for note in no_split_notes(replenishment_frame):
-                    st.caption(note)
-            st.caption(
-                "Escalate: shortfall uncovered after DC allocation  ·  Covered: DCs cover the shortfall  ·  No gap: nothing to order. "
-                "Recommended actions and the inbox plan are built from these table totals, not recalculated.",
-                help=(
-                    "Primary DC is the normal store-to-DC mapping and Primary Planned Qty is what it can supply for this "
-                    "incident. If that is short or zero, Backup DC shows the eligible alternate. Residual Gap is what is "
-                    "still uncovered after primary and backup allocation."
-                ),
+            # The notes under these tables were loose paragraphs of different lengths; they are
+            # grouped in one collapsible block, the same way as "Assumptions & limitations".
+            replenishment_notes: List[str] = []
+            if not weather_df.empty:
+                replenishment_notes.extend(no_split_notes(replenishment_frame))
+            replenishment_notes.append(
+                "Escalate: shortfall uncovered after DC allocation. Covered: DCs cover the shortfall. No gap: nothing to order. "
+                "Recommended actions and the inbox plan are built from these table totals, not recalculated."
+            )
+            replenishment_notes.append(
+                "Primary DC is the normal store-to-DC mapping and Primary Planned Qty is what it can supply for this "
+                "incident. If that is short or zero, Backup DC shows the eligible alternate. Residual Gap is what is "
+                "still uncovered after primary and backup allocation."
             )
             inventory_as_of_values = sorted(
                 {
@@ -639,13 +690,14 @@ def render_incident_detail_panel(
                 as_of_display = format_as_of_columns(
                     pd.DataFrame({"Store Inventory As Of": inventory_as_of_values})
                 )["Store Inventory As Of"].tolist()
-                st.caption(
-                    f"Inventory snapshot: {', '.join(as_of_display)} (synthetic data).",
-                    help=(
-                        "The snapshot is a synthetic fixture and is not refreshed to today's date automatically. "
-                        "Order Quantity already accounts for each product's case pack and MOQ; see Quantity Rounding for the rule applied."
-                    ),
+                replenishment_notes.append(
+                    f"Inventory snapshot: {', '.join(as_of_display)} (synthetic data). The snapshot is a synthetic fixture and "
+                    "is not refreshed to today's date automatically. Order Quantity already accounts for each product's case "
+                    "pack and MOQ; see Quantity Rounding for the rule applied."
                 )
+            with st.expander(f"Notes and assumptions ({len(replenishment_notes)})"):
+                for note in replenishment_notes:
+                    st.caption(note)
             # Store filter scopes staffing/employee records (both are per-Store data);
             # Product and Primary/Backup DC filters must not -- staffing is not
             # product- or DC-scoped data, so filtering it on either would silently
@@ -655,6 +707,11 @@ def render_incident_detail_panel(
             )
             if isinstance(staffing_df, pd.DataFrame) and not staffing_df.empty:
                 _section_heading("Staffing readiness")
+                staffing_scope = filter_scope.split(" · ")[0]
+                _scope_line(
+                    f"{incident_label} · {staffing_scope}"
+                    + (" (the product and DC filters do not apply to staffing)" if any([product_filter, primary_dc_filter, backup_dc_filter]) else "")
+                )
                 st.caption(
                     "Based on the alert-window schedule and employee commute exposure.",
                     help=(
@@ -711,6 +768,7 @@ def render_incident_detail_panel(
             traffic_df = scenario.get("traffic_df", pd.DataFrame())
             if isinstance(traffic_df, pd.DataFrame) and not traffic_df.empty:
                 _section_heading("Customer store traffic")
+                _scope_line(f"{incident_label} · the whole event (traffic is not split by store, product or DC)")
                 st.caption(
                     "Customer store-visit traffic (footfall) around the event, not road traffic.",
                     help=(

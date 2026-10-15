@@ -188,3 +188,168 @@ def test_configure_says_a_non_us_news_market_does_not_change_us_sources(isolated
     next(box for box in app.selectbox if box.label == "News country").set_value("GB").run()
     assert not app.exception, app.exception
     assert "News market: GB. Inflation CPI (BLS), FDA recalls and NOAA weather remain US sources" in text()
+
+
+def test_filters_have_labels_and_readable_options():
+    from market_intelligence.ui.views.operational_impact.inbox import FILTER_LABELS, short_filter_option
+
+    assert short_filter_option("Not assessed - no Store match") == "No store match"
+    assert short_filter_option("Not assessed - matched Store(s) closed") == "Matched store closed"
+    assert short_filter_option("Not assessed - alert expired") == "Alert expired"
+    assert short_filter_option("Exact Scenario Match") == "Exact Scenario Match"
+    assert short_filter_option("All demand") == "All demand"
+    assert FILTER_LABELS["Operational Priority"] == "Priority" and FILTER_LABELS["Demand Basis"] == "Demand basis"
+
+
+def test_news_window_defaults_to_one_month_and_bls_month_is_named():
+    from pathlib import Path
+    from market_intelligence.ui.views.configure import _latest_cpi_month
+
+    root = Path(__file__).resolve().parents[1]
+    assert 'setdefault("gnews_period", "30d")' in (root / "market_intelligence/ui/bootstrap.py").read_text()
+    assert '"7d"' not in (root / "market_intelligence/ui/views/run_pipeline.py").read_text()
+    run = {"feature_df": pd.DataFrame([
+        {"signal_area": "Inflation", "date": "2026-09"},
+        {"signal_area": "Category CPI", "date": "2026-08"},
+        {"signal_area": "Weather Risk", "date": "2026-10-15"},
+    ])}
+    assert _latest_cpi_month(run) == "Sep 2026"
+    assert _latest_cpi_month(None) == "" and _latest_cpi_month({"feature_df": pd.DataFrame()}) == ""
+
+
+def test_incident_inbox_has_labelled_filters_and_inline_detail(isolated_database, monkeypatch):
+    """The weather inbox shows labelled filters with short option text, and the detail stays below the table."""
+    from pathlib import Path
+    from streamlit.testing.v1 import AppTest
+    from market_intelligence.application import run_intelligence as ri
+
+    alerts = [{"id": "x1", "properties": {"event": "Flood Warning", "severity": "Severe", "urgency": "Immediate",
+                                          "certainty": "Observed", "areaDesc": "Nowhere County, ZZ"}}]
+    monkeypatch.setattr(http_client, "safe_request", lambda *a, **k: (True, {"features": alerts}, "success"))
+    monkeypatch.setattr(ri, "collect_gnews", lambda *a, **k: {"status": "empty", "rows": [], "items": []})
+    monkeypatch.setattr(ri, "collect_bls_cpi", lambda *a, **k: {"status": "empty", "rows": [], "items": []})
+    monkeypatch.setattr(ri, "collect_fda_recalls", lambda *a, **k: {"status": "empty", "rows": [], "items": []})
+    app = AppTest.from_file(str(Path(__file__).resolve().parents[1] / "app.py"), default_timeout=90)
+    app.run()
+    next(b for b in app.sidebar.button if b.label == "Run intelligence").click().run()
+    nav = app.button_group[0] if app.button_group else (app.segmented_control[0] if getattr(app, "segmented_control", None) else app.radio[0])
+    nav.set_value("Operational Impact Center").run()
+    assert not app.exception, app.exception
+    labels = {box.label for box in app.selectbox}
+    assert {"Priority", "Event type", "Action", "Demand basis"} <= labels
+    demand = next(box for box in app.selectbox if box.label == "Demand basis")
+    assert "No store match" in demand.options and not any(o.startswith("Not assessed") for o in demand.options)
+    captions = " ".join(c.value for c in app.caption)
+    assert "pop-up" not in captions
+    assert "Showing the highest-priority incident. Click a row to open another." in captions
+
+
+def test_selection_summary_names_the_incident_and_store_for_every_section():
+    from market_intelligence.ui.views.operational_impact.incident_detail import weather_selection_summary
+
+    scenario_df = pd.DataFrame([
+        {"Store ID": "201", "Store Name": "Store 201 - Atlanta, GA", "Product": "Pet Food"},
+        {"Store ID": "202", "Store Name": "Store 202 - Savannah, GA", "Product": "Paper Towels"},
+    ])
+    incident = {"Event": "Air Quality Alert", "Incident ID": "WX-7EB62A0A4EEB"}
+    assert weather_selection_summary(incident, scenario_df, [], [], [], []) == (
+        "Air Quality Alert · WX-7EB62A0A4EEB", "All stores · All products · All DCs")
+    label, scope = weather_selection_summary(incident, scenario_df, ["201"], ["Pet Food"], [], ["Southeast Alternate DC"])
+    assert scope == "Store 201 - Atlanta, GA · Pet Food · Backup DC: Southeast Alternate DC"
+
+
+def test_cpi_month_note_explains_the_bls_delay():
+    from market_intelligence.signals.labels import cpi_month_note
+
+    note = cpi_month_note("Sep 2026")
+    assert note.startswith("CPI data period: Sep 2026, the newest month BLS has published.")
+    assert "about two weeks after that month ends" in note and "?" not in note
+    assert "?" not in cpi_month_note("")
+
+
+def test_bls_note_sits_in_collector_tuning_not_in_the_data_sources_card(isolated_database):
+    from pathlib import Path
+    from streamlit.testing.v1 import AppTest
+
+    app = AppTest.from_file(str(Path(__file__).resolve().parents[1] / "app.py"), default_timeout=60)
+    app.run()
+    assert not app.exception
+    assert any(c.value.startswith("CPI data period:") for c in app.caption)
+    assert not any("CPI data period" in m.value for m in app.markdown)
+
+
+def test_recall_reason_words_do_not_map_a_recall_to_household():
+    from market_intelligence.recalls.matching import recall_category_from_text
+
+    colour = {"product": "Honeyville YELLOW COLOR 1 GALLON", "reason": "Undeclared Red #40."}
+    assert recall_category_from_text(colour) != "Household"
+    mislabel = {"product": "Salsa Roja Medium", "reason": "Misbranded: mislabel of allergen statement"}
+    assert recall_category_from_text(mislabel) == "Food / Consumables"   # allergen is a food word
+    assert recall_category_from_text({"product": "Laundry detergent pods", "reason": "Packaging defect"}) == "Household"
+
+
+def test_demand_planner_uses_the_impact_center_categories_for_a_reached_store():
+    from market_intelligence.demand.planning import calculate_demand_plan, signal_category_scope
+    from market_intelligence.data.demo import demo_store_inventory
+    from market_intelligence.ui.views.demand_planner import _incident_categories_for_store
+
+    run = {"operational_incidents_snapshot": [{
+        "Type": "Weather", "Store IDs": ["201"], "Scenario": {"state": "GA", "scenario_df": [
+            {"Store ID": "201", "Category": "Household", "Product": "Pet Food"},
+            {"Store ID": "202", "Category": "Personal Care", "Product": "Shampoo"},
+        ]},
+    }]}
+    signal = {"Signal Area": "Weather Risk", "Region": "GA", "Top Event": "Air Quality Alert"}
+    assert signal_category_scope(signal)[0] == ("Personal Care", "Household")   # broad list when no store reached
+    categories = _incident_categories_for_store(run, signal, "201")
+    assert categories == ["Household"]
+    scoped = dict(signal, **{"Scope Categories Override": categories, "Scope Basis Override": "Same as the Impact Center."})
+    inventory = demo_store_inventory()
+    plan = calculate_demand_plan(scoped, inventory[inventory["Store ID"] == "201"], "Store 201")
+    assert plan["Category Scope"] == "Household" and plan["Products In Scope"] == 3
+    assert _incident_categories_for_store(run, signal, "203") == []
+
+
+def _weather_brief_rows():
+    return pd.DataFrame([
+        {"source": "NOAA Weather Alerts", "signal_area": "Weather Risk", "signal_name": "supply_chain_weather_risk_score",
+         "region": "GA", "risk_score": 8.2, "confidence": "High", "score_reason": "Severe alert in GA.",
+         "fetched_count": 2, "operationally_relevant_fetched_count": 1, "store_screening_applied": True,
+         "business_impact": "Weather can disrupt stores.", "recommended_action": "Review the matched store."},
+        {"source": "BLS CPI", "signal_area": "Inflation", "signal_name": "inflation_pressure_score", "region": "US",
+         "risk_score": 6.0, "confidence": "High", "score_reason": "CPI pressure.", "business_impact": "Basket pressure.",
+         "recommended_action": "Review value categories."},
+    ])
+
+
+def test_weather_payload_carries_the_screening_note():
+    from market_intelligence.llm.prompts import WEATHER_STORE_SCREENING_NOTE, _compact_signal_for_nvidia
+
+    rows = _weather_brief_rows()
+    assert _compact_signal_for_nvidia(rows.iloc[0])["weather_store_screening_note"] == WEATHER_STORE_SCREENING_NOTE
+    assert "weather_store_screening_note" not in _compact_signal_for_nvidia(rows.iloc[1])
+
+
+def test_accepted_weather_brief_says_the_match_is_preliminary_and_synthetic(monkeypatch):
+    from market_intelligence.infra import nvidia as nvidia_client
+    from market_intelligence.llm.brief import generate_fallback_brief, generate_nvidia_brief
+
+    rows = _weather_brief_rows()
+    # The agent mentions the store-county match but leaves out what it means.
+    agent_text = (
+        "EXECUTIVE SUMMARY\nGA weather and inflation need attention.\n\n"
+        "TOP INSIGHTS\n- GA Weather Risk from NOAA Weather Alerts is High; one alert matched a store county.\n"
+        "- Inflation from BLS CPI is Medium.\n\n"
+        "PLANNING RELEVANCE\n- External signals are not validated internal impact.\n\n"
+        "RECOMMENDED ACTIONS\n- Review the matched store and its routes.\n- Verify DC inventory for essentials.\n"
+        "- Monitor the alert before order cut-off.\n\n"
+        "CONFIDENCE AND LIMITATIONS\nConfidence varies by source: NOAA High, BLS High. "
+        "Operational impact is unconfirmed until signals are joined to internal store, inventory and sales data."
+    )
+    monkeypatch.setattr(nvidia_client, "_nvidia_chat_request", lambda **kwargs: (True, agent_text, "", 10))
+    brief, source, audit = generate_nvidia_brief("test-key", "test-model", rows, [], "Dollar Tree", "US")
+    assert source == "nvidia" and audit["accepted_response"]
+    assert "synthetic" in brief.lower() and "preliminary" in brief.lower()
+    assert "operationally_relevant_fetched_count is above zero, it does not confirm" in audit["user_prompt"]
+    fallback = generate_fallback_brief(rows, "Dollar Tree", "US").lower()
+    assert "synthetic" in fallback and "preliminary" in fallback

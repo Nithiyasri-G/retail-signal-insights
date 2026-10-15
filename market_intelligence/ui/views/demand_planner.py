@@ -127,6 +127,26 @@ def _weather_reached_store_ids(run: Dict[str, Any], signal_row: Dict[str, Any]) 
     return reached
 
 
+def _incident_categories_for_store(run: Dict[str, Any], signal_row: Dict[str, Any], store_id: str) -> List[str]:
+    """Product categories the Operational Impact Center sized at this store for this signal's alerts."""
+    region = str(signal_row.get("Region", "") or "").strip().upper()
+    categories = set()
+    for incident in (run or {}).get("operational_incidents_snapshot") or []:
+        if incident.get("Type") != "Weather":
+            continue
+        scenario = incident.get("Scenario", {}) or {}
+        if str(scenario.get("state", "")).upper() != region:
+            continue
+        if str(store_id) not in {str(value) for value in (incident.get("Store IDs") or [])}:
+            continue
+        frame = scenario.get("scenario_df")
+        frame = pd.DataFrame(frame) if isinstance(frame, list) else frame
+        if isinstance(frame, pd.DataFrame) and {"Store ID", "Category"} <= set(frame.columns):
+            rows = frame[frame["Store ID"].astype(str) == str(store_id)]
+            categories.update(str(value) for value in rows["Category"].dropna().astype(str) if str(value).strip())
+    return sorted(categories)
+
+
 def render_demand_planner_view(nvidia_key: str, nvidia_model: str) -> None:
     admin = bool(st.session_state.get("admin_view", False))
     st.markdown("<div class='page-head'><div class='page-title'>Demand Planner</div></div>", unsafe_allow_html=True)
@@ -249,6 +269,17 @@ def render_demand_planner_view(nvidia_key: str, nvidia_model: str) -> None:
     if related_note:
         st.caption(related_note)
 
+    # When an alert reached this store, plan the same products the Operational Impact Center sized
+    # for it, so the two tabs never show a different product set for the same store and alert.
+    if reached_store_ids and selected_store_id in reached_store_ids:
+        incident_categories = _incident_categories_for_store(run, signal_row, selected_store_id)
+        if incident_categories:
+            signal_row = dict(signal_row)
+            signal_row["Scope Categories Override"] = incident_categories
+            signal_row["Scope Basis Override"] = (
+                f"Same product categories the Operational Impact Center sized for this alert at Store {selected_store_id}."
+            )
+
     selected_store_row = store_master[store_master["Store ID"].astype(str) == selected_store_id].iloc[0]
     selected_store_name = str(selected_store_row["Store Name"])
     store_is_closed = str(selected_store_row.get("Operating Status", "Open")) == "Closed"
@@ -368,10 +399,15 @@ def render_demand_planner_view(nvidia_key: str, nvidia_model: str) -> None:
             ),
         ]
         kv_list([(label, escape(value)) for label, value in plan_rows])
-        st.caption(GAP_DEFINITION)
+        # The definitions under the result were three loose paragraphs; they are grouped in one
+        # collapsible block, like the Operational Impact Center's notes and assumptions.
+        plan_notes = [GAP_DEFINITION]
         if plan.get("Baseline Gap", 0) > 0 and plan.get("Baseline Surplus", 0):
-            st.caption(SURPLUS_DEFINITION.format(surplus=f"{plan['Baseline Surplus']:,}"))
-        st.caption(AVAILABLE_SUPPLY_ASSUMPTION + " " + HISTORICAL_REFERENCE_NOTE)
+            plan_notes.append(SURPLUS_DEFINITION.format(surplus=f"{plan['Baseline Surplus']:,}"))
+        plan_notes.append(AVAILABLE_SUPPLY_ASSUMPTION + " " + HISTORICAL_REFERENCE_NOTE)
+        with st.expander(f"Notes and assumptions ({len(plan_notes)})"):
+            for note in plan_notes:
+                st.caption(note)
 
         _section(f"4. {DEMAND_AGENT}")
         with st.container(border=True):

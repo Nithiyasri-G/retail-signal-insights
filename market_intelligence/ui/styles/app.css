@@ -165,6 +165,21 @@
         background: var(--sf); border: 1px solid var(--bl); border-radius: 6px; padding: 20px 22px;
     }
     .st-key-sources_card .panel { border: none; padding: 0; background: transparent; }
+    /* Incident detail: the incident name and its store/product/DC filters stay pinned at the top of
+       the screen while the planner scrolls through that incident's tables. */
+    div[data-testid="stLayoutWrapper"]:has(> [class*="st-key-incident_selection_bar"]),
+    [class*="st-key-incident_selection_bar"] {
+        position: sticky; top: 0; z-index: 30;
+    }
+    [class*="st-key-incident_selection_bar"] {
+        background: var(--bg); padding: 8px 0 10px 0; border-bottom: 1px solid var(--bl);
+        box-shadow: 0 6px 8px -8px rgba(15, 23, 42, 0.25);
+    }
+    .selection-bar-title { font-size: 14px; font-weight: 600; color: var(--t); margin-bottom: 2px; }
+    .selection-bar-scope { font-weight: 400; color: var(--t2); }
+    .scope-line { font-size: 13px; color: var(--t2); margin: -2px 0 8px 0; }
+    /* Keep the short Source and Status cells on one line; only the description wraps. */
+    .st-key-sources_card td:nth-child(1), .st-key-sources_card td:nth-child(2) { white-space: nowrap; }
     .panel { background: transparent; border: none; padding: 0; }
     .section-title { font-size: 14px; font-weight: 600; color: var(--t); margin: 4px 0 8px 0; }
     .panel-title { font-size: 16px; font-weight: 600; color: var(--t); margin-bottom: 12px; }

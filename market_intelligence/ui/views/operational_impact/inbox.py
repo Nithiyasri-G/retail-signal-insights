@@ -1,5 +1,6 @@
 """Shared inbox pieces for the Weather and Product recall tabs."""
 from html import escape
+import re
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 import pandas as pd
@@ -10,6 +11,31 @@ from market_intelligence.ui.components import style_operational_dataframe
 ROW_HEIGHT_PX = 35
 MAX_TABLE_HEIGHT_PX = 310
 PRIORITY_ORDER = {"high": 0, "medium": 1, "low": 2}
+
+# Short, plain labels shown above each filter, so a filter is clear even when its value is long.
+FILTER_LABELS: Dict[str, str] = {
+    "Operational Priority": "Priority",
+    "Priority": "Priority",
+    "Weather Event": "Event type",
+    "Classification": "FDA class",
+    "Actionability": "Action",
+    "Demand Basis": "Demand basis",
+    "Source": "Source",
+}
+
+
+def short_filter_option(value: Any) -> str:
+    """Filter option text short enough to read in the dropdown; the table keeps the full wording.
+
+    "Not assessed - no Store match" -> "No store match"; "Not assessed - matched Store(s) closed"
+    -> "Matched store closed". Other values are shown unchanged.
+    """
+    text = str(value)
+    match = re.match(r"\s*not assessed\s*[-\u2013\u2014]+\s*(.+)", text, flags=re.IGNORECASE)
+    if not match:
+        return text
+    rest = re.sub(r"\bStore\(s\)|\bStores?\b", "store", match.group(1).strip())
+    return rest[:1].upper() + rest[1:]
 
 
 def live_feed_note(run: Optional[Dict[str, Any]], key: str, label: str) -> str:
@@ -53,8 +79,12 @@ def incident_filters(
     selects: List[Tuple[str, str, str]] = [(priority_col, "All priorities", "priority"), (type_col, type_all, "type")]
     selects += [(col, label, f"extra_{i}") for i, (col, label) in enumerate(extra)]
     selects = [s for s in selects if s[0] in df.columns]
-    widths = [2.4] + [1.0] * len(selects) + ([0.9] if with_export_slot else [])
-    columns = st.columns(widths, vertical_alignment="bottom")
+    # Two rows: the incident search (with the export button) on its own row, then one equal-width,
+    # labelled box per filter. Packed into a single row the boxes were too narrow and their values
+    # were cut off mid-word.
+    top = st.columns([4.0, 1.0], vertical_alignment="bottom") if with_export_slot else st.columns([1])
+    filter_columns = st.columns(len(selects)) if selects else []
+    columns = [top[0]] + list(filter_columns) + ([top[1]] if with_export_slot else [])
 
     result = df
     for position, (col, all_label, tag) in enumerate(selects, start=1):
@@ -64,7 +94,12 @@ def incident_filters(
         else:
             values = sorted(values)
         with columns[position]:
-            choice = st.selectbox(col, [all_label] + values, key=f"{key}_{tag}", label_visibility="collapsed")
+            choice = st.selectbox(
+                FILTER_LABELS.get(col, col),
+                [all_label] + values,
+                key=f"{key}_{tag}",
+                format_func=short_filter_option,
+            )
         if choice != all_label:
             result = result[result[col].astype(str) == choice]
     if priority_col in result.columns:

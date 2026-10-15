@@ -1,7 +1,7 @@
 import json
 import streamlit as st
 
-from market_intelligence.signals.labels import client_feature_table
+from market_intelligence.signals.labels import client_feature_table, cpi_month_note, latest_cpi_month
 from market_intelligence.signals.retail_context import enrich_feature_rows_for_retailer
 from market_intelligence.signals.retail_context import top_signal_labels
 from market_intelligence.signals.risk import risk_band
@@ -107,6 +107,8 @@ def _render_results_body(ctx) -> None:
                 display_feature_df = client_feature_table(feature_df, run_date=run_date)
                 st.dataframe(style_level_dataframe(display_feature_df), width="stretch", hide_index=True)
                 st.caption("These are candidate signals, not validated forecast features. Run Date is when the signal was collected; for CPI, Data Period is the latest month BLS has published (it reports with a delay). Risk Level is the external signal's severity; Internal Exposure says what has been checked against the store network.")
+                if latest_cpi_month(feature_df):
+                    st.caption(cpi_month_note(latest_cpi_month(feature_df)))
 
                 # The table above is labelled and column-limited; these two downloads
                 # used to ship the raw collector schema, which is what the label map and

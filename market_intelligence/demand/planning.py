@@ -60,6 +60,15 @@ def signal_category_scope(signal_row: Dict[str, Any]) -> Tuple[Tuple[str, ...], 
     area = str(signal_row.get("Signal Area", "") or "").lower()
     signal_key = str(signal_row.get("Signal Key", "") or "").lower()
 
+    # Set by the Demand Planner when a weather alert reached the selected store: the scope is then
+    # the product categories the Operational Impact Center sized for that alert and store, so both
+    # tabs show the same products for the same store.
+    override = signal_row.get("Scope Categories Override")
+    if isinstance(override, (list, tuple)) and override:
+        return tuple(str(value) for value in override), str(
+            signal_row.get("Scope Basis Override") or "Same categories as the Operational Impact Center for this alert."
+        )
+
     if "weather" in area:
         event = str(signal_row.get("Top Event", "") or "").strip()
         family = weather_event_family(event) if event else ""
@@ -128,7 +137,8 @@ HISTORICAL_REFERENCE_NOTE = (
     "Historical Sales Reference is shown for comparison only. It does not change the current baseline supply-gap calculation."
 )
 NO_NEWS_MAPPING_NOTE = (
-    "No product/category/store mapping is available for this news event. Detailed supply-gap analysis has not been calculated."
+    "Not calculated by design: this news event does not name products, categories or stores that can be mapped, "
+    "so a product-level supply gap would not reflect it."
 )
 
 # Plan keys are kept stable for callers; these are the labels a planner reads.
@@ -157,7 +167,9 @@ def planning_mode(signal_row: Dict[str, Any]) -> Tuple[str, str]:
     area = str(signal_row.get("Signal Area", "") or "").lower()
     if "news" in area:
         return "context", NO_NEWS_MAPPING_NOTE
-    return "context", f"{basis} Detailed supply-gap analysis has not been calculated."
+    reason = basis.strip().rstrip(".")
+    reason = reason[:1].lower() + reason[1:] if reason else "this signal is not mapped to product categories"
+    return "context", f"Not calculated by design: {reason}, so a product-level supply gap would not reflect this signal."
 
 
 def classify_planning_direction(signal_row: Dict[str, Any]) -> str:

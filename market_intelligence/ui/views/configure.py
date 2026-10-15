@@ -2,11 +2,17 @@ from html import escape
 import streamlit as st
 
 from market_intelligence.collectors.live_noaa import normalize_weather_areas
+from market_intelligence.signals.labels import cpi_month_note, latest_cpi_month
 from market_intelligence.ui.views.results import render_glossary, render_workflow_strip
 
 
 def _section_title(text: str) -> None:
     st.markdown(f"<div class='section-title'>{escape(text)}</div>", unsafe_allow_html=True)
+
+
+def _latest_cpi_month(run) -> str:
+    """The BLS reporting month behind the last run's CPI rows, e.g. "Sep 2026" ("" if none)."""
+    return latest_cpi_month((run or {}).get("feature_df"))
 
 
 def render_configure(ctx) -> None:
@@ -19,6 +25,14 @@ def render_configure(ctx) -> None:
     use_gnews = ctx.use_gnews
     use_weather = ctx.use_weather
     weather_areas = ", ".join(normalize_weather_areas(st.session_state.get("weather_area", "TX, GA")))
+    # BLS publishes CPI monthly, about two weeks after the month ends, so a run in mid-October
+    # carries September CPI. Say so where the sources are listed.
+    cpi_month = _latest_cpi_month(st.session_state.get("run"))
+    bls_signal = (
+        "Headline and category inflation · US national, monthly · latest published month"
+        + (f": {cpi_month}" if cpi_month else "")
+        + " (released about 2 weeks after month end)"
+    )
     source_specs = [
         {
             "name": "GNews/RSS",
@@ -31,7 +45,7 @@ def render_configure(ctx) -> None:
         {
             "name": "BLS CPI",
             "status": "Enabled" if use_bls else "Disabled",
-            "signal": "Headline and category inflation",
+            "signal": bls_signal,
             "feature": "cpi_pressure_features",
             "owner": "Demand Planning",
             "output": "Value Basket Pressure",
@@ -141,6 +155,8 @@ def render_configure(ctx) -> None:
                 _section_title("News")
                 st.selectbox("GNews period", ["1d", "7d", "30d", "3m"], key="gnews_period")
                 st.slider("Max news results", min_value=5, max_value=60, step=1, key="max_news")
+                _section_title("Inflation (BLS CPI)")
+                st.caption(cpi_month_note(cpi_month))
             with c2:
                 _section_title("Recalls and weather")
                 st.text_input(
