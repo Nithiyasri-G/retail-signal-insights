@@ -10,7 +10,11 @@ from market_intelligence.infra import http as http_client
 def nvidia_request_body(model: str, system_prompt: str, user_prompt: str, max_tokens: int) -> Dict[str, Any]:
     body = {"model": model, "messages": [{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}],
             "temperature": 0.2, "max_tokens": max(1400, max_tokens), "stream": False}
-    if "nemotron-3-" in model:
+    # Nemotron 3 and 3.5 models support the same chat-template switch. Keep
+    # reasoning disabled so the hosted API returns the concise final business
+    # answer within the application's timeout instead of spending the run on a
+    # long reasoning trace.
+    if "nemotron-3" in model.lower():
         body["chat_template_kwargs"] = {"enable_thinking": False}
     return body
 

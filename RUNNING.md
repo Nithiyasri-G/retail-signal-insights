@@ -25,15 +25,15 @@ Add your NVIDIA key to `.env` beside app.py. Keep the following settings:
 
 ```dotenv
 NVIDIA_API_KEY=your_key_here
-NVIDIA_MODEL=nvidia/nemotron-3-super-120b-a12b
-NVIDIA_BACKUP_MODEL=meta/llama-3.3-70b-instruct
+NVIDIA_MODEL=nvidia/nemotron-3.5-lightning-30b-a3b
+NVIDIA_BACKUP_MODEL=nvidia/nemotron-3-nano-30b-a3b
 ```
 
 Keep your real key private. No keys, database, previous incidents or runtime caches are included in this ZIP. Existing environment variables override `.env`; restart Streamlit after changing either.
 
 ## NVIDIA behavior
 
-- Primary: Nemotron 3 Super 120B A12B, retained as the primary capable model.
+- Primary: Nemotron 3.5 Lightning 30B A3B, verified against the hosted connectivity test.
 - Reasoning is disabled for Nemotron requests because these screens need a final business explanation, not a reasoning trace.
 - Output budget: 1,400 tokens initially, 1,800 on retry, instead of the old 260–380 tokens. Each attempt has a 60-second timeout.
 - The second attempt keeps all five report sections and includes the previous failure reason. A third attempt uses the configured backup model.
@@ -45,9 +45,8 @@ Keep your real key private. No keys, database, previous incidents or runtime cac
 
 NVIDIA references checked for this implementation:
 
-- https://build.nvidia.com/nvidia/nemotron-3-super-120b-a12b/modelcard
-- https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-3-super-120b-a12b-infer
-- https://build.nvidia.com/meta/llama-3_3-70b-instruct/modelcard
+- https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-3-5-lightning-30b-a3b
+- https://docs.api.nvidia.com/nim/reference/nvidia-nemotron-3-nano-30b-a3b
 
 ## Rehearsal
 

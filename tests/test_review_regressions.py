@@ -198,7 +198,10 @@ def test_collector_exception_does_not_abort_the_whole_run(isolated_database, mon
     next(b for b in app.button if b.label == "Run intelligence").click().run()
 
     assert not app.exception
-    run = app.session_state.get("run")
+    # AppTest's session-state proxy supports mapping access across the Python
+    # versions used locally and in Streamlit Cloud, but Python 3.14 no longer
+    # exposes dict.get as an attribute on the proxy.
+    run = app.session_state["run"] if "run" in app.session_state else None
     assert run is not None
     assert run["results"]["bls"]["status"] == "failed"
     assert run["results"]["bls"]["error"]
@@ -1210,7 +1213,7 @@ def test_nvidia_success_trace_exact_and_no_key_counts(monkeypatch):
     captured=[]
     def fake(**kwargs): captured.append(kwargs);return True,VALID,'',10
     monkeypatch.setattr(nvidia_client, '_nvidia_chat_request',fake)
-    brief,source,audit=generate_nvidia_brief('test','nvidia/nemotron-3-super-120b-a12b',frame(),[],'Dollar Tree','US')
+    brief,source,audit=generate_nvidia_brief('test','nvidia/nemotron-3.5-lightning-30b-a3b',frame(),[],'Dollar Tree','US')
     assert source=='nvidia'
     assert audit['user_prompt']==captured[0]['user_prompt']==audit['actual_request']['user_prompt']
     assert audit['raw_response']==VALID
@@ -1229,7 +1232,7 @@ def test_validation_retry_has_all_sections_and_backup(monkeypatch):
     monkeypatch.setattr(nvidia_client, '_nvidia_chat_request',fake)
     _,source,audit=generate_nvidia_brief('test',DEFAULT_NVIDIA_MODEL,frame(),[],'Dollar Tree','US')
     assert source=='nvidia' and audit['accepted_attempt']==3
-    assert calls[-1]['model']=='meta/llama-3.3-70b-instruct'
+    assert calls[-1]['model']=='nvidia/nemotron-3-nano-30b-a3b'
     assert all('PLANNING RELEVANCE' in c['user_prompt'] for c in calls)
     assert not audit['nvidia_attempts'][0]['success']
 

@@ -47,7 +47,7 @@ def credentials_from_env() -> List[str]:
 NVIDIA_CHAT_URL = os.getenv("NVIDIA_CHAT_URL", "https://integrate.api.nvidia.com/v1/chat/completions").strip()
 
 
-DEFAULT_NVIDIA_MODEL = "nvidia/nemotron-3-super-120b-a12b"
+DEFAULT_NVIDIA_MODEL = "nvidia/nemotron-3.5-lightning-30b-a3b"
 
 
 NVIDIA_MAX_FEATURE_ROWS = 8

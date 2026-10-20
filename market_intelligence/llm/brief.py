@@ -317,7 +317,7 @@ def generate_nvidia_brief(api_key: str, model: str, feature_df: pd.DataFrame,
         "Even when operationally_relevant_fetched_count is above zero, it does not confirm client store, DC, route, "
         "inventory, staffing, or operational exposure. State this clearly whenever a weather match is mentioned, "
         "and say operational impact is unconfirmed until signals are joined to internal store, inventory and sales data.\nEVIDENCE:\n" + json.dumps(payload, default=str))
-    backup = os.getenv("NVIDIA_BACKUP_MODEL", "meta/llama-3.3-70b-instruct").strip()
+    backup = os.getenv("NVIDIA_BACKUP_MODEL", "nvidia/nemotron-3-nano-30b-a3b").strip()
     models = [requested, requested] + ([backup] if backup and backup != requested else [])
     last_reason = "No accepted response"
     for index, selected_model in enumerate(models):
