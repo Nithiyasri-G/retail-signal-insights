@@ -190,7 +190,7 @@ def render_evidence_page(ctx) -> None:
                     normalized_display_df = normalized_display_df.rename(columns={"risk_score": "Risk Level"})
                 st.dataframe(style_level_dataframe(with_client_labels(normalized_display_df)), width="stretch", hide_index=True)
 
-            st.caption("Business explanations are available in Results → Explainability.")
+            st.caption("Business explanations are available in Results → Signals.")
 
         with llm_tab:
             st.markdown('<div class="small-header">Agent analysis trace</div>', unsafe_allow_html=True)

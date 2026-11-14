@@ -125,6 +125,15 @@ def validate_executive_brief(brief: str, required_sections: Tuple[str, ...] = BR
     if re.search(r"(?i)\boverall\b[^.\n]{0,40}\bconfidence\b[^.\n]{0,40}\bhigh\b|\bconfidence\b[^.\n]{0,40}\boverall\b[^.\n]{0,25}\bhigh\b|\bhigh\b[^.\n]{0,20}\boverall\b[^.\n]{0,15}\bconfidence\b", confidence_text):
         return False, "blanket 'overall confidence is High' claim; confidence varies by source"
     if payload is not None:
+        if re.search(
+            r"(?:\bsynthetic\b|\billustrative\b|\bfixtures?\b|store[- ]county match|"
+            r"operationally_relevant_fetched_count|weather_store_screening_note|internal_data_needed|"
+            r"\bstore\s*/\s*dc exposure\b|\bstore\s+\d+\b|\bdc-[a-z0-9]+\b|"
+            r"\b\d+\s+(?:units?|employees?|staff|stores?|dcs?)\b)",
+            brief,
+            re.IGNORECASE,
+        ):
+            return False, "internal demonstration data present in Executive Brief"
         supplied = json.dumps(payload, default=str).lower()
         insights = sections.get("TOP INSIGHTS", "").lower()
         signals = payload.get("signals", [])

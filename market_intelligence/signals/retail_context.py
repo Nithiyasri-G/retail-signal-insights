@@ -101,13 +101,10 @@ def retail_context_for_signal(row: Dict[str, Any]) -> Dict[str, str]:
                 "internal_data_needed": "Store locations, DC routes, state/category sales, inventory by store",
             }
         )
-        # Same rule as the Operational Impact Center: when alerts exist but no store is in
-        # the alert counties, Action Priority is left blank -- not Low or Monitor -- because
-        # no store action applies. Risk Level still shows the state severity, and Internal
-        # Exposure says why. A state with no alerts at all keeps its normal priority.
-        screened, matched, fetched = _weather_store_exposure(row)
-        if screened and matched == 0 and fetched:
-            context["action_priority"] = ""
+        # Keep the retail-impact table aligned with the external state-level risk:
+        # High and Medium weather signals retain their corresponding action priority even
+        # when preliminary store-county screening finds no match. Internal Exposure still
+        # makes it clear that store/DC/route exposure has not been confirmed.
     elif "headline cpi" in name or ("inflation" in area and "category" not in area):
         context.update(
             {

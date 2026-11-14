@@ -15,11 +15,12 @@ def _weather(matched, screened=True, score=8.25):
             "store_screening_applied": screened}
 
 
-def test_state_weather_without_store_match_has_blank_priority_like_the_impact_center():
+def test_state_weather_without_store_match_keeps_state_level_priority():
     context = retail_context_for_signal(_weather(0))
-    assert context["action_priority"] == ""
+    assert context["action_priority"] == "High"
     assert "No configured-store county match" in context["internal_exposure"]
     assert retail_context_for_signal(_weather(1))["action_priority"] == "High"
+    assert retail_context_for_signal(_weather(0, score=7.25))["action_priority"] == "Medium"
     # Without screening the priority is not changed on a count that was never checked.
     assert retail_context_for_signal(_weather(0, screened=False))["action_priority"] == "High"
     # A state with no alerts at all keeps its normal priority and says so.
@@ -322,34 +323,37 @@ def _weather_brief_rows():
     ])
 
 
-def test_weather_payload_carries_the_screening_note():
-    from market_intelligence.llm.prompts import WEATHER_STORE_SCREENING_NOTE, _compact_signal_for_nvidia
+def test_executive_brief_payload_excludes_internal_demo_fields():
+    from market_intelligence.llm.prompts import _compact_signal_for_nvidia
 
     rows = _weather_brief_rows()
-    assert _compact_signal_for_nvidia(rows.iloc[0])["weather_store_screening_note"] == WEATHER_STORE_SCREENING_NOTE
-    assert "weather_store_screening_note" not in _compact_signal_for_nvidia(rows.iloc[1])
+    payload = _compact_signal_for_nvidia(rows.iloc[0])
+    assert payload["signal_area"] == "Weather Risk"
+    assert "operationally_relevant_fetched_count" not in payload
+    assert "weather_store_screening_note" not in payload
+    assert "internal_data_needed" not in payload
 
 
-def test_accepted_weather_brief_says_the_match_is_preliminary_and_synthetic(monkeypatch):
+def test_weather_brief_contains_external_signals_only(monkeypatch):
     from market_intelligence.infra import nvidia as nvidia_client
     from market_intelligence.llm.brief import generate_fallback_brief, generate_nvidia_brief
 
     rows = _weather_brief_rows()
-    # The agent mentions the store-county match but leaves out what it means.
     agent_text = (
         "EXECUTIVE SUMMARY\nGA weather and inflation need attention.\n\n"
-        "TOP INSIGHTS\n- GA Weather Risk from NOAA Weather Alerts is High; one alert matched a store county.\n"
+        "TOP INSIGHTS\n- GA Weather Risk from NOAA Weather Alerts is High; severe conditions may disrupt planning.\n"
         "- Inflation from BLS CPI is Medium.\n\n"
-        "PLANNING RELEVANCE\n- External signals are not validated internal impact.\n\n"
-        "RECOMMENDED ACTIONS\n- Review the matched store and its routes.\n- Verify DC inventory for essentials.\n"
-        "- Monitor the alert before order cut-off.\n\n"
+        "PLANNING RELEVANCE\n- Treat these external signals as directional planning context.\n\n"
+        "RECOMMENDED ACTIONS\n- Review the NOAA alert.\n- Verify the BLS release.\n"
+        "- Monitor both sources before the next planning review.\n\n"
         "CONFIDENCE AND LIMITATIONS\nConfidence varies by source: NOAA High, BLS High. "
-        "Operational impact is unconfirmed until signals are joined to internal store, inventory and sales data."
+        "The state-level weather signal is not a location-specific impact assessment."
     )
     monkeypatch.setattr(nvidia_client, "_nvidia_chat_request", lambda **kwargs: (True, agent_text, "", 10))
     brief, source, audit = generate_nvidia_brief("test-key", "test-model", rows, [], "Dollar Tree", "US")
     assert source == "nvidia" and audit["accepted_response"]
-    assert "synthetic" in brief.lower() and "preliminary" in brief.lower()
-    assert "operationally_relevant_fetched_count is above zero, it does not confirm" in audit["user_prompt"]
+    assert "synthetic" not in brief.lower() and "internal" not in brief.lower()
+    assert "operationally_relevant_fetched_count" not in audit["user_prompt"]
+    assert "operationally_relevant_fetched_count" not in str(audit["payload"])
     fallback = generate_fallback_brief(rows, "Dollar Tree", "US").lower()
-    assert "synthetic" in fallback and "preliminary" in fallback
+    assert "synthetic" not in fallback and "internal" not in fallback

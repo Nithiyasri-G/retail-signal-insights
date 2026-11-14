@@ -8,7 +8,7 @@ from market_intelligence.signals.risk import risk_band
 from market_intelligence.signals.scoring import compute_retail_kpis, retail_kpi_driver
 from market_intelligence.ui.brief import render_executive_brief
 from market_intelligence.ui.components import render_metric_card, style_level_dataframe
-from market_intelligence.ui.views.results import render_data_confidence, render_decision_summary, render_explainability_ladder, render_glossary, render_internal_validation_agent, render_previous_run_comparison, render_results_command_header, render_retail_impact_matrix, render_scenario_simulator, render_score_chart, render_score_explainability, render_trust_panel, render_workflow_strip
+from market_intelligence.ui.views.results import render_data_confidence, render_decision_summary, render_explainability_ladder, render_glossary, render_internal_validation_agent, render_previous_run_comparison, render_results_command_header, render_retail_impact_matrix, render_score_chart, render_score_explainability, render_trust_panel, render_workflow_strip
 
 
 def render_results_page(ctx) -> None:
@@ -44,7 +44,19 @@ def _render_results_body(ctx) -> None:
                     render_metric_card(title, "0", "No successful feature rows yet.")
         else:
             retail_kpi_scores = compute_retail_kpis(feature_df)
-            command_tab, explain_tab, evidence_tab, brief_tab = st.tabs(["Decisions", "Explainability", "Evidence and Export", "Executive Brief"])
+            signals_tab, command_tab, brief_tab, evidence_tab = st.tabs(
+                ["Signals", "Decisions", "Executive Brief", "Evidence & Export"]
+            )
+
+            with signals_tab:
+                st.markdown('<div class="small-header">How The Agent Explains A Signal</div>', unsafe_allow_html=True)
+                render_explainability_ladder()
+
+                st.markdown('<div class="small-header">Signal Levels</div>', unsafe_allow_html=True)
+                render_score_chart(feature_df)
+
+                st.markdown('<div class="small-header">Level Explainability</div>', unsafe_allow_html=True)
+                render_score_explainability(feature_df)
 
             with command_tab:
                 render_data_confidence(run, feature_df)
@@ -84,18 +96,9 @@ def _render_results_body(ctx) -> None:
                 if getattr(ctx, "admin_view", False):
                     st.markdown('<div class="small-header">Internal validation plan</div>', unsafe_allow_html=True)
                     render_internal_validation_agent(feature_df)
-            with explain_tab:
-                st.markdown('<div class="small-header">How The Agent Explains A Signal</div>', unsafe_allow_html=True)
-                render_explainability_ladder()
 
-                st.markdown('<div class="small-header">Illustrative Signal Scenarios</div>', unsafe_allow_html=True)
-                render_scenario_simulator(feature_df)
-
-                st.markdown('<div class="small-header">Signal Levels</div>', unsafe_allow_html=True)
-                render_score_chart(feature_df)
-
-                st.markdown('<div class="small-header">Level Explainability</div>', unsafe_allow_html=True)
-                render_score_explainability(feature_df)
+            with brief_tab:
+                render_executive_brief(run, feature_df, nvidia_key, nvidia_model)
 
             with evidence_tab:
                 st.markdown('<div class="small-header">Candidate Forecast Signals</div>', unsafe_allow_html=True)
@@ -124,6 +127,3 @@ def _render_results_body(ctx) -> None:
 
                 with st.expander("Glossary and interpretation guide", expanded=False):
                     render_glossary()
-
-            with brief_tab:
-                render_executive_brief(run, feature_df, nvidia_key, nvidia_model)

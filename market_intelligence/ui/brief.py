@@ -7,7 +7,7 @@ import re
 import streamlit as st
 
 from market_intelligence.llm.audit import display_fallback_reason
-from market_intelligence.llm.brief import generate_nvidia_brief
+from market_intelligence.llm.brief import generate_nvidia_brief, remove_internal_demo_content
 from market_intelligence.persistence.run_history import save_run_history
 from market_intelligence.signals.retail_context import top_signal_labels
 from market_intelligence.signals.risk import risk_band
@@ -166,15 +166,6 @@ def render_executive_brief(run: Dict[str, Any], feature_df: pd.DataFrame, nvidia
         if top_labels else "<div class='brief-summary-text'>No signal</div>"
     )
     rows_used = llm_audit.get("feature_rows_sent", 0) if brief_source == "nvidia" else min(3, len(feature_df))
-    # Fixed on screen, whatever the agent wrote: what a weather store-county match means.
-    has_weather = "signal_area" in feature_df.columns and (feature_df["signal_area"].astype(str) == "Weather Risk").any()
-    weather_header_note = (
-        "<div class='brief-summary-text' style='margin-top:6px;'><strong>Weather note:</strong> Any store-county match "
-        "shown here is preliminary screening against synthetic POC store locations; it is not confirmed client "
-        "operational exposure.</div>"
-        if has_weather
-        else ""
-    )
     brief_status_note = display_fallback_reason(
         llm_audit.get("fallback_reason") if brief_source != "nvidia" else ""
     ) if brief_source != "nvidia" else "Generated from the recorded top-signal payload; review the interpretation before use."
@@ -194,9 +185,8 @@ def render_executive_brief(run: Dict[str, Any], feature_df: pd.DataFrame, nvidia
         f"{top_evidence_html}"
         f"<div class='brief-summary-text' style='margin-top:6px;'>Articles in context: {len(articles)} available, {articles_sent} sent.</div>"
         f"<div class='brief-summary-text' style='margin-top:6px;'>This brief summarizes the {rows_used} highest-priority signals of {len(feature_df)} and {articles_sent} supporting {'article' if articles_sent == 1 else 'articles'} chosen for relevance to them. Review Evidence and Export for every signal.</div>"
-        f"{weather_header_note}"
         "</div>"
-        f"{brief_sections_to_html(str(run.get('brief', '')))}"
+        f"{brief_sections_to_html(remove_internal_demo_content(str(run.get('brief', ''))))}"
         "</div>"
     )
     st.markdown(html, unsafe_allow_html=True)

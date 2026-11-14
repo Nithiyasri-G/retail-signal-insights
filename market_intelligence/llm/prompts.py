@@ -7,20 +7,21 @@ import pandas as pd
 from market_intelligence.config.settings import NVIDIA_MAX_ARTICLES, NVIDIA_MAX_FEATURE_ROWS
 from market_intelligence.signals.risk import risk_band
 
-# What a weather store-county match means. Sent with every weather signal to the Briefing Agent,
-# appended to any brief that mentions weather, and shown under the Executive Brief header, so the
-# clarification never depends only on what the agent writes.
-WEATHER_STORE_SCREENING_NOTE = (
-    "Any store-county match is preliminary geographic screening against "
-    "synthetic POC store locations. It does not confirm client store, DC, "
-    "route, inventory, staffing, or operational exposure."
-)
-
 
 def build_llm_payload(feature_df: pd.DataFrame, articles: List[Dict[str, Any]]) -> Dict[str, Any]:
+    """Build an external-signal-only payload for the Executive Brief audit."""
     return {
-        "features": feature_df.to_dict(orient="records")[:NVIDIA_MAX_FEATURE_ROWS],
-        "articles": articles[:NVIDIA_MAX_ARTICLES],
+        "features": [
+            _compact_signal_for_nvidia(row)
+            for _, row in feature_df.head(NVIDIA_MAX_FEATURE_ROWS).iterrows()
+        ],
+        "articles": [
+            {
+                "title": article.get("title", ""),
+                "source": article.get("publisher", article.get("source", "")),
+            }
+            for article in articles[:NVIDIA_MAX_ARTICLES]
+        ],
     }
 
 
@@ -48,38 +49,36 @@ def llm_user_prompt(retailer: str, region: str, payload: Dict[str, Any]) -> str:
 
     Rules:
     - Ground every claim only in the supplied payload.
-    - Do not invent internal sales, POS, inventory, margin, or category-performance facts.
+    - Do not invent retailer sales, POS, inventory, margin, or category-performance facts.
     - If a signal is missing, say it is missing instead of estimating it.
     - Explain why each High/Medium/Low level matters; do not expose the underlying numeric score.
-    - Use retailer-neutral business language when the payload includes category, KPI, planning owner, impact hypothesis, and internal-data requirements.
+    - Use retailer-neutral business language when the payload includes category, KPI, planning owner, and impact hypothesis.
     """
 
 
 def _compact_signal_for_nvidia(row: pd.Series) -> Dict[str, Any]:
     """
-    Keep only the business fields NVIDIA needs to understand one signal.
+    Keep only external evidence and rule-based business context needed to understand one signal.
     The numeric score is used internally to derive High/Medium/Low but is
-    not exposed to the final business-facing brief.
+    not exposed to the final business-facing brief. Store, DC, inventory,
+    staffing, route, and other demonstration-operation fields are excluded.
     """
     fields = [
         "signal_area",
         "source",
         "score_reason",
-        "business_impact",
-        "recommended_action",
         "confidence",
         "enterprise_kpi",
         "planning_owner",
         "demand_direction",
-        "impact_hypothesis",
-        "internal_data_needed",
-        "forecast_feature",
+        "retail_category",
         "latest_value",
         "mom_pct",
         "yoy_pct",
         "region",
         "fetched_count",
-        "operationally_relevant_fetched_count",
+        "date",
+        "top_event",
     ]
 
     compact: Dict[str, Any] = {}
@@ -93,9 +92,6 @@ def _compact_signal_for_nvidia(row: pd.Series) -> Dict[str, Any]:
         except Exception:
             pass
         compact[key] = value
-
-    if str(row.get("signal_area", "")) == "Weather Risk":
-        compact["weather_store_screening_note"] = WEATHER_STORE_SCREENING_NOTE
 
     try:
         compact["signal_level"] = risk_band(float(row.get("risk_score", 0)))

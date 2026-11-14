@@ -87,8 +87,10 @@ def test_supporting_news_is_ranked_by_relevance_not_order():
 def test_fallback_brief_reports_confidence_by_source_and_state():
     brief = generate_fallback_brief(_rows(), "Dollar Tree", "US")
     assert "Confidence varies by source" in brief and "GNews Medium" in brief
-    assert "unconfirmed until" in brief
     assert "GA Weather Risk" in brief
+    assert "synthetic" not in brief.lower()
+    assert "internal" not in brief.lower()
+    assert "store/dc" not in brief.lower()
 
 
 def test_tied_top_signals_are_a_bulleted_list():
@@ -122,13 +124,23 @@ def test_blanket_high_confidence_is_rejected():
 
     base = (
         "EXECUTIVE SUMMARY\nWeather and recalls need attention this week.\n\nTOP INSIGHTS\n- Weather Risk — NOAA — High: severe alert.\n"
-        "- Inflation — BLS — Medium: CPI pressure.\n- Product Recalls — openFDA — High: food safety.\n\nPLANNING RELEVANCE\n- Review staffing and routes.\n\n"
-        "RECOMMENDED ACTIONS\n- Validate store exposure.\n- Review DC inventory.\n- Refresh before order cut-off.\n\nCONFIDENCE AND LIMITATIONS\n"
+        "- Inflation — BLS — Medium: CPI pressure.\n- Product Recalls — openFDA — High: food safety.\n\nPLANNING RELEVANCE\n- Review the external evidence.\n\n"
+        "RECOMMENDED ACTIONS\n- Verify the NOAA alert.\n- Review the FDA recall.\n- Refresh before order cut-off.\n\nCONFIDENCE AND LIMITATIONS\n"
     )
     bad = base + "Overall confidence is High based on source credibility."
     good = base + "Confidence varies by source: NOAA High, news Medium. Operational impact is unconfirmed."
     assert not validate_executive_brief(bad)[0]
     assert validate_executive_brief(good)[0]
+
+
+def test_results_tabs_follow_the_reviewed_order_and_examples_are_removed():
+    import inspect
+    from market_intelligence.ui.views import results_page
+
+    source = inspect.getsource(results_page._render_results_body)
+    assert '["Signals", "Decisions", "Executive Brief", "Evidence & Export"]' in source
+    assert "Illustrative Signal Scenarios" not in source
+    assert "render_scenario_simulator" not in source
 
 
 def test_cpi_rows_get_run_date_and_data_period():
