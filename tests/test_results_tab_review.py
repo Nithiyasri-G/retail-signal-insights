@@ -12,6 +12,11 @@ from market_intelligence.signals.scoring import (
     compute_retail_kpis,
     weather_exposure_note,
 )
+from market_intelligence.ui.views.results import (
+    _current_evidence_summary,
+    _validation_boundary,
+    build_retail_impact_table,
+)
 
 
 def _rows():
@@ -38,7 +43,30 @@ def test_chart_labels_have_no_row_numbers():
     rows = _rows()
     labels = [signal_display_label(row, i) for i, (_, row) in enumerate(rows.iterrows())]
     assert not any(label.rstrip().split("·")[-1].strip().isdigit() for label in labels)
-    assert "GA · Supply Chain Weather Risk Score" in labels
+    assert "GA · Supply Chain Weather" in labels
+    assert not any(label.endswith(" Score") for label in labels)
+    assert not any(" Risk" in label for label in labels)
+
+
+def test_retail_impact_keeps_signal_name_for_direct_mapping():
+    table = build_retail_impact_table(_rows())
+    assert "Signal Name" in table.columns
+    assert "Recall" in table["Signal Name"].tolist()
+    assert not table["Signal Name"].astype(str).str.endswith(" Score").any()
+    assert not table["Signal Name"].astype(str).str.contains(r"\bRisk\b").any()
+
+
+def test_recall_explanation_is_structured_and_clear_about_exposure():
+    row = pd.Series({
+        "source": "openFDA", "signal_area": "Product Recalls", "signal_value": 20,
+        "ongoing_count": 20, "class_i_count": 7, "class_ii_count": 9,
+        "class_iii_count": 4, "upc_record_count": 12, "top_risk_type": "high_safety_risk",
+    })
+    evidence = _current_evidence_summary(row, "High")
+    assert "20 recall records" in evidence and "7 Class I" in evidence
+    assert "12 records include UPC" in evidence and "places the external signal at High" in evidence
+    boundary = _validation_boundary(row)
+    assert "does not confirm" in boundary and "UPC or lot" in boundary
 
 
 def test_tied_top_signals_are_all_listed_with_state():
@@ -141,6 +169,19 @@ def test_results_tabs_follow_the_reviewed_order_and_examples_are_removed():
     assert '["Signals", "Decisions", "Executive Brief", "Evidence & Export"]' in source
     assert "Illustrative Signal Scenarios" not in source
     assert "render_scenario_simulator" not in source
+
+
+def test_signal_process_heading_and_boxes_separate_application_from_language_model():
+    import inspect
+    from market_intelligence.ui.views import results, results_page
+
+    page_source = inspect.getsource(results_page._render_results_body)
+    ladder_source = inspect.getsource(results.render_explainability_ladder)
+    assert "How External Data Becomes a Business Signal" in page_source
+    assert "How The Agent Explains A Signal" not in page_source
+    assert "Add Retail Context" in ladder_source
+    assert "possible relevance, not confirmed impact" in ladder_source
+    assert "language model does not set the level" in ladder_source
 
 
 def test_cpi_rows_get_run_date_and_data_period():

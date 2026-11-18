@@ -8,11 +8,11 @@ import plotly.graph_objects as go
 import streamlit as st
 
 from market_intelligence.llm.audit import display_fallback_reason
-from market_intelligence.signals.labels import readable_feature_values, readable_region_scope, readable_signal_name, with_client_labels
+from market_intelligence.signals.labels import concise_signal_name, readable_feature_values, readable_region_scope, readable_signal_name, with_client_labels
 from market_intelligence.signals.retail_context import signal_display_label, signal_short_label, top_signal_labels
 from market_intelligence.signals.risk import risk_band
 from market_intelligence.signals.scoring import build_internal_validation_plan, build_previous_run_comparison, build_recommended_actions, build_trust_metrics, scoring_formula_for_row
-from market_intelligence.ui.components import render_metric_card, style_level_dataframe
+from market_intelligence.ui.components import render_metric_card, style_level_dataframe, style_presentable_dataframe
 from market_intelligence.util.tables import format_timestamp
 
 
@@ -58,7 +58,7 @@ def render_internal_validation_agent(feature_df: pd.DataFrame) -> None:
     if plan_df.empty:
         st.info("Internal validation guidance will appear after feature rows are generated.")
         return
-    st.dataframe(with_client_labels(plan_df), width="stretch", hide_index=True)
+    st.dataframe(style_presentable_dataframe(with_client_labels(plan_df)), width="stretch", hide_index=True)
 
 
 def render_enterprise_context(retailer_name: str) -> None:
@@ -101,11 +101,19 @@ def render_results_command_header(run: Dict[str, Any], feature_df: pd.DataFrame)
         f" <span class='headline-sub {_level_class(top_band)}'>{escape(top_band)}</span>" if top_band else ""
     )
     source_total = int(live_source_count) if str(live_source_count).isdigit() else 0
+    signal_total = len(feature_df)
     cells = [
         ("Overall signal level", escape(overall), _level_class(overall)),
         (top_label_html, top_html, ""),
         ("Run time", escape(format_timestamp(run.get("timestamp", "")) or "Not recorded"), ""),
-        ("Live sources", escape(f"{live_source_count} source" + ("" if source_total == 1 else "s")), ""),
+        (
+            "Signal coverage",
+            escape(
+                f"{signal_total} signal" + ("" if signal_total == 1 else "s")
+                + f" from {live_source_count} live source" + ("" if source_total == 1 else "s")
+            ),
+            "",
+        ),
     ]
     cells_html = "".join(
         f"<div class='headline-cell'><div class='headline-label'>{label}</div>"
@@ -165,11 +173,31 @@ def render_decision_summary(feature_df: pd.DataFrame, results: Dict[str, Dict[st
 
 def render_explainability_ladder() -> None:
     steps = [
-        ("01", "Collect", "Live public APIs return raw evidence; skipped sources are labeled."),
-        ("02", "Normalize", "Records become normalized external signals with source, region, and level fields."),
-        ("03", "Map", "Rows are mapped to retail category, owner, KPI, and forecast feature."),
-        ("04", "Classify", "Each source uses the existing rule to classify the signal as High, Medium, or Low."),
-        ("05", "Brief", "The summary covers only the rows and article context shown here."),
+        (
+            "01",
+            "Collect",
+            "Retrieves raw records from the enabled public sources. Source failures and skipped sources remain visible.",
+        ),
+        (
+            "02",
+            "Standardize",
+            "Converts different source formats into common fields for source, signal, region, period and evidence.",
+        ),
+        (
+            "03",
+            "Add Retail Context",
+            "Links the signal to a retail category, business indicator and review owner. This shows possible relevance, not confirmed impact.",
+        ),
+        (
+            "04",
+            "Classify Priority",
+            "Applies predefined source-specific rules to assign High, Medium or Low. The language model does not set the level.",
+        ),
+        (
+            "05",
+            "Explain",
+            "Presents the prepared evidence in business-readable language without changing the source facts or assigned level.",
+        ),
     ]
     html = "".join(
         "<div class='explain-step'>"
@@ -182,11 +210,45 @@ def render_explainability_ladder() -> None:
     st.markdown("<div class='explain-ladder'>" + html + "</div>", unsafe_allow_html=True)
 
 
+def render_signal_coverage(feature_df: pd.DataFrame) -> None:
+    """Show why the number of signal rows can be larger than the source count."""
+    if feature_df.empty or "source" not in feature_df.columns:
+        return
+    counts = feature_df.groupby("source", dropna=False).size().sort_values(ascending=False)
+    breakdown = " &middot; ".join(
+        f"<strong>{escape(str(source or 'Unknown source'))}</strong>: {int(count)}"
+        for source, count in counts.items()
+    )
+    source_total = len(counts)
+    signal_total = len(feature_df)
+    st.markdown(
+        "<div class='signal-coverage-note'>"
+        f"<div class='signal-coverage-title'>{signal_total} business signals from {source_total} external source"
+        f"{'s' if source_total != 1 else ''}</div>"
+        "<div class='signal-coverage-copy'>A source can produce more than one signal when it covers multiple "
+        "indicators or geographic areas. Each row below is one separately classified business signal.</div>"
+        f"<div class='signal-coverage-breakdown'>{breakdown}</div>"
+        "</div>",
+        unsafe_allow_html=True,
+    )
+
+
 def render_retail_impact_matrix(feature_df: pd.DataFrame, admin: bool = False) -> None:
     if feature_df.empty:
         st.info("No retail impact matrix is available until feature rows are generated.")
         return
+    labelled = build_retail_impact_table(feature_df, admin=admin)
+    widths = {"Signal Name": "medium", "Retail Category": "medium", "Region": "small", "Business Risk Indicator": "medium", "Risk Level": "small", "Action Priority": "small", "Planning Owner": "medium"}
+    column_config = None if admin else {
+        name: st.column_config.TextColumn(width=width) for name, width in widths.items() if name in labelled.columns
+    }
+    st.dataframe(style_level_dataframe(labelled), width="stretch", hide_index=True, column_config=column_config)
+
+
+def build_retail_impact_table(feature_df: pd.DataFrame, admin: bool = False) -> pd.DataFrame:
+    """Prepare the stakeholder table, preserving the signal-to-category mapping."""
     preferred_cols = [
+        "signal_name",
         "retail_category",
         "region",
         "enterprise_kpi",
@@ -207,15 +269,12 @@ def render_retail_impact_matrix(feature_df: pd.DataFrame, admin: bool = False) -
     ascending = [True if col == "_priority_rank" else False for col in sort_cols]
     matrix_source = ranked.sort_values(sort_cols, ascending=ascending, kind="mergesort") if sort_cols else ranked
     matrix = readable_feature_values(matrix_source[visible_cols].copy())
+    if "signal_name" in matrix.columns:
+        matrix["signal_name"] = matrix["signal_name"].map(concise_signal_name)
     if "risk_score" in matrix.columns:
         matrix["risk_score"] = matrix["risk_score"].apply(lambda x: risk_band(float(x or 0)))
         matrix = matrix.rename(columns={"risk_score": "Risk Level"})
-    labelled = with_client_labels(matrix)
-    widths = {"Retail Category": "medium", "Region": "small", "Business Risk Indicator": "medium", "Risk Level": "small", "Action Priority": "small", "Planning Owner": "medium"}
-    column_config = None if admin else {
-        name: st.column_config.TextColumn(width=width) for name, width in widths.items() if name in labelled.columns
-    }
-    st.dataframe(style_level_dataframe(labelled), width="stretch", hide_index=True, column_config=column_config)
+    return with_client_labels(matrix)
 
 
 def render_scenario_simulator(feature_df: pd.DataFrame) -> None:
@@ -344,6 +403,7 @@ def render_score_explainability(feature_df: pd.DataFrame) -> None:
         st.info("No signal explanations available.")
         return
     explanation_rows = feature_df.sort_values("risk_score", ascending=False, kind="mergesort").reset_index(drop=True)
+    compact_rows = []
     for _, row in explanation_rows.iterrows():
         score = float(row.get("risk_score", 0) or 0)
         band = risk_band(score)
@@ -353,25 +413,110 @@ def render_score_explainability(feature_df: pd.DataFrame) -> None:
         title = f"{row.get('signal_area', 'Signal')} · {readable_signal_name(row.get('signal_name', ''))}"
         if region and region.upper() != "US":
             title += f" · {region}"
-        meta = f"{row.get('source', 'Unknown source')} / {readable_region_scope(row.get('region_scope', row.get('region', '')))}"
-        reason = str(row.get("score_reason") or "No score reason was returned by this collector.")
+        meta = f"{row.get('source', 'Unknown source')} · {readable_region_scope(row.get('region_scope', row.get('region', '')))}"
+        reason = _current_evidence_summary(row, band)
         evidence = str(row.get("raw_reference") or row.get("signal_value") or "No raw reference available.")
         action = str(row.get("recommended_action") or "Review this signal before using it in planning.")
         formula = scoring_formula_for_row(row)
-        html = (
-            "<div class='score-explain-card'>"
-            "<div class='score-explain-head'>"
-            f"<div><div class='score-explain-title'>{escape(title)}</div><div class='score-explain-meta'>{escape(meta)}</div></div>"
-            f"<div class='score-number level-{escape(band.lower())}'>{escape(band)}</div>"
+        business_relevance = str(row.get("business_impact") or row.get("impact_hypothesis") or "Review the signal with the responsible business owner.")
+        validation_boundary = _validation_boundary(row)
+        details = [
+            ("Level rule", formula),
+            ("Current evidence", reason),
+            ("Business relevance", business_relevance),
+            ("Validation needed", validation_boundary),
+            ("Recommended review", action),
+            ("Evidence reference", evidence),
+        ]
+        detail_html = "".join(
+            "<div class='score-detail-row'>"
+            f"<div class='score-explain-label'>{escape(label)}</div>"
+            f"<div class='score-explain-text'>{escape(value)}</div>"
             "</div>"
-            "<div class='score-explain-label'>Classification rule</div>"
-            f"<div class='score-explain-text'>{escape(formula)}</div>"
-            "<div class='score-explain-label'>Why this level</div>"
-            f"<div class='score-explain-text'>{escape(reason)}</div>"
-            "<div class='score-explain-label'>Evidence used</div>"
-            f"<div class='score-explain-text'>{escape(evidence)}</div>"
-            "<div class='score-explain-label'>Planning action</div>"
-            f"<div class='score-explain-text'>{escape(action)}</div>"
-            "</div>"
+            for label, value in details
         )
-        st.markdown(html, unsafe_allow_html=True)
+        compact_rows.append(
+            "<details class='signal-explain-row'>"
+            "<summary class='signal-explain-summary'>"
+            "<div class='signal-summary-main'>"
+            f"<div class='score-explain-title'>{escape(title)}</div>"
+            f"<div class='score-explain-meta'>{escape(meta)}</div>"
+            "</div>"
+            f"<span class='signal-summary-level level-{escape(band.lower())}'>{escape(band)}</span>"
+            "</summary>"
+            f"<div class='signal-explain-body'><div class='score-detail-list'>{detail_html}</div></div>"
+            "</details>"
+        )
+    st.markdown("<div class='signal-explain-list'>" + "".join(compact_rows) + "</div>", unsafe_allow_html=True)
+
+
+def _number(row: pd.Series, key: str) -> Optional[int]:
+    try:
+        value = row.get(key)
+        return None if pd.isna(value) else int(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _current_evidence_summary(row: pd.Series, band: str) -> str:
+    """Turn collector fields into a concise, source-specific explanation."""
+    area = str(row.get("signal_area", "") or "").lower()
+    source = str(row.get("source", "") or "").lower()
+    region = str(row.get("region", "") or "").strip()
+    if "recall" in area or "fda" in source:
+        total = _number(row, "signal_value")
+        ongoing = _number(row, "ongoing_count")
+        class_i = _number(row, "class_i_count")
+        class_ii = _number(row, "class_ii_count")
+        class_iii = _number(row, "class_iii_count")
+        upcs = _number(row, "upc_record_count")
+        parts = []
+        if total is not None:
+            parts.append(f"{total} recall records were reviewed")
+        if ongoing is not None:
+            parts.append(f"{ongoing} are ongoing")
+        classes = []
+        if class_i is not None:
+            classes.append(f"{class_i} Class I")
+        if class_ii is not None:
+            classes.append(f"{class_ii} Class II")
+        if class_iii is not None:
+            classes.append(f"{class_iii} Class III")
+        if classes:
+            parts.append("the sample contains " + ", ".join(classes))
+        if upcs is not None:
+            parts.append(f"{upcs} records include UPC information")
+        risk_type = str(row.get("top_risk_type", "") or "").replace("_", " ").strip()
+        if risk_type and risk_type.lower() != "none":
+            parts.append(f"the highest active issue is classified as {risk_type}")
+        summary = "; ".join(parts)
+        return (summary + ". " if summary else "") + f"The highest-severity active recall places the external signal at {band}."
+    if "weather" in area or "noaa" in source:
+        fetched = _number(row, "fetched_count")
+        retained = _number(row, "retained_count")
+        severe = _number(row, "severe_or_extreme_count")
+        extreme = _number(row, "extreme_count")
+        pieces = []
+        if fetched is not None:
+            pieces.append(f"NOAA returned {fetched} active alert{'s' if fetched != 1 else ''} for {region or 'the selected area'}")
+        if retained is not None:
+            pieces.append(f"{retained} were retained for classification")
+        if severe is not None:
+            pieces.append(f"{severe} were severe or extreme" + (f", including {extreme} extreme" if extreme else ""))
+        return ("; ".join(pieces) + ". " if pieces else "") + f"Together, the active alert conditions place this state-level signal at {band}."
+    reason = str(row.get("score_reason") or "No classification explanation was returned by this source.").strip()
+    return reason
+
+
+def _validation_boundary(row: pd.Series) -> str:
+    area = str(row.get("signal_area", "") or "").lower()
+    source = str(row.get("source", "") or "").lower()
+    if "recall" in area or "fda" in source:
+        return "This level represents external recall severity only. It does not confirm that any recalled UPC or lot is carried; product, inventory and store exposure must be matched in Operational Impact Center."
+    if "weather" in area or "noaa" in source:
+        return "This is a state-level external alert classification. Store, distribution-centre and route exposure must be confirmed in Operational Impact Center before operational action."
+    if "bls" in source or "cpi" in area:
+        return "CPI is a national published indicator. Its effect on category sales, traffic or basket mix must be validated against internal performance data."
+    if "news" in area or "gnews" in source:
+        return "Article evidence identifies a topic for review; it does not confirm business impact. The underlying articles and internal category context should be checked before action."
+    return "This external signal indicates where to review. Internal business impact must be validated before any planning or operational change."

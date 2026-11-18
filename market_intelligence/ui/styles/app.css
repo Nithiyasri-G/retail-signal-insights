@@ -627,6 +627,27 @@
         font-size: 10px;
         line-height: 1.4;
     }
+    .signal-coverage-note {
+        background: var(--sf);
+        border: 1px solid var(--bl);
+        border-left: 3px solid var(--or);
+        border-radius: 6px;
+        padding: 12px 14px;
+        margin: 4px 0 12px 0;
+    }
+    .signal-coverage-title {
+        color: var(--t);
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 3px;
+    }
+    .signal-coverage-copy,
+    .signal-coverage-breakdown {
+        color: var(--t2);
+        font-size: 12px;
+        line-height: 1.5;
+    }
+    .signal-coverage-breakdown { margin-top: 6px; }
     .audit-command {
         background: var(--sf);
         border: 1px solid var(--bl);
@@ -978,68 +999,113 @@
         font-size: 13px;
         line-height: 1.45;
     }
-    .score-explain-card {
+    .signal-explain-list {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin: 6px 0 12px 0;
+    }
+    .signal-explain-row {
         background: var(--sf);
         border: 1px solid var(--bl);
-        border-radius: var(--rl);
-        padding: 14px 16px;
+        border-radius: 8px;
         box-shadow: var(--sh);
-        margin: 8px 0;
+        overflow: hidden;
     }
-    .score-explain-head {
+    .signal-explain-row[open] {
+        border-color: var(--obr);
+        box-shadow: 0 2px 8px rgba(15,23,42,0.07);
+    }
+    .signal-explain-summary {
         display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
+        align-items: center;
         gap: 12px;
+        padding: 10px 12px;
+        cursor: pointer;
+        list-style: none;
+        user-select: none;
+    }
+    .signal-explain-summary::-webkit-details-marker { display: none; }
+    .signal-explain-summary::after {
+        content: "+";
+        color: var(--t3);
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1;
+        width: 18px;
+        text-align: center;
+    }
+    .signal-explain-row[open] .signal-explain-summary {
+        background: var(--s2);
         border-bottom: 1px solid var(--bl);
-        padding-bottom: 10px;
-        margin-bottom: 10px;
+    }
+    .signal-explain-row[open] .signal-explain-summary::after { content: "−"; }
+    .signal-summary-main {
+        min-width: 0;
+        flex: 1;
+    }
+    .signal-summary-level {
+        min-width: 68px;
+        border-radius: 999px;
+        padding: 4px 10px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 700;
+    }
+    .signal-summary-level.level-high { color: #B91C1C; background: #FEE2E2; }
+    .signal-summary-level.level-medium { color: #B45309; background: #FEF3C7; }
+    .signal-summary-level.level-low { color: #15803D; background: #DCFCE7; }
+    .signal-explain-body {
+        padding: 8px 10px 10px 10px;
     }
     .score-explain-title {
         color: var(--t);
-        font-size: 13px;
-        font-weight: 900;
-        margin-bottom: 3px;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.3;
+        margin-bottom: 2px;
     }
     .score-explain-meta {
         color: var(--t3);
-        font-size: 10px;
-        font-weight: 800;
-        letter-spacing: .7px;
-        text-transform: uppercase;
-    }
-    .score-number {
-        min-width: 74px;
-        text-align: center;
-        border-radius: 12px;
-        border: 1px solid var(--obr);
-        background: var(--ob);
-        color: var(--or);
-        font-size: 24px;
-        line-height: 1;
-        font-weight: 950;
-        padding: 9px 8px;
-    }
-    .score-number span {
-        display: block;
-        color: var(--t3);
-        font-size: 9px;
-        font-weight: 900;
-        letter-spacing: .8px;
-        margin-top: 3px;
+        font-size: 11px;
+        font-weight: 500;
+        line-height: 1.3;
     }
     .score-explain-label {
-        color: var(--t3);
-        font-size: 9px;
-        font-weight: 900;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        margin: 8px 0 3px 0;
+        color: var(--t2);
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1.4;
+        margin: 0;
     }
     .score-explain-text {
         color: var(--t2);
-        font-size: 12px;
-        line-height: 1.5;
+        font-size: 13px;
+        line-height: 1.55;
+    }
+    .score-detail-list {
+        border: 1px solid var(--bl);
+        border-radius: 6px;
+        overflow: hidden;
+    }
+    .score-detail-row {
+        display: grid;
+        grid-template-columns: minmax(170px, 0.28fr) minmax(0, 1fr);
+        gap: 12px;
+        padding: 7px 10px;
+        border-bottom: 1px solid var(--bl);
+        background: var(--sf);
+    }
+    .score-detail-row:nth-child(even) { background: var(--s2); }
+    .score-detail-row:last-child { border-bottom: none; }
+
+    /* All interactive tables share the same framed surface. Cell and header styling is
+       applied by ui.components so it also survives Streamlit's dataframe rendering. */
+    div[data-testid="stDataFrame"] {
+        border: 1px solid var(--bl);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: var(--sh);
     }
     .brief-grounding {
         display: grid;
@@ -1405,6 +1471,7 @@
         .hero-title { font-size: 20px; }
         .appbar { flex-wrap: wrap; padding: 8px 12px; }
         .appbar-context { margin-left: 0; }
+        .score-detail-row { grid-template-columns: 1fr; gap: 4px; }
     }
     ::-webkit-scrollbar { width: 4px; height: 4px; }
     ::-webkit-scrollbar-track { background: transparent; }

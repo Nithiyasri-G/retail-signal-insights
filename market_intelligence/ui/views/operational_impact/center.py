@@ -14,7 +14,7 @@ from market_intelligence.data.demo import demo_product_catalog, demo_recall_cata
 from market_intelligence.data.demo_scenarios import DEMO_SCENARIO_STATES, DEMO_SCENARIO_WEATHER_EVENT_TYPES, demo_recall_probable_scenario, demo_recall_scenario, demo_weather_alert_scenario
 from market_intelligence.incidents.builders import build_recall_incidents, build_weather_incident, build_weather_incidents
 from market_intelligence.persistence.operational_store import _json_safe_incident, load_incidents, save_incident
-from market_intelligence.ui.components import render_metric_card
+from market_intelligence.ui.components import render_metric_card, style_presentable_dataframe
 from market_intelligence.ui.views.operational_impact.incident_detail import render_incident_detail_panel
 from market_intelligence.ui.views.operational_impact.recall_tab import render_recall_incident_tab
 from market_intelligence.ui.views.operational_impact.weather_tab import render_weather_incident_tab
@@ -235,7 +235,7 @@ def render_scenario_lab() -> None:
             for record in list_scenarios(settings.RUN_HISTORY_DB)
         ]
         if scenario_rows:
-            st.dataframe(pd.DataFrame(scenario_rows), width="stretch", hide_index=True)
+            st.dataframe(style_presentable_dataframe(pd.DataFrame(scenario_rows)), width="stretch", hide_index=True)
         else:
             st.info("No scenarios have been created yet.")
         _render_scenario_detail("", "lab_detail_history", "")

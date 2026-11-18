@@ -8,6 +8,7 @@ from market_intelligence.config.settings import APIFY_HARD_KEYWORD_LIMIT, RUN_HI
 from market_intelligence.config.sources import SIGNAL_SEARCH_TIME_WINDOWS, US_SIGNAL_GEOS
 from market_intelligence.persistence.run_history import load_run_history, save_run_history
 from market_intelligence.signals.search import parse_signal_search_keywords, related_search_summary, search_interest_summary
+from market_intelligence.ui.components import style_presentable_dataframe
 from market_intelligence.util.clock import utc_now
 from market_intelligence.util.tables import drop_empty_columns
 
@@ -143,12 +144,12 @@ def render_signal_search(ctx) -> None:
         if findings.empty:
             st.info("No regional search-interest findings were available for these terms and time window.")
         else:
-            st.dataframe(findings, hide_index=True, width="stretch")
+            st.dataframe(style_presentable_dataframe(findings), hide_index=True, width="stretch")
             st.caption("These are regions returned for the selected terms, not measured sales or a forecast.")
         related = related_search_summary(saved_search.get("results", {}).get("apify", {}).get("raw", []))
         if not related.empty:
             st.markdown('<div class="small-header">Related Searches</div>', unsafe_allow_html=True)
-            st.dataframe(related, hide_index=True, width="stretch")
+            st.dataframe(style_presentable_dataframe(related), hide_index=True, width="stretch")
             st.caption("Rising and related terms are shown as returned by Google Trends; they are not a sales forecast.")
     st.markdown('<div class="small-header">Recent Searches</div>', unsafe_allow_html=True)
     history_df = load_run_history(50)
@@ -157,7 +158,7 @@ def render_signal_search(ctx) -> None:
         st.info("No saved searches yet.")
     else:
         history_cols = drop_empty_columns(history_df, [c for c in history_df.columns if c not in {"Top Signal", "Level"}])
-        st.dataframe(history_df[history_cols], width="stretch", hide_index=True)
+        st.dataframe(style_presentable_dataframe(history_df[history_cols]), width="stretch", hide_index=True)
         selected_history = st.selectbox("Saved run to restore", history_df["Run Time"].astype(str).tolist(), key="restore_run_time")
         if st.button("Restore saved run"):
             with sqlite3.connect(RUN_HISTORY_DB) as connection:

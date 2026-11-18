@@ -295,16 +295,22 @@ def build_recommended_actions(feature_df: pd.DataFrame, results: Dict[str, Dict[
 
 
 def scoring_formula_for_row(row: pd.Series) -> str:
+    """Explain the classification rule in business language.
+
+    The Results screen deliberately avoids exposing the numeric implementation.  A
+    reviewer needs to know which evidence raised or lowered the level, while the exact
+    values remain available in the evidence export for audit.
+    """
     source = str(row.get("source", "")).lower()
     area = str(row.get("signal_area", "")).lower()
     if "bls" in source or "cpi" in area:
-        return "CPI scoring starts from a neutral 4.0, adjusts upward or downward using monthly CPI change, adds pressure when YoY inflation is elevated, then clips to a 1-10 range."
+        return "The latest monthly and year-over-year CPI movements are compared with the CPI classification thresholds. Rising price pressure raises the level; easing pressure lowers it."
     if "fda" in source or "recall" in area:
-        return "Recall scoring starts from reason severity, then adjusts for FDA classification and recall status. Class I and ongoing recalls increase the score; terminated recalls reduce it."
+        return "The application reviews reason severity, FDA class and recall status. Ongoing Class I recalls carry the greatest priority; lower classes or terminated recalls reduce the level."
     if "noaa" in source or "weather" in area:
-        return "Weather scoring sums active NOAA alert severity weights for the selected state, adds urgency/certainty pressure, then caps the supply-chain risk score at 10."
+        return "The application evaluates active NOAA alerts for the selected state using severity, urgency and certainty. More severe, immediate and well-confirmed alerts raise the level."
     if "gnews" in source or "news" in area:
-        return "News scoring classifies each article into event type and sentiment, adjusts for recency/source quality, then averages deduplicated article risk."
+        return "Each deduplicated article is assessed using event type, sentiment, recency and publisher quality. The combined article evidence determines the displayed level."
     if "apify" in source or "search" in area:
-        return f"Search scoring uses top regional Google Trends interest divided by 10, with backend limits of {APIFY_SAFE_TIME_RANGE} and {APIFY_HARD_KEYWORD_LIMIT} keyword(s)."
-    return "Score is normalized to a 1-10 signal intensity scale using the collector-specific scoring rule."
+        return f"The highest regional Google Trends interest is classified within the configured {APIFY_SAFE_TIME_RANGE} window and {APIFY_HARD_KEYWORD_LIMIT}-keyword collection limit."
+    return "The displayed level is produced by the predefined rule for this source using only the evidence collected in the current run."

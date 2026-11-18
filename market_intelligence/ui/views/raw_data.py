@@ -2,6 +2,7 @@ import json
 import pandas as pd
 import streamlit as st
 
+from market_intelligence.ui.components import style_presentable_dataframe
 
 
 def render_raw_data(ctx) -> None:
@@ -25,7 +26,7 @@ def render_raw_data(ctx) -> None:
                 if result.get("error"):
                     st.warning(result["error"])
                 if result.get("items"):
-                    st.dataframe(pd.DataFrame(result["items"]), width="stretch", hide_index=True)
+                    st.dataframe(style_presentable_dataframe(pd.DataFrame(result["items"])), width="stretch", hide_index=True)
                 raw_preview = result.get("raw")
                 if raw_preview is not None:
                     st.caption("Raw payload preview: first 7,000 characters. Full evidence is in Evidence Audit download.")

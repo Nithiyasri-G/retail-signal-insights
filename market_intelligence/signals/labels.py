@@ -33,6 +33,17 @@ def readable_signal_name(value: Any) -> str:
     return " ".join(acronyms.get(word.lower(), word.capitalize()) for word in words)
 
 
+def concise_signal_name(value: Any) -> str:
+    """Business label used where a short signal name is required.
+
+    ``risk`` and ``score`` describe the internal feature calculation rather than the
+    subject of the signal.  Remove those words without changing the stored feature id.
+    """
+    words = readable_signal_name(value).split()
+    concise = [word for word in words if word.lower() not in {"risk", "score"}]
+    return " ".join(concise).strip() or "Signal"
+
+
 CLIENT_COLUMN_LABELS: Dict[str, str] = {
     # Signal identity
     "source": "Source",

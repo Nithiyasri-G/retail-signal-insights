@@ -12,7 +12,7 @@ from market_intelligence.signals.labels import readable_feature_values, with_cli
 from market_intelligence.signals.retail_context import enrich_feature_rows_for_retailer
 from market_intelligence.signals.risk import risk_band
 from market_intelligence.ui.brief import brief_to_html
-from market_intelligence.ui.components import render_audit_banner, render_audit_card, render_metric_card, style_level_dataframe
+from market_intelligence.ui.components import render_audit_banner, render_audit_card, render_metric_card, style_level_dataframe, style_presentable_dataframe
 from market_intelligence.ui.views.evidence_audit import render_audit_command_header, render_audit_lineage
 from market_intelligence.util.tables import format_timestamp
 
@@ -148,7 +148,7 @@ def render_evidence_page(ctx) -> None:
                 )
 
             st.markdown('<div class="small-header">Collector Evidence Table</div>', unsafe_allow_html=True)
-            st.dataframe(with_client_labels(evidence_df), width="stretch", hide_index=True)
+            st.dataframe(style_presentable_dataframe(with_client_labels(evidence_df)), width="stretch", hide_index=True)
 
             st.download_button(
                 "Download evidence_audit.json",
@@ -234,7 +234,7 @@ def render_evidence_page(ctx) -> None:
                     st.code(json.dumps(llm_audit.get("payload", {}), indent=2, default=str)[:16000], language="json")
                     if llm_audit.get("nvidia_attempts"):
                         st.markdown("Attempt timing and retries")
-                        st.dataframe(pd.DataFrame(llm_audit.get("nvidia_attempts", [])), width="stretch", hide_index=True)
+                        st.dataframe(style_presentable_dataframe(pd.DataFrame(llm_audit.get("nvidia_attempts", []))), width="stretch", hide_index=True)
                     if llm_audit.get("technical_error"):
                         st.markdown("Technical diagnostic")
                         st.code(str(llm_audit.get("technical_error", ""))[:2000], language="text")
@@ -242,7 +242,7 @@ def render_evidence_page(ctx) -> None:
                 attempt_rows = llm_audit.get("nvidia_attempts", []) or []
                 elapsed = sum(int(a.get("elapsed_ms", 0) or 0) for a in attempt_rows)
                 st.dataframe(
-                    pd.DataFrame(
+                    style_presentable_dataframe(pd.DataFrame(
                         [
                             {"Audit Item": "Payload fingerprint (SHA-256)", "Value": str(llm_audit.get("payload_hash_sha256", ""))[:16]},
                             {"Audit Item": "Signal rows supplied", "Value": f"{llm_audit.get('feature_rows_sent', 0)} of {llm_audit.get('feature_rows_available', 0)}"},
@@ -250,7 +250,7 @@ def render_evidence_page(ctx) -> None:
                             {"Audit Item": "Generation attempts", "Value": f"{len(attempt_rows)} ({elapsed} ms total)"},
                             {"Audit Item": "Grounding rule", "Value": str(llm_audit.get("analysis_contract", ""))},
                         ]
-                    ),
+                    )),
                     width="stretch",
                     hide_index=True,
                 )

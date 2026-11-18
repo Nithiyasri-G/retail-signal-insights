@@ -78,6 +78,7 @@ def collect_fda_recalls(query: str, limit: int, retailer: str = "Retailer") -> D
         "class_ii_count": class_ii_count,
         "class_iii_count": class_iii_count,
         "upc_record_count": upc_count,
+        "top_risk_type": top_risk_type,
         "sku_match_status": "unknown",
         "affected_category": "Food and beverage (FDA search scope)",
         "catalog_categories": sorted(

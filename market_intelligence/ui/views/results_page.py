@@ -8,7 +8,7 @@ from market_intelligence.signals.risk import risk_band
 from market_intelligence.signals.scoring import compute_retail_kpis, retail_kpi_driver
 from market_intelligence.ui.brief import render_executive_brief
 from market_intelligence.ui.components import render_metric_card, style_level_dataframe
-from market_intelligence.ui.views.results import render_data_confidence, render_decision_summary, render_explainability_ladder, render_glossary, render_internal_validation_agent, render_previous_run_comparison, render_results_command_header, render_retail_impact_matrix, render_score_chart, render_score_explainability, render_trust_panel, render_workflow_strip
+from market_intelligence.ui.views.results import render_data_confidence, render_decision_summary, render_explainability_ladder, render_glossary, render_internal_validation_agent, render_previous_run_comparison, render_results_command_header, render_retail_impact_matrix, render_score_chart, render_score_explainability, render_signal_coverage, render_trust_panel, render_workflow_strip
 
 
 def render_results_page(ctx) -> None:
@@ -49,10 +49,14 @@ def _render_results_body(ctx) -> None:
             )
 
             with signals_tab:
-                st.markdown('<div class="small-header">How The Agent Explains A Signal</div>', unsafe_allow_html=True)
+                st.markdown(
+                    '<div class="small-header">How External Data Becomes a Business Signal</div>',
+                    unsafe_allow_html=True,
+                )
                 render_explainability_ladder()
 
                 st.markdown('<div class="small-header">Signal Levels</div>', unsafe_allow_html=True)
+                render_signal_coverage(feature_df)
                 render_score_chart(feature_df)
 
                 st.markdown('<div class="small-header">Level Explainability</div>', unsafe_allow_html=True)

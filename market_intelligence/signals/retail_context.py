@@ -2,7 +2,7 @@ from typing import Any
 from typing import Dict
 import pandas as pd
 
-from market_intelligence.signals.labels import readable_signal_name
+from market_intelligence.signals.labels import concise_signal_name, readable_signal_name
 
 
 def _is_true(value: Any) -> bool:
@@ -222,7 +222,7 @@ def signal_display_label(row: pd.Series, index: int = 0) -> str:
     """Chart/list label: region and signal name only (``index`` is kept for callers, unused)."""
     area = str(row.get("signal_area") or "Signal")
     region = str(row.get("region") or "US")
-    name = readable_signal_name(str(row.get("signal_name") or area))
+    name = concise_signal_name(str(row.get("signal_name") or area))
     return f"{region} \u00b7 {name}"
 
 

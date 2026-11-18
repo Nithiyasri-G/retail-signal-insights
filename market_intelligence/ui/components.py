@@ -60,6 +60,8 @@ def render_metric_card(title: str, value: str, note: str, confidence: str = "", 
 
 
 def style_level_dataframe(df: pd.DataFrame):
+    styler = style_presentable_dataframe(df)
+
     def level_style(value: Any) -> str:
         level = str(value or "").strip().lower()
         if level == "high":
@@ -69,9 +71,58 @@ def style_level_dataframe(df: pd.DataFrame):
         if level == "low":
             return "background-color:#DCFCE7;color:#15803D;font-weight:800"
         return ""
-    styler = df.style
     style_map = styler.map if hasattr(styler, "map") else styler.applymap
     return style_map(level_style)
+
+
+def style_presentable_dataframe(df: pd.DataFrame):
+    """Apply one restrained, readable table treatment across the application.
+
+    Streamlit tables are used in Results, Evidence, Demand Planning and the
+    Operational Impact Center.  Keeping the styling here prevents each page from
+    inventing a different header, row density and wrapping behaviour.  The data is
+    not changed; this function only controls its on-screen presentation.
+    """
+    styler = df.style
+
+    def zebra(data: pd.DataFrame) -> pd.DataFrame:
+        styles = []
+        for position in range(len(data)):
+            background = "background-color:#F8FAFC" if position % 2 else "background-color:#FFFFFF"
+            styles.append([background] * len(data.columns))
+        return pd.DataFrame(styles, index=data.index, columns=data.columns)
+
+    styler = styler.apply(zebra, axis=None)
+    styler = styler.set_properties(
+        **{
+            "color": "#1E293B",
+            "font-size": "13px",
+            "line-height": "1.4",
+            "text-align": "left",
+            "vertical-align": "top",
+            "white-space": "normal",
+            "overflow-wrap": "anywhere",
+            "border-bottom": "1px solid #E2E8F0",
+        }
+    )
+    styler = styler.set_table_styles(
+        [
+            {
+                "selector": "th",
+                "props": [
+                    ("background-color", "#F1F5F9"),
+                    ("color", "#334155"),
+                    ("font-size", "12px"),
+                    ("font-weight", "700"),
+                    ("text-align", "left"),
+                    ("white-space", "normal"),
+                    ("border-bottom", "1px solid #CBD5E1"),
+                ],
+            },
+            {"selector": "tbody tr:hover td", "props": [("background-color", "#FFF7ED")]},
+        ]
+    )
+    return styler
 
 
 def style_operational_dataframe(df: pd.DataFrame, row_level_column: Optional[str] = None, emphasise_cells: bool = True):
@@ -118,7 +169,7 @@ def style_operational_dataframe(df: pd.DataFrame, row_level_column: Optional[str
         except (TypeError, ValueError):
             return ""
 
-    styler = df.style
+    styler = style_presentable_dataframe(df)
     style_map = styler.map if hasattr(styler, "map") else styler.applymap
 
     # Optional whole-row tint from a High / Medium / Low column, applied first so the cell-level
