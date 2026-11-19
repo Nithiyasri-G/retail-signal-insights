@@ -11,16 +11,15 @@ DEMAND_AGENT = "Demand Analyst Agent"
 
 
 def agent_credit(agent: str, source: str) -> str:
-    """"Prepared by Demand Analyst Agent", plus "(rule-based)" when the local summary was used.
+    """Return the short agent credit shown below an explanation.
 
     ``source`` is the token the report generators return: "AI summary" when the language model's
-    answer was accepted, "Local summary" when the rule-based text was used, "No gap" when there
-    was nothing to recommend.
+    answer was accepted, "Local summary" when the local text was used, "No gap" when there was
+    nothing to recommend. The source is intentionally not exposed in the visible credit line.
     """
     if source == "No gap":
         return "No shortfall to cover."
-    suffix = " (rule-based)" if source == "Local summary" else ""
-    return f"Prepared by {agent}{suffix}"
+    return f"Prepared by {agent}"
 
 
 def agent_text_sections(explanation: str) -> List[Tuple[str, str]]:

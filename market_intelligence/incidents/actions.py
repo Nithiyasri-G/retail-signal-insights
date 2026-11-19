@@ -6,6 +6,31 @@ import pandas as pd
 from market_intelligence.weather.planning import traffic_phase_explanation
 
 
+def _merge_store_actions(actions: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    """Combine identical per-store recommendations and retain their store scope."""
+    merged: List[Dict[str, Any]] = []
+    positions: Dict[tuple, int] = {}
+    for action in actions:
+        store_scope = str(action.get("Applies to", "")).strip()
+        if not store_scope:
+            merged.append(action)
+            continue
+        signature = tuple(
+            (key, str(value))
+            for key, value in action.items()
+            if key != "Applies to"
+        )
+        if signature not in positions:
+            copy = dict(action)
+            copy["Applies to"] = store_scope
+            positions[signature] = len(merged)
+            merged.append(copy)
+        else:
+            existing = merged[positions[signature]]
+            existing["Applies to"] = f"{existing['Applies to']}; {store_scope}"
+    return merged
+
+
 def weather_recommended_actions(scenario_result: Dict[str, Any]) -> List[Dict[str, Any]]:
     """Create one staffing/labor decision per affected store, plus the traffic/labor timing
     plan below.
@@ -37,6 +62,7 @@ def weather_recommended_actions(scenario_result: Dict[str, Any]) -> List[Dict[st
                             "Action": "Staffing readiness / store-hours plan",
                             "Owner": "Store Operations",
                             "Urgency": "High" if staffing_risk == "High" else "Medium",
+                            "Applies to": str(store_df.iloc[0].get("Store Name", f"Store {store_id}")),
                             "Reason": (
                                 f"{int(srow['At-risk Commute Staff'])} of {int(srow['Scheduled Staff'])} currently scheduled staff "
                                 f"have commute exposure ({float(srow['Commute Risk %']) * 100:.0f}%). "
@@ -92,7 +118,7 @@ def weather_recommended_actions(scenario_result: Dict[str, Any]) -> List[Dict[st
                 "Status": "Proposed",
             }
         )
-    return actions
+    return _merge_store_actions(actions)
 
 
 def recall_recommended_actions(match_result: Dict[str, Any]) -> List[Dict[str, Any]]:

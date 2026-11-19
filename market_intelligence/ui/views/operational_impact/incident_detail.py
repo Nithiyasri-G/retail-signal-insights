@@ -30,7 +30,7 @@ from market_intelligence.weather.inbox_helpers import _weather_duration
 CONFIDENCE_CHIP = {"high": "chip-low", "medium": "chip-medium"}
 URGENCY_CHIP = {"high": "chip-high", "medium": "chip-medium", "low": "chip-low"}
 ACTION_META_KEYS = ("Action", "Owner", "Urgency", "Status")
-ACTION_FIELD_ORDER = ("Reason", "Evidence", "Decision Support", "Rule")
+ACTION_FIELD_ORDER = ("Applies to", "Reason", "Evidence", "Decision Support", "Rule")
 
 
 def _chip(label: str, css_class: str = "chip-neutral") -> str:
@@ -44,6 +44,30 @@ def _section_heading(label: str) -> None:
 def _scope_line(text: str) -> None:
     """One line under a section heading saying which incident and store the section shows."""
     st.markdown(f"<div class='scope-line'><strong>Showing:</strong> {escape(text)}</div>", unsafe_allow_html=True)
+
+
+def _recommendation_store_scope(incident: Dict[str, Any]) -> str:
+    """Return the affected store names once, so action cards do not repeat the same scope."""
+    labels: List[str] = []
+    if incident.get("Type") == "Weather":
+        scenario_df = (incident.get("Scenario", {}) or {}).get("scenario_df")
+        ids = {str(value) for value in (incident.get("Store IDs") or [])}
+        if isinstance(scenario_df, pd.DataFrame) and ids and {"Store ID", "Store Name"}.issubset(scenario_df.columns):
+            names = dict(zip(scenario_df["Store ID"].astype(str), scenario_df["Store Name"].astype(str)))
+            labels = [names.get(store_id, f"Store {store_id}") for store_id in sorted(ids)]
+    elif incident.get("Type") == "Product Recall":
+        match = incident.get("Match", {}) or {}
+        lines = match.get("store_lines") or []
+        seen = set()
+        for line in lines:
+            store_id = str(line.get("Store ID", "")).strip()
+            label = str(line.get("Store Name") or (f"Store {store_id}" if store_id else "")).strip()
+            if label and label not in seen:
+                labels.append(label)
+                seen.add(label)
+    if not labels:
+        return ""
+    return "; ".join(labels)
 
 
 def weather_selection_summary(
@@ -104,6 +128,15 @@ def _evidence_rows(incident: Dict[str, Any]) -> List[Tuple[str, str]]:
         ]
     evidence = incident.get("Evidence", {}) or {}
     ladder = (incident.get("Impact Metrics", {}) or {}).get("Evidence ladder")
+
+    def _identifier_text(value: Any) -> str:
+        """Show UPCs/lots as complete identifiers, never as comma-separated digits."""
+        if isinstance(value, (list, tuple, set)):
+            values = [str(item).strip() for item in value if str(item).strip()]
+        else:
+            values = [part.strip() for part in str(value or "").split(",") if part.strip()]
+        return " | ".join(values)
+
     recall = " &middot; ".join(escape(str(v)) for v in (evidence.get("recall_number"), evidence.get("classification")) if v)
     candidates = [
         ("Product", escape(str(evidence.get("product") or ""))),
@@ -113,8 +146,8 @@ def _evidence_rows(incident: Dict[str, Any]) -> List[Tuple[str, str]]:
         ("Reason", escape(str(evidence.get("reason") or ""))),
         ("Distribution", escape(str(evidence.get("distribution_pattern") or ""))),
         ("Match level", escape(str(ladder or ""))),
-        ("UPCs", escape(", ".join(map(str, evidence.get("upcs") or [])))),
-        ("Lots", escape(", ".join(map(str, evidence.get("lots") or [])))),
+        ("UPCs", escape(_identifier_text(evidence.get("upcs")))),
+        ("Lots", escape(_identifier_text(evidence.get("lots")))),
     ]
     return [(label, value) for label, value in candidates if value]
 
@@ -271,9 +304,7 @@ def _render_replenishment_planner(incident: Dict[str, Any], nvidia_key: str, nvi
     st.caption(
         "Recommends how to cover each store's shortfall from the DC network.",
         help=(
-            "Uses only the numbers in the replenishment tables on the Impact tab and never adds new facts. If the agent is "
-            "unavailable, or its answer cannot be verified against those numbers, a rule-based summary of the "
-            "same numbers is shown instead."
+            "Uses only the numbers in the replenishment tables on the Impact tab and never adds new facts."
         ),
     )
     plan_df = (incident.get("Scenario", {}) or {}).get("scenario_df")
@@ -322,15 +353,24 @@ STATUS_TEXT_STYLE = {
     "No gap": "color:#15803D;font-weight:700",
 }
 STATUS_ORDER = {"Escalate": 0, "Covered": 1, "No gap": 2}
-DEMAND_COLUMNS = ["Status", "Store", "Product", "Gap", "Order Quantity", "Quantity Rounding", "Baseline", "Projected Demand", "On Hand", "Inbound", "UPC", "Units per Case", "MOQ (units)"]
-DC_COLUMNS = ["Status", "Store", "Product", "Primary Planned Qty", "Backup DC", "Backup Planned Qty", "Residual Gap", "Primary DC", "Primary ATP", "Backup DC Status", "Backup ATP", "Route Risk"]
-TOTAL_COLUMNS = ("Gap", "Order Quantity", "Primary Planned Qty", "Backup Planned Qty", "Residual Gap")
+DEMAND_COLUMNS = [
+    "Status", "Store", "Product", "Baseline", "On Hand", "Inbound", "Available Supply",
+    "Projected Demand", "Order Quantity", "Quantity Rounding", "UPC", "Units per Case", "MOQ (units)",
+    "Uplift %", "Gap",
+]
+DC_COLUMNS = [
+    "Status", "Store", "Product", "Primary DC", "Primary ATP", "Primary Eligibility", "Primary Planned Qty",
+    "Backup DC", "Backup ATP", "Backup DC Status", "Backup Planned Qty", "Residual Gap", "Route Risk",
+]
+TOTAL_COLUMNS = ("Available Supply", "Gap", "Order Quantity", "Primary Planned Qty", "Backup Planned Qty", "Residual Gap")
 REPLENISHMENT_COLUMN_CONFIG = {
     "Status": st.column_config.TextColumn(width=78),
     "Store": st.column_config.TextColumn(width=118),
     "Product": st.column_config.TextColumn(width=112),
-    "Primary DC": st.column_config.TextColumn(width=135),
-    "Backup DC": st.column_config.TextColumn(width=135),
+    "Primary DC": st.column_config.TextColumn(width=145),
+    "Backup DC": st.column_config.TextColumn(width=145),
+    "Primary Eligibility": st.column_config.TextColumn(width=170),
+    "Backup DC Status": st.column_config.TextColumn(width=220),
     "Quantity Rounding": st.column_config.TextColumn(width=300),
 }
 
@@ -345,6 +385,28 @@ def _numeric(frame: pd.DataFrame, column: str) -> pd.Series:
     if column in frame.columns:
         return pd.to_numeric(frame[column], errors="coerce").fillna(0)
     return pd.Series(0.0, index=frame.index)
+
+
+def _primary_eligibility(row: pd.Series) -> str:
+    """Display the route/deadline eligibility used by the allocation logic."""
+    if str(row.get("Primary Can Arrive By Deadline", "")).strip().lower() == "yes":
+        return "Eligible"
+    if str(row.get("Route Risk", "")).strip().lower() == "yes":
+        return "Ineligible — route risk"
+    return "Ineligible — deadline"
+
+
+def _backup_status_for_display(row: pd.Series) -> str:
+    """Keep the existing Backup DC Status column, adding a concise reason when needed."""
+    status = str(row.get("Backup DC Status", "")).strip()
+    if status == "Ineligible":
+        if str(row.get("Route Risk", "")).strip().lower() == "yes":
+            return "Ineligible — route risk"
+        if str(row.get("Backup DC Reason", "")).strip():
+            return "Ineligible — deadline"
+    if status == "Insufficient":
+        return "Insufficient — no split shipment"
+    return status
 
 
 def _replenishment_frame(weather_df: pd.DataFrame, show_uplift: bool) -> pd.DataFrame:
@@ -368,10 +430,17 @@ def _replenishment_frame(weather_df: pd.DataFrame, show_uplift: bool) -> pd.Data
             "Case Pack": "Units per Case",
             "MOQ": "MOQ (units)",
             "Scenario Demand Assumption %": "Uplift %",
+            "Available (On Hand + Inbound)": "Available Supply",
             "Primary DC Available ATP": "Primary ATP",
             "Backup DC Available ATP": "Backup ATP",
         }
     )
+    if "Available Supply" not in frame.columns and {"On Hand", "Inbound"}.issubset(frame.columns):
+        frame["Available Supply"] = (_numeric(frame, "On Hand") + _numeric(frame, "Inbound")).round().astype(int)
+    if "Primary Can Arrive By Deadline" in frame.columns:
+        frame["Primary Eligibility"] = frame.apply(_primary_eligibility, axis=1)
+    if "Backup DC Status" in frame.columns:
+        frame["Backup DC Status"] = frame.apply(_backup_status_for_display, axis=1)
     if not show_uplift and "Uplift %" in frame.columns:
         frame = frame.drop(columns=["Uplift %"])
     frame["_rank"] = frame["Status"].map(STATUS_ORDER)
@@ -828,6 +897,9 @@ def render_incident_detail_panel(
             st.json(selected_incident["Evidence"])
 
         _section_heading("Recommended actions")
+        recommendation_scope = _recommendation_store_scope(selected_incident)
+        if recommendation_scope:
+            st.caption(f"Store scope: {recommendation_scope}")
         if selected_incident["Recommended Actions"]:
             _recommendation_cards(selected_incident["Recommended Actions"])
         else:
